@@ -5,7 +5,7 @@ import java.util.Objects;
 public class PhienBanThuocDTO {
     private int maPhienBanThuoc;
     private int maThuoc;
-
+    private String donViTinh;
     private String khoiLuong;
 
     private String duongDung;
@@ -17,7 +17,7 @@ public class PhienBanThuocDTO {
     public PhienBanThuocDTO() {
     }
 
-    public PhienBanThuocDTO(int maPhienBanThuoc, int maThuoc, String khoiLuong, String duongDung, String quyCachDongGoi, double giaBanLe, double giaBanBuon, double giaNhap, int soLuongTon) {
+    public PhienBanThuocDTO(int maPhienBanThuoc,String donViTinh, int maThuoc, String khoiLuong, String duongDung, String quyCachDongGoi, double giaBanLe, double giaBanBuon, double giaNhap, int soLuongTon) {
         this.maPhienBanThuoc = maPhienBanThuoc;
         this.maThuoc = maThuoc;
         this.khoiLuong = khoiLuong;
@@ -27,8 +27,7 @@ public class PhienBanThuocDTO {
         this.giaBanBuon = giaBanBuon;
         this.giaNhap = giaNhap;
         this.soLuongTon = soLuongTon;
-
-
+        this.donViTinh = donViTinh;
     }
 
     public int getMaPhienBanThuoc() {
@@ -116,6 +115,14 @@ public class PhienBanThuocDTO {
         return Objects.hash(maPhienBanThuoc, maThuoc);
     }
 
+    public String getDonViTinh() {
+        return donViTinh;
+    }
+
+    public void setDonViTinh(String donViTinh) {
+        this.donViTinh = donViTinh;
+    }
+
     @Override
     public String toString() {
         return "PhienBanThuocDTO{" +
@@ -128,6 +135,7 @@ public class PhienBanThuocDTO {
                 ", giaBanBuon=" + giaBanBuon +
                 ", giaNhap=" + giaNhap +
                 ", soLuongTon=" + soLuongTon +
+                ", donViTinh='" + donViTinh + '\'' +
                 '}';
     }
 }
