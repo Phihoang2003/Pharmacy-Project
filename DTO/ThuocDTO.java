@@ -6,7 +6,7 @@ import java.util.Objects;
 public class ThuocDTO {
     private int maThuoc;
     private String tenThuoc;
-    private String donViTinh;
+
     private Date hanSuDung;
     private String ghiChu;
     private String hoatChatChinh;
@@ -21,15 +21,14 @@ public class ThuocDTO {
     public ThuocDTO() {
     }
 
-    public ThuocDTO(int maThuoc, String tenThuoc, String donViTinh, Date hanSuDung, String ghiChu, String hoatChatChinh, int nhaCungCap, String nuocSanXuat, int nhomThuoc, String dieuKienBaoQuan, int khuVucKho, int soLuongTon, int trangThai) {
+    public ThuocDTO(int maThuoc, String tenThuoc, Date hanSuDung, String ghiChu, String hoatChatChinh, int nhaCungCap, String nuocSanXuat, int nhomThuoc, String dieuKienBaoQuan, int khuVucKho, int soLuongTon, int trangThai) {
         this.maThuoc = maThuoc;
         this.tenThuoc = tenThuoc;
-        this.donViTinh = donViTinh;
+
         this.hanSuDung = hanSuDung;
         this.ghiChu = ghiChu;
 
         this.hoatChatChinh = hoatChatChinh;
-
         this.nhaCungCap = nhaCungCap;
         this.nuocSanXuat = nuocSanXuat;
         this.nhomThuoc = nhomThuoc;
@@ -54,13 +53,7 @@ public class ThuocDTO {
         this.tenThuoc = tenThuoc;
     }
 
-    public String getDonViTinh() {
-        return donViTinh;
-    }
 
-    public void setDonViTinh(String donViTinh) {
-        this.donViTinh = donViTinh;
-    }
 
     public Date getHanSuDung() {
         return hanSuDung;
@@ -168,7 +161,6 @@ public class ThuocDTO {
         return "ThuocDTO{" +
                 "maThuoc=" + maThuoc +
                 ", tenThuoc='" + tenThuoc + '\'' +
-                ", donViTinh='" + donViTinh + '\'' +
                 ", hanSuDung=" + hanSuDung +
                 ", ghiChu='" + ghiChu + '\'' +
 
