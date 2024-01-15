@@ -35,8 +35,25 @@ public class KhachHangDAO implements DaoInterface<KhachHangDTO> {
     }
 
     @Override
-    public int update(KhachHangDTO khachHangDTO) {
-        return 0;
+    public int update(KhachHangDTO t) {
+        int result=0;
+        try{
+            Connection con=(Connection) JDBCUtil.getConnection();
+            String sql="UPDATE `khachhang` SET `maKhachHang`=?,`tenKhachHang`=?,`diaChi`=?,`soDienThoai`=?,`nhomKhachHang`=? WHERE maKhachHang=?";
+            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
+            pst.setInt(1,t.getMaKhachHang());
+            pst.setString(2,t.getHoTen());
+            pst.setString(3,t.getDiaChi());
+            pst.setString(4,t.getSdt());
+            pst.setInt(5,t.getNhomKhachHang());
+            pst.setInt(6,t.getMaKhachHang());
+            result=pst.executeUpdate();
+            JDBCUtil.closeConnection(con);
+        }catch (SQLException ex){
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return result;
     }
 
     @Override
