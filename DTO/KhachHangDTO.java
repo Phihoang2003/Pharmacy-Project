@@ -9,16 +9,26 @@ public class KhachHangDTO {
     private String diaChi;
     private String sdt;
     private Date ngayThamGia;
-
+    private int nhomKhachHang;
     public KhachHangDTO() {
     }
 
-    public KhachHangDTO(int maKhachHang, String hoTen, String diaChi, String sdt, Date ngayThamGia) {
+    public int getNhomKhachHang() {
+        return nhomKhachHang;
+    }
+
+    public void setNhomKhachHang(int nhomKhachHang) {
+        this.nhomKhachHang = nhomKhachHang;
+    }
+
+    public KhachHangDTO(int maKhachHang, String hoTen, String diaChi, String sdt, Date ngayThamGia, int nhomKhachHang) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoTen;
         this.diaChi = diaChi;
         this.sdt = sdt;
         this.ngayThamGia = ngayThamGia;
+
+        this.nhomKhachHang= nhomKhachHang;
     }
 
     public int getMaKhachHang() {
@@ -82,6 +92,7 @@ public class KhachHangDTO {
                 ", diaChi='" + diaChi + '\'' +
                 ", sdt='" + sdt + '\'' +
                 ", ngayThamGia=" + ngayThamGia +
+                ", nhomKhachHang=" + nhomKhachHang +
                 '}';
     }
 }
