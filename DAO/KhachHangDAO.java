@@ -3,9 +3,7 @@ package DAO;
 import DTO.KhachHangDTO;
 import config.JDBCUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -74,7 +72,29 @@ public class KhachHangDAO implements DaoInterface<KhachHangDTO> {
 
     @Override
     public ArrayList<KhachHangDTO> selectAll() {
-        return null;
+        ArrayList<KhachHangDTO> result=new ArrayList<KhachHangDTO>();
+        try{
+            Connection con=(Connection) JDBCUtil.getConnection();
+            String sql="SELECT * FROM khachhang WHERE trangThai=1";
+            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
+            ResultSet rs=(ResultSet) pst.executeQuery();
+            while (rs.next()){
+                int maKhachHang=rs.getInt("maKhachHang");
+                String hoTen=rs.getString("tenKhachHang");
+                String diaChi=rs.getString("diaChi");
+                String sdt=rs.getString("soDienThoai");
+                int nhomKhachHang=rs.getInt("nhomKhachHang");
+                Date ngayThamGia=rs.getDate("ngayThamGia");
+                KhachHangDTO kh=new KhachHangDTO(maKhachHang,hoTen,diaChi,sdt,ngayThamGia,nhomKhachHang);
+                result.add(kh);
+
+            }
+            JDBCUtil.closeConnection(con);
+        }catch(SQLException ex){
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return result;
     }
 
     @Override
