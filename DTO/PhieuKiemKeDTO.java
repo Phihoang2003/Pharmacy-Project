@@ -4,15 +4,15 @@ package DTO;
 import java.sql.Timestamp;
 import java.util.Objects;
 
-public class PhieuKiemKe {
+public class PhieuKiemKeDTO {
     private int maPhieu;
     private Timestamp thoigian;
     private int nguoiTaoPhieu;
 
-    public PhieuKiemKe() {
+    public PhieuKiemKeDTO() {
     }
 
-    public PhieuKiemKe(int maPhieu, Timestamp thoigian, int nguoiTaoPhieu) {
+    public PhieuKiemKeDTO(int maPhieu, Timestamp thoigian, int nguoiTaoPhieu) {
         this.maPhieu = maPhieu;
         this.thoigian = thoigian;
         this.nguoiTaoPhieu = nguoiTaoPhieu;
@@ -46,7 +46,7 @@ public class PhieuKiemKe {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PhieuKiemKe that = (PhieuKiemKe) o;
+        PhieuKiemKeDTO that = (PhieuKiemKeDTO) o;
         return maPhieu == that.maPhieu;
     }
 
