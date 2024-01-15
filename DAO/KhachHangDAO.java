@@ -99,7 +99,29 @@ public class KhachHangDAO implements DaoInterface<KhachHangDTO> {
 
     @Override
     public KhachHangDTO selectById(String t) {
-        return null;
+        KhachHangDTO result=null;
+        try{
+            Connection con=(Connection) JDBCUtil.getConnection();
+            String sql="SELECT * FROM khachhang WHERE maKhachHang=?";
+            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
+            pst.setString(1,t);
+            ResultSet rs=(ResultSet) pst.executeQuery();
+            while (rs.next()){
+                int maKhachHang=rs.getInt("maKhachHang");
+                String hoTen=rs.getString("tenKhachHang");
+                String diaChi=rs.getString("diaChi");
+                String sdt=rs.getString("soDienThoai");
+                int nhomKhachHang=rs.getInt("nhomKhachHang");
+                Date ngayThamGia=rs.getDate("ngayThamGia");
+                result=new KhachHangDTO(maKhachHang,hoTen,diaChi,sdt,ngayThamGia,nhomKhachHang);
+
+            }
+            JDBCUtil.closeConnection(con);
+        }
+        catch(SQLException ex){
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
