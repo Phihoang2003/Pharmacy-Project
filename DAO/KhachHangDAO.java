@@ -58,7 +58,18 @@ public class KhachHangDAO implements DaoInterface<KhachHangDTO> {
 
     @Override
     public int delete(String t) {
-        return 0;
+        int result=0;
+        try{
+            Connection con=(Connection) JDBCUtil.getConnection();
+            String sql="UPDATE `khachhang`SET `trangThai`=0 WHERE `maKhachHang`=?";
+            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
+            pst.setString(1,t);
+            result=pst.executeUpdate();
+            JDBCUtil.closeConnection(con);
+        }catch(SQLException ex){
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
