@@ -13,6 +13,13 @@ public class KhachHangDTO {
     public KhachHangDTO() {
     }
 
+    public KhachHangDTO(int maKhachHang, String hoten, String sdt, String diaChi,int nhomKhachHang) {
+        this.maKhachHang = maKhachHang;
+        this.hoTen = hoten;
+        this.sdt = sdt;
+        this.diaChi = diaChi;
+        this.nhomKhachHang=nhomKhachHang;
+    }
     public int getNhomKhachHang() {
         return nhomKhachHang;
     }
@@ -27,7 +34,6 @@ public class KhachHangDTO {
         this.diaChi = diaChi;
         this.sdt = sdt;
         this.ngayThamGia = ngayThamGia;
-
         this.nhomKhachHang= nhomKhachHang;
     }
 
