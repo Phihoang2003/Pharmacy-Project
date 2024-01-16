@@ -126,6 +126,23 @@ public class KhachHangDAO implements DaoInterface<KhachHangDTO> {
 
     @Override
     public int getAutoIncrement() {
-        return 0;
+        int result = -1;
+        try {
+            Connection con = (Connection) JDBCUtil.getConnection();
+            String sql = "SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'quanlikhohang' AND   TABLE_NAME   = 'khachhang'";
+            PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
+            ResultSet rs2 = pst.executeQuery(sql);
+            if (!rs2.isBeforeFirst() ) {
+                System.out.println("No data");
+            } else {
+                while ( rs2.next() ) {
+                    result = rs2.getInt("AUTO_INCREMENT");
+
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 }
