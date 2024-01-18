@@ -7,6 +7,7 @@ import config.JDBCUtil;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,21 +21,22 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
         int result=0;
         try{
             Connection con=(Connection) JDBCUtil.getConnection();
-            String sql="INSERT INTO `nhanvien`(`hoTen`,`gioiTinh`,`sdt`,`ngaySinh`,`trangThai`,`email`,`ngayVaoLam`,`caLamViec`) VALUES (?,?,?,?,?,?,?,?)";
+            String sql="INSERT INTO `nhanvien`(`maNhanVien`,`hoTen`,`gioiTinh`,`sdt`,`ngaySinh`,`trangThai`,`email`,`ngayVaoLam`,`caLamViec`) VALUES (?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
-            pst.setString(1,t.getHoTen());
-            pst.setInt(2,t.getGioiTinh());
-            pst.setString(3,t.getSdt());
-            pst.setDate(4,(Date)t.getNgaySinh());
-            pst.setString(5,t.getTrangThai().toString());
-            pst.setString(6,t.getEmail());
-            pst.setDate(7,(Date)t.getNgayVaoLam());
-            pst.setString(8,t.getCaLamViec().toString());
+            pst.setString(1,t.getMaNhanVien());
+            pst.setString(2,t.getHoTen());
+            pst.setInt(3,t.getGioiTinh());
+            pst.setString(4,t.getSdt());
+            pst.setDate(5,(Date)t.getNgaySinh());
+            pst.setString(6,t.getTrangThai().toString());
+            pst.setString(7,t.getEmail());
+            pst.setDate(8,(Date)t.getNgayVaoLam());
+            pst.setString(9,t.getCaLamViec().toString());
             result=pst.executeUpdate();
             JDBCUtil.closeConnection(con);
         }
         catch(SQLException ex){
-            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -55,12 +57,12 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
             pst.setString(6,t.getEmail());
             pst.setDate(7,(Date)t.getNgayVaoLam());
             pst.setString(8,t.getCaLamViec().toString());
-            pst.setInt(9,t.getMaNhanVien());
+            pst.setString(9,t.getMaNhanVien());
             result=pst.executeUpdate();
             JDBCUtil.closeConnection(con);
 
         }catch(SQLException ex){
-            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
@@ -92,7 +94,7 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
             ResultSet rs =pst.executeQuery(sql);
             while (rs.next()){
                 NhanVienDTO nv= new NhanVienDTO();
-                nv.setMaNhanVien(rs.getInt("maNhanVien"));
+                nv.setMaNhanVien(rs.getString("maNhanVien"));
                 nv.setHoTen(rs.getString("hoTen"));
                 nv.setGioiTinh(rs.getInt("gioiTinh"));
                 nv.setSdt(rs.getString("sdt"));
@@ -130,7 +132,7 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
                 nv = new NhanVienDTO();
-                nv.setMaNhanVien(rs.getInt("maNhanVien"));
+                nv.setMaNhanVien(rs.getString("maNhanVien"));
                 nv.setHoTen(rs.getString("hoTen"));
                 nv.setGioiTinh(rs.getInt("gioiTinh"));
                 nv.setSdt(rs.getString("sdt"));
@@ -155,23 +157,9 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
     }
 
     @Override
-    public int getAutoIncrement() {
-        int result = -1;
-        try {
-            Connection con = (Connection) JDBCUtil.getConnection();
-            String sql = "SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'quanlihieuthuoc' AND   TABLE_NAME   = 'nhanvien'";
-            PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
-            ResultSet rs2 = pst.executeQuery(sql);
-            if (!rs2.isBeforeFirst() ) {
-                System.out.println("No data");
-            } else {
-                while ( rs2.next() ) {
-                    result = rs2.getInt("AUTO_INCREMENT");
-                }
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return result;
+    public String getAutoIncrement() {
+        Random random = new Random();
+        int number = random.nextInt(900000000) + 100000000; // This will always generate 6-digit numbers
+        return "NV" + number;
     }
 }
