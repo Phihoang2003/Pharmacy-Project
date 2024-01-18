@@ -1,11 +1,11 @@
 package DAO;
 
+import DTO.CaLamViecEnum;
 import DTO.NhanVienDTO;
+import DTO.TinhTrangNVEnum;
 import config.JDBCUtil;
-import java.sql.Date;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,17 +20,16 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
         int result=0;
         try{
             Connection con=(Connection) JDBCUtil.getConnection();
-            String sql="INSERT INTO `nhanvien`(`maNhanVien`,`hoTen`,`gioiTinh`,`sdt`,`ngaySinh`,`trangThai`,`email`,`ngayVaoLam`,`caLamViec`) VALUES (?,?,?,?,?,?,?,?,?)";
+            String sql="INSERT INTO `nhanvien`(`hoTen`,`gioiTinh`,`sdt`,`ngaySinh`,`trangThai`,`email`,`ngayVaoLam`,`caLamViec`) VALUES (?,?,?,?,?,?,?,?)";
             PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
-            pst.setInt(1,t.getMaNhanVien());
-            pst.setString(2,t.getHoTen());
-            pst.setInt(3,t.getGioiTinh());
-            pst.setString(4,t.getSdt());
-            pst.setDate(5,(Date)t.getNgaySinh());
-            pst.setString(6,t.getTrangThai().toString());
-            pst.setString(7,t.getEmail());
-            pst.setDate(8,(Date)t.getNgayVaoLam());
-            pst.setString(9,t.getCaLamViec().toString());
+            pst.setString(1,t.getHoTen());
+            pst.setInt(2,t.getGioiTinh());
+            pst.setString(3,t.getSdt());
+            pst.setDate(4,(Date)t.getNgaySinh());
+            pst.setString(5,t.getTrangThai().toString());
+            pst.setString(6,t.getEmail());
+            pst.setDate(7,(Date)t.getNgayVaoLam());
+            pst.setString(8,t.getCaLamViec().toString());
             result=pst.executeUpdate();
             JDBCUtil.closeConnection(con);
         }
@@ -65,24 +64,114 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
         }
         return result;
     }
+    //help me write delete function
 
     @Override
     public int delete(String t) {
-        return 0;
+        int result = 0;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            String sql = "DELETE FROM `nhanvien` WHERE `maNhanVien` = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, t);
+            result = pst.executeUpdate();
+            JDBCUtil.closeConnection(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public ArrayList<NhanVienDTO> selectAll() {
-        return null;
+        ArrayList<NhanVienDTO> result = new ArrayList<NhanVienDTO>();
+        try{
+            Connection con=(Connection) JDBCUtil.getConnection();
+            String  sql="SELECT * FROM `nhanvien`";
+            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
+            ResultSet rs =pst.executeQuery(sql);
+            while (rs.next()){
+                NhanVienDTO nv= new NhanVienDTO();
+                nv.setMaNhanVien(rs.getInt("maNhanVien"));
+                nv.setHoTen(rs.getString("hoTen"));
+                nv.setGioiTinh(rs.getInt("gioiTinh"));
+                nv.setSdt(rs.getString("sdt"));
+                nv.setNgaySinh(rs.getDate("ngaySinh"));
+                String trangThai=rs.getString("trangThai");
+                if(trangThai.equals("Nghỉ việc")){
+                    nv.setTrangThai(TinhTrangNVEnum.NGHIVIEC);
+                }
+                else if(trangThai.equals("Đang làm việc")){
+                    nv.setTrangThai(TinhTrangNVEnum.DANGLAMVIEC);
+                }
+                else{
+                    nv.setTrangThai(TinhTrangNVEnum.NGHIPHEP);
+                }
+                nv.setEmail(rs.getString("email"));
+                nv.setNgayVaoLam(rs.getDate("ngayVaoLam"));
+                nv.setCaLamViec(CaLamViecEnum.valueOf(rs.getString("caLamViec").equals("Ca 2")?"CA2":"CA1"));
+                result.add(nv);
+            }
+            JDBCUtil.closeConnection(con);
+        }catch(SQLException ex){
+            Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public NhanVienDTO selectById(String t) {
-        return null;
+        NhanVienDTO nv = null;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM `nhanvien` WHERE `maNhanVien` = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, t);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                nv = new NhanVienDTO();
+                nv.setMaNhanVien(rs.getInt("maNhanVien"));
+                nv.setHoTen(rs.getString("hoTen"));
+                nv.setGioiTinh(rs.getInt("gioiTinh"));
+                nv.setSdt(rs.getString("sdt"));
+                nv.setNgaySinh(rs.getDate("ngaySinh"));
+                String trangThai = rs.getString("trangThai");
+                if (trangThai.equals("Nghỉ việc")) {
+                    nv.setTrangThai(TinhTrangNVEnum.NGHIVIEC);
+                } else if (trangThai.equals("Nghỉ phép")) {
+                    nv.setTrangThai(TinhTrangNVEnum.NGHIPHEP);
+                } else {
+                    nv.setTrangThai(TinhTrangNVEnum.DANGLAMVIEC);
+                }
+                nv.setEmail(rs.getString("email"));
+                nv.setNgayVaoLam(rs.getDate("ngayVaoLam"));
+                nv.setCaLamViec(CaLamViecEnum.valueOf(rs.getString("caLamViec").equals("Ca 2") ? "CA2" : "CA1"));
+            }
+            JDBCUtil.closeConnection(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nv;
     }
 
     @Override
     public int getAutoIncrement() {
-        return 0;
+        int result = -1;
+        try {
+            Connection con = (Connection) JDBCUtil.getConnection();
+            String sql = "SELECT `AUTO_INCREMENT` FROM  INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA = 'quanlihieuthuoc' AND   TABLE_NAME   = 'nhanvien'";
+            PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
+            ResultSet rs2 = pst.executeQuery(sql);
+            if (!rs2.isBeforeFirst() ) {
+                System.out.println("No data");
+            } else {
+                while ( rs2.next() ) {
+                    result = rs2.getInt("AUTO_INCREMENT");
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 }
