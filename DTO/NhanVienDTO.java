@@ -4,20 +4,20 @@ import java.util.Date;
 import java.util.Objects;
 
 public class NhanVienDTO {
-    private int maNhanVien;
+    private String maNhanVien;
     private String hoTen;
     private int gioiTinh;
     private String sdt;
     private Date ngaySinh;
-    private int trangThai;
+    private TinhTrangNVEnum trangThai;
     private String email;
     private Date ngayVaoLam;
-    private String caLamViec;
+    private CaLamViecEnum caLamViec;
 
     public NhanVienDTO() {
     }
 
-    public NhanVienDTO(int maNhanVien, String hoTen, int gioiTinh, String sdt, Date ngaySinh, int trangThai, String email, Date ngayVaoLam, String caLamViec) {
+    public NhanVienDTO(String maNhanVien, String hoTen, int gioiTinh, String sdt, Date ngaySinh, TinhTrangNVEnum trangThai, String email, Date ngayVaoLam, CaLamViecEnum caLamViec) {
         this.maNhanVien = maNhanVien;
         this.hoTen = hoTen;
         this.gioiTinh = gioiTinh;
@@ -29,11 +29,11 @@ public class NhanVienDTO {
         this.caLamViec = caLamViec;
     }
 
-    public int getMaNhanVien() {
+    public String getMaNhanVien() {
         return maNhanVien;
     }
 
-    public void setMaNhanVien(int maNhanVien) {
+    public void setMaNhanVien(String maNhanVien) {
         this.maNhanVien = maNhanVien;
     }
 
@@ -69,11 +69,11 @@ public class NhanVienDTO {
         this.ngaySinh = ngaySinh;
     }
 
-    public int getTrangThai() {
+    public TinhTrangNVEnum getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(int trangThai) {
+    public void setTrangThai(TinhTrangNVEnum trangThai) {
         this.trangThai = trangThai;
     }
 
@@ -93,11 +93,11 @@ public class NhanVienDTO {
         this.ngayVaoLam = ngayVaoLam;
     }
 
-    public String getCaLamViec() {
+    public CaLamViecEnum getCaLamViec() {
         return caLamViec;
     }
 
-    public void setCaLamViec(String caLamViec) {
+    public void setCaLamViec(CaLamViecEnum caLamViec) {
         this.caLamViec = caLamViec;
     }
 
@@ -106,7 +106,7 @@ public class NhanVienDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         NhanVienDTO that = (NhanVienDTO) o;
-        return maNhanVien == that.maNhanVien;
+        return maNhanVien.equals(that.maNhanVien) ;
     }
 
     @Override
