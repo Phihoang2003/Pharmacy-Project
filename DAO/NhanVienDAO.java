@@ -27,7 +27,7 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
             pst.setInt(3,t.getGioiTinh());
             pst.setString(4,t.getSdt());
             pst.setDate(5,(Date)t.getNgaySinh());
-            pst.setInt(6,t.getTrangThai());
+            pst.setString(6,t.getTrangThai().toString());
             pst.setString(7,t.getEmail());
             pst.setDate(8,(Date)t.getNgayVaoLam());
             pst.setString(9,t.getCaLamViec().toString());
@@ -41,8 +41,29 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
     }
 
     @Override
-    public int update(NhanVienDTO nhanVienDTO) {
-        return 0;
+    public int update(NhanVienDTO t) {
+
+        int result=0;
+        try{
+            Connection con=(Connection) JDBCUtil.getConnection();
+            String sql="UPDATE `nhanvien`SET `hoTen`=?,`gioiTinh`=?,`ngaySinh`=?,`sdt`=?, `trangThai`=?, `email`=?,`ngayVaoLam`=?,`caLamViec`=?  WHERE `maNhanVien`=?";
+            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
+            pst.setString(1,t.getHoTen());
+            pst.setInt(2,t.getGioiTinh());
+            pst.setDate(3,(Date)t.getNgaySinh());
+            pst.setString(4,t.getSdt());
+            pst.setString(5,t.getTrangThai().toString());
+            pst.setString(6,t.getEmail());
+            pst.setDate(7,(Date)t.getNgayVaoLam());
+            pst.setString(8,t.getCaLamViec().toString());
+            pst.setInt(9,t.getMaNhanVien());
+            result=pst.executeUpdate();
+            JDBCUtil.closeConnection(con);
+
+        }catch(SQLException ex){
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
