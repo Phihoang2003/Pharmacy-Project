@@ -8,5 +8,5 @@ public interface DaoInterface <T>{
     public int delete(String t);
     public ArrayList<T> selectAll();
     public T selectById(String t);
-    int getAutoIncrement();
+    String getAutoIncrement();
 }
