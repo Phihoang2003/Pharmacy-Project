@@ -3,8 +3,8 @@ package DTO;
 import java.util.Objects;
 
 public class PhienBanThuocDTO {
-    private int maPhienBanThuoc;
-    private int maThuoc;
+    private String maPhienBanThuoc;
+    private String maThuoc;
     private String donViTinh;
     private String khoiLuong;
     private String imgUrl;
@@ -18,7 +18,7 @@ public class PhienBanThuocDTO {
     public PhienBanThuocDTO() {
     }
 
-    public PhienBanThuocDTO(int maPhienBanThuoc, int maThuoc, String donViTinh, String khoiLuong, String imgUrl, String duongDung, String quyCachDongGoi, double giaBan, double giaNhap, int soLuongTon, String nuocSanXuat){
+    public PhienBanThuocDTO(String maPhienBanThuoc, String maThuoc, String donViTinh, String khoiLuong, String imgUrl, String duongDung, String quyCachDongGoi, double giaBan, double giaNhap, int soLuongTon, String nuocSanXuat){
         this.maPhienBanThuoc = maPhienBanThuoc;
         this.maThuoc = maThuoc;
         this.donViTinh = donViTinh;
@@ -32,19 +32,19 @@ public class PhienBanThuocDTO {
         this.nuocSanXuat = nuocSanXuat;
     }
 
-    public int getMaPhienBanThuoc() {
+    public String getMaPhienBanThuoc() {
         return maPhienBanThuoc;
     }
 
-    public void setMaPhienBanThuoc(int maPhienBanThuoc) {
+    public void setMaPhienBanThuoc(String maPhienBanThuoc) {
         this.maPhienBanThuoc = maPhienBanThuoc;
     }
 
-    public int getMaThuoc() {
+    public String getMaThuoc() {
         return maThuoc;
     }
 
-    public void setMaThuoc(int maThuoc) {
+    public void setMaThuoc(String maThuoc) {
         this.maThuoc = maThuoc;
     }
 
@@ -125,7 +125,7 @@ public class PhienBanThuocDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PhienBanThuocDTO that = (PhienBanThuocDTO) o;
-        return maPhienBanThuoc == that.maPhienBanThuoc;
+        return maPhienBanThuoc.equals(that.maPhienBanThuoc);
     }
 
     @Override
