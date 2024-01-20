@@ -38,14 +38,36 @@ public class PhienBanThuocDAO implements DaoInterface<PhienBanThuocDTO>{
             JDBCUtil.closeConnection(con);
         }
         catch(SQLException ex){
-            Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PhienBanThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
     }
 
     @Override
     public int update(PhienBanThuocDTO phienBanThuocDTO) {
-        return 0;
+        int result=0;
+        try{
+            Connection con=(Connection) JDBCUtil.getConnection();
+            String sql="UPDATE phienbanthuoc SET donViTinh=?, khoiLuong=?, imgUrl=?, duongDung=?, quyCachDongGoi=?, giaBan=?, giaNhap=?, soLuongTon=?, nuocSanXuat=? WHERE maPhienBanThuoc=?";
+            PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
+            pst.setString(1, phienBanThuocDTO.getDonViTinh());
+            pst.setString(2, phienBanThuocDTO.getKhoiLuong());
+
+            pst.setString(3, phienBanThuocDTO.getImgUrl());
+            pst.setString(4, phienBanThuocDTO.getDuongDung());
+            pst.setString(5, phienBanThuocDTO.getQuyCachDongGoi());
+            pst.setDouble(6, phienBanThuocDTO.getGiaBan());
+            pst.setDouble(7, phienBanThuocDTO.getGiaNhap());
+            pst.setInt(8, phienBanThuocDTO.getSoLuongTon());
+            pst.setString(9, phienBanThuocDTO.getNuocSanXuat());
+            pst.setString(10, phienBanThuocDTO.getMaPhienBanThuoc());
+            result = pst.executeUpdate();
+            JDBCUtil.closeConnection(con);
+
+        }catch(SQLException ex){
+            Logger.getLogger(PhienBanThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
