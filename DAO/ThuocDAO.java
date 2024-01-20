@@ -3,10 +3,7 @@ package DAO;
 import DTO.ThuocDTO;
 import config.JDBCUtil;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.logging.Level;
@@ -59,9 +56,34 @@ public class ThuocDAO implements DaoInterface<ThuocDTO> {
     }
 
     @Override
-    public ThuocDTO selectById(String t) {
-        return null;
+public ThuocDTO selectById(String t) {
+    ThuocDTO thuocDTO = null;
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "SELECT * FROM thuoc WHERE maThuoc = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, t);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            thuocDTO = new ThuocDTO();
+            thuocDTO.setMaThuoc(rs.getString("maThuoc"));
+            thuocDTO.setTenThuoc(rs.getString("tenThuoc"));
+            thuocDTO.setHanSuDung(rs.getDate("hanSuDung"));
+            thuocDTO.setGhiChu(rs.getString("ghiChu"));
+            thuocDTO.setHoatChatChinh(rs.getString("hoatChatChinh"));
+            thuocDTO.setNhaCungCap(rs.getInt("nhaCungCap"));
+            thuocDTO.setNhomThuoc(rs.getInt("nhomThuoc"));
+            thuocDTO.setDieuKienBaoQuan(rs.getString("dieuKienBaoQuan"));
+            thuocDTO.setKhuVucKho(rs.getInt("khuVucKho"));
+            thuocDTO.setSoLuongTon(rs.getInt("soLuongTon"));
+            thuocDTO.setTrangThai(rs.getString("trangThai"));
+        }
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return thuocDTO;
+}
 
     @Override
     public String getAutoIncrement() {
