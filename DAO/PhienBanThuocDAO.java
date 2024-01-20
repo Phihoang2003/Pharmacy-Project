@@ -4,6 +4,7 @@ import config.JDBCUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Random;
@@ -57,10 +58,66 @@ public class PhienBanThuocDAO implements DaoInterface<PhienBanThuocDTO>{
         return null;
     }
 
-    @Override
-    public PhienBanThuocDTO selectById(String t) {
-        return null;
+
+    public ArrayList<PhienBanThuocDTO> selectAllPhienBan(String t) {
+        ArrayList<PhienBanThuocDTO> list = new ArrayList<>();
+        try {
+            Connection con = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM phienbanthuoc WHERE maThuoc = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, t);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                PhienBanThuocDTO phienBanThuocDTO = new PhienBanThuocDTO();
+                phienBanThuocDTO.setMaPhienBanThuoc(rs.getString("maPhienBanThuoc"));
+                phienBanThuocDTO.setMaThuoc(rs.getString("maThuoc"));
+                phienBanThuocDTO.setDonViTinh(rs.getString("donViTinh"));
+                phienBanThuocDTO.setKhoiLuong(rs.getString("khoiLuong"));
+                phienBanThuocDTO.setImgUrl(rs.getString("imgUrl"));
+                phienBanThuocDTO.setDuongDung(rs.getString("duongDung"));
+                phienBanThuocDTO.setQuyCachDongGoi(rs.getString("quyCachDongGoi"));
+                phienBanThuocDTO.setGiaBan(rs.getDouble("giaBan"));
+                phienBanThuocDTO.setGiaNhap(rs.getDouble("giaNhap"));
+                phienBanThuocDTO.setSoLuongTon(rs.getInt("soLuongTon"));
+                phienBanThuocDTO.setNuocSanXuat(rs.getString("nuocSanXuat"));
+                list.add(phienBanThuocDTO);
+            }
+            JDBCUtil.closeConnection(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PhienBanThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
+
+    @Override
+public PhienBanThuocDTO selectById(String t) {
+    PhienBanThuocDTO phienBanThuocDTO = null;
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "SELECT * FROM phienbanthuoc WHERE maPhienBanThuoc = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, t);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            phienBanThuocDTO = new PhienBanThuocDTO();
+            phienBanThuocDTO.setMaPhienBanThuoc(rs.getString("maPhienBanThuoc"));
+            phienBanThuocDTO.setMaThuoc(rs.getString("maThuoc"));
+            phienBanThuocDTO.setDonViTinh(rs.getString("donViTinh"));
+            phienBanThuocDTO.setKhoiLuong(rs.getString("khoiLuong"));
+            phienBanThuocDTO.setImgUrl(rs.getString("imgUrl"));
+            phienBanThuocDTO.setDuongDung(rs.getString("duongDung"));
+            phienBanThuocDTO.setQuyCachDongGoi(rs.getString("quyCachDongGoi"));
+            phienBanThuocDTO.setGiaBan(rs.getDouble("giaBan"));
+            phienBanThuocDTO.setGiaNhap(rs.getDouble("giaNhap"));
+            phienBanThuocDTO.setSoLuongTon(rs.getInt("soLuongTon"));
+            phienBanThuocDTO.setNuocSanXuat(rs.getString("nuocSanXuat"));
+        }
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(PhienBanThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return phienBanThuocDTO;
+}
 
     @Override
     public String getAutoIncrement() {
