@@ -7,27 +7,29 @@ public class PhienBanThuocDTO {
     private int maThuoc;
     private String donViTinh;
     private String khoiLuong;
-
+    private String imgUrl;
     private String duongDung;
     private String quyCachDongGoi;
-    private double giaBanLe;
-    private double giaBanBuon;
+    private double giaBan;
     private double giaNhap;
     private int soLuongTon;
+    private String nuocSanXuat;
+
     public PhienBanThuocDTO() {
     }
 
-    public PhienBanThuocDTO(int maPhienBanThuoc,String donViTinh, int maThuoc, String khoiLuong, String duongDung, String quyCachDongGoi, double giaBanLe, double giaBanBuon, double giaNhap, int soLuongTon) {
+    public PhienBanThuocDTO(int maPhienBanThuoc, int maThuoc, String donViTinh, String khoiLuong, String imgUrl, String duongDung, String quyCachDongGoi, double giaBan, double giaNhap, int soLuongTon, String nuocSanXuat){
         this.maPhienBanThuoc = maPhienBanThuoc;
         this.maThuoc = maThuoc;
+        this.donViTinh = donViTinh;
         this.khoiLuong = khoiLuong;
+        this.imgUrl = imgUrl;
         this.duongDung = duongDung;
         this.quyCachDongGoi = quyCachDongGoi;
-        this.giaBanLe = giaBanLe;
-        this.giaBanBuon = giaBanBuon;
+        this.giaBan = giaBan;
         this.giaNhap = giaNhap;
         this.soLuongTon = soLuongTon;
-        this.donViTinh = donViTinh;
+        this.nuocSanXuat = nuocSanXuat;
     }
 
     public int getMaPhienBanThuoc() {
@@ -46,12 +48,28 @@ public class PhienBanThuocDTO {
         this.maThuoc = maThuoc;
     }
 
+    public String getDonViTinh() {
+        return donViTinh;
+    }
+
+    public void setDonViTinh(String donViTinh) {
+        this.donViTinh = donViTinh;
+    }
+
     public String getKhoiLuong() {
         return khoiLuong;
     }
 
     public void setKhoiLuong(String khoiLuong) {
         this.khoiLuong = khoiLuong;
+    }
+
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
     }
 
     public String getDuongDung() {
@@ -70,20 +88,12 @@ public class PhienBanThuocDTO {
         this.quyCachDongGoi = quyCachDongGoi;
     }
 
-    public double getGiaBanLe() {
-        return giaBanLe;
+    public double getGiaBan() {
+        return giaBan;
     }
 
-    public void setGiaBanLe(double giaBanLe) {
-        this.giaBanLe = giaBanLe;
-    }
-
-    public double getGiaBanBuon() {
-        return giaBanBuon;
-    }
-
-    public void setGiaBanBuon(double giaBanBuon) {
-        this.giaBanBuon = giaBanBuon;
+    public void setGiaBan(double giaBan) {
+        this.giaBan = giaBan;
     }
 
     public double getGiaNhap() {
@@ -102,25 +112,25 @@ public class PhienBanThuocDTO {
         this.soLuongTon = soLuongTon;
     }
 
+    public String getNuocSanXuat() {
+        return nuocSanXuat;
+    }
+
+    public void setNuocSanXuat(String nuocSanXuat) {
+        this.nuocSanXuat = nuocSanXuat;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PhienBanThuocDTO that = (PhienBanThuocDTO) o;
-        return maPhienBanThuoc == that.maPhienBanThuoc && maThuoc == that.maThuoc;
+        return maPhienBanThuoc == that.maPhienBanThuoc;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(maPhienBanThuoc, maThuoc);
-    }
-
-    public String getDonViTinh() {
-        return donViTinh;
-    }
-
-    public void setDonViTinh(String donViTinh) {
-        this.donViTinh = donViTinh;
+        return Objects.hash(maPhienBanThuoc);
     }
 
     @Override
@@ -128,14 +138,15 @@ public class PhienBanThuocDTO {
         return "PhienBanThuocDTO{" +
                 "maPhienBanThuoc=" + maPhienBanThuoc +
                 ", maThuoc=" + maThuoc +
+                ", donViTinh='" + donViTinh + '\'' +
                 ", khoiLuong='" + khoiLuong + '\'' +
+                ", imgUrl='" + imgUrl + '\'' +
                 ", duongDung='" + duongDung + '\'' +
                 ", quyCachDongGoi='" + quyCachDongGoi + '\'' +
-                ", giaBanLe=" + giaBanLe +
-                ", giaBanBuon=" + giaBanBuon +
+                ", giaBan=" + giaBan +
                 ", giaNhap=" + giaNhap +
                 ", soLuongTon=" + soLuongTon +
-                ", donViTinh='" + donViTinh + '\'' +
+                ", nuocSanXuat='" + nuocSanXuat + '\'' +
                 '}';
     }
 }
