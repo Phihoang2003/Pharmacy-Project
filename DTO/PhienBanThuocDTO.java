@@ -4,7 +4,7 @@ import java.util.Objects;
 
 public class PhienBanThuocDTO {
     private String maPhienBanThuoc;
-    private String maThuoc;
+    private ThuocDTO Thuoc;
     private String donViTinh;
     private String khoiLuong;
     private String imgUrl;
@@ -18,9 +18,9 @@ public class PhienBanThuocDTO {
     public PhienBanThuocDTO() {
     }
 
-    public PhienBanThuocDTO(String maPhienBanThuoc, String maThuoc, String donViTinh, String khoiLuong, String imgUrl, String duongDung, String quyCachDongGoi, double giaBan, double giaNhap, int soLuongTon, String nuocSanXuat){
+    public PhienBanThuocDTO(String maPhienBanThuoc, ThuocDTO thuoc, String donViTinh, String khoiLuong, String imgUrl, String duongDung, String quyCachDongGoi, double giaBan, double giaNhap, int soLuongTon, String nuocSanXuat) {
         this.maPhienBanThuoc = maPhienBanThuoc;
-        this.maThuoc = maThuoc;
+        Thuoc = thuoc;
         this.donViTinh = donViTinh;
         this.khoiLuong = khoiLuong;
         this.imgUrl = imgUrl;
@@ -40,12 +40,12 @@ public class PhienBanThuocDTO {
         this.maPhienBanThuoc = maPhienBanThuoc;
     }
 
-    public String getMaThuoc() {
-        return maThuoc;
+    public ThuocDTO getThuoc() {
+        return Thuoc;
     }
 
-    public void setMaThuoc(String maThuoc) {
-        this.maThuoc = maThuoc;
+    public void setThuoc(ThuocDTO thuoc) {
+        Thuoc = thuoc;
     }
 
     public String getDonViTinh() {
@@ -125,7 +125,7 @@ public class PhienBanThuocDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         PhienBanThuocDTO that = (PhienBanThuocDTO) o;
-        return maPhienBanThuoc.equals(that.maPhienBanThuoc);
+        return Objects.equals(maPhienBanThuoc, that.maPhienBanThuoc);
     }
 
     @Override
@@ -136,8 +136,8 @@ public class PhienBanThuocDTO {
     @Override
     public String toString() {
         return "PhienBanThuocDTO{" +
-                "maPhienBanThuoc=" + maPhienBanThuoc +
-                ", maThuoc=" + maThuoc +
+                "maPhienBanThuoc='" + maPhienBanThuoc + '\'' +
+                ", Thuoc=" + Thuoc +
                 ", donViTinh='" + donViTinh + '\'' +
                 ", khoiLuong='" + khoiLuong + '\'' +
                 ", imgUrl='" + imgUrl + '\'' +
