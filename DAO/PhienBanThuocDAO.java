@@ -1,5 +1,6 @@
 package DAO;
 import DTO.PhienBanThuocDTO;
+import DTO.ThuocDTO;
 import config.JDBCUtil;
 
 import java.sql.Connection;
@@ -24,7 +25,7 @@ public class PhienBanThuocDAO implements DaoInterface<PhienBanThuocDTO>{
             String sql="INSERT INTO phienbanthuoc(`maPhienBanThuoc`,`maThuoc`,`donViTinh`,`khoiLuong`,`imgUrl`,`duongDung`,`quyCachDongGoi`,`giaBan`,`giaNhap`,`soLuongTon`,`nuocSanXuat`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
             pst.setString(1, phienBanThuocDTO.getMaPhienBanThuoc());
-            pst.setString(2, phienBanThuocDTO.getMaThuoc());
+            pst.setString(2, phienBanThuocDTO.getThuoc().getMaThuoc());
             pst.setString(3, phienBanThuocDTO.getDonViTinh());
             pst.setString(4, phienBanThuocDTO.getKhoiLuong());
             pst.setString(5, phienBanThuocDTO.getImgUrl());
@@ -82,34 +83,38 @@ public class PhienBanThuocDAO implements DaoInterface<PhienBanThuocDTO>{
 
 
     public ArrayList<PhienBanThuocDTO> selectAllPhienBan(String t) {
-        ArrayList<PhienBanThuocDTO> list = new ArrayList<>();
-        try {
-            Connection con = JDBCUtil.getConnection();
-            String sql = "SELECT * FROM phienbanthuoc WHERE maThuoc = ?";
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, t);
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                PhienBanThuocDTO phienBanThuocDTO = new PhienBanThuocDTO();
-                phienBanThuocDTO.setMaPhienBanThuoc(rs.getString("maPhienBanThuoc"));
-                phienBanThuocDTO.setMaThuoc(rs.getString("maThuoc"));
-                phienBanThuocDTO.setDonViTinh(rs.getString("donViTinh"));
-                phienBanThuocDTO.setKhoiLuong(rs.getString("khoiLuong"));
-                phienBanThuocDTO.setImgUrl(rs.getString("imgUrl"));
-                phienBanThuocDTO.setDuongDung(rs.getString("duongDung"));
-                phienBanThuocDTO.setQuyCachDongGoi(rs.getString("quyCachDongGoi"));
-                phienBanThuocDTO.setGiaBan(rs.getDouble("giaBan"));
-                phienBanThuocDTO.setGiaNhap(rs.getDouble("giaNhap"));
-                phienBanThuocDTO.setSoLuongTon(rs.getInt("soLuongTon"));
-                phienBanThuocDTO.setNuocSanXuat(rs.getString("nuocSanXuat"));
-                list.add(phienBanThuocDTO);
-            }
-            JDBCUtil.closeConnection(con);
-        } catch (SQLException ex) {
-            Logger.getLogger(PhienBanThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+    ArrayList<PhienBanThuocDTO> list = new ArrayList<>();
+    try {
+        Connection con = JDBCUtil.getConnection();
+        // Modify the SQL query to include a JOIN clause
+        String sql = "SELECT * FROM phienbanthuoc pb JOIN thuoc t ON pb.maThuoc = t.maThuoc WHERE pb.maThuoc = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, t);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            PhienBanThuocDTO phienBanThuocDTO = new PhienBanThuocDTO();
+            phienBanThuocDTO.setMaPhienBanThuoc(rs.getString("maPhienBanThuoc"));
+
+            // Create a new ThuocDTO object and set its properties
+            ThuocDTO thuoc = new ThuocDTO();
+            thuoc.setMaThuoc(rs.getString("t.maThuoc"));
+            thuoc.setTenThuoc(rs.getString("t.tenThuoc"));
+            thuoc.setHanSuDung(rs.getDate("t.hanSuDung"));
+            thuoc.setGhiChu(rs.getString("t.ghiChu"));
+            thuoc.setHoatChatChinh(rs.getString("t.hoatChatChinh"));
+            // ... set other fields ...
+
+            phienBanThuocDTO.setThuoc(thuoc);
+
+            // ... rest of the code ...
+            list.add(phienBanThuocDTO);
         }
-        return list;
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(PhienBanThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return list;
+}
 
     @Override
 public PhienBanThuocDTO selectById(String t) {
@@ -123,7 +128,7 @@ public PhienBanThuocDTO selectById(String t) {
         if (rs.next()) {
             phienBanThuocDTO = new PhienBanThuocDTO();
             phienBanThuocDTO.setMaPhienBanThuoc(rs.getString("maPhienBanThuoc"));
-            phienBanThuocDTO.setMaThuoc(rs.getString("maThuoc"));
+            phienBanThuocDTO.setThuoc(new ThuocDTO(rs.getString("maThuoc")));
             phienBanThuocDTO.setDonViTinh(rs.getString("donViTinh"));
             phienBanThuocDTO.setKhoiLuong(rs.getString("khoiLuong"));
             phienBanThuocDTO.setImgUrl(rs.getString("imgUrl"));
