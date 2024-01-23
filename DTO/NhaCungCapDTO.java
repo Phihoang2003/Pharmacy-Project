@@ -14,6 +14,10 @@ public class NhaCungCapDTO {
     public NhaCungCapDTO() {
     }
 
+    public NhaCungCapDTO(int maNhaCungCap) {
+        this.maNhaCungCap = maNhaCungCap;
+    }
+
     public NhaCungCapDTO(int maNhaCungCap, String tenNhaCungCap, String diaChi, String soDienThoai, String email, String quocGia, int trangThai) {
         this.maNhaCungCap = maNhaCungCap;
         this.tenNhaCungCap = tenNhaCungCap;
