@@ -40,6 +40,10 @@ public class KhuVucKhoDTO {
         this.ghiChu = ghiChu;
     }
 
+    public KhuVucKhoDTO(int maKhuVucKho) {
+        this.maKhuVucKho = maKhuVucKho;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
