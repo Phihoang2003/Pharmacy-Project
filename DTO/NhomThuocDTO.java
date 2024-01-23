@@ -6,6 +6,10 @@ public class NhomThuocDTO {
     private int maNhomThuoc;
     private String tenNhomThuoc;
 
+    public NhomThuocDTO(int maNhomThuoc) {
+        this.maNhomThuoc = maNhomThuoc;
+    }
+
     public NhomThuocDTO() {
     }
 
