@@ -1,5 +1,8 @@
 package DAO;
 
+import DTO.KhuVucKhoDTO;
+import DTO.NhaCungCapDTO;
+import DTO.NhomThuocDTO;
 import DTO.ThuocDTO;
 import config.JDBCUtil;
 
@@ -26,10 +29,10 @@ public class ThuocDAO implements DaoInterface<ThuocDTO> {
             pst.setDate(3, (Date) thuocDTO.getHanSuDung());
             pst.setString(4, thuocDTO.getGhiChu());
             pst.setString(5, thuocDTO.getHoatChatChinh());
-            pst.setInt(6, thuocDTO.getNhaCungCap());
-            pst.setInt(7, thuocDTO.getNhomThuoc());
+            pst.setInt(6, thuocDTO.getNhaCungCap().getMaNhaCungCap());
+            pst.setInt(7, thuocDTO.getNhomThuoc().getMaNhomThuoc());
             pst.setString(8, thuocDTO.getDieuKienBaoQuan());
-            pst.setInt(9, thuocDTO.getKhuVucKho());
+            pst.setInt(9, thuocDTO.getKhuVucKho().getMaKhuVucKho());
             pst.setInt(10, thuocDTO.getSoLuongTon());
             pst.setString(11, thuocDTO.getTrangThai());
             result = pst.executeUpdate();
@@ -71,10 +74,10 @@ public ThuocDTO selectById(String t) {
             thuocDTO.setHanSuDung(rs.getDate("hanSuDung"));
             thuocDTO.setGhiChu(rs.getString("ghiChu"));
             thuocDTO.setHoatChatChinh(rs.getString("hoatChatChinh"));
-            thuocDTO.setNhaCungCap(rs.getInt("nhaCungCap"));
-            thuocDTO.setNhomThuoc(rs.getInt("nhomThuoc"));
+            thuocDTO.setNhaCungCap(new NhaCungCapDTO(rs.getInt("nhaCungCap")));
+            thuocDTO.setNhomThuoc(new NhomThuocDTO(rs.getInt("nhomThuoc")));
             thuocDTO.setDieuKienBaoQuan(rs.getString("dieuKienBaoQuan"));
-            thuocDTO.setKhuVucKho(rs.getInt("khuVucKho"));
+            thuocDTO.setKhuVucKho(new KhuVucKhoDTO(rs.getInt("khuVucKho")));
             thuocDTO.setSoLuongTon(rs.getInt("soLuongTon"));
             thuocDTO.setTrangThai(rs.getString("trangThai"));
         }
