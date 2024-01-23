@@ -4,44 +4,44 @@ import java.util.Date;
 import java.util.Objects;
 
 public class ThuocDTO {
-    private int maThuoc;
+    private String maThuoc;
     private String tenThuoc;
-
     private Date hanSuDung;
     private String ghiChu;
     private String hoatChatChinh;
-    private int nhaCungCap;
-    private String nuocSanXuat;
-    private int nhomThuoc;
+    private NhaCungCapDTO nhaCungCap;
+    private NhomThuocDTO nhomThuoc;
     private String dieuKienBaoQuan;
-    private int khuVucKho;
+    private KhuVucKhoDTO khuVucKho;
     private int soLuongTon;
-    private int trangThai;
+    private String trangThai;
+
+    public ThuocDTO(String maThuoc) {
+        this.maThuoc = maThuoc;
+    }
 
     public ThuocDTO() {
     }
 
-    public ThuocDTO(int maThuoc, String tenThuoc, Date hanSuDung, String ghiChu, String hoatChatChinh, int nhaCungCap, String nuocSanXuat, int nhomThuoc, String dieuKienBaoQuan, int khuVucKho, int soLuongTon, int trangThai) {
+    public ThuocDTO(String maThuoc, String tenThuoc, Date hanSuDung, String ghiChu, String hoatChatChinh, NhaCungCapDTO nhaCungCap, NhomThuocDTO nhomThuoc, String dieuKienBaoQuan, KhuVucKhoDTO khuVucKho, int soLuongTon, String trangThai) {
         this.maThuoc = maThuoc;
         this.tenThuoc = tenThuoc;
-
         this.hanSuDung = hanSuDung;
         this.ghiChu = ghiChu;
-
         this.hoatChatChinh = hoatChatChinh;
         this.nhaCungCap = nhaCungCap;
-        this.nuocSanXuat = nuocSanXuat;
         this.nhomThuoc = nhomThuoc;
         this.dieuKienBaoQuan = dieuKienBaoQuan;
         this.khuVucKho = khuVucKho;
         this.soLuongTon = soLuongTon;
         this.trangThai = trangThai;
     }
-    public int getMaThuoc() {
+
+    public String getMaThuoc() {
         return maThuoc;
     }
 
-    public void setMaThuoc(int maThuoc) {
+    public void setMaThuoc(String maThuoc) {
         this.maThuoc = maThuoc;
     }
 
@@ -52,8 +52,6 @@ public class ThuocDTO {
     public void setTenThuoc(String tenThuoc) {
         this.tenThuoc = tenThuoc;
     }
-
-
 
     public Date getHanSuDung() {
         return hanSuDung;
@@ -71,8 +69,6 @@ public class ThuocDTO {
         this.ghiChu = ghiChu;
     }
 
-
-
     public String getHoatChatChinh() {
         return hoatChatChinh;
     }
@@ -81,31 +77,19 @@ public class ThuocDTO {
         this.hoatChatChinh = hoatChatChinh;
     }
 
-
-
-
-
-    public int getNhaCungCap() {
+    public NhaCungCapDTO getNhaCungCap() {
         return nhaCungCap;
     }
 
-    public void setNhaCungCap(int nhaCungCap) {
+    public void setNhaCungCap(NhaCungCapDTO nhaCungCap) {
         this.nhaCungCap = nhaCungCap;
     }
 
-    public String getNuocSanXuat() {
-        return nuocSanXuat;
-    }
-
-    public void setNuocSanXuat(String nuocSanXuat) {
-        this.nuocSanXuat = nuocSanXuat;
-    }
-
-    public int getNhomThuoc() {
+    public NhomThuocDTO getNhomThuoc() {
         return nhomThuoc;
     }
 
-    public void setNhomThuoc(int nhomThuoc) {
+    public void setNhomThuoc(NhomThuocDTO nhomThuoc) {
         this.nhomThuoc = nhomThuoc;
     }
 
@@ -117,11 +101,11 @@ public class ThuocDTO {
         this.dieuKienBaoQuan = dieuKienBaoQuan;
     }
 
-    public int getKhuVucKho() {
+    public KhuVucKhoDTO getKhuVucKho() {
         return khuVucKho;
     }
 
-    public void setKhuVucKho(int khuVucKho) {
+    public void setKhuVucKho(KhuVucKhoDTO khuVucKho) {
         this.khuVucKho = khuVucKho;
     }
 
@@ -133,11 +117,11 @@ public class ThuocDTO {
         this.soLuongTon = soLuongTon;
     }
 
-    public int getTrangThai() {
+    public String getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(int trangThai) {
+    public void setTrangThai(String trangThai) {
         this.trangThai = trangThai;
     }
 
@@ -146,10 +130,8 @@ public class ThuocDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ThuocDTO thuocDTO = (ThuocDTO) o;
-        return maThuoc == thuocDTO.maThuoc;
+        return Objects.equals(maThuoc, thuocDTO.maThuoc);
     }
-
-
 
     @Override
     public int hashCode() {
@@ -159,20 +141,17 @@ public class ThuocDTO {
     @Override
     public String toString() {
         return "ThuocDTO{" +
-                "maThuoc=" + maThuoc +
+                "maThuoc='" + maThuoc + '\'' +
                 ", tenThuoc='" + tenThuoc + '\'' +
                 ", hanSuDung=" + hanSuDung +
                 ", ghiChu='" + ghiChu + '\'' +
-
                 ", hoatChatChinh='" + hoatChatChinh + '\'' +
-
                 ", nhaCungCap=" + nhaCungCap +
-                ", nuocSanXuat='" + nuocSanXuat + '\'' +
                 ", nhomThuoc=" + nhomThuoc +
                 ", dieuKienBaoQuan='" + dieuKienBaoQuan + '\'' +
                 ", khuVucKho=" + khuVucKho +
                 ", soLuongTon=" + soLuongTon +
-                ", trangThai=" + trangThai +
+                ", trangThai='" + trangThai + '\'' +
                 '}';
     }
 }
