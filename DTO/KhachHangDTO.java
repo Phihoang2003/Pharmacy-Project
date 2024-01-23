@@ -9,26 +9,26 @@ public class KhachHangDTO {
     private String diaChi;
     private String sdt;
     private Date ngayThamGia;
-    private int nhomKhachHang;
+    private NhomKhachHangDTO nhomKhachHang;
     public KhachHangDTO() {
     }
 
-    public KhachHangDTO(int maKhachHang, String hoten, String sdt, String diaChi,int nhomKhachHang) {
+    public KhachHangDTO(int maKhachHang, String hoten, String sdt, String diaChi,NhomKhachHangDTO nhomKhachHang) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoten;
         this.sdt = sdt;
         this.diaChi = diaChi;
         this.nhomKhachHang=nhomKhachHang;
     }
-    public int getNhomKhachHang() {
+    public NhomKhachHangDTO getNhomKhachHang() {
         return nhomKhachHang;
     }
 
-    public void setNhomKhachHang(int nhomKhachHang) {
+    public void setNhomKhachHang(NhomKhachHangDTO nhomKhachHang) {
         this.nhomKhachHang = nhomKhachHang;
     }
 
-    public KhachHangDTO(int maKhachHang, String hoTen, String diaChi, String sdt, Date ngayThamGia, int nhomKhachHang) {
+    public KhachHangDTO(int maKhachHang, String hoTen, String diaChi, String sdt, Date ngayThamGia, NhomKhachHangDTO nhomKhachHang) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoTen;
         this.diaChi = diaChi;
