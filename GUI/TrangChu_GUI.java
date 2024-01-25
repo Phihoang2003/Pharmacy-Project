@@ -29,9 +29,13 @@ public class TrangChu_GUI extends javax.swing.JFrame {
      */
     public TrangChu_GUI() {
         initComponents();
-        sanPhamGUI = new SanPham_GUI(); // Initialize SanPham_GUI instance
+        sanPhamGUI = new SanPham_GUI();
+        banHangGUI=new BanHang_GUI(); // Initialize SanPham_GUI instance
         Main_GUI.setLayout(new BorderLayout());
-        Main_GUI.add(sanPhamGUI,BorderLayout.CENTER); // Add SanPham_GUI instance to Main_GUI
+        Main_GUI.add(sanPhamGUI,BorderLayout.CENTER);
+        Main_GUI.add(banHangGUI,BorderLayout.CENTER);// Add SanPham_GUI instance to Main_GUI
+        sanPhamGUI.setVisible(false);
+        
         
         
         TrangChu_Panel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -184,6 +188,7 @@ public class TrangChu_GUI extends javax.swing.JFrame {
                 resetAllPanels();
                 BanHang_Panel.setBackground(new Color(187, 222, 251));
                 selectedPanel=BanHang_Panel;
+                banHangGUI.setVisible(true);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -790,6 +795,7 @@ public class TrangChu_GUI extends javax.swing.JFrame {
         
     }
     private SanPham_GUI sanPhamGUI;
+    private BanHang_GUI banHangGUI;
     private JPanel selectedPanel = null;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
