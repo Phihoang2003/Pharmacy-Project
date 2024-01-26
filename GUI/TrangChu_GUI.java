@@ -512,7 +512,6 @@ public class TrangChu_GUI extends javax.swing.JFrame {
         BanHang_Panel.setRequestFocusEnabled(false);
 
         jLabel18.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\account.png")); // NOI18N
-        jLabel18.setMaximumSize(new java.awt.Dimension(30, 30));
         jLabel18.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -725,7 +724,7 @@ public class TrangChu_GUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 753, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 780, Short.MAX_VALUE)
         );
 
         pack();
