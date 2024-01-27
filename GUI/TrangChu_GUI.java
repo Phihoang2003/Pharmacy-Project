@@ -18,6 +18,7 @@ public class TrangChu_GUI extends javax.swing.JFrame {
             banHangGUI.setVisible(false);
             khachHangGUI.setVisible(false);
             sanPhamGUI.setVisible(false);
+            nhaCungCap_GUI.setVisible(false);
         }
     private void resetAllPanels() {
         SanPham_Panel.setBackground(UIManager.getColor(Color.WHITE));
@@ -37,6 +38,7 @@ public class TrangChu_GUI extends javax.swing.JFrame {
         sanPhamGUI = new SanPham_GUI();
         banHangGUI=new BanHang_GUI(); // Initialize SanPham_GUI instance
         khachHangGUI=new KhachHang_GUI();
+        nhaCungCap_GUI=new NhaCungCap_GUI();
         Main_GUI.setLayout(new BorderLayout());
         
 // Add SanPham_GUI instance to Main_GUI
@@ -97,6 +99,9 @@ public class TrangChu_GUI extends javax.swing.JFrame {
                 resetAllPanels();
                 NhaCungCapPanel.setBackground(new Color(187, 222, 251));
                 selectedPanel=NhaCungCapPanel;
+                Main_GUI.add(nhaCungCap_GUI,BorderLayout.CENTER);
+                resetVisible();
+                nhaCungCap_GUI.setVisible(true);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -811,6 +816,7 @@ public class TrangChu_GUI extends javax.swing.JFrame {
     private SanPham_GUI sanPhamGUI;
     private BanHang_GUI banHangGUI;
     private KhachHang_GUI khachHangGUI;
+    private NhaCungCap_GUI nhaCungCap_GUI;
     private JPanel selectedPanel = null;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
