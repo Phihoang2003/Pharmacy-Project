@@ -72,10 +72,11 @@ public class NhaCungCap_GUI extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
-        ThemNhaCungCapDialog.setTitle("Thêm Khách Hàng");
+        ThemNhaCungCapDialog.setTitle("Thêm Nhà Cung Cấp");
         ThemNhaCungCapDialog.setAlwaysOnTop(true);
         ThemNhaCungCapDialog.setBackground(new java.awt.Color(255, 255, 255));
         ThemNhaCungCapDialog.setLocation(new java.awt.Point(500, 70));
+        ThemNhaCungCapDialog.setPreferredSize(new java.awt.Dimension(474, 720));
         ThemNhaCungCapDialog.setSize(new java.awt.Dimension(490, 720));
         ThemNhaCungCapDialog.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -85,7 +86,7 @@ public class NhaCungCap_GUI extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel9.setBackground(new java.awt.Color(0, 51, 255));
+        jPanel9.setBackground(new java.awt.Color(51, 204, 0));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -158,7 +159,7 @@ public class NhaCungCap_GUI extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        btnThemKhachHang1.setBackground(new java.awt.Color(0, 153, 255));
+        btnThemKhachHang1.setBackground(new java.awt.Color(51, 255, 0));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI Black", 0, 13)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
