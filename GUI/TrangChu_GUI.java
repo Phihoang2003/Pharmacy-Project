@@ -19,6 +19,7 @@ public class TrangChu_GUI extends javax.swing.JFrame {
             khachHangGUI.setVisible(false);
             sanPhamGUI.setVisible(false);
             nhaCungCap_GUI.setVisible(false);
+            nhanVienGUI.setVisible(false);
         }
     private void resetAllPanels() {
         SanPham_Panel.setBackground(UIManager.getColor(Color.WHITE));
@@ -39,6 +40,7 @@ public class TrangChu_GUI extends javax.swing.JFrame {
         banHangGUI=new BanHang_GUI(); // Initialize SanPham_GUI instance
         khachHangGUI=new KhachHang_GUI();
         nhaCungCap_GUI=new NhaCungCap_GUI();
+        nhanVienGUI=new NhanVien_GUI();
         Main_GUI.setLayout(new BorderLayout());
         
 // Add SanPham_GUI instance to Main_GUI
@@ -142,6 +144,9 @@ public class TrangChu_GUI extends javax.swing.JFrame {
                 resetAllPanels();
                 NhanVien_Panel.setBackground(new Color(187, 222, 251));
                 selectedPanel=NhanVien_Panel;
+                Main_GUI.add(nhanVienGUI,BorderLayout.CENTER);
+                resetVisible();
+                nhanVienGUI.setVisible(true);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -818,7 +823,7 @@ public class TrangChu_GUI extends javax.swing.JFrame {
     private KhachHang_GUI khachHangGUI;
     private NhaCungCap_GUI nhaCungCap_GUI;
     private JPanel selectedPanel = null;
-
+    private NhanVien_GUI nhanVienGUI;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JPanel BanHang_Panel;
     private JPanel HoaDon_Panel;
