@@ -92,7 +92,6 @@ public class NhanVien_GUI extends javax.swing.JPanel {
         ThemNhanVienDialog.setAlwaysOnTop(true);
         ThemNhanVienDialog.setBackground(new java.awt.Color(255, 255, 255));
         ThemNhanVienDialog.setLocation(new java.awt.Point(500, 50));
-        ThemNhanVienDialog.setPreferredSize(new java.awt.Dimension(630, 740));
         ThemNhanVienDialog.setSize(new java.awt.Dimension(630, 740));
         ThemNhanVienDialog.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -643,10 +642,13 @@ public class NhanVien_GUI extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1139, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(73, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
