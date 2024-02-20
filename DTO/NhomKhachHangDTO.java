@@ -3,24 +3,24 @@ package DTO;
 import java.util.Objects;
 
 public class NhomKhachHangDTO {
-    private int maNhom;
+    private String maNhom;
     private String tenNhom;
     private String ghiChu;
 
     public NhomKhachHangDTO() {
     }
 
-    public NhomKhachHangDTO(int maNhom, String tenNhom, String ghiChu) {
+    public NhomKhachHangDTO(String maNhom, String tenNhom, String ghiChu) {
         this.maNhom = maNhom;
         this.tenNhom = tenNhom;
         this.ghiChu = ghiChu;
     }
 
-    public int getMaNhom() {
+    public String getMaNhom() {
         return maNhom;
     }
 
-    public void setMaNhom(int maNhom) {
+    public void setMaNhom(String maNhom) {
         this.maNhom = maNhom;
     }
 
@@ -45,7 +45,7 @@ public class NhomKhachHangDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         NhomKhachHangDTO that = (NhomKhachHangDTO) o;
-        return maNhom == that.maNhom;
+        return maNhom.equals(that.maNhom) ;
     }
 
     @Override
