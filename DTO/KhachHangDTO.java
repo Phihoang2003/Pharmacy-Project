@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.Objects;
 
 public class KhachHangDTO {
-    private int maKhachHang;
+    private String maKhachHang;
     private String hoTen;
     private String diaChi;
     private String sdt;
@@ -13,7 +13,7 @@ public class KhachHangDTO {
     public KhachHangDTO() {
     }
 
-    public KhachHangDTO(int maKhachHang, String hoten, String sdt, String diaChi,NhomKhachHangDTO nhomKhachHang) {
+    public KhachHangDTO(String maKhachHang, String hoten, String sdt, String diaChi,NhomKhachHangDTO nhomKhachHang) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoten;
         this.sdt = sdt;
@@ -28,7 +28,7 @@ public class KhachHangDTO {
         this.nhomKhachHang = nhomKhachHang;
     }
 
-    public KhachHangDTO(int maKhachHang, String hoTen, String diaChi, String sdt, Date ngayThamGia, NhomKhachHangDTO nhomKhachHang) {
+    public KhachHangDTO(String maKhachHang, String hoTen, String diaChi, String sdt, Date ngayThamGia, NhomKhachHangDTO nhomKhachHang) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoTen;
         this.diaChi = diaChi;
@@ -37,11 +37,11 @@ public class KhachHangDTO {
         this.nhomKhachHang= nhomKhachHang;
     }
 
-    public int getMaKhachHang() {
+    public String getMaKhachHang() {
         return maKhachHang;
     }
 
-    public void setMaKhachHang(int maKhachHang) {
+    public void setMaKhachHang(String maKhachHang) {
         this.maKhachHang = maKhachHang;
     }
 
@@ -82,7 +82,7 @@ public class KhachHangDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         KhachHangDTO that = (KhachHangDTO) o;
-        return maKhachHang == that.maKhachHang;
+        return maKhachHang.equals(that.maKhachHang) ;
     }
 
     @Override
