@@ -175,8 +175,8 @@
                           <Component id="TrangChu_Panel" alignment="0" pref="238" max="32767" attributes="0"/>
                           <Component id="HoaDon_Panel" alignment="1" pref="238" max="32767" attributes="0"/>
                           <Component id="KhachHang_Panel" alignment="1" pref="238" max="32767" attributes="0"/>
-                          <Component id="HoaDon_Panel2" pref="238" max="32767" attributes="0"/>
-                          <Component id="HoaDon_Panel1" alignment="1" pref="238" max="32767" attributes="0"/>
+                          <Component id="DoiTra_Panel" pref="238" max="32767" attributes="0"/>
+                          <Component id="PhieuNhap_Panel" alignment="1" pref="238" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -193,9 +193,9 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="HoaDon_Panel" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="HoaDon_Panel2" min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="DoiTra_Panel" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="HoaDon_Panel1" min="-2" pref="62" max="-2" attributes="0"/>
+                      <Component id="PhieuNhap_Panel" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="KhachHang_Panel" min="-2" pref="62" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -704,7 +704,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="HoaDon_Panel1">
+            <Container class="javax.swing.JPanel" name="PhieuNhap_Panel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -764,7 +764,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="HoaDon_Panel2">
+            <Container class="javax.swing.JPanel" name="DoiTra_Panel">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>

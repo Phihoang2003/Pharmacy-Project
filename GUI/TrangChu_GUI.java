@@ -24,6 +24,8 @@ public class TrangChu_GUI extends JFrame {
             sanPhamGUI.setVisible(false);
             nhaCungCap_GUI.setVisible(false);
             nhanVienGUI.setVisible(false);
+            hoaDonGUI.setVisible(false);
+            phieuNhapGUI.setVisible(false);
         }
     private void resetAllPanels() {
         SanPham_Panel.setBackground(UIManager.getColor(Color.WHITE));
@@ -34,6 +36,9 @@ public class TrangChu_GUI extends JFrame {
         TrangChu_Panel.setBackground(UIManager.getColor(Color.WHITE));
         BanHang_Panel.setBackground(UIManager.getColor(Color.WHITE));
         KhachHang_Panel.setBackground(UIManager.getColor(Color.WHITE));
+        PhieuNhap_Panel.setBackground(UIManager.getColor(Color.WHITE));
+        DoiTra_Panel.setBackground(UIManager.getColor(Color.WHITE));
+        
     }
     /**
      * Creates new form TrangChu_GUI
@@ -46,6 +51,8 @@ public class TrangChu_GUI extends JFrame {
         khachHangGUI=new KhachHang_GUI();
         nhaCungCap_GUI=new NhaCungCap_GUI();
         nhanVienGUI=new NhanVien_GUI();
+        hoaDonGUI=new HoaDon_GUI();
+        phieuNhapGUI=new PhieuNhap_GUI();
         Main_GUI.setLayout(new BorderLayout());
         
 // Add SanPham_GUI instance to Main_GUI
@@ -129,6 +136,9 @@ public class TrangChu_GUI extends JFrame {
                 resetAllPanels();
                 HoaDon_Panel.setBackground(new Color(187, 222, 251));
                 selectedPanel=HoaDon_Panel;
+                Main_GUI.add(hoaDonGUI,BorderLayout.CENTER);
+                resetVisible();
+                hoaDonGUI.setVisible(true);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -248,6 +258,29 @@ public class TrangChu_GUI extends JFrame {
                 }
             }
         });
+         PhieuNhap_Panel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                if(selectedPanel!=PhieuNhap_Panel){
+                    PhieuNhap_Panel.setBackground(new Color(235, 237, 240));
+                }
+            }
+
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+
+                resetAllPanels();
+                PhieuNhap_Panel.setBackground(new Color(187, 222, 251));
+                selectedPanel=PhieuNhap_Panel;
+                Main_GUI.add(phieuNhapGUI,BorderLayout.CENTER);
+                resetVisible();
+                phieuNhapGUI.setVisible(true);
+            }
+
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                if(selectedPanel!=PhieuNhap_Panel){
+                    PhieuNhap_Panel.setBackground(UIManager.getColor(Color.WHITE));
+                }
+            }
+        });
         
         
         
@@ -294,10 +327,10 @@ public class TrangChu_GUI extends JFrame {
         KhachHang_Panel = new JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        HoaDon_Panel1 = new JPanel();
+        PhieuNhap_Panel = new JPanel();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        HoaDon_Panel2 = new JPanel();
+        DoiTra_Panel = new JPanel();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         TrangChu_Panel = new JPanel();
@@ -610,9 +643,9 @@ public class TrangChu_GUI extends JFrame {
                 .addContainerGap())
         );
 
-        HoaDon_Panel1.setBackground(new Color(255, 255, 255));
-        HoaDon_Panel1.setPreferredSize(new java.awt.Dimension(162, 50));
-        HoaDon_Panel1.setRequestFocusEnabled(false);
+        PhieuNhap_Panel.setBackground(new Color(255, 255, 255));
+        PhieuNhap_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        PhieuNhap_Panel.setRequestFocusEnabled(false);
 
         jLabel24.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\customer.png")); // NOI18N
         jLabel24.setPreferredSize(new java.awt.Dimension(40, 40));
@@ -620,32 +653,32 @@ public class TrangChu_GUI extends JFrame {
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel25.setText("Phiếu Nhập");
 
-        javax.swing.GroupLayout HoaDon_Panel1Layout = new javax.swing.GroupLayout(HoaDon_Panel1);
-        HoaDon_Panel1.setLayout(HoaDon_Panel1Layout);
-        HoaDon_Panel1Layout.setHorizontalGroup(
-            HoaDon_Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HoaDon_Panel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout PhieuNhap_PanelLayout = new javax.swing.GroupLayout(PhieuNhap_Panel);
+        PhieuNhap_Panel.setLayout(PhieuNhap_PanelLayout);
+        PhieuNhap_PanelLayout.setHorizontalGroup(
+            PhieuNhap_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PhieuNhap_PanelLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        HoaDon_Panel1Layout.setVerticalGroup(
-            HoaDon_Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HoaDon_Panel1Layout.createSequentialGroup()
+        PhieuNhap_PanelLayout.setVerticalGroup(
+            PhieuNhap_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PhieuNhap_PanelLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(HoaDon_Panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(HoaDon_Panel1Layout.createSequentialGroup()
+                .addGroup(PhieuNhap_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PhieuNhap_PanelLayout.createSequentialGroup()
                         .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jLabel24, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        HoaDon_Panel2.setBackground(new Color(255, 255, 255));
-        HoaDon_Panel2.setPreferredSize(new java.awt.Dimension(162, 50));
-        HoaDon_Panel2.setRequestFocusEnabled(false);
+        DoiTra_Panel.setBackground(new Color(255, 255, 255));
+        DoiTra_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        DoiTra_Panel.setRequestFocusEnabled(false);
 
         jLabel26.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\customer.png")); // NOI18N
         jLabel26.setPreferredSize(new java.awt.Dimension(40, 40));
@@ -653,23 +686,23 @@ public class TrangChu_GUI extends JFrame {
         jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel27.setText("Đổi Trả");
 
-        javax.swing.GroupLayout HoaDon_Panel2Layout = new javax.swing.GroupLayout(HoaDon_Panel2);
-        HoaDon_Panel2.setLayout(HoaDon_Panel2Layout);
-        HoaDon_Panel2Layout.setHorizontalGroup(
-            HoaDon_Panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HoaDon_Panel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout DoiTra_PanelLayout = new javax.swing.GroupLayout(DoiTra_Panel);
+        DoiTra_Panel.setLayout(DoiTra_PanelLayout);
+        DoiTra_PanelLayout.setHorizontalGroup(
+            DoiTra_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DoiTra_PanelLayout.createSequentialGroup()
                 .addGap(24, 24, 24)
                 .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        HoaDon_Panel2Layout.setVerticalGroup(
-            HoaDon_Panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(HoaDon_Panel2Layout.createSequentialGroup()
+        DoiTra_PanelLayout.setVerticalGroup(
+            DoiTra_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(DoiTra_PanelLayout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(HoaDon_Panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(HoaDon_Panel2Layout.createSequentialGroup()
+                .addGroup(DoiTra_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DoiTra_PanelLayout.createSequentialGroup()
                         .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE))
@@ -739,8 +772,8 @@ public class TrangChu_GUI extends JFrame {
                     .addComponent(TrangChu_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(HoaDon_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
                     .addComponent(KhachHang_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(HoaDon_Panel2, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
-                    .addComponent(HoaDon_Panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
+                    .addComponent(DoiTra_Panel, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(PhieuNhap_Panel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -754,9 +787,9 @@ public class TrangChu_GUI extends JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(HoaDon_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HoaDon_Panel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DoiTra_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(HoaDon_Panel1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(PhieuNhap_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(KhachHang_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -910,15 +943,17 @@ public class TrangChu_GUI extends JFrame {
     private NhaCungCap_GUI nhaCungCap_GUI;
     private JPanel selectedPanel = null;
     private NhanVien_GUI nhanVienGUI;
+    private HoaDon_GUI hoaDonGUI;
+    private PhieuNhap_GUI phieuNhapGUI;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JPanel BanHang_Panel;
+    private JPanel DoiTra_Panel;
     private JPanel HoaDon_Panel;
-    private JPanel HoaDon_Panel1;
-    private JPanel HoaDon_Panel2;
     private JPanel KhachHang_Panel;
     private JPanel Main_GUI;
     private JPanel NhaCungCapPanel;
     private JPanel NhanVien_Panel;
+    private JPanel PhieuNhap_Panel;
     private JPanel SanPham_Panel;
     private JPanel SanPham_Panel2;
     private JPanel ThongKe_Panel;
