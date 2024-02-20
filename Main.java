@@ -1,8 +1,5 @@
 
-import DAO.KhuyenMaiDAO;
-import DAO.NhanVienDAO;
-import DAO.PhienBanThuocDAO;
-import DAO.ThuocDAO;
+import DAO.*;
 import DTO.*;
 import config.JDBCUtil;
 
@@ -28,10 +25,15 @@ public class Main {
 //            System.out.println("Kết nối thất bại");
 //        }
 
-        //Test create KhachHang
-//    kh_dao= KhachHangDAO.getInstance();
-//    KhachHangDTO kh= new KhachHangDTO(3,"Phi3","1234567","1234567",1);
-//    kh_dao.insert(kh);
+        //Test selectById NhomKhachHang
+        NhomKhachHangDAO nhom_dao= NhomKhachHangDAO.getInstance();
+        NhomKhachHangDTO nhom1= nhom_dao.selectById("1");
+//        System.out.println(nhom);
+        //Test selectAll NhomKhachHang
+//        Test create KhachHang
+        KhachHangDAO kh_dao= KhachHangDAO.getInstance();
+        KhachHangDTO kh= new KhachHangDTO(kh_dao.getAutoIncrement(),"Phi","1234","1234",nhom1);
+        kh_dao.insert(kh);
 
         //Test update KhachHang
 //        kh_dao= KhachHangDAO.getInstance();
@@ -80,17 +82,17 @@ public class Main {
 //        ThuocDTO t= new ThuocDTO(t_dao.getAutoIncrement(),"Thuoc 2",new Date(2023,Calendar.APRIL,12),"Ghi chu 2","Hoat chat chinh 2",2,2,"Dieu kien bao quan",2,2,"Con");
 //        t_dao.insert(t);
 
-        //test selectById Thuoc
+//        test selectById Thuoc
 //       ThuocDAO t_dao= ThuocDAO.getInstance();
 //        ThuocDTO t= t_dao.selectById("TH686738384");
 //        System.out.println(t);
-        //test insert PhienBanTHuoc
+//        test insert PhienBanTHuoc
 //       PhienBanThuocDAO pbt_dao= PhienBanThuocDAO.getInstance();
-//       PhienBanThuocDTO pbt= new PhienBanThuocDTO(pbt_dao.getAutoIncrement(),"TH686738384","Bot", "200ml","imgUrl","Pha","Quy cach dong goi",500000,500000,200,"Canada");
+//       PhienBanThuocDTO pbt= new PhienBanThuocDTO(pbt_dao.getAutoIncrement(),t,"Bot", "700ml","imgUrl","Pha","Quy cach dong goi",500000,500000,200,"Canada");
 //       pbt_dao.insert(pbt);
 //    select all PhienBanThuoc
-       PhienBanThuocDAO pbt_dao= PhienBanThuocDAO.getInstance();
-         ArrayList<PhienBanThuocDTO> list= pbt_dao.selectAllPhienBan("TH686738384");
-         System.out.println(list);
+//       PhienBanThuocDAO pbt_dao= PhienBanThuocDAO.getInstance();
+//         ArrayList<PhienBanThuocDTO> list= pbt_dao.selectAllPhienBan("TH686738384");
+//         System.out.println(list);
     }
 }
