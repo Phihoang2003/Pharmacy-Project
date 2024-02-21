@@ -31,24 +31,24 @@ public class Main {
 //        System.out.println(nhom);
         //Test selectAll NhomKhachHang
 //        Test create KhachHang
-        KhachHangDAO kh_dao= KhachHangDAO.getInstance();
-        KhachHangDTO kh= new KhachHangDTO(kh_dao.getAutoIncrement(),"Phi","1234","1234",nhom1);
-        kh_dao.insert(kh);
+//        KhachHangDAO kh_dao= KhachHangDAO.getInstance();
+//        KhachHangDTO kh= new KhachHangDTO(kh_dao.getAutoIncrement(),"Phi","1234","1234",nhom1);
+//        kh_dao.insert(kh);
 
         //Test update KhachHang
-//        kh_dao= KhachHangDAO.getInstance();
-//        KhachHangDTO kh= new KhachHangDTO(1,"PhiUpdate","1234","1234",1);
+//        KhachHangDAO kh_dao= KhachHangDAO.getInstance();
+//        KhachHangDTO kh= new KhachHangDTO("NV229401687","PhiUpdate","1234","1234",nhom1);
 //        kh_dao.update(kh);
         //Test delete KhachHang
 //        kh_dao= KhachHangDAO.getInstance();
 //        kh_dao.delete(Integer.toString(1));
         //Test selectALl KhachHang
-//       kh_dao= KhachHangDAO.getInstance();
-//         ArrayList<KhachHangDTO> list= kh_dao.selectAll();
-//         System.out.println(list);
+       KhachHangDAO kh_dao= KhachHangDAO.getInstance();
+         ArrayList<KhachHangDTO> list= kh_dao.selectAll();
+         System.out.println(list);
         //test selectById KhachHang
-//        kh_dao= KhachHangDAO.getInstance();
-//        KhachHangDTO kh= kh_dao.selectById(Integer.toString(3));
+//        KhachHangDAO kh_dao= KhachHangDAO.getInstance();
+//        KhachHangDTO kh= kh_dao.selectById("NV229401687");
 //        System.out.println(kh);
 //        test insert NhanVien
 //        NhanVienDAO nv_dao= NhanVienDAO.getInstance();
