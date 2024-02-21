@@ -102,6 +102,7 @@ public class PhienBanThuocDAO implements DaoInterface<PhienBanThuocDTO>{
             thuoc.setHanSuDung(rs.getDate("t.hanSuDung"));
             thuoc.setGhiChu(rs.getString("t.ghiChu"));
             thuoc.setHoatChatChinh(rs.getString("t.hoatChatChinh"));
+
             // ... set other fields ...
 
             phienBanThuocDTO.setThuoc(thuoc);
