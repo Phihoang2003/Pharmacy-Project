@@ -9,7 +9,9 @@ public class NhomKhachHangDTO {
 
     public NhomKhachHangDTO() {
     }
-
+    public NhomKhachHangDTO(String maNhom) {
+        this.maNhom = maNhom;
+    }
     public NhomKhachHangDTO(String maNhom, String tenNhom, String ghiChu) {
         this.maNhom = maNhom;
         this.tenNhom = tenNhom;
