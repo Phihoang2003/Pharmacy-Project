@@ -56,7 +56,7 @@ public class KhachHangDAO implements DaoInterface<KhachHangDTO> {
         return result;
     }
 
-    @Override
+
     public int delete(String t) {
         int result=0;
         try{
