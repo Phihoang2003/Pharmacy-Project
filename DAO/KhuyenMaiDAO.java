@@ -67,7 +67,7 @@ public int update(KhuyenMaiDTO t) {
     return result;
 }
 
-    @Override
+
 public int delete(String maKM) {
     int result = 0;
     try {
