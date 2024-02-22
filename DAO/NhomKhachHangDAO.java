@@ -36,10 +36,7 @@ public class NhomKhachHangDAO implements DaoInterface<NhomKhachHangDTO>{
         return 0;
     }
 
-    @Override
-    public int delete(String t) {
-        return 0;
-    }
+
 
     @Override
     public ArrayList<NhomKhachHangDTO> selectAll() {

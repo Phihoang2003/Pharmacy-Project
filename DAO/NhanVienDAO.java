@@ -68,21 +68,7 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
     }
     //help me write delete function
 
-    @Override
-    public int delete(String t) {
-        int result = 0;
-        try {
-            Connection con = JDBCUtil.getConnection();
-            String sql = "DELETE FROM `nhanvien` WHERE `maNhanVien` = ?";
-            PreparedStatement pst = con.prepareStatement(sql);
-            pst.setString(1, t);
-            result = pst.executeUpdate();
-            JDBCUtil.closeConnection(con);
-        } catch (SQLException ex) {
-            Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return result;
-    }
+
 
     @Override
     public ArrayList<NhanVienDTO> selectAll() {

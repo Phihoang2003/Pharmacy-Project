@@ -29,7 +29,7 @@ public class ThuocDAO implements DaoInterface<ThuocDTO> {
             pst.setDate(3, (Date) thuocDTO.getHanSuDung());
             pst.setString(4, thuocDTO.getGhiChu());
             pst.setString(5, thuocDTO.getHoatChatChinh());
-            pst.setInt(6, thuocDTO.getNhaCungCap().getMaNhaCungCap());
+            pst.setString(6, thuocDTO.getNhaCungCap().getMaNhaCungCap());
             pst.setInt(7, thuocDTO.getNhomThuoc().getMaNhomThuoc());
             pst.setString(8, thuocDTO.getDieuKienBaoQuan());
             pst.setInt(9, thuocDTO.getKhuVucKho().getMaKhuVucKho());
@@ -48,10 +48,7 @@ public class ThuocDAO implements DaoInterface<ThuocDTO> {
         return 0;
     }
 
-    @Override
-    public int delete(String t) {
-        return 0;
-    }
+
 
     @Override
     public ArrayList<ThuocDTO> selectAll() {
@@ -74,7 +71,7 @@ public ThuocDTO selectById(String t) {
             thuocDTO.setHanSuDung(rs.getDate("hanSuDung"));
             thuocDTO.setGhiChu(rs.getString("ghiChu"));
             thuocDTO.setHoatChatChinh(rs.getString("hoatChatChinh"));
-            thuocDTO.setNhaCungCap(new NhaCungCapDTO(rs.getInt("nhaCungCap")));
+            thuocDTO.setNhaCungCap(new NhaCungCapDTO(rs.getString("nhaCungCap")));
             thuocDTO.setNhomThuoc(new NhomThuocDTO(rs.getInt("nhomThuoc")));
             thuocDTO.setDieuKienBaoQuan(rs.getString("dieuKienBaoQuan"));
             thuocDTO.setKhuVucKho(new KhuVucKhoDTO(rs.getInt("khuVucKho")));

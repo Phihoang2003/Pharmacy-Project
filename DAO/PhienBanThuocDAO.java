@@ -71,10 +71,7 @@ public class PhienBanThuocDAO implements DaoInterface<PhienBanThuocDTO>{
         return result;
     }
 
-    @Override
-    public int delete(String t) {
-        return 0;
-    }
+
 
     @Override
     public ArrayList<PhienBanThuocDTO> selectAll() {
