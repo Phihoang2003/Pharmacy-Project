@@ -27,6 +27,7 @@ public class TrangChu_GUI extends JFrame {
             hoaDonGUI.setVisible(false);
             phieuNhapGUI.setVisible(false);
             doiTraGUI.setVisible(false);
+            khuyenMai_GUI.setVisible(false);
         }
     private void resetAllPanels() {
         SanPham_Panel.setBackground(UIManager.getColor(Color.WHITE));
@@ -57,6 +58,7 @@ public class TrangChu_GUI extends JFrame {
         hoaDonGUI=new HoaDon_GUI();
         phieuNhapGUI=new PhieuNhap_GUI();
         doiTraGUI=new DoiTra_GUI();
+        khuyenMai_GUI=new KhuyenMai_GUI();
         Main_GUI.setLayout(new BorderLayout());
         
 // Add SanPham_GUI instance to Main_GUI
@@ -297,9 +299,9 @@ public class TrangChu_GUI extends JFrame {
                 resetAllPanels();
                 KhuyenMai_Panel.setBackground(new Color(187, 222, 251));
                 selectedPanel=KhuyenMai_Panel;
-                Main_GUI.add(phieuNhapGUI,BorderLayout.CENTER);
+                Main_GUI.add(khuyenMai_GUI,BorderLayout.CENTER);
                 resetVisible();
-                phieuNhapGUI.setVisible(true);
+                khuyenMai_GUI.setVisible(true);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -1082,6 +1084,7 @@ public class TrangChu_GUI extends JFrame {
     private HoaDon_GUI hoaDonGUI;
     private PhieuNhap_GUI phieuNhapGUI;
     private DoiTra_GUI doiTraGUI;
+    private KhuyenMai_GUI khuyenMai_GUI;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JPanel BanHang_Panel;
     private JPanel DoiTra_Panel;
