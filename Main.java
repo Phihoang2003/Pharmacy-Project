@@ -26,8 +26,8 @@ public class Main {
 //        }
 
         //Test selectById NhomKhachHang
-        NhomKhachHangDAO nhom_dao= NhomKhachHangDAO.getInstance();
-        NhomKhachHangDTO nhom1= nhom_dao.selectById("1");
+//        NhomKhachHangDAO nhom_dao= NhomKhachHangDAO.getInstance();
+//        NhomKhachHangDTO nhom1= nhom_dao.selectById("1");
 //        System.out.println(nhom);
         //Test selectAll NhomKhachHang
 //        Test create KhachHang
@@ -43,9 +43,9 @@ public class Main {
 //        kh_dao= KhachHangDAO.getInstance();
 //        kh_dao.delete(Integer.toString(1));
         //Test selectALl KhachHang
-       KhachHangDAO kh_dao= KhachHangDAO.getInstance();
-         ArrayList<KhachHangDTO> list= kh_dao.selectAll();
-         System.out.println(list);
+//       KhachHangDAO kh_dao= KhachHangDAO.getInstance();
+//         ArrayList<KhachHangDTO> list= kh_dao.selectAll();
+//         System.out.println(list);
         //test selectById KhachHang
 //        KhachHangDAO kh_dao= KhachHangDAO.getInstance();
 //        KhachHangDTO kh= kh_dao.selectById("NV229401687");
@@ -94,5 +94,26 @@ public class Main {
 //       PhienBanThuocDAO pbt_dao= PhienBanThuocDAO.getInstance();
 //         ArrayList<PhienBanThuocDTO> list= pbt_dao.selectAllPhienBan("TH686738384");
 //         System.out.println(list);
+
+//        Test add NhaCungCap
+//        NhaCungCapDAO ncc_dao= NhaCungCapDAO.getInstance();
+//        NhaCungCapDTO ncc= new NhaCungCapDTO(ncc_dao.getAutoIncrement(),"Nha cung cap 8","75478","98424",0);
+//        ncc_dao.insert(ncc);
+        //Test update NhaCungCap
+//        NhaCungCapDAO ncc_dao= NhaCungCapDAO.getInstance();
+//        NhaCungCapDTO ncc= new NhaCungCapDTO("NCC201197835","Nha cung cap Update 1","1234","1234",1);
+//        ncc_dao.update(ncc);
+
+        //Test selectById NhaCungCap
+//        NhaCungCapDAO ncc_dao= NhaCungCapDAO.getInstance();
+//        NhaCungCapDTO ncc= ncc_dao.selectById("NCC201197835");
+//        System.out.println(ncc);
+
+    //Test getDSNhaCungCapDangNhap
+        NhaCungCapDAO ncc_dao= NhaCungCapDAO.getInstance();
+        ArrayList<NhaCungCapDTO> list= ncc_dao.getDSNCCDangNhap();
+        System.out.println(list);
+
+
     }
 }
