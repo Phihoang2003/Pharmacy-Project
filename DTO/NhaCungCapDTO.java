@@ -3,36 +3,41 @@ package DTO;
 import java.util.Objects;
 
 public class NhaCungCapDTO {
-    private int maNhaCungCap;
+    private String maNhaCungCap;
     private String tenNhaCungCap;
     private String diaChi;
     private String soDienThoai;
-    private String email;
-    private String quocGia;
+
     private int trangThai;
 
     public NhaCungCapDTO() {
     }
 
-    public NhaCungCapDTO(int maNhaCungCap) {
+    public NhaCungCapDTO(String maNhaCungCap) {
         this.maNhaCungCap = maNhaCungCap;
     }
+    public NhaCungCapDTO( String tenNhaCungCap, String diaChi, String soDienThoai,  int trangThai) {
 
-    public NhaCungCapDTO(int maNhaCungCap, String tenNhaCungCap, String diaChi, String soDienThoai, String email, String quocGia, int trangThai) {
+        this.tenNhaCungCap = tenNhaCungCap;
+        this.diaChi = diaChi;
+        this.soDienThoai = soDienThoai;
+
+        this.trangThai = trangThai;
+    }
+    public NhaCungCapDTO(String maNhaCungCap, String tenNhaCungCap, String diaChi, String soDienThoai,  int trangThai) {
         this.maNhaCungCap = maNhaCungCap;
         this.tenNhaCungCap = tenNhaCungCap;
         this.diaChi = diaChi;
         this.soDienThoai = soDienThoai;
-        this.email = email;
-        this.quocGia = quocGia;
+
         this.trangThai = trangThai;
     }
 
-    public int getMaNhaCungCap() {
+    public String getMaNhaCungCap() {
         return maNhaCungCap;
     }
 
-    public void setMaNhaCungCap(int maNhaCungCap) {
+    public void setMaNhaCungCap(String maNhaCungCap) {
         this.maNhaCungCap = maNhaCungCap;
     }
 
@@ -60,21 +65,9 @@ public class NhaCungCapDTO {
         this.soDienThoai = soDienThoai;
     }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
-    public String getQuocGia() {
-        return quocGia;
-    }
 
-    public void setQuocGia(String quocGia) {
-        this.quocGia = quocGia;
-    }
 
     public int getTrangThai() {
         return trangThai;
@@ -89,7 +82,7 @@ public class NhaCungCapDTO {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         NhaCungCapDTO that = (NhaCungCapDTO) o;
-        return maNhaCungCap == that.maNhaCungCap;
+        return maNhaCungCap.equals(that.maNhaCungCap) ;
     }
 
     @Override
@@ -104,8 +97,7 @@ public class NhaCungCapDTO {
                 ", tenNhaCungCap='" + tenNhaCungCap + '\'' +
                 ", diaChi='" + diaChi + '\'' +
                 ", soDienThoai='" + soDienThoai + '\'' +
-                ", email='" + email + '\'' +
-                ", quocGia='" + quocGia + '\'' +
+
                 ", trangThai=" + trangThai +
                 '}';
     }
