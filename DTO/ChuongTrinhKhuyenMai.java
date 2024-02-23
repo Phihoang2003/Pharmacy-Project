@@ -10,11 +10,10 @@ public class ChuongTrinhKhuyenMai {
     private int giamGia;
     private Date ngayBatDau;
     private Date ngayKetThuc;
-    private String tinhTrang;
+    private int tinhTrang;
 
-// Đinh Nguyên Chung
 
-    public ChuongTrinhKhuyenMai(String maCTKM, String tenCTKM, double soTienToiThieu, double soTienToiDa, int giamGia, Date ngayBatDau, Date ngayKetThuc, String tinhTrang) {
+    public ChuongTrinhKhuyenMai(String maCTKM, String tenCTKM, double soTienToiThieu, double soTienToiDa, int giamGia, Date ngayBatDau, Date ngayKetThuc, int tinhTrang) {
         this.maCTKM = maCTKM;
         this.tenCTKM = tenCTKM;
         this.soTienToiThieu = soTienToiThieu;
@@ -38,11 +37,11 @@ public class ChuongTrinhKhuyenMai {
         this.soTienToiDa = soTienToiDa;
     }
 
-    public String getTinhTrang() {
+    public int getTinhTrang() {
         return tinhTrang;
     }
 
-    public void setTinhTrang(String tinhTrang) {
+    public void setTinhTrang(int tinhTrang) {
         this.tinhTrang = tinhTrang;
     }
 
