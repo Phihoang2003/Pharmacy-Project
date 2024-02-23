@@ -77,23 +77,8 @@ public class Main {
 //        KhuyenMaiDAO km_dao= KhuyenMaiDAO.getInstance();
 //        KhuyenMaiDTO km= km_dao.selectById("KM996922589");
 //        System.out.println(km);
-        //test insert Thuoc
-//        ThuocDAO t_dao= ThuocDAO.getInstance();
-//        ThuocDTO t= new ThuocDTO(t_dao.getAutoIncrement(),"Thuoc 2",new Date(2023,Calendar.APRIL,12),"Ghi chu 2","Hoat chat chinh 2",2,2,"Dieu kien bao quan",2,2,"Con");
-//        t_dao.insert(t);
 
-//        test selectById Thuoc
-//       ThuocDAO t_dao= ThuocDAO.getInstance();
-//        ThuocDTO t= t_dao.selectById("TH686738384");
-//        System.out.println(t);
-//        test insert PhienBanTHuoc
-//       PhienBanThuocDAO pbt_dao= PhienBanThuocDAO.getInstance();
-//       PhienBanThuocDTO pbt= new PhienBanThuocDTO(pbt_dao.getAutoIncrement(),t,"Bot", "700ml","imgUrl","Pha","Quy cach dong goi",500000,500000,200,"Canada");
-//       pbt_dao.insert(pbt);
-//    select all PhienBanThuoc
-//       PhienBanThuocDAO pbt_dao= PhienBanThuocDAO.getInstance();
-//         ArrayList<PhienBanThuocDTO> list= pbt_dao.selectAllPhienBan("TH686738384");
-//         System.out.println(list);
+//
 
 //        Test add NhaCungCap
 //        NhaCungCapDAO ncc_dao= NhaCungCapDAO.getInstance();
@@ -110,10 +95,13 @@ public class Main {
 //        System.out.println(ncc);
 
     //Test getDSNhaCungCapDangNhap
-        NhaCungCapDAO ncc_dao= NhaCungCapDAO.getInstance();
-        ArrayList<NhaCungCapDTO> list= ncc_dao.getDSNCCDangNhap();
-        System.out.println(list);
+//        NhaCungCapDAO ncc_dao= NhaCungCapDAO.getInstance();
+//        ArrayList<NhaCungCapDTO> list= ncc_dao.getDSNCCDangNhap();
+//        System.out.println(list);
+    //Test insert Thuoc
 
+        ThuocDAO thuoc_dao= ThuocDAO.getInstance();
+        ThuocDTO thuoc= new ThuocDTO(thuoc_dao.getAutoIncrement(),"Thuoc 1",new Date(2023,Calendar.APRIL,12),"100",200,"imgUrl","200mg","imgUrl","NH1","Bảo quản nơi khô ráo, thoáng mát","KM996922589",100,"QCDG1","NSX1",100000,"Con");
 
     }
 }
