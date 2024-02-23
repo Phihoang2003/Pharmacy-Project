@@ -99,9 +99,44 @@ public class Main {
 //        ArrayList<NhaCungCapDTO> list= ncc_dao.getDSNCCDangNhap();
 //        System.out.println(list);
     //Test insert Thuoc
+        DonViTinhDAO donvitinh_dao= DonViTinhDAO.getInstance();
+        DonViTinh donvitinh1= donvitinh_dao.selectDonViTinh("DVT1");
+//        System.out.println(donvitinh1);
+
+        NhomHangHoaDAO nhomhanghoa_dao= NhomHangHoaDAO.getInstance();
+        NhomHangHoa nhomhanghoa1= nhomhanghoa_dao.selectNhomHangHoa("NH1");
+//        System.out.println(nhomhanghoa1);
+
+        QuyCachDongGoiDAO quycachdonggoi_dao= QuyCachDongGoiDAO.getInstance();
+        QuyCachDongGoi quycachdonggoi1= quycachdonggoi_dao.selectQuyCachDongGoi("QCDG1");
+//        System.out.println(quycachdonggoi1);
+
+        NuocSanXuatDAO nuocsanxuat_dao= NuocSanXuatDAO.getInstance();
+        NuocSanXuat nuocsanxuat1= nuocsanxuat_dao.selectNuocSanXuat("NSX1");
+//        System.out.println(nuocsanxuat1);
+        ChuongTrinhKhuyenMaiDAO ctkm_dao= ChuongTrinhKhuyenMaiDAO.getInstance();
+        ChuongTrinhKhuyenMai ctkm= ctkm_dao.selectById("KM739789856");
 
         ThuocDAO thuoc_dao= ThuocDAO.getInstance();
-        ThuocDTO thuoc= new ThuocDTO(thuoc_dao.getAutoIncrement(),"Thuoc 1",new Date(2023,Calendar.APRIL,12),"100",200,"imgUrl","200mg","imgUrl","NH1","Bảo quản nơi khô ráo, thoáng mát","KM996922589",100,"QCDG1","NSX1",100000,"Con");
+        ThuocDTO thuoc= new ThuocDTO(thuoc_dao.getAutoIncrement(),"Thuoc cam",new Date(2023,Calendar.APRIL,12),"Paracetamol",100,"imgUrl","Uong",donvitinh1,nhomhanghoa1,ctkm,quycachdonggoi1,nuocsanxuat1,100000,100,"Bao quan o noi kho rao mat", "Con");
+        thuoc_dao.insert(thuoc);
+
+        //Test insert ChuongTrinhKhuyenMai
+//        ChuongTrinhKhuyenMaiDAO ctkm_dao= ChuongTrinhKhuyenMaiDAO.getInstance();
+//        Calendar ngayBatDauCalendar = Calendar.getInstance();
+//        ngayBatDauCalendar.set(2022, Calendar.APRIL, 12);
+//
+//        Calendar ngayKetThucCalendar = Calendar.getInstance();
+//        ngayKetThucCalendar.set(2023, Calendar.APRIL, 12);
+//
+//        // Chuyển đối tượng Calendar sang java.sql.Date
+//        Date ngayBatDau = new Date(ngayBatDauCalendar.getTimeInMillis());
+//        Date ngayKetThuc = new Date(ngayKetThucCalendar.getTimeInMillis());
+//        ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(ctkm_dao.getAutoIncrement(),"Mung Le Nha Giao",100000,1000000,10,ngayBatDau,ngayKetThuc,1);
+//        ctkm_dao.insert(ctkm);
+
+//        test selectById ChuongTrinhKhuyenMai
+
 
     }
 }
