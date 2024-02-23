@@ -1,8 +1,5 @@
 package DAO;
 
-import DTO.KhuVucKhoDTO;
-import DTO.NhaCungCapDTO;
-import DTO.NhomThuocDTO;
 import DTO.ThuocDTO;
 import config.JDBCUtil;
 
@@ -22,7 +19,7 @@ public class ThuocDAO implements DaoInterface<ThuocDTO> {
         int result = 0;
         try {
             Connection con = JDBCUtil.getConnection();
-            String sql = "INSERT INTO thuoc(maThuoc, tenThuoc, hanSuDung, khoiLuong,donViTinh, hoatChatChinh,duongDung, imgUrl, nhomHangHoa, dieuKienBaoQuan, chuongTrinhKhuyenMai, soLuongTon,quyCachDongGoi,nuocSanXuat,donGia, trangThai) VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO thuoc(maThuoc, tenThuoc, hanSuDung, khoiLuong,donViTinh, hoatChatChinh,duongDung, imgUrl, nhomHangHoa, dieuKienBaoQuan, chuongTrinhKhuyenMai, soLuongTon,quyCachDongGoi,nuocSanXuat,donGia, trangThai) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, thuocDTO.getMaThuoc());
             pst.setString(2, thuocDTO.getTenThuoc());
