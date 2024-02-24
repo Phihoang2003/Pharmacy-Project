@@ -2,6 +2,7 @@ package DAO;
 
 import DTO.KhachHangDTO;
 import DTO.NhomKhachHangDTO;
+import Interface.DaoInterface;
 import config.JDBCUtil;
 
 import java.sql.*;
@@ -135,6 +136,6 @@ public ArrayList<KhachHangDTO> selectAll() {
     public String getAutoIncrement() {
         Random random = new Random();
         int number = random.nextInt(900000000) + 100000000; // This will always generate 6-digit numbers
-        return "NV" + number;
+        return "KH" + number;
     }
 }
