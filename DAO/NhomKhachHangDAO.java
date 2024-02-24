@@ -1,6 +1,7 @@
 package DAO;
 
 import DTO.NhomKhachHangDTO;
+import Interface.DaoInterface;
 import config.JDBCUtil;
 
 import java.sql.Connection;
@@ -10,7 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-public class NhomKhachHangDAO implements DaoInterface<NhomKhachHangDTO>{
+public class NhomKhachHangDAO implements DaoInterface<NhomKhachHangDTO> {
     public static NhomKhachHangDAO getInstance() {
         return new NhomKhachHangDAO();
     }
