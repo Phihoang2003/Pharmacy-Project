@@ -5,7 +5,15 @@ import java.util.Objects;
 public class QuyCachDongGoi {
     private String maQuyCachDongGoi;
     private String tenQuyCachDongGoi;
-
+    public QuyCachDongGoi() {
+    }
+    public QuyCachDongGoi(String maQuyCachDongGoi, String tenQuyCachDongGoi) {
+        this.maQuyCachDongGoi = maQuyCachDongGoi;
+        this.tenQuyCachDongGoi = tenQuyCachDongGoi;
+    }
+    public QuyCachDongGoi(String maQuyCachDongGoi) {
+        this.maQuyCachDongGoi = maQuyCachDongGoi;
+    }
     public String getMaQuyCachDongGoi() {
         return maQuyCachDongGoi;
     }
