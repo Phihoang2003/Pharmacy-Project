@@ -3,6 +3,7 @@ package DAO;
 import DTO.CaLamViecEnum;
 import DTO.NhanVienDTO;
 import DTO.TinhTrangNVEnum;
+import Interface.DaoInterface;
 import config.JDBCUtil;
 
 import java.sql.*;
