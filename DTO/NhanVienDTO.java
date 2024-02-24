@@ -16,7 +16,9 @@ public class NhanVienDTO {
 
     public NhanVienDTO() {
     }
-
+    public NhanVienDTO(String maNhanVien) {
+        this.maNhanVien = maNhanVien;
+    }
     public NhanVienDTO(String maNhanVien, String hoTen, int gioiTinh, String sdt, Date ngaySinh, TinhTrangNVEnum trangThai, String email, Date ngayVaoLam, CaLamViecEnum caLamViec) {
         this.maNhanVien = maNhanVien;
         this.hoTen = hoTen;
