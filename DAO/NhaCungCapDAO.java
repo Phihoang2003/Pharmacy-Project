@@ -1,6 +1,7 @@
 package DAO;
 
 import DTO.NhaCungCapDTO;
+import Interface.DaoInterface;
 import config.JDBCUtil;
 
 import java.sql.Connection;
@@ -12,7 +13,7 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class NhaCungCapDAO implements DaoInterface<NhaCungCapDTO>{
+public class NhaCungCapDAO implements DaoInterface<NhaCungCapDTO> {
     public static NhaCungCapDAO getInstance() {
         return new NhaCungCapDAO();
     }
