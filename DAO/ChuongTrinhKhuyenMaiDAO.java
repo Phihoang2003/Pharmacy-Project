@@ -1,6 +1,7 @@
 package DAO;
 
 import DTO.ChuongTrinhKhuyenMai;
+import Interface.DaoInterface;
 import config.JDBCUtil;
 
 import java.sql.Connection;
@@ -12,7 +13,7 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ChuongTrinhKhuyenMaiDAO implements DaoInterface<ChuongTrinhKhuyenMai>{
+public class ChuongTrinhKhuyenMaiDAO implements DaoInterface<ChuongTrinhKhuyenMai> {
 public static ChuongTrinhKhuyenMaiDAO getInstance() {
         return new ChuongTrinhKhuyenMaiDAO();
     }
