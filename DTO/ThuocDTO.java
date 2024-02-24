@@ -19,7 +19,7 @@ public class ThuocDTO {
     private double donGia;
     private int soLuongTon;
     private String dieuKienBaoQuan;
-    private String trangThai;
+    private TinhTrangSPEnum trangThai;
 
     public ThuocDTO(String maThuoc) {
         this.maThuoc = maThuoc;
@@ -28,7 +28,7 @@ public class ThuocDTO {
     public ThuocDTO() {
     }
 
-    public ThuocDTO(String maThuoc, String tenThuoc, Date hanSuDung,  String hoatChatChinh, double khoiLuong, String imgUrl, String duongDung, DonViTinh donViTinh, NhomHangHoa nhomHangHoa, ChuongTrinhKhuyenMai chuongTrinhKhuyenMaiEntity, QuyCachDongGoi quyCachDongGoi, NuocSanXuat nuocSanXuat, double donGia, int soLuongTon, String dieuKienBaoQuan, String trangThai) {
+    public ThuocDTO(String maThuoc, String tenThuoc, Date hanSuDung,  String hoatChatChinh, double khoiLuong, String imgUrl, String duongDung, DonViTinh donViTinh, NhomHangHoa nhomHangHoa, ChuongTrinhKhuyenMai chuongTrinhKhuyenMaiEntity, QuyCachDongGoi quyCachDongGoi, NuocSanXuat nuocSanXuat, double donGia, int soLuongTon, String dieuKienBaoQuan, TinhTrangSPEnum trangThai) {
         this.maThuoc = maThuoc;
         this.tenThuoc = tenThuoc;
         this.hanSuDung = hanSuDung;
@@ -167,11 +167,11 @@ public class ThuocDTO {
         this.dieuKienBaoQuan = dieuKienBaoQuan;
     }
 
-    public String getTrangThai() {
+    public TinhTrangSPEnum getTrangThai() {
         return trangThai;
     }
 
-    public void setTrangThai(String trangThai) {
+    public void setTrangThai(TinhTrangSPEnum trangThai) {
         this.trangThai = trangThai;
     }
     public double tinhGiaBan() {
