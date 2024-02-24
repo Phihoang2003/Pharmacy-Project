@@ -12,6 +12,9 @@ public class KhachHangDTO {
     private NhomKhachHangDTO nhomKhachHang;
     public KhachHangDTO() {
     }
+    public KhachHangDTO(String maKhachHang) {
+        this.maKhachHang = maKhachHang;
+    }
 
     public KhachHangDTO(String maKhachHang, String hoten, String sdt, String diaChi,NhomKhachHangDTO nhomKhachHang) {
         this.maKhachHang = maKhachHang;
