@@ -8,7 +8,9 @@ public class NuocSanXuat {
 
     public NuocSanXuat() {
     }
-
+    public NuocSanXuat(String maNuoc) {
+        this.maNuoc = maNuoc;
+    }
     public NuocSanXuat(String maNuoc, String tenNuoc) {
         this.maNuoc = maNuoc;
         this.tenNuoc = tenNuoc;
