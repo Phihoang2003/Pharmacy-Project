@@ -13,6 +13,9 @@ public class DonViTinh {
         this.maDonViTinh = maDonViTinh;
         this.tenDonViTinh = tenDonViTinh;
     }
+    public DonViTinh(String maDonViTinh) {
+        this.maDonViTinh = maDonViTinh;
+    }
 
     public String getMaDonViTinh() {
         return maDonViTinh;
