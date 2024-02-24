@@ -13,7 +13,9 @@ public class NhomHangHoa {
         this.maNhomHang = maNhomHang;
         this.tenNhomHang = tenNhomHang;
     }
-
+    public NhomHangHoa(String maNhomHang) {
+        this.maNhomHang = maNhomHang;
+    }
     public String getMaNhomHang() {
         return maNhomHang;
     }
