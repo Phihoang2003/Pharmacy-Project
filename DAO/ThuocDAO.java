@@ -1,6 +1,7 @@
 package DAO;
 
-import DTO.ThuocDTO;
+import DTO.*;
+import Interface.DaoInterface;
 import config.JDBCUtil;
 
 import java.sql.*;
@@ -36,7 +37,7 @@ public class ThuocDAO implements DaoInterface<ThuocDTO> {
             pst.setString(13, thuocDTO.getQuyCachDongGoi().getMaQuyCachDongGoi());
             pst.setString(14, thuocDTO.getNuocSanXuat().getMaNuoc());
             pst.setDouble(15, thuocDTO.getDonGia());
-            pst.setString(16, thuocDTO.getTrangThai());
+            pst.setString(16, TinhTrangSPEnum.DANGBAN.toString());
             result = pst.executeUpdate();
             JDBCUtil.closeConnection(con);
         } catch (SQLException ex) {
@@ -56,35 +57,51 @@ public class ThuocDAO implements DaoInterface<ThuocDTO> {
         return null;
     }
 
-    @Override
-public ThuocDTO selectById(String t) {
-//    ThuocDTO thuocDTO = null;
-//    try {
-//        Connection con = JDBCUtil.getConnection();
-//        String sql = "SELECT * FROM thuoc WHERE maThuoc = ?";
-//        PreparedStatement pst = con.prepareStatement(sql);
-//        pst.setString(1, t);
-//        ResultSet rs = pst.executeQuery();
-//        if (rs.next()) {
-//            thuocDTO = new ThuocDTO();
-//            thuocDTO.setMaThuoc(rs.getString("maThuoc"));
-//            thuocDTO.setTenThuoc(rs.getString("tenThuoc"));
-//            thuocDTO.setHanSuDung(rs.getDate("hanSuDung"));
-//            thuocDTO.setGhiChu(rs.getString("ghiChu"));
-//            thuocDTO.setHoatChatChinh(rs.getString("hoatChatChinh"));
-//            thuocDTO.setNhaCungCap(new NhaCungCapDTO(rs.getString("nhaCungCap")));
-//            thuocDTO.setNhomThuoc(new NhomThuocDTO(rs.getInt("nhomThuoc")));
-//            thuocDTO.setDieuKienBaoQuan(rs.getString("dieuKienBaoQuan"));
-//            thuocDTO.setKhuVucKho(new KhuVucKhoDTO(rs.getInt("khuVucKho")));
-//            thuocDTO.setSoLuongTon(rs.getInt("soLuongTon"));
-//            thuocDTO.setTrangThai(rs.getString("trangThai"));
-//        }
-//        JDBCUtil.closeConnection(con);
-//    } catch (SQLException ex) {
-//        Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
-//    }
-//    return thuocDTO;
-        return null;
+
+@Override
+public ThuocDTO selectById(String id) {
+    ThuocDTO thuocDTO = null;
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "SELECT * FROM thuoc WHERE maThuoc = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, id);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            thuocDTO = new ThuocDTO();
+            thuocDTO.setMaThuoc(rs.getString("maThuoc"));
+            thuocDTO.setTenThuoc(rs.getString("tenThuoc"));
+            thuocDTO.setHanSuDung(rs.getDate("hanSuDung"));
+            thuocDTO.setKhoiLuong(rs.getDouble("khoiLuong"));
+            thuocDTO.setHoatChatChinh(rs.getString("hoatChatChinh"));
+            thuocDTO.setDuongDung(rs.getString("duongDung"));
+            thuocDTO.setImgUrl(rs.getString("imgUrl"));
+            thuocDTO.setDieuKienBaoQuan(rs.getString("dieuKienBaoQuan"));
+            thuocDTO.setDonGia(rs.getDouble("donGia"));
+            thuocDTO.setSoLuongTon(rs.getInt("soLuongTon"));
+            thuocDTO.setDonViTinh(new DonViTinh(rs.getString("donViTinh")));
+            thuocDTO.setNhomHangHoa(new NhomHangHoa(rs.getString("nhomHangHoa")));
+            thuocDTO.setChuongTrinhKhuyenMaiEntity(new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKhuyenMai")));
+            thuocDTO.setQuyCachDongGoi(new QuyCachDongGoi(rs.getString("quyCachDongGoi")));
+            thuocDTO.setNuocSanXuat(new NuocSanXuat(rs.getString("nuocSanXuat")));
+            TinhTrangSPEnum tinhTrangSPEnum=null;
+            if(rs.getString("trangThai").equals("Đang bán")) {
+                tinhTrangSPEnum = TinhTrangSPEnum.DANGBAN;
+            }else if(rs.getString("trangThai").equals("Ngừng bán")){
+                tinhTrangSPEnum = TinhTrangSPEnum.NGUNGBAN;
+            }
+            else{
+                tinhTrangSPEnum = TinhTrangSPEnum.HETHANG;
+            }
+            thuocDTO.setTrangThai(tinhTrangSPEnum);
+
+
+        }
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return thuocDTO;
 }
 
     @Override
