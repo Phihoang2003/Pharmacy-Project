@@ -1,7 +1,7 @@
 package DAO;
 
 import DTO.KhuyenMaiDTO;
-import DTO.NhanVienDTO;
+import Interface.DaoInterface;
 import config.JDBCUtil;
 
 import java.sql.Connection;
