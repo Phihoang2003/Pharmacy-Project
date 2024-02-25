@@ -33,4 +33,20 @@ public class ChiTietHoaDonDAO implements ChiTietHoaDon_Interface {
         }
         return result > 0;
     }
+
+    @Override
+    public boolean xoaChiTietHoaDon(String maHD) {
+        int result = 0;
+        try {
+            Connection con = (Connection) JDBCUtil.getConnection();
+            String sql = "DELETE FROM `chitiethoadon` WHERE maHD=?";
+            PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
+            pst.setString(1, maHD);
+            result = pst.executeUpdate();
+            JDBCUtil.closeConnection(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(ChiTietHoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result > 0;
+    }
 }
