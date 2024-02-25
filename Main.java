@@ -139,20 +139,28 @@ public class Main {
         ChuongTrinhKhuyenMaiDAO ctkm_dao= ChuongTrinhKhuyenMaiDAO.getInstance();
         ChuongTrinhKhuyenMai ctkm= ctkm_dao.selectById("KM165214484");
 
-    // Test insert hoaDon
-       NhanVienDAO nv_dao= NhanVienDAO.getInstance();
-         NhanVienDTO nv= nv_dao.selectById("NV628212743");
-        KhachHangDAO kh_dao= KhachHangDAO.getInstance();
-        KhachHangDTO kh= kh_dao.selectById("NV839306001");
-        HoaDonDAO hd_dao= HoaDonDAO.getInstance();
-        HoaDon hd= new HoaDon(hd_dao.getAutoIncrement(),new Date(2023,Calendar.APRIL,12),kh,nv,ctkm,100000,1000000,1000000,1);
+    // Test insert hoaDon,luutamhoadon
+//       NhanVienDAO nv_dao= NhanVienDAO.getInstance();
+//         NhanVienDTO nv= nv_dao.selectById("NV628212743");
+//        KhachHangDAO kh_dao= KhachHangDAO.getInstance();
+//        KhachHangDTO kh= kh_dao.selectById("NV839306001");
+//        HoaDonDAO hd_dao= HoaDonDAO.getInstance();
+//        HoaDon hd= new HoaDon(hd_dao.getAutoIncrement(),new Date(2023,Calendar.APRIL,12),kh,nv,ctkm,100000,1000000,1000000,1);
         ArrayList<ChiTietHoaDon> danhSachCTHD= new ArrayList<>();
-        //select thuoc
+//        //select thuoc
         ThuocDAO thuoc_dao= ThuocDAO.getInstance();
         ThuocDTO thuoc= thuoc_dao.selectById("TH529301952");
-
-        ChiTietHoaDon cthd1= new ChiTietHoaDon(thuoc,hd,3,100000,300000,400000);
+//Test themHoaDonLuuTam
+        HoaDonDAO hd_dao= HoaDonDAO.getInstance();
+        HoaDon hd= hd_dao.getHoaDonTheoMaHD("HD466187718");
+//
+        ChiTietHoaDon cthd1= new ChiTietHoaDon(thuoc,hd,5,200000,400000,800000);
         danhSachCTHD.add(cthd1);
-        hd_dao.themHoaDon(hd,danhSachCTHD);
+//        hd_dao.luuTamHoaDon(hd,danhSachCTHD);
+        hd_dao.themHoaDonLuuTam(hd,danhSachCTHD);
+
+
+
+
     }
 }
