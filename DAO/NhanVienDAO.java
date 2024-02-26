@@ -1,9 +1,10 @@
 package DAO;
 
 import DTO.CaLamViecEnum;
+import DTO.ChucVuEnum;
 import DTO.NhanVienDTO;
 import DTO.TinhTrangNVEnum;
-import Interface.DaoInterface;
+import Interface.NhanVien_Interface;
 import config.JDBCUtil;
 
 import java.sql.*;
@@ -12,17 +13,17 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
+public class NhanVienDAO implements NhanVien_Interface {
     public static NhanVienDAO getInstance(){
         return new NhanVienDAO();
     }
 
     @Override
-    public int insert(NhanVienDTO t) {
+    public boolean insert(NhanVienDTO t) {
         int result=0;
         try{
             Connection con=(Connection) JDBCUtil.getConnection();
-            String sql="INSERT INTO `nhanvien`(`maNhanVien`,`hoTen`,`gioiTinh`,`sdt`,`ngaySinh`,`trangThai`,`email`,`ngayVaoLam`,`caLamViec`) VALUES (?,?,?,?,?,?,?,?,?)";
+            String sql="INSERT INTO `nhanvien`(`maNhanVien`,`hoTen`,`gioiTinh`,`sdt`,`ngaySinh`,`trangThai`,`email`,`ngayVaoLam`,`caLamViec`,`diaChi`,`chucVu`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
             pst.setString(1,t.getMaNhanVien());
             pst.setString(2,t.getHoTen());
@@ -33,22 +34,24 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
             pst.setString(7,t.getEmail());
             pst.setDate(8,(Date)t.getNgayVaoLam());
             pst.setString(9,t.getCaLamViec().toString());
+            pst.setString(10,t.getDiaChi());
+            pst.setString(11,t.getChucVu().toString());
             result=pst.executeUpdate();
             JDBCUtil.closeConnection(con);
         }
         catch(SQLException ex){
             Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return result;
+        return result >0;
     }
 
     @Override
-    public int update(NhanVienDTO t) {
+    public boolean update(NhanVienDTO t) {
 
         int result=0;
         try{
             Connection con=(Connection) JDBCUtil.getConnection();
-            String sql="UPDATE `nhanvien`SET `hoTen`=?,`gioiTinh`=?,`ngaySinh`=?,`sdt`=?, `trangThai`=?, `email`=?,`ngayVaoLam`=?,`caLamViec`=?  WHERE `maNhanVien`=?";
+            String sql="UPDATE `nhanvien`SET `hoTen`=?,`gioiTinh`=?,`ngaySinh`=?,`sdt`=?, `trangThai`=?, `email`=?,`ngayVaoLam`=?,`caLamViec`=?,`diaChi`=?,`chucVu`=?  WHERE `maNhanVien`=?";
             PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
             pst.setString(1,t.getHoTen());
             pst.setInt(2,t.getGioiTinh());
@@ -59,13 +62,15 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
             pst.setDate(7,(Date)t.getNgayVaoLam());
             pst.setString(8,t.getCaLamViec().toString());
             pst.setString(9,t.getMaNhanVien());
+            pst.setString(10,t.getDiaChi());
+            pst.setString(11,t.getChucVu().toString());
             result=pst.executeUpdate();
             JDBCUtil.closeConnection(con);
 
         }catch(SQLException ex){
             Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return result;
+        return result >0;
     }
     //help me write delete function
 
@@ -85,6 +90,7 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
                 nv.setHoTen(rs.getString("hoTen"));
                 nv.setGioiTinh(rs.getInt("gioiTinh"));
                 nv.setSdt(rs.getString("sdt"));
+                nv.setDiaChi(rs.getString("diaChi"));
                 nv.setNgaySinh(rs.getDate("ngaySinh"));
                 String trangThai=rs.getString("trangThai");
                 if(trangThai.equals("Nghỉ việc")){
@@ -99,6 +105,7 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
                 nv.setEmail(rs.getString("email"));
                 nv.setNgayVaoLam(rs.getDate("ngayVaoLam"));
                 nv.setCaLamViec(CaLamViecEnum.valueOf(rs.getString("caLamViec").equals("Ca 2")?"CA2":"CA1"));
+                nv.setChucVu(ChucVuEnum.valueOf(rs.getString("chucVu").equals("Quản lý")?"QUANLY":"NHANVIEN"));
                 result.add(nv);
             }
             JDBCUtil.closeConnection(con);
@@ -106,6 +113,16 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
             Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result;
+    }
+
+    @Override
+    public Boolean checkNV(String email, String sdt) throws SQLException {
+        return null;
+    }
+
+    @Override
+    public NhanVienDTO getNV(String sdt) throws SQLException {
+        return null;
     }
 
     @Override
@@ -123,6 +140,7 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
                 nv.setHoTen(rs.getString("hoTen"));
                 nv.setGioiTinh(rs.getInt("gioiTinh"));
                 nv.setSdt(rs.getString("sdt"));
+                nv.setDiaChi(rs.getString("diaChi"));
                 nv.setNgaySinh(rs.getDate("ngaySinh"));
                 String trangThai = rs.getString("trangThai");
                 if (trangThai.equals("Nghỉ việc")) {
@@ -135,6 +153,7 @@ public class NhanVienDAO implements DaoInterface<NhanVienDTO> {
                 nv.setEmail(rs.getString("email"));
                 nv.setNgayVaoLam(rs.getDate("ngayVaoLam"));
                 nv.setCaLamViec(CaLamViecEnum.valueOf(rs.getString("caLamViec").equals("Ca 2") ? "CA2" : "CA1"));
+                nv.setChucVu(ChucVuEnum.valueOf(rs.getString("chucVu").equals("Quản lý") ? "QUANLY" : "NHANVIEN"));
             }
             JDBCUtil.closeConnection(con);
         } catch (SQLException ex) {
