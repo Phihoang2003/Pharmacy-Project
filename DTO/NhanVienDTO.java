@@ -7,9 +7,11 @@ public class NhanVienDTO {
     private String maNhanVien;
     private String hoTen;
     private int gioiTinh;
+    private String diaChi;
     private String sdt;
     private Date ngaySinh;
     private TinhTrangNVEnum trangThai;
+    private ChucVuEnum chucVu;
     private String email;
     private Date ngayVaoLam;
     private CaLamViecEnum caLamViec;
@@ -19,7 +21,24 @@ public class NhanVienDTO {
     public NhanVienDTO(String maNhanVien) {
         this.maNhanVien = maNhanVien;
     }
-    public NhanVienDTO(String maNhanVien, String hoTen, int gioiTinh, String sdt, Date ngaySinh, TinhTrangNVEnum trangThai, String email, Date ngayVaoLam, CaLamViecEnum caLamViec) {
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
+    }
+
+    public ChucVuEnum getChucVu() {
+        return chucVu;
+    }
+
+    public void setChucVu(ChucVuEnum chucVu) {
+        this.chucVu = chucVu;
+    }
+
+    public NhanVienDTO(String maNhanVien, String hoTen, String diaChi, int gioiTinh, String sdt, Date ngaySinh, TinhTrangNVEnum trangThai, ChucVuEnum chucVu, String email, Date ngayVaoLam, CaLamViecEnum caLamViec) {
         this.maNhanVien = maNhanVien;
         this.hoTen = hoTen;
         this.gioiTinh = gioiTinh;
@@ -29,6 +48,8 @@ public class NhanVienDTO {
         this.email = email;
         this.ngayVaoLam = ngayVaoLam;
         this.caLamViec = caLamViec;
+        this.diaChi = diaChi;
+        this.chucVu = chucVu;
     }
 
     public String getMaNhanVien() {
@@ -126,8 +147,10 @@ public class NhanVienDTO {
                 ", ngaySinh=" + ngaySinh +
                 ", trangThai=" + trangThai +
                 ", email='" + email + '\'' +
+                ", diaChi='" + diaChi +
                 ", ngayVaoLam=" + ngayVaoLam +
                 ", caLamViec='" + caLamViec + '\'' +
+                ", chucVu='" + chucVu +
                 '}';
     }
 }
