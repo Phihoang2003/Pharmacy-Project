@@ -88,7 +88,7 @@
                                               <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="btnThemKhachHang1" min="-2" max="-2" attributes="0"/>
+                                              <Component id="btnThem" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -179,7 +179,7 @@
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnThemKhachHang1" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnThem" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
@@ -304,12 +304,15 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Container class="javax.swing.JPanel" name="btnThemKhachHang1">
+            <Container class="javax.swing.JPanel" name="btnThem">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="ff" red="33" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemMouseClicked"/>
+              </Events>
 
               <Layout>
                 <DimensionLayout dim="0">
@@ -550,7 +553,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="btnThem" min="-2" max="-2" attributes="0"/>
+                  <Component id="iconThem" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -562,7 +565,7 @@
                   <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
                   <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                  <Component id="jTextField1" min="-2" pref="244" max="-2" attributes="0"/>
+                  <Component id="txt_Tim" min="-2" pref="244" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="116" max="32767" attributes="0"/>
@@ -575,7 +578,7 @@
                   <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jPanel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="btnThem" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="iconThem" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jPanel5" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="488" max="-2" attributes="0"/>
@@ -588,7 +591,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="jTextField1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                                  <Component id="txt_Tim" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                                   <Component id="jComboBox1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -605,14 +608,14 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="btnThem">
+        <Container class="javax.swing.JPanel" name="iconThem">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnThemMouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="iconThemMouseClicked"/>
           </Events>
 
           <Layout>
@@ -876,12 +879,12 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="txt_Tim">
           <Properties>
             <Property name="text" type="java.lang.String" value="Nh&#x1ead;p n&#x1ed9;i dung t&#xec;m ki&#x1ebf;m"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_TimActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel3">
@@ -960,56 +963,16 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTable1">
+        <Component class="javax.swing.JTable" name="table_DSNV">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="10" rowCount="7">
-                <Column editable="true" title="M&#xe3; " type="java.lang.String">
-                  <Data value="TH37738"/>
-                  <Data value="TH7373"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="H&#x1ecd; T&#xea;n" type="java.lang.String">
-                  <Data value="Perasidon"/>
-                  <Data value="dfg"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
+              <Table columnCount="10" rowCount="0">
+                <Column editable="true" title="M&#xe3; " type="java.lang.String"/>
+                <Column editable="true" title="H&#x1ecd; T&#xea;n" type="java.lang.String"/>
                 <Column editable="true" title="Gi&#x1edb;i T&#xed;nh" type="java.lang.String"/>
-                <Column editable="true" title="Ng&#xe0;y Sinh" type="java.lang.String">
-                  <Data value="Ng&#x1ee7;"/>
-                  <Data value="dgfd"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="Email" type="java.lang.String">
-                  <Data value="&#x1ede; n&#x1a1;i kh&#xf4; r&#xe1;o"/>
-                  <Data value="fdg"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="true" title="S&#x1ed1; &#x110;i&#x1ec7;n Tho&#x1ea1;i" type="java.lang.String">
-                  <Data value="3 th&#xe1;ng k&#x1ec3; t&#x1eeb; ng&#xe0;y s&#x1ea3;n xu&#x1ea5;t"/>
-                  <Data value="dfg"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                  <Data value="null"/>
-                </Column>
+                <Column editable="true" title="Ng&#xe0;y Sinh" type="java.lang.String"/>
+                <Column editable="true" title="Email" type="java.lang.String"/>
+                <Column editable="true" title="S&#x1ed1; &#x110;i&#x1ec7;n Tho&#x1ea1;i" type="java.lang.String"/>
                 <Column editable="true" title="&#x110;&#x1ecb;a Ch&#x1ec9;" type="java.lang.String"/>
                 <Column editable="true" title="Ch&#x1ee9;c V&#x1ee5;" type="java.lang.String"/>
                 <Column editable="true" title="T&#xec;nh Tr&#x1ea1;ng" type="java.lang.String"/>
