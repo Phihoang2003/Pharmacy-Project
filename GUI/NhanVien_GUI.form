@@ -397,6 +397,7 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="Gender"/>
                 </Property>
+                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Nam"/>
               </Properties>
             </Component>
@@ -553,35 +554,31 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" alignment="0" attributes="0">
-                                                      <Component id="jLabel36" min="-2" pref="67" max="-2" attributes="0"/>
-                                                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                                      <Component id="tinhTrang1" min="-2" pref="131" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                                      <Group type="102" alignment="1" attributes="0">
-                                                          <Component id="rad_nam1" min="-2" pref="98" max="-2" attributes="0"/>
-                                                          <EmptySpace max="32767" attributes="0"/>
-                                                          <Component id="rad_nu1" min="-2" pref="98" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                                          <Component id="txt_ma1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                                          <Component id="jLabel27" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                                          <Component id="txt_sdt1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                                          <Component id="jLabel26" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                                          <Component id="txt_email1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
-                                                      </Group>
-                                                  </Group>
-                                                  <Component id="jLabel34" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace min="-2" pref="123" max="-2" attributes="0"/>
+                                              <Component id="jLabel36" min="-2" pref="67" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                                              <Component id="tinhTrang1" min="-2" pref="131" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="1" attributes="0">
+                                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" alignment="1" attributes="0">
+                                                  <Component id="rad_nam1" min="-2" pref="98" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="rad_nu1" min="-2" pref="98" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                                  <Component id="txt_ma1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                                                  <Component id="jLabel27" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                                  <Component id="txt_sdt1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                                                  <Component id="jLabel26" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                                  <Component id="txt_email1" alignment="0" min="-2" pref="230" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <Component id="jLabel34" alignment="0" min="-2" pref="120" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
                                               <Component id="btnCapNhat" min="-2" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
+                                      <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="jLabel37" min="-2" max="-2" attributes="0"/>
@@ -599,7 +596,7 @@
                                       </Group>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="35" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -635,42 +632,37 @@
                           <Component id="jLabel26" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                           <Component id="jLabel33" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                       </Group>
+                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="txt_date1" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel35" min="-2" pref="32" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
+                          </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="txt_date1" pref="38" max="32767" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel35" min="-2" pref="32" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="txt_email1" min="-2" pref="38" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel34" min="-2" pref="32" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="rad_nam1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="rad_nu1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="chucVu1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel36" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                                          <Component id="tinhTrang1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                                          <Component id="jLabel37" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                                          <Component id="caLamViec1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
-                                      </Group>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
+                              <Component id="txt_email1" min="-2" pref="38" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jLabel34" min="-2" pref="32" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="rad_nam1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="rad_nu1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="chucVu1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="btnThemKhachHang1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="jLabel36" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="tinhTrang1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                                  <Component id="jLabel37" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                                  <Component id="caLamViec1" alignment="3" min="-2" pref="44" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnCapNhat" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="btnCapNhat" max="32767" attributes="0"/>
+                          <Component id="btnThemKhachHang1" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                   </Group>
@@ -808,18 +800,18 @@
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                          <Component id="jLabel30" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                          <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="21" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                           <Component id="jLabel30" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="17" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -833,6 +825,7 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value="C&#x1ead;p Nh&#x1ead;t Nh&#xe2;n Vi&#xea;n"/>
                   </Properties>
                   <Events>
@@ -890,7 +883,6 @@
                 <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                   <ComponentRef name="Gender"/>
                 </Property>
-                <Property name="selected" type="boolean" value="true"/>
                 <Property name="text" type="java.lang.String" value="Nam"/>
               </Properties>
             </Component>
@@ -1536,6 +1528,9 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="table_DSNVMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
