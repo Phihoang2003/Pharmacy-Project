@@ -51,7 +51,7 @@ public class NhanVienDAO implements NhanVien_Interface {
         int result=0;
         try{
             Connection con=(Connection) JDBCUtil.getConnection();
-            String sql="UPDATE `nhanvien`SET `hoTen`=?,`gioiTinh`=?,`ngaySinh`=?,`sdt`=?, `trangThai`=?, `email`=?,`ngayVaoLam`=?,`caLamViec`=?,`diaChi`=?,`chucVu`=?  WHERE `maNhanVien`=?";
+            String sql="UPDATE `nhanvien` SET `hoTen`=?,`gioiTinh`=?,`ngaySinh`=?,`sdt`=?, `trangThai`=?, `email`=?,`ngayVaoLam`=?,`caLamViec`=?,`diaChi`=?,`chucVu`=?  WHERE `maNhanVien`=?";
             PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
             pst.setString(1,t.getHoTen());
             pst.setInt(2,t.getGioiTinh());
@@ -61,9 +61,9 @@ public class NhanVienDAO implements NhanVien_Interface {
             pst.setString(6,t.getEmail());
             pst.setDate(7,(Date)t.getNgayVaoLam());
             pst.setString(8,t.getCaLamViec().toString());
-            pst.setString(9,t.getMaNhanVien());
-            pst.setString(10,t.getDiaChi());
-            pst.setString(11,t.getChucVu().toString());
+            pst.setString(9,t.getDiaChi());
+            pst.setString(10,t.getChucVu().toString());
+            pst.setString(11,t.getMaNhanVien());
             result=pst.executeUpdate();
             JDBCUtil.closeConnection(con);
 
