@@ -124,7 +124,42 @@ public class NhanVienDAO implements NhanVien_Interface {
     public NhanVienDTO getNV(String sdt) throws SQLException {
         return null;
     }
-
+    @Override
+    public NhanVienDTO findBySDT(String sdt) {
+        NhanVienDTO nv = null;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM `nhanvien` WHERE `sdt` = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, sdt);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                nv = new NhanVienDTO();
+                nv.setMaNhanVien(rs.getString("maNhanVien"));
+                nv.setHoTen(rs.getString("hoTen"));
+                nv.setGioiTinh(rs.getInt("gioiTinh"));
+                nv.setSdt(rs.getString("sdt"));
+                nv.setDiaChi(rs.getString("diaChi"));
+                nv.setNgaySinh(rs.getDate("ngaySinh"));
+                String trangThai = rs.getString("trangThai");
+                if (trangThai.equals("Nghỉ việc")) {
+                    nv.setTrangThai(TinhTrangNVEnum.NGHIVIEC);
+                } else if (trangThai.equals("Nghỉ phép")) {
+                    nv.setTrangThai(TinhTrangNVEnum.NGHIPHEP);
+                } else {
+                    nv.setTrangThai(TinhTrangNVEnum.DANGLAMVIEC);
+                }
+                nv.setEmail(rs.getString("email"));
+                nv.setNgayVaoLam(rs.getDate("ngayVaoLam"));
+                nv.setCaLamViec(CaLamViecEnum.valueOf(rs.getString("caLamViec").equals("Ca 2") ? "CA2" : "CA1"));
+                nv.setChucVu(ChucVuEnum.valueOf(rs.getString("chucVu").equals("Quản lý") ? "QUANLY" : "NHANVIEN"));
+            }
+            JDBCUtil.closeConnection(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(NhanVienDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nv;
+    }
     @Override
     public NhanVienDTO selectById(String t) {
         NhanVienDTO nv = null;
