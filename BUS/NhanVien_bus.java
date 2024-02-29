@@ -26,6 +26,12 @@ public class NhanVien_bus implements NhanVien_Interface {
     }
 
     @Override
+    public NhanVienDTO findBySDT(String sdt) {
+        return NVdao.findBySDT(sdt);
+    }
+
+
+    @Override
     public boolean update(NhanVienDTO updateNV) {
         return NVdao.update(updateNV);
     }
