@@ -2,13 +2,13 @@ package DTO;
 
 import java.util.Objects;
 
-public class LoaiKhuyenMaiDTO {
+public class LoaiKhuyenMai {
     private String maLoaiKM, moTa;
 
-    public LoaiKhuyenMaiDTO() {
+    public LoaiKhuyenMai() {
     }
 
-    public LoaiKhuyenMaiDTO(String maLoaiKM, String moTa) {
+    public LoaiKhuyenMai(String maLoaiKM, String moTa) {
         this.maLoaiKM = maLoaiKM;
         this.moTa = moTa;
     }
@@ -33,7 +33,7 @@ public class LoaiKhuyenMaiDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        LoaiKhuyenMaiDTO that = (LoaiKhuyenMaiDTO) o;
+        LoaiKhuyenMai that = (LoaiKhuyenMai) o;
         return Objects.equals(maLoaiKM, that.maLoaiKM);
     }
 
