@@ -1,6 +1,5 @@
 package DAO;
 
-import DTO.KhuyenMaiDTO;
 import Interface.DaoInterface;
 import config.JDBCUtil;
 
