@@ -5,6 +5,7 @@ import java.util.Objects;
 
 public class ChuongTrinhKhuyenMai {
     private String maCTKM, tenCTKM;
+    private LoaiKhuyenMai maLoaiKM;
     private double soTienToiThieu;
     private double soTienToiDa;
     private int giamGia;
@@ -13,8 +14,17 @@ public class ChuongTrinhKhuyenMai {
     private int tinhTrang;
 
 
-    public ChuongTrinhKhuyenMai(String maCTKM, String tenCTKM, double soTienToiThieu, double soTienToiDa, int giamGia, Date ngayBatDau, Date ngayKetThuc, int tinhTrang) {
+    public LoaiKhuyenMai getMaLoaiKM() {
+        return maLoaiKM;
+    }
+
+    public void setMaLoaiKM(LoaiKhuyenMai maLoaiKM) {
+        this.maLoaiKM = maLoaiKM;
+    }
+
+    public ChuongTrinhKhuyenMai(String maCTKM, LoaiKhuyenMai maLoaiKM, String tenCTKM, double soTienToiThieu, double soTienToiDa, int giamGia, Date ngayBatDau, Date ngayKetThuc, int tinhTrang) {
         this.maCTKM = maCTKM;
+        this.maLoaiKM= maLoaiKM;
         this.tenCTKM = tenCTKM;
         this.soTienToiThieu = soTienToiThieu;
         this.soTienToiDa = soTienToiDa;
@@ -88,12 +98,22 @@ public class ChuongTrinhKhuyenMai {
     public void setNgayKetThuc(Date ngayKetThuc) {
         this.ngayKetThuc = ngayKetThuc;
     }
+
     @Override
     public String toString() {
-        return "ChuongTrinhKhuyenMaiEntity [maCTKM=" + maCTKM + ", tenCTKM=" + tenCTKM + ", soTienToiThieu="
-                + soTienToiThieu + ", giamGia=" + giamGia + ", ngayBatDau=" + ngayBatDau + ", ngayKetThuc="
-                + ngayKetThuc + "]";
+        return "ChuongTrinhKhuyenMai{" +
+                "maCTKM='" + maCTKM + '\'' +
+                ", tenCTKM='" + tenCTKM + '\'' +
+                ", maLoaiKM=" + maLoaiKM +
+                ", soTienToiThieu=" + soTienToiThieu +
+                ", soTienToiDa=" + soTienToiDa +
+                ", giamGia=" + giamGia +
+                ", ngayBatDau=" + ngayBatDau +
+                ", ngayKetThuc=" + ngayKetThuc +
+                ", tinhTrang=" + tinhTrang +
+                '}';
     }
+
     @Override
     public int hashCode() {
         return Objects.hash(maCTKM);
