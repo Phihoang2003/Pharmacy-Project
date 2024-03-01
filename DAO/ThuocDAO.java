@@ -2,6 +2,7 @@ package DAO;
 
 import DTO.*;
 import Interface.DaoInterface;
+import Interface.SanPham_Interface;
 import config.JDBCUtil;
 
 import java.sql.*;
@@ -10,13 +11,13 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ThuocDAO implements DaoInterface<ThuocDTO> {
+public class ThuocDAO implements SanPham_Interface {
     public static ThuocDAO getInstance() {
         return new ThuocDAO();
     }
 
     @Override
-    public int insert(ThuocDTO thuocDTO) {
+    public boolean insert(ThuocDTO thuocDTO) {
         int result = 0;
         try {
             Connection con = JDBCUtil.getConnection();
@@ -43,13 +44,48 @@ public class ThuocDAO implements DaoInterface<ThuocDTO> {
         } catch (SQLException ex) {
             Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return result;
+        return result>0 ;
     }
+
     @Override
-    public int update(ThuocDTO t) {
+    public ArrayList<ThuocDTO> timSanPham(String ma) {
+        return null;
+    }
+
+    @Override
+    public boolean update(ThuocDTO t) {
+        return true;
+    }
+
+    @Override
+    public ArrayList<ThuocDTO> kiemTraTonKho() {
+        return null;
+    }
+
+    @Override
+    public int laySoLuongTonKhoTheoMaSP(String maSP) {
         return 0;
     }
 
+    @Override
+    public boolean capNhatSoLuong(String maSP, int soLuongNhap) {
+        return false;
+    }
+
+    @Override
+    public boolean kiemTraMaSanPhamTonTai(String maSP) {
+        return false;
+    }
+
+    @Override
+    public void capNhatKhuyenMai() {
+
+    }
+
+    @Override
+    public void capNhatTinhTrang(String maSP, TinhTrangSPEnum tinhTrangDangBan) {
+
+    }
 
 
     @Override
@@ -103,6 +139,11 @@ public ThuocDTO selectById(String id) {
     }
     return thuocDTO;
 }
+
+    @Override
+    public boolean capNhatSoLuongTonSauKhiTaoHD(String maSP, int soLuong) {
+        return false;
+    }
 
     @Override
     public String getAutoIncrement() {
