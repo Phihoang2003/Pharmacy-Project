@@ -55,9 +55,9 @@ public class Main {
 //        NhanVienDTO nv= new NhanVienDTO(nv_dao.getAutoIncrement(),"PhiUpdate6",1,"0967312797", new Date(2023,Calendar.APRIL,12), TinhTrangNVEnum.NGHIPHEP,"hoansdfđs842@gmail.com",new Date(2023,Calendar.APRIL,3), CaLamViecEnum.CA2);
 //        nv_dao.insert(nv);
         //test update NhanVien
-       NhanVienDAO nv_dao= NhanVienDAO.getInstance();
-        NhanVienDTO nv= new NhanVienDTO("NV628212743","PhiUpdate","tphcm",1,"0967312797", new Date(2023,Calendar.APRIL,12), TinhTrangNVEnum.NGHIPHEP,ChucVuEnum.QUANLY,"hoansdfđ",new Date(2023,Calendar.APRIL,3), CaLamViecEnum.CA2);
-        nv_dao.update(nv);
+//       NhanVienDAO nv_dao= NhanVienDAO.getInstance();
+//        NhanVienDTO nv= new NhanVienDTO("NV628212743","PhiUpdate","tphcm",1,"0967312797", new Date(2023,Calendar.APRIL,12), TinhTrangNVEnum.NGHIPHEP,ChucVuEnum.QUANLY,"hoansdfđ",new Date(2023,Calendar.APRIL,3), CaLamViecEnum.CA2);
+//        nv_dao.update(nv);
         //test delete NhanVien
 //        NhanVienDAO nv_dao= NhanVienDAO.getInstance();
 //        nv_dao.delete(Integer.toString(2));
@@ -67,7 +67,7 @@ public class Main {
 //        System.out.println(list);
         //test selectById NhanVien
 //       NhanVienDAO nv_dao= NhanVienDAO.getInstance();
-//        NhanVienDTO nv= nv_dao.selectById(Integer.toString(3));
+//        NhanVienDTO nv= nv_dao.findBySDT("0967312797");
 //        System.out.println(nv);
     //test insert KhuyenMai
 //        KhuyenMaiDAO km_dao= KhuyenMaiDAO.getInstance();
@@ -99,27 +99,27 @@ public class Main {
 //        ArrayList<NhaCungCapDTO> list= ncc_dao.getDSNCCDangNhap();
 //        System.out.println(list);
     //Test insert Thuoc
-//        DonViTinhDAO donvitinh_dao= DonViTinhDAO.getInstance();
-//        DonViTinh donvitinh1= donvitinh_dao.selectDonViTinh("DVT1");
+        DonViTinhDAO donvitinh_dao= DonViTinhDAO.getInstance();
+        DonViTinh donvitinh1= donvitinh_dao.selectDonViTinh("DVT1");
 //        System.out.println(donvitinh1);
 
-//        NhomHangHoaDAO nhomhanghoa_dao= NhomHangHoaDAO.getInstance();
-//        NhomHangHoa nhomhanghoa1= nhomhanghoa_dao.selectNhomHangHoa("NH1");
+        NhomHangHoaDAO nhomhanghoa_dao= NhomHangHoaDAO.getInstance();
+        NhomHangHoa nhomhanghoa1= nhomhanghoa_dao.selectNhomHangHoa("NH1");
 //        System.out.println(nhomhanghoa1);
 
-//        QuyCachDongGoiDAO quycachdonggoi_dao= QuyCachDongGoiDAO.getInstance();
-//        QuyCachDongGoi quycachdonggoi1= quycachdonggoi_dao.selectQuyCachDongGoi("QCDG1");
+        QuyCachDongGoiDAO quycachdonggoi_dao= QuyCachDongGoiDAO.getInstance();
+        QuyCachDongGoi quycachdonggoi1= quycachdonggoi_dao.selectQuyCachDongGoi("QCDG1");
 //        System.out.println(quycachdonggoi1);
 
-//        NuocSanXuatDAO nuocsanxuat_dao= NuocSanXuatDAO.getInstance();
-//        NuocSanXuat nuocsanxuat1= nuocsanxuat_dao.selectNuocSanXuat("NSX1");
+        NuocSanXuatDAO nuocsanxuat_dao= NuocSanXuatDAO.getInstance();
+        NuocSanXuat nuocsanxuat1= nuocsanxuat_dao.selectNuocSanXuat("NSX1");
 //        System.out.println(nuocsanxuat1);
-//        ChuongTrinhKhuyenMaiDAO ctkm_dao= ChuongTrinhKhuyenMaiDAO.getInstance();
-//        ChuongTrinhKhuyenMai ctkm= ctkm_dao.selectById("KM739789856");
+        ChuongTrinhKhuyenMaiDAO ctkm_dao= ChuongTrinhKhuyenMaiDAO.getInstance();
+        ChuongTrinhKhuyenMai ctkm= ctkm_dao.selectById("KM750234717");
 //
-//        ThuocDAO thuoc_dao= ThuocDAO.getInstance();
-//        ThuocDTO thuoc= new ThuocDTO(thuoc_dao.getAutoIncrement(),"Thuoc cam",new Date(2023,Calendar.APRIL,12),"Paracetamol",100,"imgUrl","Uong",donvitinh1,nhomhanghoa1,ctkm,quycachdonggoi1,nuocsanxuat1,100000,100,"Bao quan o noi kho rao mat", TinhTrangSPEnum.DANGBAN);
-//        thuoc_dao.insert(thuoc);
+        ThuocDAO thuoc_dao= ThuocDAO.getInstance();
+        ThuocDTO thuoc= new ThuocDTO(thuoc_dao.getAutoIncrement(),"Thuoc cam",new Date(2023,Calendar.APRIL,12),"Paracetamol",100,"imgUrl","Uong",donvitinh1,nhomhanghoa1,ctkm,quycachdonggoi1,nuocsanxuat1,100000,100,"Bao quan o noi kho rao mat", TinhTrangSPEnum.DANGBAN);
+        thuoc_dao.insert(thuoc);
 
         //Test insert ChuongTrinhKhuyenMai
 //        ChuongTrinhKhuyenMaiDAO ctkm_dao= ChuongTrinhKhuyenMaiDAO.getInstance();
@@ -128,11 +128,11 @@ public class Main {
 //
 //        Calendar ngayKetThucCalendar = Calendar.getInstance();
 //        ngayKetThucCalendar.set(2023, Calendar.APRIL, 12);
-//
-//        // Chuyển đối tượng Calendar sang java.sql.Date
+
+        // Chuyển đối tượng Calendar sang java.sql.Date
 //        Date ngayBatDau = new Date(ngayBatDauCalendar.getTimeInMillis());
 //        Date ngayKetThuc = new Date(ngayKetThucCalendar.getTimeInMillis());
-//        ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(ctkm_dao.getAutoIncrement(),"Mung Le Nha Giao",100000,1000000,10,ngayBatDau,ngayKetThuc,1);
+//        ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(ctkm_dao.getAutoIncrement(),new LoaiKhuyenMai("GGHD"),"Mung Le Nha Giao",100000,1000000,10,ngayBatDau,ngayKetThuc,1);
 //        ctkm_dao.insert(ctkm);
 
 //        test selectById ChuongTrinhKhuyenMai
