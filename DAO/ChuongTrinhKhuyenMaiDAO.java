@@ -1,6 +1,7 @@
 package DAO;
 
 import DTO.ChuongTrinhKhuyenMai;
+import DTO.LoaiKhuyenMai;
 import Interface.DaoInterface;
 import config.JDBCUtil;
 
@@ -22,7 +23,7 @@ public static ChuongTrinhKhuyenMaiDAO getInstance() {
         int result=0;
         try {
             Connection con = (Connection) JDBCUtil.getConnection();
-            String sql="INSERT INTO `chuongtrinhkhuyenmai`(`maCTKM`, `tenCTKM`, `ngayBatDau`, `ngayKetThuc`,`soTienToiThieu`,`soTienToiDa`,`giamGia`, `trangThai`) VALUES (?,?,?,?,?,?,?,?)";
+            String sql="INSERT INTO `chuongtrinhkhuyenmai`(`maCTKM`, `tenCTKM`, `ngayBatDau`, `ngayKetThuc`,`soTienToiThieu`,`soTienToiDa`,`giamGia`, `trangThai`,`maLoaiKM`) VALUES (?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
             pst.setString(1,t.getMaCTKM());
             pst.setString(2,t.getTenCTKM());
@@ -32,6 +33,7 @@ public static ChuongTrinhKhuyenMaiDAO getInstance() {
             pst.setDouble(6,t.getSoTienToiDa());
             pst.setInt(7,t.getGiamGia());
             pst.setInt(8,t.getTinhTrang());
+            pst.setString(9,t.getMaLoaiKM().getMaLoaiKM());
             result=pst.executeUpdate();
             JDBCUtil.closeConnection(con);
         }catch(SQLException ex){
@@ -61,6 +63,7 @@ public static ChuongTrinhKhuyenMaiDAO getInstance() {
             ResultSet result=pst.executeQuery();
             while(result.next()){
                 ctkm.setMaCTKM(result.getString("maCTKM"));
+                ctkm.setMaLoaiKM(new LoaiKhuyenMai(result.getString("maLoaiKM")));
                 ctkm.setTenCTKM(result.getString("tenCTKM"));
                 ctkm.setNgayBatDau(result.getDate("ngayBatDau"));
                 ctkm.setNgayKetThuc(result.getDate("ngayKetThuc"));
