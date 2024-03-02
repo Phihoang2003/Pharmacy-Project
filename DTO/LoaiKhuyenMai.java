@@ -7,6 +7,9 @@ public class LoaiKhuyenMai {
 
     public LoaiKhuyenMai() {
     }
+    public LoaiKhuyenMai(String maLoaiKM){
+        this.maLoaiKM = maLoaiKM;
+    }
 
     public LoaiKhuyenMai(String maLoaiKM, String moTa) {
         this.maLoaiKM = maLoaiKM;
