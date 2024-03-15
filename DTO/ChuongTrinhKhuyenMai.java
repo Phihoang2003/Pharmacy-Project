@@ -22,6 +22,11 @@ public class ChuongTrinhKhuyenMai {
         this.maLoaiKM = maLoaiKM;
     }
 
+    public ChuongTrinhKhuyenMai(String maCTKM, int giamGia) {
+        this.maCTKM = maCTKM;
+        this.giamGia = giamGia;
+    }
+
     public ChuongTrinhKhuyenMai(String maCTKM, LoaiKhuyenMai maLoaiKM, String tenCTKM, double soTienToiThieu, double soTienToiDa, int giamGia, Date ngayBatDau, Date ngayKetThuc, int tinhTrang) {
         this.maCTKM = maCTKM;
         this.maLoaiKM= maLoaiKM;
