@@ -10,7 +10,7 @@ public interface SanPham_Interface {
 
     public boolean insert(ThuocDTO sp);
 
-    public ArrayList<ThuocDTO> timSanPham(String ma);
+    public ThuocDTO timSanPham(String ma);
 
     public boolean update(ThuocDTO sp);
 
