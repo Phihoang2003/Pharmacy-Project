@@ -46,9 +46,9 @@ public class Main {
 //       KhachHangDAO kh_dao= KhachHangDAO.getInstance();
 //         ArrayList<KhachHangDTO> list= kh_dao.selectAll();
 //         System.out.println(list);
-        //test selectById KhachHang
+//        test selectById KhachHang
 //        KhachHangDAO kh_dao= KhachHangDAO.getInstance();
-//        KhachHangDTO kh= kh_dao.selectById("NV229401687");
+//        KhachHangDTO kh= kh_dao.selectById("NV839306001");
 //        System.out.println(kh);
 //        test insert NhanVien
 //        NhanVienDAO nv_dao= NhanVienDAO.getInstance();
@@ -99,27 +99,32 @@ public class Main {
 //        ArrayList<NhaCungCapDTO> list= ncc_dao.getDSNCCDangNhap();
 //        System.out.println(list);
     //Test insert Thuoc
-        DonViTinhDAO donvitinh_dao= DonViTinhDAO.getInstance();
-        DonViTinh donvitinh1= donvitinh_dao.selectDonViTinh("DVT1");
+//        DonViTinhDAO donvitinh_dao= DonViTinhDAO.getInstance();
+//        DonViTinh donvitinh1= donvitinh_dao.selectDonViTinh("DVT1");
 //        System.out.println(donvitinh1);
 
-        NhomHangHoaDAO nhomhanghoa_dao= NhomHangHoaDAO.getInstance();
-        NhomHangHoa nhomhanghoa1= nhomhanghoa_dao.selectNhomHangHoa("NH1");
+//        NhomHangHoaDAO nhomhanghoa_dao= NhomHangHoaDAO.getInstance();
+//        NhomHangHoa nhomhanghoa1= nhomhanghoa_dao.selectNhomHangHoa("NH1");
 //        System.out.println(nhomhanghoa1);
 
-        QuyCachDongGoiDAO quycachdonggoi_dao= QuyCachDongGoiDAO.getInstance();
-        QuyCachDongGoi quycachdonggoi1= quycachdonggoi_dao.selectQuyCachDongGoi("QCDG1");
+//        QuyCachDongGoiDAO quycachdonggoi_dao= QuyCachDongGoiDAO.getInstance();
+//        QuyCachDongGoi quycachdonggoi1= quycachdonggoi_dao.selectQuyCachDongGoi("QCDG1");
 //        System.out.println(quycachdonggoi1);
 
-        NuocSanXuatDAO nuocsanxuat_dao= NuocSanXuatDAO.getInstance();
-        NuocSanXuat nuocsanxuat1= nuocsanxuat_dao.selectNuocSanXuat("NSX1");
+//        NuocSanXuatDAO nuocsanxuat_dao= NuocSanXuatDAO.getInstance();
+//        NuocSanXuat nuocsanxuat1= nuocsanxuat_dao.selectNuocSanXuat("NSX1");
 //        System.out.println(nuocsanxuat1);
-        ChuongTrinhKhuyenMaiDAO ctkm_dao= ChuongTrinhKhuyenMaiDAO.getInstance();
-        ChuongTrinhKhuyenMai ctkm= ctkm_dao.selectById("KM750234717");
+//        ChuongTrinhKhuyenMaiDAO ctkm_dao= ChuongTrinhKhuyenMaiDAO.getInstance();
+//        ChuongTrinhKhuyenMai ctkm= ctkm_dao.selectById("KM750234717");
 //
+//        ThuocDAO thuoc_dao= ThuocDAO.getInstance();
+//        ThuocDTO thuoc= new ThuocDTO(thuoc_dao.getAutoIncrement(),"Thuoc cam",new Date(2023,Calendar.APRIL,12),"Paracetamol",100,"imgUrl","Uong",donvitinh1,nhomhanghoa1,ctkm,quycachdonggoi1,nuocsanxuat1,100000,100,"Bao quan o noi kho rao mat", TinhTrangSPEnum.DANGBAN);
+//        thuoc_dao.insert(thuoc);
+
+        //test selectById Thuoc
         ThuocDAO thuoc_dao= ThuocDAO.getInstance();
-        ThuocDTO thuoc= new ThuocDTO(thuoc_dao.getAutoIncrement(),"Thuoc cam",new Date(2023,Calendar.APRIL,12),"Paracetamol",100,"imgUrl","Uong",donvitinh1,nhomhanghoa1,ctkm,quycachdonggoi1,nuocsanxuat1,100000,100,"Bao quan o noi kho rao mat", TinhTrangSPEnum.DANGBAN);
-        thuoc_dao.insert(thuoc);
+        ThuocDTO thuoc= thuoc_dao.timSanPham("TH623623627");
+        System.out.println(thuoc);
 
         //Test insert ChuongTrinhKhuyenMai
 //        ChuongTrinhKhuyenMaiDAO ctkm_dao= ChuongTrinhKhuyenMaiDAO.getInstance();
