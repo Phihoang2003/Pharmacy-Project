@@ -22,8 +22,8 @@ public class SanPham_bus implements SanPham_Interface {
     }
 
     @Override
-    public ArrayList<ThuocDTO> timSanPham(String ma) {
-        return null;
+    public ThuocDTO timSanPham(String ma) {
+        return thuocDAO.timSanPham(ma);
     }
 
     @Override
