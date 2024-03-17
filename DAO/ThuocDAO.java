@@ -48,8 +48,50 @@ public class ThuocDAO implements SanPham_Interface {
     }
 
     @Override
-    public ArrayList<ThuocDTO> timSanPham(String ma) {
-        return null;
+    public ThuocDTO timSanPham(String ma) {
+        ThuocDTO thuocDTO=null;
+        try {
+            Connection con=JDBCUtil.getConnection();
+            String sql="SELECT sp.*,dvt.tenDonViTinh,nhh.tenNhom,ctkm.giamGia,qcdg.tenQuyCachDongGoi,nsx.tenNuoc FROM thuoc sp JOIN donvitinh dvt ON sp.donViTinh=dvt.maDonViTinh JOIN nhomhanghoa nhh ON sp.nhomHangHoa=nhh.maNhom JOIN chuongtrinhkhuyenmai ctkm ON sp.chuongTrinhKhuyenMai=ctkm.maCTKM JOIN quycachdonggoi qcdg ON sp.quyCachDongGoi=qcdg.maQuyCachDongGoi JOIN nuocsanxuat nsx ON sp.nuocSanXuat=nsx.maNuoc WHERE maThuoc=?";
+            PreparedStatement pst=con.prepareStatement(sql);
+            pst.setString(1,ma);
+            ResultSet rs=pst.executeQuery();
+            while (rs.next()){
+                thuocDTO=new ThuocDTO();
+                thuocDTO.setMaThuoc(rs.getString("maThuoc"));
+                thuocDTO.setTenThuoc(rs.getString("tenThuoc"));
+                thuocDTO.setHanSuDung(rs.getDate("hanSuDung"));
+                thuocDTO.setKhoiLuong(rs.getDouble("khoiLuong"));
+                thuocDTO.setHoatChatChinh(rs.getString("hoatChatChinh"));
+                thuocDTO.setDuongDung(rs.getString("duongDung"));
+                thuocDTO.setImgUrl(rs.getString("imgUrl"));
+                thuocDTO.setDieuKienBaoQuan(rs.getString("dieuKienBaoQuan"));
+                thuocDTO.setDonGia(rs.getDouble("donGia"));
+                thuocDTO.setSoLuongTon(rs.getInt("soLuongTon"));
+                thuocDTO.setDonViTinh(new DonViTinh(rs.getString("donViTinh"),rs.getString("tenDonViTinh")));
+                thuocDTO.setNhomHangHoa(new NhomHangHoa(rs.getString("nhomHangHoa"),rs.getString("tenNhom")));
+                thuocDTO.setChuongTrinhKhuyenMaiEntity(new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKhuyenMai"),rs.getInt("giamGia")));
+                thuocDTO.setQuyCachDongGoi(new QuyCachDongGoi(rs.getString("quyCachDongGoi"),rs.getString("tenQuyCachDongGoi")));
+                thuocDTO.setNuocSanXuat(new NuocSanXuat(rs.getString("nuocSanXuat"),rs.getString("tenNuoc")));
+                TinhTrangSPEnum tinhTrangSPEnum=null;
+                if(rs.getString("trangThai").equals("Đang bán")) {
+                    tinhTrangSPEnum = TinhTrangSPEnum.DANGBAN;
+                }else if(rs.getString("trangThai").equals("Ngừng bán")){
+                    tinhTrangSPEnum = TinhTrangSPEnum.NGUNGBAN;
+                }
+                else{
+                    tinhTrangSPEnum = TinhTrangSPEnum.HETHANG;
+                }
+                thuocDTO.setTrangThai(tinhTrangSPEnum);
+
+            }
+            JDBCUtil.closeConnection(con);
+
+        }
+        catch(SQLException ex){
+            Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return thuocDTO;
     }
 
     @Override
