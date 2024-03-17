@@ -83,7 +83,7 @@ public class KhachHang_GUI extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel9.setBackground(new java.awt.Color(0, 51, 255));
+        jPanel9.setBackground(new java.awt.Color(187, 222, 251));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,7 +164,7 @@ public class KhachHang_GUI extends javax.swing.JPanel {
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
-        btnThemKhachHang1.setBackground(new java.awt.Color(0, 153, 255));
+        btnThemKhachHang1.setBackground(new java.awt.Color(187, 222, 251));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI Black", 0, 13)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
