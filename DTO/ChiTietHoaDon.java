@@ -48,7 +48,7 @@ public class ChiTietHoaDon {
         return giaGoc;
     }
 
-    public void setGiaGoc(double giaGoc) {
+    public void setGiaGoc() {
         this.giaGoc = thuoc.getDonGia() * 1.4;
     }
 
@@ -56,7 +56,7 @@ public class ChiTietHoaDon {
         return giaBan;
     }
 
-    public void setGiaBan(double giaBan) {
+    public void setGiaBan() {
         if(thuoc.getChuongTrinhKhuyenMaiEntity()!=null){
             this.giaBan=this.giaGoc*(1-(thuoc.getChuongTrinhKhuyenMaiEntity().getGiamGia()*0.01));
         }
@@ -69,7 +69,7 @@ public class ChiTietHoaDon {
         return thanhTien;
     }
 
-    public void setThanhTien(double thanhTien) {
+    public void setThanhTien() {
         this.thanhTien = giaBan*soLuong;
     }
 
