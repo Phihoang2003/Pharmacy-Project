@@ -845,6 +845,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
 
     private void btnXoaKhoiGioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnXoaKhoiGioActionPerformed
         // TODO add your handling code here:
+        xoaKhoiGioHang();
     }//GEN-LAST:event_btnXoaKhoiGioActionPerformed
 
     private void btnThemVaoGioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnThemVaoGioActionPerformed
@@ -876,10 +877,10 @@ public class BanHang_GUI extends javax.swing.JPanel {
         thuocDTO.setMaThuoc(maSP);
         thuocDTO.setTenThuoc(tenSP);
         thuocDTO.setHoatChatChinh(hoatChat);
-        thuocDTO.setDonViTinh(new DonViTinh(donVi));
-        thuocDTO.setQuyCachDongGoi(new QuyCachDongGoi(quyCach));
-        thuocDTO.setNhomHangHoa(new NhomHangHoa(nhomThuoc));
-        thuocDTO.setNuocSanXuat(new NuocSanXuat(nuoc));
+        thuocDTO.setDonViTinh(new DonViTinh(sp_bus.timSanPham(maSP).getDonViTinh().getMaDonViTinh(),donVi));
+        thuocDTO.setQuyCachDongGoi(new QuyCachDongGoi(sp_bus.timSanPham(maSP).getQuyCachDongGoi().getMaQuyCachDongGoi(),quyCach));
+        thuocDTO.setNhomHangHoa(new NhomHangHoa(sp_bus.timSanPham(maSP).getNhomHangHoa().getMaNhomHang(),nhomThuoc));
+        thuocDTO.setNuocSanXuat(new NuocSanXuat(sp_bus.timSanPham(maSP).getNuocSanXuat().getMaNuoc(),nuoc));
         thuocDTO.setDonGia(convert.toDouble(donGia));
         ChuongTrinhKhuyenMai ctkm=new ChuongTrinhKhuyenMai();
         ctkm.setGiamGia(Integer.parseInt(khuyenMai));
@@ -921,8 +922,56 @@ public class BanHang_GUI extends javax.swing.JPanel {
             });
         }
     }
+    public void capNhatSoLuong(){
+        int row=table_gioHang.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn sản phẩm cần cập nhật số lượng");
+            return;
+        }
+        if(!kiemTraSoLuongNhap()){
+            return;
+        }
+        int soLuong=(int)jSpinner1.getValue();
+        String maSP=table_gioHang.getValueAt(row, 0).toString();
+        for(ChiTietHoaDon cthd:cthdList){
+            if(cthd.getThuoc().getMaThuoc().equals(maSP)){
+                cthd.setSoLuong(soLuong);
+                cthd.setThanhTien();
+                tableModel_GioHang.setValueAt(soLuong, row, 4);
+                tableModel_GioHang.setValueAt(convert.toMoney(cthd.getThanhTien()), row, 7);
+                break;
+            }
+        }
+//        tinhTienGIoHang();
+        table_gioHang.clearSelection();
+        spinnerModel.setValue(1);
+        jSpinner1.setEnabled(false);
+
+    }
+    public void xoaKhoiGioHang(){
+        int row=table_gioHang.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(this,"Vui lòng chọn sản phẩm cần xóa");
+            return;
+        }
+        String maSP=table_gioHang.getValueAt(row, 0).toString();
+        ChiTietHoaDon chiTietHoaDon=new ChiTietHoaDon();
+        for(ChiTietHoaDon cthd:cthdList){
+            if(cthd.getThuoc().getMaThuoc().equals(maSP)){
+                chiTietHoaDon=cthd;
+                break;
+            }
+        }
+        cthdList.remove(chiTietHoaDon);
+        tableModel_GioHang.removeRow(row);
+        spinnerModel.setValue(0);
+        jSpinner1.setEnabled(false);
+//        tinhTienGioHang();
+
+    }
     private void btnCapNhatSoLuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatSoLuongActionPerformed
         // TODO add your handling code here:
+        capNhatSoLuong();
     }//GEN-LAST:event_btnCapNhatSoLuongActionPerformed
 
     private void btnTimKiemHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTimKiemHoaDonActionPerformed
