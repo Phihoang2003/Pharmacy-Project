@@ -2,7 +2,7 @@ package DAO;
 
 import DTO.CaLamViecEnum;
 import DTO.ChucVuEnum;
-import DTO.NhanVienDTO;
+import DTO.NhanVien;
 import DTO.TinhTrangNVEnum;
 import Interface.NhanVien_Interface;
 import config.JDBCUtil;
@@ -19,7 +19,7 @@ public class NhanVienDAO implements NhanVien_Interface {
     }
 
     @Override
-    public boolean insert(NhanVienDTO t) {
+    public boolean insert(NhanVien t) {
         int result=0;
         try{
             Connection con=(Connection) JDBCUtil.getConnection();
@@ -46,7 +46,7 @@ public class NhanVienDAO implements NhanVien_Interface {
     }
 
     @Override
-    public boolean update(NhanVienDTO t) {
+    public boolean update(NhanVien t) {
 
         int result=0;
         try{
@@ -77,15 +77,15 @@ public class NhanVienDAO implements NhanVien_Interface {
 
 
     @Override
-    public ArrayList<NhanVienDTO> selectAll() {
-        ArrayList<NhanVienDTO> result = new ArrayList<NhanVienDTO>();
+    public ArrayList<NhanVien> selectAll() {
+        ArrayList<NhanVien> result = new ArrayList<NhanVien>();
         try{
             Connection con=(Connection) JDBCUtil.getConnection();
             String  sql="SELECT * FROM `nhanvien`";
             PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
             ResultSet rs =pst.executeQuery(sql);
             while (rs.next()){
-                NhanVienDTO nv= new NhanVienDTO();
+                NhanVien nv= new NhanVien();
                 nv.setMaNhanVien(rs.getString("maNhanVien"));
                 nv.setHoTen(rs.getString("hoTen"));
                 nv.setGioiTinh(rs.getInt("gioiTinh"));
@@ -121,12 +121,12 @@ public class NhanVienDAO implements NhanVien_Interface {
     }
 
     @Override
-    public NhanVienDTO getNV(String sdt) throws SQLException {
+    public NhanVien getNV(String sdt) throws SQLException {
         return null;
     }
     @Override
-    public NhanVienDTO findBySDT(String sdt) {
-        NhanVienDTO nv = null;
+    public NhanVien findBySDT(String sdt) {
+        NhanVien nv = null;
         try {
             Connection con = JDBCUtil.getConnection();
             String sql = "SELECT * FROM `nhanvien` WHERE `sdt` = ?";
@@ -134,7 +134,7 @@ public class NhanVienDAO implements NhanVien_Interface {
             pst.setString(1, sdt);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                nv = new NhanVienDTO();
+                nv = new NhanVien();
                 nv.setMaNhanVien(rs.getString("maNhanVien"));
                 nv.setHoTen(rs.getString("hoTen"));
                 nv.setGioiTinh(rs.getInt("gioiTinh"));
@@ -161,8 +161,8 @@ public class NhanVienDAO implements NhanVien_Interface {
         return nv;
     }
     @Override
-    public NhanVienDTO selectById(String t) {
-        NhanVienDTO nv = null;
+    public NhanVien selectById(String t) {
+        NhanVien nv = null;
         try {
             Connection con = JDBCUtil.getConnection();
             String sql = "SELECT * FROM `nhanvien` WHERE `maNhanVien` = ?";
@@ -170,7 +170,7 @@ public class NhanVienDAO implements NhanVien_Interface {
             pst.setString(1, t);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {
-                nv = new NhanVienDTO();
+                nv = new NhanVien();
                 nv.setMaNhanVien(rs.getString("maNhanVien"));
                 nv.setHoTen(rs.getString("hoTen"));
                 nv.setGioiTinh(rs.getInt("gioiTinh"));
