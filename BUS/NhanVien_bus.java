@@ -1,7 +1,7 @@
 package BUS;
 
 import DAO.NhanVienDAO;
-import DTO.NhanVienDTO;
+import DTO.NhanVien;
 import Interface.NhanVien_Interface;
 
 import java.sql.SQLException;
@@ -16,33 +16,33 @@ public class NhanVien_bus implements NhanVien_Interface {
     }
 
     @Override
-    public NhanVienDTO getNV(String sdt) throws SQLException {
+    public NhanVien getNV(String sdt) throws SQLException {
         return NVdao.getNV(sdt);
     }
 
     @Override
-    public NhanVienDTO selectById(String id) {
+    public NhanVien selectById(String id) {
         return NVdao.selectById(id);
     }
 
     @Override
-    public NhanVienDTO findBySDT(String sdt) {
+    public NhanVien findBySDT(String sdt) {
         return NVdao.findBySDT(sdt);
     }
 
 
     @Override
-    public boolean update(NhanVienDTO updateNV) {
+    public boolean update(NhanVien updateNV) {
         return NVdao.update(updateNV);
     }
 
     @Override
-    public boolean insert(NhanVienDTO insertNV) {
+    public boolean insert(NhanVien insertNV) {
         return NVdao.insert(insertNV);
     }
 
     @Override
-    public ArrayList<NhanVienDTO> selectAll() {
+    public ArrayList<NhanVien> selectAll() {
         return NVdao.selectAll();
     }
 
