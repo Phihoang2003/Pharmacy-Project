@@ -1,20 +1,20 @@
 package Interface;
 
-import DTO.ThuocDTO;
+import DTO.Thuoc;
 import DTO.TinhTrangSPEnum;
 
 import java.util.ArrayList;
 
 public interface SanPham_Interface {
-    public ArrayList<ThuocDTO> selectAll();
+    public ArrayList<Thuoc> selectAll();
 
-    public boolean insert(ThuocDTO sp);
+    public boolean insert(Thuoc sp);
 
-    public ThuocDTO timSanPham(String ma);
+    public Thuoc timSanPham(String ma);
 
-    public boolean update(ThuocDTO sp);
+    public boolean update(Thuoc sp);
 
-    public ArrayList<ThuocDTO> kiemTraTonKho();
+    public ArrayList<Thuoc> kiemTraTonKho();
 
     public int laySoLuongTonKhoTheoMaSP(String maSP);
 
@@ -26,7 +26,7 @@ public interface SanPham_Interface {
 
     public void capNhatTinhTrang(String maSP, TinhTrangSPEnum tinhTrangDangBan);
 
-    public ThuocDTO selectById(String ma);
+    public Thuoc selectById(String ma);
     public boolean capNhatSoLuongTonSauKhiTaoHD(String maSP, int soLuong);
     public String getAutoIncrement();
 }
