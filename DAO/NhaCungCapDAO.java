@@ -116,14 +116,42 @@ public ArrayList<NhaCungCap> selectAll() {
 
     @Override
     public String layTenNhaCungCapTheoMa(String maNhaCungCap) {
-        return null;
+        String tenNCC=null;
+        try{
+            Connection con= JDBCUtil.getConnection();
+            String sql="SELECT tenNhaCungCap FROM `nhacungcap` WHERE `maNhaCungCap`=?";
+            PreparedStatement pst=con.prepareStatement(sql);
+            pst.setString(1,maNhaCungCap);
+            ResultSet rs=pst.executeQuery();
+            if(rs.next()){
+                tenNCC=rs.getString("tenNhaCungCap");
+            }
+            JDBCUtil.closeConnection(con);
+        }
+        catch(SQLException ex){
+            Logger.getLogger(PhieuNhapDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return tenNCC;
     }
 
     @Override
     public String layMaNhaCungCapTheoTen(String tenNhaCungCap) {
-        return null;
+        String maNCC = null;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            String sql = "SELECT maNhaCungCap FROM `nhacungcap` WHERE `tenNhaCungCap`=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, tenNhaCungCap);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                maNCC = rs.getString("maNhaCungCap");
+            }
+            JDBCUtil.closeConnection(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PhieuNhapDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return maNCC;
     }
-
     @Override
 public NhaCungCap selectById(String id) {
     NhaCungCap nhaCungCapDTO = null;
