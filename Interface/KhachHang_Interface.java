@@ -15,5 +15,5 @@ public interface KhachHang_Interface {
     public String getAutoIncrement();
     public KhachHang timKiemTheoSDT(String sdt);
 
-    public KhachHang getKHTheoMa(String ma);
+
 }
