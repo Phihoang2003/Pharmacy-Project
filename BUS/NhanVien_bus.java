@@ -4,20 +4,15 @@ import DAO.NhanVienDAO;
 import DTO.NhanVien;
 import Interface.NhanVien_Interface;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class NhanVien_bus implements NhanVien_Interface {
     NhanVienDAO NVdao = new NhanVienDAO();
 
-    @Override
-    public Boolean checkNV(String email, String sdt) throws SQLException {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
 
     @Override
-    public NhanVien getNV(String sdt) throws SQLException {
-        return NVdao.getNV(sdt);
+    public Boolean checkNV(String email, String sdt) {
+        return null;
     }
 
     @Override

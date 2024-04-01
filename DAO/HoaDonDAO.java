@@ -3,13 +3,10 @@ package DAO;
 import DTO.*;
 import Interface.HoaDon_Interface;
 
-import java.sql.ResultSet;
+import java.sql.*;
 import java.util.ArrayList;
 import config.JDBCUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,13 +36,13 @@ public class HoaDonDAO implements HoaDon_Interface {
             }
             ChiTietHoaDonDAO cthd_dao = new ChiTietHoaDonDAO();
             for(ChiTietHoaDon cthd:danhSachCTHD){
-                if(!cthd_dao.themChiTietHoaDon(cthd)){
+                if(cthd_dao.themChiTietHoaDon(cthd)){
                     return false;
                 }
             }
 
         }catch (SQLException ex){
-            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return result > 0;
     }
@@ -55,21 +52,21 @@ public class HoaDonDAO implements HoaDon_Interface {
         HoaDon hoaDon=null;
         try {
             Connection con=JDBCUtil.getConnection();
-            String sql = "SELECT * FROM hoadon WHERE maHD = ?";
+            String sql = "SELECT * FROM hoadon WHERE maHD = ? AND tinhTrang=1";
             PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
             pst.setString(1, maHD);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 hoaDon = new HoaDon();
                 hoaDon.setMaHD(rs.getString("maHD"));
-                hoaDon.setNhanVien(new NhanVienDTO(rs.getString("nhanVien")));
+                hoaDon.setNhanVien(new NhanVien(rs.getString("nhanVien")));
                 hoaDon.setChuongTrinhKM(new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM")));
                 hoaDon.setTongTien(rs.getDouble("tongTien"));
                 hoaDon.setTienKhuyenMai();
                 hoaDon.setTienThanhToan();
-                hoaDon.setNgayLapHD(rs.getDate("ngayLap"));
+                hoaDon.setNgayLapHD(rs.getDate("ngayLapHoaDon"));
                 hoaDon.setTinhTrang(rs.getInt("tinhTrang"));
-                hoaDon.setKhachHang(new KhachHangDTO(rs.getString("khachHang")));
+                hoaDon.setKhachHang(new KhachHang(rs.getString("khachHang")));
             }
             JDBCUtil.closeConnection(con);
         } catch (SQLException ex) {
@@ -104,7 +101,7 @@ public class HoaDonDAO implements HoaDon_Interface {
             }
             ChiTietHoaDonDAO cthd_dao = new ChiTietHoaDonDAO();
             for(ChiTietHoaDon cthd:danhSachCTHD){
-                if(!cthd_dao.themChiTietHoaDon(cthd)){
+                if(cthd_dao.themChiTietHoaDon(cthd)){
                     return false;
                 }
             }
@@ -139,7 +136,7 @@ public class HoaDonDAO implements HoaDon_Interface {
             boolean kq=cthd_dao.xoaChiTietHoaDon(hoaDon.getMaHD());
             if(kq){
                 for(ChiTietHoaDon cthd:danhSachCTHD){
-                    if(!cthd_dao.themChiTietHoaDon(cthd)){
+                    if(cthd_dao.themChiTietHoaDon(cthd)){
                         return false;
                     }
                 }
@@ -160,26 +157,175 @@ public class HoaDonDAO implements HoaDon_Interface {
         HoaDon hoadon=null;
         try{
             Connection con=JDBCUtil.getConnection();
-            String sql = "SELECT * FROM hoadon WHERE maHD = ?";
+            String sql = "SELECT hd.*,kh.tenKhachHang, kh.soDienThoai,kh.ngayThamGia, kh.diaChi,kh.gioiTinh FROM hoadon as hd join khachhang as kh on hd.khachHang=kh.maKhachHang where maHD = ? AND tinhTrang=1";
             PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
             pst.setString(1, maHD);
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                hoadon = new HoaDon();
-                hoadon.setMaHD(rs.getString("maHD"));
-                hoadon.setNhanVien(new NhanVienDTO(rs.getString("nhanVien")));
-                hoadon.setChuongTrinhKM(new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM")));
-                hoadon.setTongTien(rs.getDouble("tongTien"));
-                hoadon.setTienKhuyenMai();
-                hoadon.setTienThanhToan();
-                hoadon.setNgayLapHD(rs.getDate("ngayLapHoaDon"));
-                hoadon.setTinhTrang(rs.getInt("tinhTrang"));
-                hoadon.setKhachHang(new KhachHangDTO(rs.getString("khachHang")));
+                String maHoaDon= rs.getString("maHD");
+                String maKH= rs.getString("khachHang");
+                String hoTen= rs.getString("tenKhachHang");
+                String sdt= rs.getString("soDienThoai");
+                String diaChi= rs.getString("diaChi");
+                int gioiTinh= rs.getInt("gioiTinh");
+                KhachHang kh= new KhachHang(maKH, hoTen, diaChi, sdt, gioiTinh);
+                NhanVien nv= new NhanVien(rs.getString("nhanVien"));
+                ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM"));
+                double tongTien= rs.getDouble("tongTien");
+                double tienKhuyenMai= rs.getDouble("tienKhuyenMai");
+                double tienThanhToan= rs.getDouble("tienThanhToan");
+                Date ngayLap= rs.getDate("ngayLapHoaDon");
+                int tinhTrang= rs.getInt("tinhTrang");
+                hoadon= new HoaDon(maHoaDon, ngayLap, kh, nv, ctkm, tienKhuyenMai, tongTien, tienThanhToan, tinhTrang);
+
             }
             JDBCUtil.closeConnection(con);
         } catch (SQLException ex) {
             Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         return hoadon;
+    }
+
+    @Override
+    public ArrayList<HoaDon> timKiemHoaDonChuaThanhToan(String sdt) {
+        ArrayList<HoaDon> list = new ArrayList<>();
+        try{
+            Connection con=JDBCUtil.getConnection();
+            String sql = "SELECT hd.*,kh.tenKhachHang, kh.gioiTinh, kh.soDienThoai,kh.ngayThamGia, kh.diaChi FROM hoadon as hd join khachhang as kh on hd.khachHang=kh.maKhachHang where tinhTrang=0 and kh.soDienThoai=?";
+            PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
+            pst.setString(1, sdt);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()){
+                String maHD= rs.getString("maHD");
+                String maKH= rs.getString("khachHang");
+                String hoTen= rs.getString("tenKhachHang");
+                String sdt1= rs.getString("soDienThoai");
+                String diaChi= rs.getString("diaChi");
+                int gioiTinh= rs.getInt("gioiTinh");
+                Date ngayThamGia= rs.getDate("ngayThamGia");
+                KhachHang kh= new KhachHang(maKH, hoTen, diaChi, sdt1, ngayThamGia, gioiTinh);
+                NhanVien nv= new NhanVien(rs.getString("nhanVien"));
+                ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM"));
+                double tongTien= rs.getDouble("tongTien");
+                double tienKhuyenMai= rs.getDouble("tienKhuyenMai");
+                double tienThanhToan= rs.getDouble("tienThanhToan");
+                Date ngayLap= rs.getDate("ngayLapHoaDon");
+                int tinhTrang= rs.getInt("tinhTrang");
+                HoaDon hd= new HoaDon(maHD, ngayLap, kh, nv, ctkm, tienKhuyenMai, tongTien, tienThanhToan, tinhTrang);
+
+                list.add(hd);
+            }
+        }catch(SQLException ex){
+            Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    @Override
+    public int getSoLuongTonTheoMa(String maSP) {
+        return 0;
+    }
+
+    @Override
+    public ArrayList<HoaDon> getAllHDChuaThanhToan() {
+        PreparedStatement pst=null;
+        ArrayList<HoaDon> list = new ArrayList<>();
+        try{
+            Connection con=JDBCUtil.getConnection();
+            String sqldel = "Delete from hoadon where year(ngayLapHoaDon)=year(now()) and month(ngayLapHoaDon)=month(now()) and day(ngayLapHoaDon)<day(now()) and tinhTrang=0";
+             pst= (PreparedStatement) con.prepareStatement(sqldel);
+            pst.executeUpdate();
+            String sql = "SELECT hd.*,kh.tenKhachHang, kh.gioiTinh, kh.soDienThoai,kh.ngayThamGia, kh.diaChi FROM hoadon as hd join khachhang as kh on hd.khachHang=kh.maKhachHang where tinhTrang=0";
+            pst = (PreparedStatement) con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()){
+                String maHD= rs.getString("maHD");
+                String maKH= rs.getString("khachHang");
+                String hoTen= rs.getString("tenKhachHang");
+                String sdt= rs.getString("soDienThoai");
+                String diaChi= rs.getString("diaChi");
+                int gioiTinh= rs.getInt("gioiTinh");
+                Date ngayThamGia= rs.getDate("ngayThamGia");
+                KhachHang kh= new KhachHang(maKH, hoTen, diaChi, sdt, ngayThamGia, gioiTinh);
+                NhanVien nv= new NhanVien(rs.getString("nhanVien"));
+                ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM"));
+                double tongTien= rs.getDouble("tongTien");
+                double tienKhuyenMai= rs.getDouble("tienKhuyenMai");
+                double tienThanhToan= rs.getDouble("tienThanhToan");
+                Date ngayLap= rs.getDate("ngayLapHoaDon");
+                int tinhTrang= rs.getInt("tinhTrang");
+                HoaDon hd= new HoaDon(maHD, ngayLap, kh, nv, ctkm, tienKhuyenMai, tongTien, tienThanhToan, tinhTrang);
+
+                list.add(hd);
+            }
+
+        }
+        catch(SQLException ex){
+            Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return list;
+    }
+
+    @Override
+    public double getTongTien(String maHD) {
+        return 0;
+    }
+
+    @Override
+    public ArrayList<HoaDon> getHoaDonTheoNgayLap(Date ngayLap) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<HoaDon> getHoaDonTheoMaHDvaNgayLap(String maHD, java.util.Date ngayLap) {
+        return null;
+    }
+
+    @Override
+    public boolean capNhatHoaDonLuuTam(HoaDon hoaDon, ArrayList<ChiTietHoaDon> danhSachCTHD) {
+        try{
+            Connection con = JDBCUtil.getConnection();
+            String sql = "Update hoadon set nhanVien=?, chuongTrinhKM=?, ngayLapHoaDon=?, tienKhuyenMai=?, tongTien=?, tienThanhToan=?, tinhTrang=? where maHD=? and khachHang=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, hoaDon.getNhanVien().getMaNhanVien());
+            pst.setString(2, hoaDon.getChuongTrinhKM().getMaCTKM());
+            pst.setDate(3, hoaDon.getNgayLapHD());
+            pst.setDouble(4, hoaDon.getTienKhuyenMai());
+            pst.setDouble(5, hoaDon.getTongTien());
+            pst.setDouble(6, hoaDon.getTienThanhToan());
+            pst.setInt(7, 0);
+            pst.setString(8, hoaDon.getMaHD());
+            pst.setString(9, hoaDon.getKhachHang().getMaKhachHang());
+            int result = pst.executeUpdate();
+            if(result<1){
+                System.out.println("false -1");
+                return false;
+            }
+            ChiTietHoaDonDAO cthd_dao = new ChiTietHoaDonDAO();
+            boolean kq=cthd_dao.xoaChiTietHoaDon(hoaDon.getMaHD());
+            System.out.println("kq: "+kq);
+            if(kq){
+                for(ChiTietHoaDon cthd:danhSachCTHD){
+                    if(cthd_dao.themChiTietHoaDon(cthd)){
+                        System.out.println("false 0");
+                        return false;
+                    }
+                }
+            }
+            else {
+                System.out.println("false 1");
+                return false;
+            }
+            JDBCUtil.closeConnection(con);
+            return true;
+        }
+
+        catch(SQLException ex){
+            Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
     }
 }

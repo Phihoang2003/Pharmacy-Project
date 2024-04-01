@@ -1,8 +1,7 @@
 package BUS;
 
-import DAO.NhanVienDAO;
 import DAO.ThuocDAO;
-import DTO.ThuocDTO;
+import DTO.Thuoc;
 import DTO.TinhTrangSPEnum;
 import Interface.SanPham_Interface;
 
@@ -12,27 +11,27 @@ public class SanPham_bus implements SanPham_Interface {
     ThuocDAO thuocDAO = new ThuocDAO();
 
     @Override
-    public ArrayList<ThuocDTO> selectAll() {
+    public ArrayList<Thuoc> selectAll() {
         return null;
     }
 
     @Override
-    public boolean insert(ThuocDTO sp) {
+    public boolean insert(Thuoc sp) {
         return thuocDAO.insert(sp);
     }
 
     @Override
-    public ThuocDTO timSanPham(String ma) {
+    public Thuoc timSanPham(String ma) {
         return thuocDAO.timSanPham(ma);
     }
 
     @Override
-    public boolean update(ThuocDTO sp) {
+    public boolean update(Thuoc sp) {
         return false;
     }
 
     @Override
-    public ArrayList<ThuocDTO> kiemTraTonKho() {
+    public ArrayList<Thuoc> kiemTraTonKho() {
         return null;
     }
 
@@ -62,13 +61,13 @@ public class SanPham_bus implements SanPham_Interface {
     }
 
     @Override
-    public ThuocDTO selectById(String ma) {
+    public Thuoc selectById(String ma) {
         return thuocDAO.selectById(ma);
     }
 
     @Override
     public boolean capNhatSoLuongTonSauKhiTaoHD(String maSP, int soLuong) {
-        return false;
+        return thuocDAO.capNhatSoLuongTonSauKhiTaoHD(maSP, soLuong);
     }
 
     @Override

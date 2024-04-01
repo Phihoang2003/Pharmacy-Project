@@ -3,7 +3,7 @@ package DTO;
 import java.util.Date;
 import java.util.Objects;
 
-public class NhanVienDTO {
+public class NhanVien {
     private String maNhanVien;
     private String hoTen;
     private int gioiTinh;
@@ -16,9 +16,9 @@ public class NhanVienDTO {
     private Date ngayVaoLam;
     private CaLamViecEnum caLamViec;
 
-    public NhanVienDTO() {
+    public NhanVien() {
     }
-    public NhanVienDTO(String maNhanVien) {
+    public NhanVien(String maNhanVien) {
         this.maNhanVien = maNhanVien;
     }
 
@@ -38,7 +38,7 @@ public class NhanVienDTO {
         this.chucVu = chucVu;
     }
 
-    public NhanVienDTO(String maNhanVien, String hoTen, String diaChi, int gioiTinh, String sdt, Date ngaySinh, TinhTrangNVEnum trangThai, ChucVuEnum chucVu, String email, Date ngayVaoLam, CaLamViecEnum caLamViec) {
+    public NhanVien(String maNhanVien, String hoTen, String diaChi, int gioiTinh, String sdt, Date ngaySinh, TinhTrangNVEnum trangThai, ChucVuEnum chucVu, String email, Date ngayVaoLam, CaLamViecEnum caLamViec) {
         this.maNhanVien = maNhanVien;
         this.hoTen = hoTen;
         this.gioiTinh = gioiTinh;
@@ -128,7 +128,7 @@ public class NhanVienDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        NhanVienDTO that = (NhanVienDTO) o;
+        NhanVien that = (NhanVien) o;
         return maNhanVien.equals(that.maNhanVien) ;
     }
 

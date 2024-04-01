@@ -31,4 +31,21 @@ public class NhomHangHoaDAO {
         }
         return nhomHangHoa;
     }
+    public String getTenNhomHangHoa(String maNhom) {
+        String tenNhom = null;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            String sql = "SELECT tenNhom FROM nhomhanghoa WHERE maNhom = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, maNhom);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+                tenNhom = rs.getString("tenNhom");
+            }
+            JDBCUtil.closeConnection(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(NhomHangHoaDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return tenNhom;
+    }
 }

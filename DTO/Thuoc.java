@@ -3,7 +3,7 @@ package DTO;
 import java.util.Date;
 import java.util.Objects;
 
-public class ThuocDTO {
+public class Thuoc {
     private String maThuoc;
     private String tenThuoc;
     private Date hanSuDung;
@@ -21,14 +21,14 @@ public class ThuocDTO {
     private String dieuKienBaoQuan;
     private TinhTrangSPEnum trangThai;
 
-    public ThuocDTO(String maThuoc) {
+    public Thuoc(String maThuoc) {
         this.maThuoc = maThuoc;
     }
 
-    public ThuocDTO() {
+    public Thuoc() {
     }
 
-    public ThuocDTO(String maThuoc, String tenThuoc, Date hanSuDung,  String hoatChatChinh, double khoiLuong, String imgUrl, String duongDung, DonViTinh donViTinh, NhomHangHoa nhomHangHoa, ChuongTrinhKhuyenMai chuongTrinhKhuyenMaiEntity, QuyCachDongGoi quyCachDongGoi, NuocSanXuat nuocSanXuat, double donGia, int soLuongTon, String dieuKienBaoQuan, TinhTrangSPEnum trangThai) {
+    public Thuoc(String maThuoc, String tenThuoc, Date hanSuDung, String hoatChatChinh, double khoiLuong, String imgUrl, String duongDung, DonViTinh donViTinh, NhomHangHoa nhomHangHoa, ChuongTrinhKhuyenMai chuongTrinhKhuyenMaiEntity, QuyCachDongGoi quyCachDongGoi, NuocSanXuat nuocSanXuat, double donGia, int soLuongTon, String dieuKienBaoQuan, TinhTrangSPEnum trangThai) {
         this.maThuoc = maThuoc;
         this.tenThuoc = tenThuoc;
         this.hanSuDung = hanSuDung;
@@ -181,7 +181,7 @@ public class ThuocDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ThuocDTO thuocDTO = (ThuocDTO) o;
+        Thuoc thuocDTO = (Thuoc) o;
         return Objects.equals(maThuoc, thuocDTO.maThuoc);
     }
 

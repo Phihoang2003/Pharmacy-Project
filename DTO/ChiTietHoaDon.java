@@ -1,14 +1,14 @@
 package DTO;
 
 public class ChiTietHoaDon {
-    private ThuocDTO thuoc;
+    private Thuoc thuoc;
     private HoaDon hoaDon;
     private int soLuong;
     private double giaGoc;
     private double giaBan;
     private double thanhTien;
 
-    public ChiTietHoaDon(ThuocDTO thuoc, HoaDon hoaDon, int soLuong, double giaGoc, double giaBan, double thanhTien) {
+    public ChiTietHoaDon(Thuoc thuoc, HoaDon hoaDon, int soLuong, double giaGoc, double giaBan, double thanhTien) {
         this.thuoc = thuoc;
         this.hoaDon = hoaDon;
         this.soLuong = soLuong;
@@ -20,11 +20,11 @@ public class ChiTietHoaDon {
     public ChiTietHoaDon() {
     }
 
-    public ThuocDTO getThuoc() {
+    public Thuoc getThuoc() {
         return thuoc;
     }
 
-    public void setThuoc(ThuocDTO thuoc) {
+    public void setThuoc(Thuoc thuoc) {
         this.thuoc = thuoc;
     }
 

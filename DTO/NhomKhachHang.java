@@ -2,17 +2,17 @@ package DTO;
 
 import java.util.Objects;
 
-public class NhomKhachHangDTO {
+public class NhomKhachHang {
     private String maNhom;
     private String tenNhom;
     private String ghiChu;
 
-    public NhomKhachHangDTO() {
+    public NhomKhachHang() {
     }
-    public NhomKhachHangDTO(String maNhom) {
+    public NhomKhachHang(String maNhom) {
         this.maNhom = maNhom;
     }
-    public NhomKhachHangDTO(String maNhom, String tenNhom, String ghiChu) {
+    public NhomKhachHang(String maNhom, String tenNhom, String ghiChu) {
         this.maNhom = maNhom;
         this.tenNhom = tenNhom;
         this.ghiChu = ghiChu;
@@ -46,7 +46,7 @@ public class NhomKhachHangDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        NhomKhachHangDTO that = (NhomKhachHangDTO) o;
+        NhomKhachHang that = (NhomKhachHang) o;
         return maNhom.equals(that.maNhom) ;
     }
 

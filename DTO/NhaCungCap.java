@@ -2,7 +2,7 @@ package DTO;
 
 import java.util.Objects;
 
-public class NhaCungCapDTO {
+public class NhaCungCap {
     private String maNhaCungCap;
     private String tenNhaCungCap;
     private String diaChi;
@@ -10,13 +10,13 @@ public class NhaCungCapDTO {
 
     private int trangThai;
 
-    public NhaCungCapDTO() {
+    public NhaCungCap() {
     }
 
-    public NhaCungCapDTO(String maNhaCungCap) {
+    public NhaCungCap(String maNhaCungCap) {
         this.maNhaCungCap = maNhaCungCap;
     }
-    public NhaCungCapDTO( String tenNhaCungCap, String diaChi, String soDienThoai,  int trangThai) {
+    public NhaCungCap(String tenNhaCungCap, String diaChi, String soDienThoai, int trangThai) {
 
         this.tenNhaCungCap = tenNhaCungCap;
         this.diaChi = diaChi;
@@ -24,7 +24,7 @@ public class NhaCungCapDTO {
 
         this.trangThai = trangThai;
     }
-    public NhaCungCapDTO(String maNhaCungCap, String tenNhaCungCap, String diaChi, String soDienThoai,  int trangThai) {
+    public NhaCungCap(String maNhaCungCap, String tenNhaCungCap, String diaChi, String soDienThoai, int trangThai) {
         this.maNhaCungCap = maNhaCungCap;
         this.tenNhaCungCap = tenNhaCungCap;
         this.diaChi = diaChi;
@@ -81,7 +81,7 @@ public class NhaCungCapDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        NhaCungCapDTO that = (NhaCungCapDTO) o;
+        NhaCungCap that = (NhaCungCap) o;
         return maNhaCungCap.equals(that.maNhaCungCap) ;
     }
 

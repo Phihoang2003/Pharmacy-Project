@@ -2,8 +2,11 @@ package DTO;
 
 
 import java.util.Date;
+import java.util.Objects;
 
 public class PhieuNhap {
+
+
     private String maPN;
     private NhaCungCap nhaCungCap;
     private Thuoc thuoc;
@@ -59,5 +62,29 @@ public class PhieuNhap {
 
     public void setNgayNhap(Date ngayNhap) {
         this.ngayNhap = ngayNhap;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PhieuNhap phieuNhap = (PhieuNhap) o;
+        return Objects.equals(maPN, phieuNhap.maPN);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(maPN);
+    }
+
+    @Override
+    public String toString() {
+        return "PhieuNhap{" +
+                "maPN='" + maPN + '\'' +
+                ", nhaCungCap=" + nhaCungCap +
+                ", thuoc=" + thuoc +
+                ", soLuongNhap=" + soLuongNhap +
+                ", ngayNhap=" + ngayNhap +
+                '}';
     }
 }

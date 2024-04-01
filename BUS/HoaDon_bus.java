@@ -5,6 +5,7 @@ import DTO.ChiTietHoaDon;
 import DTO.HoaDon;
 import Interface.HoaDon_Interface;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class HoaDon_bus implements HoaDon_Interface{
@@ -41,16 +42,36 @@ public class HoaDon_bus implements HoaDon_Interface{
 
     @Override
     public ArrayList<HoaDon> timKiemHoaDonChuaThanhToan(String sdt) {
-        return null;
+        return hd_dao.timKiemHoaDonChuaThanhToan(sdt);
     }
 
     @Override
     public int getSoLuongTonTheoMa(String maSP) {
-        return 0;
+        return hd_dao.getSoLuongTonTheoMa(maSP);
     }
 
     @Override
     public ArrayList<HoaDon> getAllHDChuaThanhToan() {
         return hd_dao.getAllHDChuaThanhToan();
+    }
+
+    @Override
+    public double getTongTien(String maHD) {
+        return hd_dao.getTongTien(maHD);
+    }
+
+    @Override
+    public ArrayList<HoaDon> getHoaDonTheoNgayLap(Date ngayLap) {
+        return hd_dao.getHoaDonTheoNgayLap(ngayLap);
+    }
+
+    @Override
+    public ArrayList<HoaDon> getHoaDonTheoMaHDvaNgayLap(String maHD, java.util.Date ngayLap) {
+        return hd_dao.getHoaDonTheoMaHDvaNgayLap(maHD,ngayLap);
+    }
+
+    @Override
+    public boolean capNhatHoaDonLuuTam(HoaDon hoaDon, ArrayList<ChiTietHoaDon> danhSachCTHD) {
+        return hd_dao.capNhatHoaDonLuuTam(hoaDon,danhSachCTHD);
     }
 }

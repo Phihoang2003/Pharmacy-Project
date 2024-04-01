@@ -90,16 +90,24 @@ public class PhieuNhapDAO implements PhieuNhap_Interface {
 
 
     @Override
-    public boolean update(PhieuNhap mhn) {
-//        int result=0;
-//        try{
-//            String sql="UPDATE 'phieunhap' SET 'maPN'=?,'nhaCungCap'=?,'thuoc'=?,'soLuongNhap'=?,'ngayNhap'=? where maPN=?";
-//
-//        }catch{
-//
-//        }
-        return false;
+public boolean update(PhieuNhap mhn) {
+    int result = 0;
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "UPDATE `phieunhap` SET `maNCC`=?, `maThuoc`=?, `soLuongNhap`=?, `ngayNhap`=? WHERE `maPN`=?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, mhn.getNhaCungCap().getMaNhaCungCap());
+        pst.setString(2, mhn.getThuoc().getMaThuoc());
+        pst.setInt(3, mhn.getSoLuongNhap());
+        pst.setDate(4, new java.sql.Date(mhn.getNgayNhap().getTime()));
+        pst.setString(5, mhn.getMaPN());
+        result = pst.executeUpdate();
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(PhieuNhapDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return result > 0;
+}
 
     @Override
     public boolean kiemTraMaMatHangNhapTonTai(String maMHN) {

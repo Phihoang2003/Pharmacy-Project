@@ -116,14 +116,12 @@ public class NhanVienDAO implements NhanVien_Interface {
     }
 
     @Override
-    public Boolean checkNV(String email, String sdt) throws SQLException {
+    public Boolean checkNV(String email, String sdt)  {
         return null;
     }
 
-    @Override
-    public NhanVien getNV(String sdt) throws SQLException {
-        return null;
-    }
+
+
     @Override
     public NhanVien findBySDT(String sdt) {
         NhanVien nv = null;

@@ -1,14 +1,10 @@
 
 import DAO.*;
 import DTO.*;
-import config.JDBCUtil;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
-
+import java.sql.Date;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
@@ -46,6 +42,11 @@ public class Main {
 //       KhachHangDAO kh_dao= KhachHangDAO.getInstance();
 //         ArrayList<KhachHangDTO> list= kh_dao.selectAll();
 //         System.out.println(list);
+
+        //Test timKiemTheo Sdt
+//        KhachHangDAO kh_dao= KhachHangDAO.getInstance();
+//        KhachHang kh= kh_dao.timKiemTheoSDT("1234");
+//        System.out.println(kh);
 //        test selectById KhachHang
 //        KhachHangDAO kh_dao= KhachHangDAO.getInstance();
 //        KhachHangDTO kh= kh_dao.selectById("NV839306001");
@@ -82,7 +83,7 @@ public class Main {
 
 //        Test add NhaCungCap
 //        NhaCungCapDAO ncc_dao= NhaCungCapDAO.getInstance();
-//        NhaCungCapDTO ncc= new NhaCungCapDTO(ncc_dao.getAutoIncrement(),"Nha cung cap 8","75478","98424",0);
+//        NhaCungCap ncc= new NhaCungCap(ncc_dao.getAutoIncrement(),"Nha cung cap 8","75478","98424",0);
 //        ncc_dao.insert(ncc);
         //Test update NhaCungCap
 //        NhaCungCapDAO ncc_dao= NhaCungCapDAO.getInstance();
@@ -91,7 +92,7 @@ public class Main {
 
         //Test selectById NhaCungCap
 //        NhaCungCapDAO ncc_dao= NhaCungCapDAO.getInstance();
-//        NhaCungCapDTO ncc= ncc_dao.selectById("NCC201197835");
+//        NhaCungCap ncc= ncc_dao.selectById("NCC626751936");
 //        System.out.println(ncc);
 
     //Test getDSNhaCungCapDangNhap
@@ -122,9 +123,9 @@ public class Main {
 //        thuoc_dao.insert(thuoc);
 
         //test selectById Thuoc
-        ThuocDAO thuoc_dao= ThuocDAO.getInstance();
-        ThuocDTO thuoc= thuoc_dao.timSanPham("TH623623627");
-        System.out.println(thuoc);
+//        ThuocDAO thuoc_dao= ThuocDAO.getInstance();
+//        Thuoc thuoc= thuoc_dao.timSanPham("TH623623627");
+//        System.out.println(thuoc);
 
         //Test insert ChuongTrinhKhuyenMai
 //        ChuongTrinhKhuyenMaiDAO ctkm_dao= ChuongTrinhKhuyenMaiDAO.getInstance();
@@ -133,6 +134,12 @@ public class Main {
 //
 //        Calendar ngayKetThucCalendar = Calendar.getInstance();
 //        ngayKetThucCalendar.set(2023, Calendar.APRIL, 12);
+
+        //test kiemTraKhuyenMai
+//        ChuongTrinhKhuyenMaiDAO ctkm_dao= ChuongTrinhKhuyenMaiDAO.getInstance();
+//        ChuongTrinhKhuyenMai ctkm=ctkm_dao.kiemTraKhuyenMai(120000);
+//        System.out.println(ctkm);
+
 
         // Chuyển đối tượng Calendar sang java.sql.Date
 //        Date ngayBatDau = new Date(ngayBatDauCalendar.getTimeInMillis());
@@ -154,7 +161,7 @@ public class Main {
 //        ArrayList<ChiTietHoaDon> danhSachCTHD= new ArrayList<>();
 //        //select thuoc
 //        ThuocDAO thuoc_dao= ThuocDAO.getInstance();
-//        ThuocDTO thuoc= thuoc_dao.selectById("TH529301952");
+//        Thuoc thuoc= thuoc_dao.selectById("TH623623627");
 //Test themHoaDonLuuTam
 //        HoaDonDAO hd_dao= HoaDonDAO.getInstance();
 //        HoaDon hd= hd_dao.getHoaDonTheoMaHD("HD466187718");
@@ -164,8 +171,82 @@ public class Main {
 //        hd_dao.luuTamHoaDon(hd,danhSachCTHD);
 //        hd_dao.themHoaDonLuuTam(hd,danhSachCTHD);
 
+        //Test insert PhieuNhap
+//        PhieuNhapDAO pn_dao= PhieuNhapDAO.getInstance();
+//        Calendar ngayNhapCalendar = Calendar.getInstance();
+//        ngayNhapCalendar.set(2025, Calendar.APRIL, 18);
+//        Date ngayNhap = new Date(ngayNhapCalendar.getTimeInMillis());
+//        PhieuNhap pn= new PhieuNhap(pn_dao.getAutoIncrement(),ncc,thuoc,100,ngayNhap);
+//        pn_dao.insert(pn);
+
+        //selectAll PhieuNhap
+//        PhieuNhapDAO pn_dao= PhieuNhapDAO.getInstance();
+//        ArrayList<PhieuNhap> list= pn_dao.selectAll();
+//        System.out.println(list);
+
+        //TimKiem PhieuNhap
+//        PhieuNhapDAO pn_dao= PhieuNhapDAO.getInstance();
+//        Calendar ngayNhapCalendar = Calendar.getInstance();
+//        ngayNhapCalendar.set(2025, Calendar.APRIL, 18);
+//        Date ngayNhap = new Date(ngayNhapCalendar.getTimeInMillis());
+//        ArrayList<PhieuNhap> list= pn_dao.timKiemMHN(ngayNhap);
+//        System.out.println(list);
+
+        //Test capNhatsoluong thuoc
+//        ThuocDAO thuoc_dao= ThuocDAO.getInstance();
+//        thuoc_dao.capNhatSoLuong("TH623623627",100);
+
+        //get so luong ton
+//       ThuocDAO thuoc_dao= ThuocDAO.getInstance();
+//        int soLuong= thuoc_dao.laySoLuongTonKhoTheoMaSP("TH623623627");
+//        System.out.println(soLuong);
+
+        //getTK
+//        TaiKhoanDAO tk_dao= TaiKhoanDAO.getInstance();
+//        TaiKhoan tk= tk_dao.getTK("012345","123");
+//        System.out.println(tk);
+
+        //getAllHoaDonChuaThanhToan
+//        HoaDonDAO hd_dao= HoaDonDAO.getInstance();
+//        ArrayList<HoaDon> list= hd_dao.getAllHDChuaThanhToan();
+//        System.out.println(list);
+        //TimKiemHoaDonChuaThanhToan
+//       HoaDonDAO hd_dao= HoaDonDAO.getInstance();
+//        ArrayList<HoaDon> list= hd_dao.timKiemHoaDonChuaThanhToan("12344");
+//        System.out.println(list);
 
 
+    //getAllCTHDTheoMaHD
+//        ChiTietHoaDonDAO cthd_dao= ChiTietHoaDonDAO.getInstance();
+//        ArrayList<ChiTietHoaDon> list= cthd_dao.getAllCTHDTheoMaHD("HD320441756");
+//        System.out.println(list);
 
+        //TaoDoiTra
+//        DoiTraDAO dt_dao= DoiTraDAO.getInstance();
+//        HoaDonDAO hd_dao= HoaDonDAO.getInstance();
+//        HoaDon hd= hd_dao.getHoaDonTheoMaHD("HD575625097");
+//        NhanVienDAO nv_dao= NhanVienDAO.getInstance();
+//        NhanVien nv= nv_dao.selectById("NV2345");
+//        DoiTra dt= new DoiTra(dt_dao.getAutoIncrement(),hd,nv,HinhThucDoiTraEnum.DOIMOI,"Khong hop",new Date(2023,Calendar.APRIL,12),100000);
+//        ArrayList<ChiTietDoiTra> danhSachCTDT= new ArrayList<>();
+////select thuoc
+//        ThuocDAO thuoc_dao= ThuocDAO.getInstance();
+//        Thuoc thuoc= thuoc_dao.selectById("TH623623627");
+//        ChiTietDoiTra ctdt1= new ChiTietDoiTra(thuoc,dt,5,200000,400000);
+//        danhSachCTDT.add(ctdt1);
+//        dt_dao.taoDoiTra(dt,danhSachCTDT);
+
+        //getAllDoiTra
+
+        //KiemTraHanDoiTra
+//       DoiTraDAO dt_dao= DoiTraDAO.getInstance();
+//        boolean kq=dt_dao.kiemTraThoiHanDoiTra("HD575625097");
+//        System.out.println(kq);
+
+
+        //getDoiTraTheoMa
+     DoiTraDAO dt_dao= DoiTraDAO.getInstance();
+     DoiTra dt= dt_dao.getDoiTraTheoMa("DT833810271");
+        System.out.println(dt);
     }
 }

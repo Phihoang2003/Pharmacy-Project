@@ -1,8 +1,10 @@
 package utils;
 
+import DTO.HinhThucDoiTraEnum;
 import DTO.TinhTrangHoaDonEnum;
 import DTO.TinhTrangNVEnum;
 import DTO.TinhTrangSPEnum;
+
 
 public class ConvertStringToEnum {
     public ConvertStringToEnum() {
@@ -30,6 +32,15 @@ public class ConvertStringToEnum {
             return TinhTrangHoaDonEnum.DATHANHTOAN;
         }
         return TinhTrangHoaDonEnum.CHUATHANHTOAN;
+    }
+    public HinhThucDoiTraEnum HinhThucDTToEnum(String hinhThuc) {
+        if(hinhThuc.equals("Hoàn trả")) {
+            return HinhThucDoiTraEnum.HOANTRA;
+        }
+        if(hinhThuc.equals("Đổi mới")) {
+            return HinhThucDoiTraEnum.DOIMOI;
+        }
+        return HinhThucDoiTraEnum.HOANTRA;
     }
 
 }

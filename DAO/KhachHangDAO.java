@@ -1,8 +1,9 @@
 package DAO;
 
-import DTO.KhachHangDTO;
-import DTO.NhomKhachHangDTO;
+import DTO.KhachHang;
+import DTO.NhomKhachHang;
 import Interface.DaoInterface;
+import Interface.KhachHang_Interface;
 import config.JDBCUtil;
 
 import java.sql.*;
@@ -11,12 +12,12 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class KhachHangDAO implements DaoInterface<KhachHangDTO> {
+public class KhachHangDAO implements KhachHang_Interface {
     public static KhachHangDAO getInstance() {
         return new KhachHangDAO();
     }
     @Override
-    public int insert(KhachHangDTO t) {
+    public boolean insert(KhachHang t) {
         int result=0;
         try {
             Connection con = (Connection) JDBCUtil.getConnection();
@@ -26,17 +27,17 @@ public class KhachHangDAO implements DaoInterface<KhachHangDTO> {
             pst.setString(2,t.getHoTen());
             pst.setString(3,t.getSdt());
             pst.setString(4,t.getDiaChi());
-            pst.setString(5,t.getNhomKhachHang().getMaNhom());
+            pst.setInt(5,t.getGioiIinh());
             result=pst.executeUpdate();
             JDBCUtil.closeConnection(con);
         }catch(SQLException ex){
             Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return result;
+        return result>0;
     }
 
     @Override
-    public int update(KhachHangDTO t) {
+    public boolean update(KhachHang t) {
         int result=0;
         try{
             Connection con=(Connection) JDBCUtil.getConnection();
@@ -46,7 +47,7 @@ public class KhachHangDAO implements DaoInterface<KhachHangDTO> {
             pst.setString(2,t.getHoTen());
             pst.setString(3,t.getDiaChi());
             pst.setString(4,t.getSdt());
-            pst.setString(5,t.getNhomKhachHang().getMaNhom());
+            pst.setInt(5,t.getGioiIinh());
             pst.setString(6,t.getMaKhachHang());
             result=pst.executeUpdate();
             JDBCUtil.closeConnection(con);
@@ -54,45 +55,28 @@ public class KhachHangDAO implements DaoInterface<KhachHangDTO> {
             Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
 
         }
-        return result;
+        return result>0;
     }
 
 
-    public int delete(String t) {
-        int result=0;
-        try{
-            Connection con=(Connection) JDBCUtil.getConnection();
-            String sql="UPDATE `khachhang`SET `trangThai`=0 WHERE `maKhachHang`=?";
-            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
-            pst.setString(1,t);
-            result=pst.executeUpdate();
-            JDBCUtil.closeConnection(con);
-        }catch(SQLException ex){
-            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return result;
-    }
+
 
     @Override
 
-public ArrayList<KhachHangDTO> selectAll() {
-    ArrayList<KhachHangDTO> list = new ArrayList<>();
+public ArrayList<KhachHang> selectAll() {
+    ArrayList<KhachHang> list = new ArrayList<>();
     try {
         Connection con = JDBCUtil.getConnection();
         String sql = "SELECT * FROM `khachhang` k JOIN nhomkhachhang nk ON k.nhomKhachHang=nk.maNhom WHERE `trangThai`=1";
         PreparedStatement pst = con.prepareStatement(sql);
         ResultSet rs = pst.executeQuery();
         while (rs.next()) {
-            KhachHangDTO khachHangDTO = new KhachHangDTO();
+            KhachHang khachHangDTO = new KhachHang();
             khachHangDTO.setMaKhachHang(rs.getString("maKhachHang"));
             khachHangDTO.setHoTen(rs.getString("tenKhachHang"));
             khachHangDTO.setDiaChi(rs.getString("diaChi"));
             khachHangDTO.setSdt(rs.getString("soDienThoai"));
-            NhomKhachHangDTO nhomKhachHangDTO = new NhomKhachHangDTO();
-            nhomKhachHangDTO.setMaNhom(rs.getString("maNhom"));
-            nhomKhachHangDTO.setTenNhom(rs.getString("tenNhom"));
-            nhomKhachHangDTO.setGhiChu(rs.getString("ghiChu"));
-            khachHangDTO.setNhomKhachHang(nhomKhachHangDTO);
+            khachHangDTO.setGioiTinh(rs.getInt("gioiTinh"));
 
 
             list.add(khachHangDTO);
@@ -105,8 +89,8 @@ public ArrayList<KhachHangDTO> selectAll() {
 }
 
     @Override
-    public KhachHangDTO selectById(String t) {
-        KhachHangDTO khachHangDTO=null;
+    public KhachHang selectById(String t) {
+        KhachHang khachHangDTO=null;
         try{
             Connection con=JDBCUtil.getConnection();
             String sql="SELECT * FROM `khachhang` WHERE `maKhachHang`=?";
@@ -114,12 +98,12 @@ public ArrayList<KhachHangDTO> selectAll() {
             pst.setString(1,t);
             ResultSet rs= pst.executeQuery();
             while (rs.next()){
-                khachHangDTO=new KhachHangDTO();
+                khachHangDTO=new KhachHang();
                 khachHangDTO.setMaKhachHang(rs.getString("maKhachHang"));
                 khachHangDTO.setHoTen(rs.getString("tenKhachHang"));
                 khachHangDTO.setDiaChi(rs.getString("diaChi"));
                 khachHangDTO.setSdt(rs.getString("soDienThoai"));
-                khachHangDTO.setNhomKhachHang(new NhomKhachHangDTO(rs.getString("nhomKhachHang")));
+                khachHangDTO.setGioiTinh(rs.getInt("gioiTinh"));
 
             }
             JDBCUtil.closeConnection(con);
@@ -138,4 +122,31 @@ public ArrayList<KhachHangDTO> selectAll() {
         int number = random.nextInt(900000000) + 100000000; // This will always generate 6-digit numbers
         return "KH" + number;
     }
+
+    @Override
+    public KhachHang timKiemTheoSDT(String sdt) {
+        KhachHang khachHangDTO=null;
+        try{
+            Connection con=JDBCUtil.getConnection();
+            String sql="SELECT * FROM `khachhang` WHERE `soDienThoai`=?";
+            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
+            pst.setString(1,sdt);
+            ResultSet rs= pst.executeQuery();
+            while (rs.next()){
+                khachHangDTO=new KhachHang();
+                khachHangDTO.setMaKhachHang(rs.getString("maKhachHang"));
+                khachHangDTO.setHoTen(rs.getString("tenKhachHang"));
+                khachHangDTO.setDiaChi(rs.getString("diaChi"));
+                khachHangDTO.setSdt(rs.getString("soDienThoai"));
+                khachHangDTO.setGioiTinh(rs.getInt("gioiTinh"));
+            }
+            JDBCUtil.closeConnection(con);
+        }catch(SQLException ex){
+
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return khachHangDTO;
+    }
+
+
 }

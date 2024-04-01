@@ -1,7 +1,6 @@
 package DAO;
 
 import DTO.*;
-import Interface.DaoInterface;
 import Interface.SanPham_Interface;
 import config.JDBCUtil;
 
@@ -17,7 +16,7 @@ public class ThuocDAO implements SanPham_Interface {
     }
 
     @Override
-    public boolean insert(ThuocDTO thuocDTO) {
+    public boolean insert(Thuoc thuocDTO) {
         int result = 0;
         try {
             Connection con = JDBCUtil.getConnection();
@@ -48,8 +47,8 @@ public class ThuocDAO implements SanPham_Interface {
     }
 
     @Override
-    public ThuocDTO timSanPham(String ma) {
-        ThuocDTO thuocDTO=null;
+    public Thuoc timSanPham(String ma) {
+        Thuoc thuocDTO=null;
         try {
             Connection con=JDBCUtil.getConnection();
             String sql="SELECT sp.*,dvt.tenDonViTinh,nhh.tenNhom,ctkm.giamGia,qcdg.tenQuyCachDongGoi,nsx.tenNuoc FROM thuoc sp JOIN donvitinh dvt ON sp.donViTinh=dvt.maDonViTinh JOIN nhomhanghoa nhh ON sp.nhomHangHoa=nhh.maNhom JOIN chuongtrinhkhuyenmai ctkm ON sp.chuongTrinhKhuyenMai=ctkm.maCTKM JOIN quycachdonggoi qcdg ON sp.quyCachDongGoi=qcdg.maQuyCachDongGoi JOIN nuocsanxuat nsx ON sp.nuocSanXuat=nsx.maNuoc WHERE maThuoc=?";
@@ -57,7 +56,7 @@ public class ThuocDAO implements SanPham_Interface {
             pst.setString(1,ma);
             ResultSet rs=pst.executeQuery();
             while (rs.next()){
-                thuocDTO=new ThuocDTO();
+                thuocDTO=new Thuoc();
                 thuocDTO.setMaThuoc(rs.getString("maThuoc"));
                 thuocDTO.setTenThuoc(rs.getString("tenThuoc"));
                 thuocDTO.setHanSuDung(rs.getDate("hanSuDung"));
@@ -95,23 +94,52 @@ public class ThuocDAO implements SanPham_Interface {
     }
 
     @Override
-    public boolean update(ThuocDTO t) {
+    public boolean update(Thuoc t) {
         return true;
     }
 
     @Override
-    public ArrayList<ThuocDTO> kiemTraTonKho() {
+    public ArrayList<Thuoc> kiemTraTonKho() {
         return null;
     }
 
     @Override
     public int laySoLuongTonKhoTheoMaSP(String maSP) {
-        return 0;
+        int result=0;
+        try{
+            Connection con=(Connection) JDBCUtil.getConnection();
+            String sql="SELECT soLuongTon FROM thuoc WHERE maThuoc=?";
+            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
+            pst.setString(1,maSP);
+            ResultSet rs=pst.executeQuery();
+            if(rs.next()){
+                result=rs.getInt("soLuongTon");
+            }
+            JDBCUtil.closeConnection(con);
+        }
+        catch(SQLException ex){
+            Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result;
     }
 
     @Override
     public boolean capNhatSoLuong(String maSP, int soLuongNhap) {
-        return false;
+        int result=0;
+        try{
+            Connection con=(Connection) JDBCUtil.getConnection();
+            String sql="UPDATE thuoc SET soLuongTon=? WHERE maThuoc=?";
+            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
+            pst.setInt(1,soLuongNhap);
+            pst.setString(2,maSP);
+            result=pst.executeUpdate();
+            JDBCUtil.closeConnection(con);
+
+        }
+        catch(SQLException ex){
+            Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result>0;
     }
 
     @Override
@@ -131,14 +159,14 @@ public class ThuocDAO implements SanPham_Interface {
 
 
     @Override
-    public ArrayList<ThuocDTO> selectAll() {
+    public ArrayList<Thuoc> selectAll() {
         return null;
     }
 
 
 @Override
-public ThuocDTO selectById(String id) {
-    ThuocDTO thuocDTO = null;
+public Thuoc selectById(String id) {
+    Thuoc thuocDTO = null;
     try {
         Connection con = JDBCUtil.getConnection();
         String sql = "SELECT * FROM thuoc WHERE maThuoc = ?";
@@ -146,7 +174,7 @@ public ThuocDTO selectById(String id) {
         pst.setString(1, id);
         ResultSet rs = pst.executeQuery();
         if (rs.next()) {
-            thuocDTO = new ThuocDTO();
+            thuocDTO = new Thuoc();
             thuocDTO.setMaThuoc(rs.getString("maThuoc"));
             thuocDTO.setTenThuoc(rs.getString("tenThuoc"));
             thuocDTO.setHanSuDung(rs.getDate("hanSuDung"));
@@ -184,7 +212,24 @@ public ThuocDTO selectById(String id) {
 
     @Override
     public boolean capNhatSoLuongTonSauKhiTaoHD(String maSP, int soLuong) {
-        return false;
+        try {
+            Connection con=JDBCUtil.getConnection();
+            String sql="UPDATE thuoc SET soLuongTon=soLuongTon-? WHERE maThuoc=?";
+            PreparedStatement pst=con.prepareStatement(sql);
+            pst.setInt(1,soLuong);
+            pst.setString(2,maSP);
+            int result=pst.executeUpdate();
+
+            if(result<1){
+                return false;
+            }
+            JDBCUtil.closeConnection(con);
+            return true;
+
+        }catch(SQLException ex){
+            Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
     }
 
     @Override

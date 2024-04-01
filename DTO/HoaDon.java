@@ -6,16 +6,16 @@ import java.util.Objects;
 public class HoaDon {
     private String maHD;
     private Date ngayLapHD;
-    private KhachHangDTO khachHang;
-    private NhanVienDTO nhanVien;
+    private KhachHang khachHang;
+    private NhanVien nhanVien;
     private ChuongTrinhKhuyenMai chuongTrinhKM;
     private double tienKhuyenMai;
     private double tongTien;
     private double tienThanhToan;
     private int tinhTrang;
 
-    public HoaDon(String maHD, Date ngayLapHD, KhachHangDTO khachHang, NhanVienDTO nhanVien,
-                        ChuongTrinhKhuyenMai chuongTrinhKM) {
+    public HoaDon(String maHD, Date ngayLapHD, KhachHang khachHang, NhanVien nhanVien,
+                  ChuongTrinhKhuyenMai chuongTrinhKM) {
         super();
         this.maHD = maHD;
         this.ngayLapHD = ngayLapHD;
@@ -28,8 +28,8 @@ public class HoaDon {
         this.maHD = maHD;
     }
 
-    public HoaDon(String maHD, Date ngayLapHD, KhachHangDTO khachHang, NhanVienDTO nhanVien,
-                        ChuongTrinhKhuyenMai chuongTrinhKM, double tienKhuyenMai, double tongTien, double tienThanhToan, int tinhTrang) {
+    public HoaDon(String maHD, Date ngayLapHD, KhachHang khachHang, NhanVien nhanVien,
+                  ChuongTrinhKhuyenMai chuongTrinhKM, double tienKhuyenMai, double tongTien, double tienThanhToan, int tinhTrang) {
         this.maHD = maHD;
         this.ngayLapHD = ngayLapHD;
         this.khachHang = khachHang;
@@ -57,16 +57,16 @@ public class HoaDon {
     public void setNgayLapHD(Date ngayLapHD) {
         this.ngayLapHD = ngayLapHD;
     }
-    public KhachHangDTO getKhachHang() {
+    public KhachHang getKhachHang() {
         return khachHang;
     }
-    public void setKhachHang(KhachHangDTO khachHang) {
+    public void setKhachHang(KhachHang khachHang) {
         this.khachHang = khachHang;
     }
-    public NhanVienDTO getNhanVien() {
+    public NhanVien getNhanVien() {
         return nhanVien;
     }
-    public void setNhanVien(NhanVienDTO nhanVien) {
+    public void setNhanVien(NhanVien nhanVien) {
         this.nhanVien = nhanVien;
     }
     public ChuongTrinhKhuyenMai getChuongTrinhKM() {

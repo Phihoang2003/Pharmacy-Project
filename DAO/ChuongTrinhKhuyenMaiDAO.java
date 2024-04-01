@@ -2,6 +2,7 @@ package DAO;
 
 import DTO.ChuongTrinhKhuyenMai;
 import DTO.LoaiKhuyenMai;
+import Interface.ChuongTrinhKhuyenMai_Interface;
 import Interface.DaoInterface;
 import config.JDBCUtil;
 
@@ -14,12 +15,12 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ChuongTrinhKhuyenMaiDAO implements DaoInterface<ChuongTrinhKhuyenMai> {
+public class ChuongTrinhKhuyenMaiDAO implements ChuongTrinhKhuyenMai_Interface {
 public static ChuongTrinhKhuyenMaiDAO getInstance() {
         return new ChuongTrinhKhuyenMaiDAO();
     }
     @Override
-    public int insert(ChuongTrinhKhuyenMai t) {
+    public boolean insert(ChuongTrinhKhuyenMai t) {
         int result=0;
         try {
             Connection con = (Connection) JDBCUtil.getConnection();
@@ -39,16 +40,36 @@ public static ChuongTrinhKhuyenMaiDAO getInstance() {
         }catch(SQLException ex){
             Logger.getLogger(ChuongTrinhKhuyenMaiDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return result;
+        return result>0 ;
     }
 
     @Override
-    public int update(ChuongTrinhKhuyenMai t) {
-        return 0;
+    public boolean delete(ChuongTrinhKhuyenMai ctkm) {
+        return false;
+    }
+
+    @Override
+    public boolean update(ChuongTrinhKhuyenMai t) {
+        return false;
+    }
+
+    @Override
+    public ArrayList<LoaiKhuyenMai> getallLoaiCTKM() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<ChuongTrinhKhuyenMai> getallCTKMtheoLoaiKM(String ma) {
+        return null;
     }
 
     @Override
     public ArrayList<ChuongTrinhKhuyenMai> selectAll() {
+        return null;
+    }
+
+    @Override
+    public ArrayList<ChuongTrinhKhuyenMai> getCTKMTheoMaCTKM(String maCTKM, String maLoai) {
         return null;
     }
 
@@ -84,6 +105,54 @@ public static ChuongTrinhKhuyenMaiDAO getInstance() {
         Random random = new Random();
         int number = random.nextInt(900000000) + 100000000; // This will always generate 6-digit numbers
         return "KM" + number;
+    }
+
+    @Override
+    public ChuongTrinhKhuyenMai getKMTheomaHD(String maHD) {
+        return null;
+    }
+
+    @Override
+    public ChuongTrinhKhuyenMai kiemTraKhuyenMai(double tongTien) {
+        ChuongTrinhKhuyenMai ctkm=new ChuongTrinhKhuyenMai();
+        try{
+            Connection con=(Connection) JDBCUtil.getConnection();
+            String sql="Select * from ChuongTrinhKhuyenMai where CURDATE() between ngayBatDau and ngayKetThuc and soTienToiThieu <= ? and maLoaiKM='GGHD' order by giamGia desc LIMIT 1";
+            PreparedStatement pst= (PreparedStatement) con.prepareStatement(sql);
+            pst.setDouble(1,tongTien);
+            ResultSet result=pst.executeQuery();
+
+            if(result.next()){
+                ctkm.setMaCTKM(result.getString("maCTKM"));
+                ctkm.setTenCTKM(result.getString("tenCTKM"));
+                ctkm.setMaLoaiKM(new LoaiKhuyenMai(result.getString("maLoaiKM")));
+                ctkm.setNgayBatDau(result.getDate("ngayBatDau"));
+                ctkm.setNgayKetThuc(result.getDate("ngayKetThuc"));
+                ctkm.setSoTienToiThieu(result.getDouble("soTienToiThieu"));
+                ctkm.setSoTienToiDa(result.getDouble("soTienToiDa"));
+                ctkm.setGiamGia(result.getInt("giamGia"));
+                ctkm.setTinhTrang(result.getInt("trangThai"));
+            }
+
+        }catch(SQLException ex){
+            Logger.getLogger(ChuongTrinhKhuyenMaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return ctkm;
+    }
+
+    @Override
+    public String layTenKhuyenMaiTheoMa(String maKhuyenMai) {
+        return null;
+    }
+
+    @Override
+    public String layMaKhuyenMaiTheoTen(String tenKhuyenMai) {
+        return null;
+    }
+
+    @Override
+    public ArrayList<ChuongTrinhKhuyenMai> getAllCTKMTheoLoaiKMVaTinhTrang(String loaiKM, String tinhTrang) {
+        return null;
     }
 
 

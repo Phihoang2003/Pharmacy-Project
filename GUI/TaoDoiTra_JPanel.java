@@ -4,11 +4,23 @@
  */
 package GUI;
 
+import BUS.ChiTietHoaDon_bus;
+import BUS.DoiTra_bus;
+import BUS.HoaDon_bus;
+import DTO.*;
+import GUI.ThongTinDoiTra_GUI;
+import utils.ConvertDoubleToMoney;
+import utils.ConvertStringToEnum;
+import utils.Global;
+
 import java.awt.Image;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JComponent;
@@ -28,7 +40,12 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoiTra_JPanel
      */
-    
+    private HoaDon_bus hd_bus=new HoaDon_bus();
+    private DoiTra_bus dt_bus=new DoiTra_bus();
+
+    private ChiTietHoaDon_bus cthd_bus=new ChiTietHoaDon_bus();
+
+    private ConvertDoubleToMoney convert=new ConvertDoubleToMoney();
     private DefaultTableModel tableModel_HoaDon;
     private DefaultTableModel tableModel_GioHang;
     
@@ -70,11 +87,11 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
         btn_LamMoi.setIcon(img_btnLamMoi); 
         
         // Table
-        String[] cols_hd = {"Mã", "Tên sản phẩm", "Kích thước", "Màu sắc", "Số lượng", "Giá gốc","Giá bán", "Thành tiền"};
+        String[] cols_hd = {"Mã", "Tên thuốc", "Hạn sử dụng", "Nhóm thuốc", "Số lượng", "Giá gốc","Giá bán", "Thành tiền"};
         tableModel_HoaDon = new DefaultTableModel(cols_hd, 0);
         table_HoaDon.setModel(tableModel_HoaDon);
         
-        String[] cols_gh = {"Mã", "Tên sản phẩm", "Kích thước", "Màu sắc", "Số lượng","Giá bán", "Thành tiền"};
+        String[] cols_gh = {"Mã", "Tên thuốc", "Hạn sử dụng", "Nhóm thuốc", "Số lượng","Giá bán", "Thành tiền"};
         tableModel_GioHang = new DefaultTableModel(cols_gh, 0);
         table_GioHang.setModel(tableModel_GioHang);
         
@@ -163,6 +180,9 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
         btn_TaoDoiTra = new javax.swing.JButton();
         lbl_TienHoanTra1 = new javax.swing.JLabel();
         btn_LamMoi = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_GioHang = new javax.swing.JTable();
@@ -255,12 +275,6 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(table_HoaDon);
-        if (table_HoaDon.getColumnModel().getColumnCount() > 0) {
-            table_HoaDon.getColumnModel().getColumn(1).setPreferredWidth(200);
-            table_HoaDon.getColumnModel().getColumn(2).setPreferredWidth(20);
-            table_HoaDon.getColumnModel().getColumn(3).setPreferredWidth(50);
-            table_HoaDon.getColumnModel().getColumn(4).setPreferredWidth(20);
-        }
 
         btn_ThemVaoGio.setBackground(new java.awt.Color(0, 102, 0));
         btn_ThemVaoGio.setFont(new java.awt.Font("Times New Roman", 1, 15)); // NOI18N
@@ -466,6 +480,15 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setText("Lý Do Đổi Trả");
+
+        jTextArea1.setColumns(10);
+        jTextArea1.setRows(5);
+        jTextArea1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jTextArea1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        jScrollPane3.setViewportView(jTextArea1);
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -485,11 +508,15 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
                         .addComponent(radiobtn_HoanTra)
                         .addGap(18, 18, 18)
                         .addComponent(radiobtn_DoiMoi)
-                        .addGap(32, 32, 32)
-                        .addComponent(btn_TaoDoiTra, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(btn_LamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(598, Short.MAX_VALUE))
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel1)))
+                .addGap(26, 26, 26)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(73, 73, 73)
+                .addComponent(btn_TaoDoiTra, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(btn_LamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -500,17 +527,17 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
                     .addComponent(radiobtn_HoanTra)
                     .addComponent(radiobtn_DoiMoi)
                     .addComponent(btn_TaoDoiTra, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_LamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbl_TienHoanTra, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel24)
-                            .addComponent(lbl_TienHoanTra1))))
-                .addContainerGap(21, Short.MAX_VALUE))
+                    .addComponent(btn_LamMoi, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(35, 35, 35)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(lbl_TienHoanTra1)
+                    .addComponent(lbl_TienHoanTra, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 1240, 140));
@@ -559,11 +586,12 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void radiobtn_HoanTraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiobtn_HoanTraActionPerformed
-        
+        tinhTienHoanTra();
+        tinhTienHoanTra();
     }//GEN-LAST:event_radiobtn_HoanTraActionPerformed
 
     private void btn_TaoDoiTraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TaoDoiTraActionPerformed
-        
+        taoDoiTra();
     }//GEN-LAST:event_btn_TaoDoiTraActionPerformed
 
     private void table_GioHangMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_GioHangMouseClicked
@@ -585,7 +613,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_table_GioHangMouseClicked
 
     private void btn_TimKiemHoaDonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TimKiemHoaDonActionPerformed
-        
+        timKiemHoaDon();
     }//GEN-LAST:event_btn_TimKiemHoaDonActionPerformed
 
     private void radiobtn_DoiMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radiobtn_DoiMoiActionPerformed
@@ -603,19 +631,19 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_table_HoaDonMouseClicked
 
     private void btn_ThemVaoGioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_ThemVaoGioActionPerformed
-        
+        themVaoGio();
     }//GEN-LAST:event_btn_ThemVaoGioActionPerformed
 
     private void btn_CapNhatSoLuongActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CapNhatSoLuongActionPerformed
-        
+        capNhatSoLuong();
     }//GEN-LAST:event_btn_CapNhatSoLuongActionPerformed
 
     private void btn_XoaKhoiGioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_XoaKhoiGioActionPerformed
-        
+        xoaKhoiGioHang();
     }//GEN-LAST:event_btn_XoaKhoiGioActionPerformed
 
     private void btn_LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LamMoiActionPerformed
-        
+        lamMoi();
     }//GEN-LAST:event_btn_LamMoiActionPerformed
 
 
@@ -627,6 +655,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
     private javax.swing.JButton btn_TimKiemHoaDon;
     private javax.swing.JButton btn_XoaKhoiGio;
     private javax.swing.ButtonGroup buttonGroup;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel17;
@@ -643,6 +672,8 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbl_KhuyenMai2;
     private javax.swing.JLabel lbl_MaKhachHang;
     private javax.swing.JLabel lbl_NgayLap;
@@ -662,6 +693,221 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
     private javax.swing.JTable table_HoaDon;
     private JTextField txt_MaHoaDon;
     // End of variables declaration//GEN-END:variables
-    
-  
+    public void timKiemHoaDon(){
+        String maHD=txt_MaHoaDon.getText().trim();
+        if(maHD.equals("")){
+            JOptionPane.showMessageDialog(null, "Vui lòng nhập mã hoá đơn!");
+            return;
+        }
+        HoaDon hd=hd_bus.getHoaDonTheoMaHD(maHD);
+        if(hd!=null){
+            boolean kq=dt_bus.kiemTraThoiHanDoiTra(hd.getMaHD());
+            if(!kq) {
+                JOptionPane.showMessageDialog(this, "Hoá đơn đã hết thời hạn đổi trả!");
+                return;
+            }
+            if(hd.getKhachHang() != null) {
+                lbl_MaKhachHang.setText(hd.getKhachHang().getMaKhachHang());
+                lbl_TenKhachHang.setText(hd.getKhachHang().getHoTen());
+                lbl_SoDienThoai.setText(hd.getKhachHang().getSdt());
+            }
+            lbl_NgayLap.setText(hd.getNgayLapHD().toString());
+            lbl_TongTien.setText(convert.toMoney(hd.getTongTien()));
+            lbl_TienKhuyenMai.setText(convert.toMoney(hd.getTienKhuyenMai()));
+            lbl_TienThanhToan.setText(convert.toMoney(hd.getTienThanhToan()));
+            ArrayList<ChiTietHoaDon> cthdList=cthd_bus.getAllCTHDTheoMaHD(maHD);
+            if(cthdList != null) {
+                tableModel_HoaDon.setRowCount(0);
+                for (ChiTietHoaDon cthd : cthdList) {
+                    String[] data = {cthd.getThuoc().getMaThuoc(), cthd.getThuoc().getTenThuoc(), cthd.getThuoc().getHanSuDung().toString(), cthd.getThuoc().getNhomHangHoa().getTenNhomHang(),
+                            cthd.getSoLuong()+"", convert.toMoney(cthd.getGiaGoc()), convert.toMoney(cthd.getGiaBan()), convert.toMoney(cthd.getThanhTien())};
+                    tableModel_HoaDon.addRow(data);
+                }
+            }
+        }
+        else {
+            JOptionPane.showMessageDialog(this, "Hoá đơn không tồn tại!");
+        }
+
+    }
+    public void xoaKhoiGioHang() {
+        int row = table_GioHang.getSelectedRow();
+        if(row < 0) {
+            JOptionPane.showMessageDialog(this, "Sản phẩm trong giỏ hàng chưa được chọn!");
+            return;
+        }
+
+        tableModel_GioHang.removeRow(row);
+
+        if(radiobtn_HoanTra.isSelected()) {
+            tinhTienHoanTra();
+        }
+    }
+    public void lamMoi() {
+        txt_MaHoaDon.setText("");
+        lbl_MaKhachHang.setText("");
+        lbl_TenKhachHang.setText("");
+        lbl_SoDienThoai.setText("");
+        lbl_NgayLap.setText("");
+        lbl_TongTien.setText("");
+        lbl_TienKhuyenMai.setText("");
+        lbl_TienThanhToan.setText("");
+        spinner_SoLuong.setValue(0);
+        spinner_SoLuong.setEnabled(false);
+
+        tableModel_HoaDon.setRowCount(0);
+        tableModel_GioHang.setRowCount(0);
+        buttonGroup.clearSelection();
+        lbl_TienHoanTra.setText("");
+    }
+
+    public boolean kiemTraSoLuongNhap(){
+        Object val = spinner_SoLuong.getValue();
+
+        if(val instanceof Number) {
+            int sl = ((Number) val).intValue();
+            Object slMax = spinnerModel.getMaximum();
+            if(sl <= 0) {
+                JOptionPane.showMessageDialog(null, "Số lượng nhập lớn hơn 0");
+                return false;
+            } else if(sl > ((int) slMax)) {
+                JOptionPane.showMessageDialog(null, "Số lượng nhập nhỏ hơn hoặc bằng "+slMax);
+                return false;
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Số lượng nhập phải là chữ số!");
+            return false;
+        }
+        return true;
+    }
+    public void taoDoiTra(){
+        if(!radiobtn_HoanTra.isSelected() && !radiobtn_DoiMoi.isSelected()) {
+            JOptionPane.showMessageDialog(this, "Hình thức đổi trả chưa chọn!");
+            return;
+        }
+        if(tableModel_GioHang.getRowCount() <= 0) {
+            JOptionPane.showMessageDialog(this, "Giỏ hàng đổi trả không được rỗng!");
+            return;
+        }
+        String maDT=dt_bus.getAutoIncrement();
+        String maHD=txt_MaHoaDon.getText().trim();
+        HoaDon hoaDon=new HoaDon(maHD);
+        String maNV= Global.getMa();
+        NhanVien nhanVien=new NhanVien(maNV);
+        String lyDo=jTextArea1.getText().trim();
+        Date thoiGian=new Date();
+
+        ConvertStringToEnum toEnum=new ConvertStringToEnum();
+        String hinhThuc = "Hoàn trả";
+        if(radiobtn_DoiMoi.isSelected()) {
+            hinhThuc = "Đổi mới";
+        }
+        double tongTien = convert.toDouble(lbl_TienHoanTra.getText().trim().toString());
+        DoiTra doiTra=new DoiTra(maDT, hoaDon, nhanVien, toEnum.HinhThucDTToEnum(hinhThuc),lyDo,new java.sql.Date(thoiGian.getTime()), tongTien);
+
+        ArrayList<ChiTietDoiTra> ctdtList=new ArrayList<>();
+            for(int i=0;i<tableModel_GioHang.getRowCount();i++){
+            String maThuoc=tableModel_GioHang.getValueAt(i, 0).toString();
+            Thuoc thuoc=new Thuoc(maThuoc);
+            int soLuong=Integer.parseInt(tableModel_GioHang.getValueAt(i, 4).toString());
+            double giaBan=convert.toDouble(tableModel_GioHang.getValueAt(i, 5).toString());
+            double thanhTien=convert.toDouble(tableModel_GioHang.getValueAt(i, 6).toString());
+            ChiTietDoiTra ctdt=new ChiTietDoiTra(thuoc, doiTra, soLuong, giaBan, thanhTien);
+            ctdtList.add(ctdt);
+        }
+        boolean kq = dt_bus.taoDoiTra(doiTra, ctdtList);
+        if(kq) {
+            lamMoi();
+            new ThongTinDoiTra_GUI(doiTra.getMaDT()).setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "Tạo đơn đổi trả thất bại!");
+        }
+
+    }
+
+    public void capNhatSoLuong() {
+        int row = table_GioHang.getSelectedRow();
+        if(row < 0) {
+            JOptionPane.showMessageDialog(this, "Sản phẩm trong giỏ hàng chưa được chọn!");
+            return;
+        }
+        if(!kiemTraSoLuongNhap()) return;
+        int sl = Integer.parseInt(spinnerModel.getValue().toString());
+        String maSP = tableModel_GioHang.getValueAt(row, 0).toString();
+        // Xu ly so luong
+        int soLuongMax = Integer.parseInt(spinnerModel.getMaximum().toString());
+        String maHD = txt_MaHoaDon.getText().trim();
+        int tongSoLuong = dt_bus.getTongSoLuongSPDoiTra(maHD, maSP);
+        int soLuongConLai = soLuongMax - tongSoLuong;
+        if(soLuongConLai == 0) {
+            JOptionPane.showMessageDialog(this, "Sản phẩm này đã được hoàn trả hết số lượng!");
+            return;
+        }
+        if(soLuongConLai < sl) {
+            JOptionPane.showMessageDialog(this, "Số lượng hoàn trả của sản phẩm này tối đa là "+soLuongConLai);
+            return;
+        }
+        table_GioHang.setValueAt(sl, row, 4);
+        double giaBan = convert.toDouble(table_GioHang.getValueAt(row, 5).toString());
+        table_GioHang.setValueAt(convert.toMoney(giaBan*sl), row, 6);
+
+        table_GioHang.clearSelection();
+
+        if(radiobtn_HoanTra.isSelected()) {
+            tinhTienHoanTra();
+        }
+    }
+    public void themVaoGio(){
+        int row=table_HoaDon.getSelectedRow();
+        if(row<0){
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn sản phẩm cần thêm vào giỏ hàng!");
+            return;
+        }
+        if(!kiemTraSoLuongNhap()) return;
+        String maThuoc=tableModel_HoaDon.getValueAt(row, 0).toString();
+        for(int i=0;i<tableModel_GioHang.getRowCount();i++){
+            if(tableModel_GioHang.getValueAt(i, 0).toString().equals(maThuoc)){
+                JOptionPane.showMessageDialog(null, "Sản phẩm đã có trong giỏ hàng!");
+                return;
+            }
+        }
+        String tenThuoc=tableModel_HoaDon.getValueAt(row, 1).toString();
+        String hanSD=tableModel_HoaDon.getValueAt(row, 2).toString();
+        String nhomHang=tableModel_HoaDon.getValueAt(row, 3).toString();
+        String soLuong= spinner_SoLuong.getValue().toString();
+        int soLuongMax=Integer.parseInt(spinnerModel.getMaximum().toString());
+        String maHD=txt_MaHoaDon.getText().trim();
+        int tongSoLuong=dt_bus.getTongSoLuongSPDoiTra(maHD, maThuoc);
+        int soLuongConLai=soLuongMax-tongSoLuong;
+        if(soLuongConLai==0){
+            JOptionPane.showMessageDialog(null, "Sản phẩm này đã được hoàn trả hết số lượng!");
+            table_HoaDon.clearSelection();
+            return;
+        }
+        if(soLuongConLai < Integer.parseInt(soLuong)) {
+            JOptionPane.showMessageDialog(this, "Số lượng hoàn trả của sản phẩm này tối đa là "+soLuongConLai);
+            return;
+        }
+        String giaBan = tableModel_HoaDon.getValueAt(row, 5).toString();
+        double thanhTien = convert.toDouble(giaBan) * Integer.parseInt(soLuong);
+        String[] data={maThuoc, tenThuoc, hanSD, nhomHang, soLuong, giaBan, convert.toMoney(thanhTien)};
+        tableModel_GioHang.addRow(data);
+        table_HoaDon.clearSelection();
+        if(radiobtn_HoanTra.isSelected()) {
+            tinhTienHoanTra();
+        }
+
+    }
+    public void tinhTienHoanTra(){
+        System.out.println("Tinh tien hoan tra");
+        double tongTien=0;
+        for(int i=0;i<tableModel_GioHang.getRowCount();i++){
+            tongTien+=convert.toDouble(tableModel_GioHang.getValueAt(i, 6).toString());
+        }
+        lbl_TienHoanTra.setText(convert.toMoney(tongTien));
+    }
+
+
+
+
 }

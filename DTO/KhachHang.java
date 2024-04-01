@@ -3,41 +3,41 @@ package DTO;
 import java.util.Date;
 import java.util.Objects;
 
-public class KhachHangDTO {
+public class KhachHang {
     private String maKhachHang;
     private String hoTen;
     private String diaChi;
     private String sdt;
     private Date ngayThamGia;
-    private NhomKhachHangDTO nhomKhachHang;
-    public KhachHangDTO() {
+    private int gioiTinh;
+    public KhachHang() {
     }
-    public KhachHangDTO(String maKhachHang) {
+    public KhachHang(String maKhachHang) {
         this.maKhachHang = maKhachHang;
     }
 
-    public KhachHangDTO(String maKhachHang, String hoten, String sdt, String diaChi,NhomKhachHangDTO nhomKhachHang) {
+    public KhachHang(String maKhachHang, String hoten, String sdt, String diaChi, int gioiTinh) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoten;
         this.sdt = sdt;
         this.diaChi = diaChi;
-        this.nhomKhachHang=nhomKhachHang;
+        this.gioiTinh=gioiTinh;
     }
-    public NhomKhachHangDTO getNhomKhachHang() {
-        return nhomKhachHang;
-    }
-
-    public void setNhomKhachHang(NhomKhachHangDTO nhomKhachHang) {
-        this.nhomKhachHang = nhomKhachHang;
+    public int getGioiIinh() {
+        return gioiTinh;
     }
 
-    public KhachHangDTO(String maKhachHang, String hoTen, String diaChi, String sdt, Date ngayThamGia, NhomKhachHangDTO nhomKhachHang) {
+    public void setGioiTinh(int gioiTinh) {
+        this.gioiTinh = gioiTinh;
+    }
+
+    public KhachHang(String maKhachHang, String hoTen, String diaChi, String sdt, Date ngayThamGia, int gioiTinh) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoTen;
         this.diaChi = diaChi;
         this.sdt = sdt;
         this.ngayThamGia = ngayThamGia;
-        this.nhomKhachHang= nhomKhachHang;
+        this.gioiTinh= gioiTinh;
     }
 
     public String getMaKhachHang() {
@@ -84,7 +84,7 @@ public class KhachHangDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        KhachHangDTO that = (KhachHangDTO) o;
+        KhachHang that = (KhachHang) o;
         return maKhachHang.equals(that.maKhachHang) ;
     }
 
@@ -101,7 +101,7 @@ public class KhachHangDTO {
                 ", diaChi='" + diaChi + '\'' +
                 ", sdt='" + sdt + '\'' +
                 ", ngayThamGia=" + ngayThamGia +
-                ", nhomKhachHang=" + nhomKhachHang +
+                ", gioiTinh=" + gioiTinh +
                 '}';
     }
 }
