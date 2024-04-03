@@ -14,7 +14,9 @@ public class Thuoc {
     private DonViTinh donViTinh;
     private NhomHangHoa nhomHangHoa;
     private ChuongTrinhKhuyenMai chuongTrinhKhuyenMaiEntity;
-    private QuyCachDongGoi quyCachDongGoi;
+    private String quyCachDongGoi;
+    private boolean thuocKeDon;
+    private ThuongHieu thuongHieu;
     private NuocSanXuat nuocSanXuat;
     private double donGia;
     private int soLuongTon;
@@ -28,7 +30,7 @@ public class Thuoc {
     public Thuoc() {
     }
 
-    public Thuoc(String maThuoc, String tenThuoc, Date hanSuDung, String hoatChatChinh, double khoiLuong, String imgUrl, String duongDung, DonViTinh donViTinh, NhomHangHoa nhomHangHoa, ChuongTrinhKhuyenMai chuongTrinhKhuyenMaiEntity, QuyCachDongGoi quyCachDongGoi, NuocSanXuat nuocSanXuat, double donGia, int soLuongTon, String dieuKienBaoQuan, TinhTrangSPEnum trangThai) {
+    public Thuoc(String maThuoc, String tenThuoc,boolean thuocKeDon,ThuongHieu thuongHieu, Date hanSuDung, String hoatChatChinh, double khoiLuong, String imgUrl, String duongDung, DonViTinh donViTinh, NhomHangHoa nhomHangHoa, ChuongTrinhKhuyenMai chuongTrinhKhuyenMaiEntity, String quyCachDongGoi, NuocSanXuat nuocSanXuat, double donGia, int soLuongTon, String dieuKienBaoQuan, TinhTrangSPEnum trangThai) {
         this.maThuoc = maThuoc;
         this.tenThuoc = tenThuoc;
         this.hanSuDung = hanSuDung;
@@ -45,6 +47,8 @@ public class Thuoc {
         this.soLuongTon = soLuongTon;
         this.dieuKienBaoQuan = dieuKienBaoQuan;
         this.trangThai = trangThai;
+        this.thuocKeDon = thuocKeDon;
+        this.thuongHieu = thuongHieu;
     }
 
     public String getMaThuoc() {
@@ -127,11 +131,11 @@ public class Thuoc {
         this.chuongTrinhKhuyenMaiEntity = chuongTrinhKhuyenMaiEntity;
     }
 
-    public QuyCachDongGoi getQuyCachDongGoi() {
+    public String getQuyCachDongGoi() {
         return quyCachDongGoi;
     }
 
-    public void setQuyCachDongGoi(QuyCachDongGoi quyCachDongGoi) {
+    public void setQuyCachDongGoi(String quyCachDongGoi) {
         this.quyCachDongGoi = quyCachDongGoi;
     }
 
@@ -175,7 +179,23 @@ public class Thuoc {
         this.trangThai = trangThai;
     }
     public double tinhGiaBan() {
-        return this.donGia * 1.4;
+        if (donViTinh.getTenDonViTinh().equalsIgnoreCase("tablets")) {
+            return this.donGia * 1.4;
+        } else if (donViTinh.getTenDonViTinh().equalsIgnoreCase("box")) {
+            String[] parts = this.quyCachDongGoi.split(" ");
+            for (String part : parts) {
+                try {
+                    int number = Integer.parseInt(part);
+                    System.out.println("Number: " + number);
+                    return this.donGia * 1.4 * number;
+                } catch (NumberFormatException e) {
+                    System.out.println("Not a number: " + part);
+                }
+            }
+        } else {
+            return this.donGia*1.4;
+        }
+        return this.donGia*1.4;
     }
     @Override
     public boolean equals(Object o) {
@@ -188,6 +208,22 @@ public class Thuoc {
     @Override
     public int hashCode() {
         return Objects.hash(maThuoc);
+    }
+
+    public boolean isThuocKeDon() {
+        return thuocKeDon;
+    }
+
+    public void setThuocKeDon(boolean thuocKeDon) {
+        this.thuocKeDon = thuocKeDon;
+    }
+
+    public ThuongHieu getThuongHieu() {
+        return thuongHieu;
+    }
+
+    public void setThuongHieu(ThuongHieu thuongHieu) {
+        this.thuongHieu = thuongHieu;
     }
 
     @Override
@@ -205,6 +241,8 @@ public class Thuoc {
                 ", chuongTrinhKhuyenMaiEntity=" + chuongTrinhKhuyenMaiEntity +
                 ", quyCachDongGoi=" + quyCachDongGoi +
                 ", nuocSanXuat=" + nuocSanXuat +
+                ", thuocKeDon=" + thuocKeDon +
+                ", thuongHieu=" + thuongHieu +
                 ", donGia=" + donGia +
                 ", soLuongTon=" + soLuongTon +
                 ", dieuKienBaoQuan='" + dieuKienBaoQuan + '\'' +
