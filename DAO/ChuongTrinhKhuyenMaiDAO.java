@@ -49,9 +49,28 @@ public static ChuongTrinhKhuyenMaiDAO getInstance() {
     }
 
     @Override
-    public boolean update(ChuongTrinhKhuyenMai t) {
-        return false;
+public boolean update(ChuongTrinhKhuyenMai t) {
+    int result = 0;
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "UPDATE chuongtrinhkhuyenmai SET tenCTKM = ?, ngayBatDau = ?, ngayKetThuc = ?, soTienToiThieu = ?, soTienToiDa = ?, giamGia = ?, trangThai = ?, maLoaiKM = ? WHERE maCTKM = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, t.getTenCTKM());
+        pst.setDate(2, new java.sql.Date(t.getNgayBatDau().getTime()));
+        pst.setDate(3, new java.sql.Date(t.getNgayKetThuc().getTime()));
+        pst.setDouble(4, t.getSoTienToiThieu());
+        pst.setDouble(5, t.getSoTienToiDa());
+        pst.setInt(6, t.getGiamGia());
+        pst.setInt(7, t.getTinhTrang());
+        pst.setString(8, t.getMaLoaiKM().getMaLoaiKM());
+        pst.setString(9, t.getMaCTKM());
+        result = pst.executeUpdate();
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(ChuongTrinhKhuyenMaiDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return result > 0;
+}
 
     @Override
     public ArrayList<LoaiKhuyenMai> getallLoaiCTKM() {

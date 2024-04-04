@@ -1,13 +1,18 @@
 package DAO;
 
 import DTO.ChiTietDoiTra;
+import DTO.DoiTra;
+import DTO.NhomHangHoa;
+import DTO.Thuoc;
 import Interface.ChiTietDoiTra_Interface;
 import config.JDBCUtil;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,6 +46,37 @@ public class ChiTietDoiTraDAO implements ChiTietDoiTra_Interface{
 
     @Override
     public ArrayList<ChiTietDoiTra> getAllCTDTTheoMaDT(String ma) {
-        return null;
+        ArrayList<ChiTietDoiTra> list=new ArrayList<>();
+        try{
+            Connection con=JDBCUtil.getConnection();
+            String sql="Select ctdt.*,th.maThuoc,th.tenThuoc,th.nhomHangHoa,th.hanSuDung from chitietdoitra as ctdt join thuoc as th on ctdt.maSP=th.maThuoc where maDT=? ";
+            PreparedStatement pst=con.prepareStatement(sql);
+            pst.setString(1,ma);
+            ResultSet rs=pst.executeQuery();
+            while(rs.next()){
+                DoiTra dt=new DoiTra(rs.getString("maDT"));
+                Thuoc th=new Thuoc(rs.getString("maThuoc"));
+                Date hanSuDung=rs.getDate("hanSuDung");
+                String nhomThuoc=rs.getString("nhomHangHoa");
+                String tenNhom=NhomHangHoaDAO.getInstance().getTenNhomHangHoa(nhomThuoc);
+                String tenThuoc=rs.getString("tenThuoc");
+                th.setTenThuoc(tenThuoc);
+                th.setHanSuDung(hanSuDung);
+                th.setNhomHangHoa(new NhomHangHoa(nhomThuoc,tenNhom));
+                int soLuong=rs.getInt("soLuong");
+                double giaBan=rs.getDouble("giaBan");
+                double thanhTien=rs.getDouble("thanhTien");
+
+                ChiTietDoiTra ctdt=new ChiTietDoiTra(th,dt,soLuong,giaBan,thanhTien);
+                list.add(ctdt);
+
+            }
+            JDBCUtil.closeConnection(con);
+
+
+        }catch(SQLException ex){
+            Logger.getLogger(ChiTietDoiTraDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 }

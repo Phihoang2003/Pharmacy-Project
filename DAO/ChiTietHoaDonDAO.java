@@ -80,7 +80,7 @@ public class ChiTietHoaDonDAO implements ChiTietHoaDon_Interface {
                 sp.setHanSuDung(hanSuDung);
                 sp.setNhomHangHoa(new NhomHangHoa(nhomHangHoa, nh_dao.getTenNhomHangHoa(nhomHangHoa)));
                 sp.setHoatChatChinh(hoatChatChinh);
-                sp.setQuyCachDongGoi(new QuyCachDongGoi(quyCachDongGoi));
+                sp.setQuyCachDongGoi(quyCachDongGoi);
                 sp.setNuocSanXuat(new NuocSanXuat(nuocSanXuat));
                 int soLuong=rs.getInt("soLuong");
                 double giaGoc=rs.getDouble("giaGoc");

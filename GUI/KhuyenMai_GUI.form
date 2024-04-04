@@ -104,9 +104,9 @@
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTextField1" min="-2" pref="212" max="-2" attributes="0"/>
-                      <Component id="jTextField3" min="-2" pref="212" max="-2" attributes="0"/>
-                      <Component id="jTextField4" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
+                      <Component id="lbl_Ma" min="-2" pref="212" max="-2" attributes="0"/>
+                      <Component id="lbl_ten" min="-2" pref="212" max="-2" attributes="0"/>
+                      <Component id="lbl_giamGia" alignment="0" min="-2" pref="212" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -114,16 +114,16 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jTextField7" min="-2" pref="212" max="-2" attributes="0"/>
+                          <Component id="lbl_toiDa" min="-2" pref="212" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="155" max="-2" attributes="0"/>
-                          <Component id="jTextField6" min="-2" pref="212" max="-2" attributes="0"/>
+                          <Component id="lbl_toiThieu" min="-2" pref="212" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                          <Component id="jTextField5" min="-2" pref="212" max="-2" attributes="0"/>
+                          <Component id="lbl_loai" min="-2" pref="212" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -139,16 +139,16 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txt_date2" max="32767" attributes="0"/>
+                                  <Component id="lbl_ngayBatDau" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="txt_date" min="-2" pref="177" max="-2" attributes="0"/>
+                                  <Component id="lbl_ngayKetThuc" min="-2" pref="177" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" pref="100" max="-2" attributes="0"/>
+                          <Component id="btnXuat" min="-2" pref="100" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -162,20 +162,20 @@
                       <Group type="102" attributes="0">
                           <EmptySpace pref="40" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txt_date2" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="lbl_ngayBatDau" alignment="0" min="-2" pref="37" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField1" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="lbl_Ma" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextField6" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                  <Component id="lbl_toiThieu" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
                                   <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jTextField3" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                      <Component id="lbl_ten" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
@@ -183,9 +183,9 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="txt_date" min="-2" pref="37" max="-2" attributes="0"/>
+                                      <Component id="lbl_ngayKetThuc" min="-2" pref="37" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jTextField7" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                                          <Component id="lbl_toiDa" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -195,15 +195,15 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                          <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                          <Component id="btnXuat" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField4" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="lbl_giamGia" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTextField5" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="lbl_loai" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jRadioButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -221,9 +221,9 @@
             <Property name="text" type="java.lang.String" value="M&#xe3; Ch&#x1b0;&#x1a1;ng Tr&#xec;nh"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="lbl_Ma">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbl_MaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -234,7 +234,7 @@
             <Property name="text" type="java.lang.String" value="Ng&#xe0;y B&#x1eaf;t &#x110;&#x1ea7;u"/>
           </Properties>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="txt_date">
+        <Component class="com.toedter.calendar.JDateChooser" name="lbl_ngayKetThuc">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
@@ -252,9 +252,9 @@
             <Property name="text" type="java.lang.String" value="T&#xea;n Ch&#x1b0;&#x1a1;ng Tr&#xec;nh"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField3">
+        <Component class="javax.swing.JTextField" name="lbl_ten">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbl_tenActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -265,14 +265,14 @@
             <Property name="text" type="java.lang.String" value="Gi&#x1ea3;m Gi&#xe1;(%)"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField4">
+        <Component class="javax.swing.JTextField" name="lbl_giamGia">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbl_giamGiaActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField5">
+        <Component class="javax.swing.JTextField" name="lbl_loai">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbl_loaiActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -283,9 +283,9 @@
             <Property name="text" type="java.lang.String" value="Ti&#x1ec1;n T&#x1ed1;i &#x110;a &#x110;&#x1b0;&#x1ee3;c Gi&#x1ea3;m"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField6">
+        <Component class="javax.swing.JTextField" name="lbl_toiThieu">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbl_toiThieuActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
@@ -296,9 +296,9 @@
             <Property name="text" type="java.lang.String" value="Lo&#x1ea1;i Khuy&#x1ebf;n M&#xe3;i"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextField7">
+        <Component class="javax.swing.JTextField" name="lbl_toiDa">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField7ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lbl_toiDaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -309,7 +309,7 @@
             <Property name="text" type="java.lang.String" value="Ng&#xe0;y K&#x1ebf;t Th&#xfa;c"/>
           </Properties>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="txt_date2">
+        <Component class="com.toedter.calendar.JDateChooser" name="lbl_ngayBatDau">
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton1">
           <Properties>
@@ -328,7 +328,7 @@
             <Property name="text" type="java.lang.String" value="&#xc1;p d&#x1ee5;ng cho h&#xf3;a &#x111;&#x1a1;n"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="btnXuat">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Segoe UI Black" size="14" style="0"/>
@@ -383,7 +383,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="table_danhSach">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                   <Table columnCount="9" rowCount="4">
@@ -480,9 +480,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="txt_date1" min="-2" pref="194" max="-2" attributes="0"/>
+                  <Component id="lbl_timKiem" min="-2" pref="194" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnTimKiemHoaDon" min="-2" pref="142" max="-2" attributes="0"/>
+                  <Component id="btnTimKiem" min="-2" pref="142" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="btnLamMoi" min="-2" pref="142" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
@@ -505,12 +505,12 @@
                           <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="btnTimKiemHoaDon" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                                  <Component id="btnTimKiem" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="btnLamMoi" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="btnThem" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                                   <Component id="btnCapNhat" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="txt_date1" min="-2" pref="37" max="-2" attributes="0"/>
+                              <Component id="lbl_timKiem" min="-2" pref="37" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -520,7 +520,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="btnTimKiemHoaDon">
+        <Component class="javax.swing.JButton" name="btnTimKiem">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="66" red="0" type="rgb"/>
@@ -534,7 +534,7 @@
             <Property name="text" type="java.lang.String" value="T&#xec;m Ki&#x1ebf;m"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemHoaDonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTimKiemActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnLamMoi">
@@ -562,7 +562,7 @@
             <Property name="text" type="java.lang.String" value="M&#xe3; Ch&#x1b0;&#x1a1;ng Tr&#xec;nh"/>
           </Properties>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="txt_date1">
+        <Component class="com.toedter.calendar.JDateChooser" name="lbl_timKiem">
         </Component>
         <Component class="javax.swing.JButton" name="btnThem">
           <Properties>

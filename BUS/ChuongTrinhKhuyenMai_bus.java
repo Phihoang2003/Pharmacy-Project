@@ -27,7 +27,7 @@ public class ChuongTrinhKhuyenMai_bus implements ChuongTrinhKhuyenMai_Interface 
 
     @Override
     public boolean delete(ChuongTrinhKhuyenMai ctkm) {
-        return false;
+        return ctkm_dao.delete(ctkm);
     }
 
     @Override
@@ -37,12 +37,12 @@ public class ChuongTrinhKhuyenMai_bus implements ChuongTrinhKhuyenMai_Interface 
 
     @Override
     public ArrayList<LoaiKhuyenMai> getallLoaiCTKM() {
-        return null;
+        return ctkm_dao.getallLoaiCTKM();
     }
 
     @Override
     public ArrayList<ChuongTrinhKhuyenMai> getallCTKMtheoLoaiKM(String ma) {
-        return null;
+        return ctkm_dao.getallCTKMtheoLoaiKM(ma);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class ChuongTrinhKhuyenMai_bus implements ChuongTrinhKhuyenMai_Interface 
 
     @Override
     public ChuongTrinhKhuyenMai getKMTheomaHD(String maHD) {
-        return null;
+        return ctkm_dao.getKMTheomaHD(maHD);
     }
 
     @Override
@@ -67,16 +67,16 @@ public class ChuongTrinhKhuyenMai_bus implements ChuongTrinhKhuyenMai_Interface 
 
     @Override
     public String layTenKhuyenMaiTheoMa(String maKhuyenMai) {
-        return null;
+        return ctkm_dao.layTenKhuyenMaiTheoMa(maKhuyenMai);
     }
 
     @Override
     public String layMaKhuyenMaiTheoTen(String tenKhuyenMai) {
-        return null;
+        return ctkm_dao.layMaKhuyenMaiTheoTen(tenKhuyenMai);
     }
 
     @Override
     public ArrayList<ChuongTrinhKhuyenMai> getAllCTKMTheoLoaiKMVaTinhTrang(String loaiKM, String tinhTrang) {
-        return null;
+        return ctkm_dao.getAllCTKMTheoLoaiKMVaTinhTrang(loaiKM, tinhTrang);
     }
 }

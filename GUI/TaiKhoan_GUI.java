@@ -1,12 +1,18 @@
 package GUI;
 
 
+import BUS.TaiKhoan_bus;
+import DTO.TaiKhoan;
+
+
+
 import java.awt.Image;
-import javax.swing.ImageIcon;
+import java.util.ArrayList;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 public class TaiKhoan_GUI extends javax.swing.JPanel {
-    
+    private TaiKhoan_bus tk_bus=new TaiKhoan_bus();
     private DefaultTableModel tableModel = new DefaultTableModel();
     public TaiKhoan_GUI() {
         initComponents();
@@ -198,11 +204,43 @@ public class TaiKhoan_GUI extends javax.swing.JPanel {
     }//GEN-LAST:event_txt_NhapTenTKActionPerformed
 
     private void btn_CapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CapNhatActionPerformed
-        
+        int rowSelected = table_DanhSachTK.getSelectedRow();
+        if(rowSelected == -1){
+            JOptionPane.showMessageDialog(this, "Bạn chưa chọn tài khoản cần cập nhật!");
+            return;
+        }
+        String tenTk=tableModel.getValueAt(rowSelected, 1).toString();
+        TaiKhoan tk=tk_bus.findOne(tenTk);
+        if (tk == null) {
+            JOptionPane.showMessageDialog(this, "Tài khoản không tồn tại!");
+            return;
+        }
+        tk.setTrangThai(cbo_TinhTrang.getSelectedItem().equals("Đang hoạt động")?1:0);
+        if (tk_bus.update(tk)) {
+            JOptionPane.showMessageDialog(this, "Cập nhật thành công!");
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Cập nhật thất bại!");
+        }
+        refresh();
+
     }//GEN-LAST:event_btn_CapNhatActionPerformed
 
     private void btn_TimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TimKiemActionPerformed
-       
+       String id=txt_NhapTenTK.getText().trim();
+        if (id.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập tài khoản của nhân viên!");
+            return;
+        }
+        TaiKhoan tk=tk_bus.findOne(id);
+
+        if (tk == null) {
+            JOptionPane.showMessageDialog(this, "Tài khoản không tồn tại!");
+            return;
+        }
+        tableModel.setRowCount(0);
+        tableModel.addRow(new Object[] {tk.getNhanVien().getHoTen(), tk.getTenTK(), tk.getThoiGianDN(), tk.getTrangThai()==1?"Đang hoạt động":"Ngưng hoạt động"});
+
     }//GEN-LAST:event_btn_TimKiemActionPerformed
 
     private void table_DanhSachTKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_DanhSachTKMouseClicked
@@ -211,8 +249,13 @@ public class TaiKhoan_GUI extends javax.swing.JPanel {
     }//GEN-LAST:event_table_DanhSachTKMouseClicked
 
      private void loadData() {
-        
+         ArrayList<TaiKhoan> listTK = new ArrayList<>();
+         listTK = tk_bus.findAll();
+         for (TaiKhoan tk : listTK) {
+             tableModel.addRow(new Object[]{tk.getNhanVien().getHoTen(), tk.getTenTK(), tk.getThoiGianDN(), tk.getTrangThai()==1?"Đang hoạt động":"Ngưng hoạt động"});
+         }
     }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_CapNhat;

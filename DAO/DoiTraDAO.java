@@ -37,11 +37,23 @@ public class DoiTraDAO implements DoiTra_Interface {
             if(result<1){
                 return false;
             }
-            for(ChiTietDoiTra ctdt:ctdtList){
-                if(!ctdt_dao.themChiTietDoiTra(ctdt)){
-                    return false;
+
+
+                if (dt.getHinhThucDoiTra().equals(HinhThucDoiTraEnum.HOANTRA)) {
+                    for (ChiTietDoiTra ctdt : ctdtList) {
+                        if (!ctdt_dao.themChiTietDoiTra(ctdt)) {
+                            return false;
+                        }
+                        ThuocDAO.getInstance().updateQuantity(ctdt.getSanPham().getMaThuoc(), ctdt.getSoLuong());
+                    }
+                } else{
+                    for (ChiTietDoiTra ctdt : ctdtList) {
+                        if (!ctdt_dao.themChiTietDoiTra(ctdt)) {
+                            return false;
+                        }
+                    }
                 }
-            }
+
             JDBCUtil.closeConnection(con);
             return true;
         }
@@ -93,7 +105,6 @@ public class DoiTraDAO implements DoiTra_Interface {
                     kh.setHoTen(rs.getString("tenKhachHang"));
                     kh.setSdt(rs.getString("soDienThoai"));
                 }
-
             }
             hd.setKhachHang(kh);
 

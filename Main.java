@@ -245,8 +245,18 @@ public class Main {
 
 
         //getDoiTraTheoMa
-     DoiTraDAO dt_dao= DoiTraDAO.getInstance();
-     DoiTra dt= dt_dao.getDoiTraTheoMa("DT833810271");
-        System.out.println(dt);
+//     DoiTraDAO dt_dao= DoiTraDAO.getInstance();
+//     DoiTra dt= dt_dao.getDoiTraTheoMa("DT833810271");
+//        System.out.println(dt);
+
+        //getAllCTDTTheoMaDT
+//        ChiTietDoiTraDAO ctdt_dao=new ChiTietDoiTraDAO();
+//        ArrayList<ChiTietDoiTra> list=ctdt_dao.getAllCTDTTheoMaDT("DT448382357");
+//        System.out.println(list);
+
+        //findOneTK
+        TaiKhoanDAO tk_dao= TaiKhoanDAO.getInstance();
+        TaiKhoan tk= tk_dao.findOne("012345");
+        System.out.println(tk);
     }
 }

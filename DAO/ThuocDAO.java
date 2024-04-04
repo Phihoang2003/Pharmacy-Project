@@ -20,7 +20,7 @@ public class ThuocDAO implements SanPham_Interface {
         int result = 0;
         try {
             Connection con = JDBCUtil.getConnection();
-            String sql = "INSERT INTO thuoc(maThuoc, tenThuoc, hanSuDung, khoiLuong,donViTinh, hoatChatChinh,duongDung, imgUrl, nhomHangHoa, dieuKienBaoQuan, chuongTrinhKhuyenMai, soLuongTon,quyCachDongGoi,nuocSanXuat,donGia, trangThai) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO thuoc(maThuoc, tenThuoc, hanSuDung, khoiLuong,donViTinh, hoatChatChinh,duongDung, imgUrl, nhomHangHoa, dieuKienBaoQuan, chuongTrinhKhuyenMai, soLuongTon,quyCachDongGoi,nuocSanXuat,donGia, trangThai,thuocKeDon,thuongHieu) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, thuocDTO.getMaThuoc());
             pst.setString(2, thuocDTO.getTenThuoc());
@@ -34,10 +34,12 @@ public class ThuocDAO implements SanPham_Interface {
             pst.setString(10, thuocDTO.getDieuKienBaoQuan());
             pst.setString(11, thuocDTO.getChuongTrinhKhuyenMaiEntity().getMaCTKM());
             pst.setInt(12, thuocDTO.getSoLuongTon());
-            pst.setString(13, thuocDTO.getQuyCachDongGoi().getMaQuyCachDongGoi());
+            pst.setString(13, thuocDTO.getQuyCachDongGoi());
             pst.setString(14, thuocDTO.getNuocSanXuat().getMaNuoc());
             pst.setDouble(15, thuocDTO.getDonGia());
             pst.setString(16, TinhTrangSPEnum.DANGBAN.toString());
+            pst.setBoolean(17, thuocDTO.isThuocKeDon());
+            pst.setString(18, thuocDTO.getThuongHieu().getMaThuongHieu());
             result = pst.executeUpdate();
             JDBCUtil.closeConnection(con);
         } catch (SQLException ex) {
@@ -51,7 +53,7 @@ public class ThuocDAO implements SanPham_Interface {
         Thuoc thuocDTO=null;
         try {
             Connection con=JDBCUtil.getConnection();
-            String sql="SELECT sp.*,dvt.tenDonViTinh,nhh.tenNhom,ctkm.giamGia,qcdg.tenQuyCachDongGoi,nsx.tenNuoc FROM thuoc sp JOIN donvitinh dvt ON sp.donViTinh=dvt.maDonViTinh JOIN nhomhanghoa nhh ON sp.nhomHangHoa=nhh.maNhom JOIN chuongtrinhkhuyenmai ctkm ON sp.chuongTrinhKhuyenMai=ctkm.maCTKM JOIN quycachdonggoi qcdg ON sp.quyCachDongGoi=qcdg.maQuyCachDongGoi JOIN nuocsanxuat nsx ON sp.nuocSanXuat=nsx.maNuoc WHERE maThuoc=?";
+            String sql="SELECT sp.*,dvt.tenDonViTinh,nhh.tenNhom,ctkm.giamGia,nsx.tenNuoc,th.tenThuongHieu FROM thuoc sp JOIN donvitinh dvt ON sp.donViTinh=dvt.maDonViTinh JOIN nhomhanghoa nhh ON sp.nhomHangHoa=nhh.maNhom JOIN thuonghieu th ON sp.thuongHieu=th.maThuongHieu JOIN chuongtrinhkhuyenmai ctkm ON sp.chuongTrinhKhuyenMai=ctkm.maCTKM  JOIN nuocsanxuat nsx ON sp.nuocSanXuat=nsx.maNuoc WHERE maThuoc=?";
             PreparedStatement pst=con.prepareStatement(sql);
             pst.setString(1,ma);
             ResultSet rs=pst.executeQuery();
@@ -70,8 +72,11 @@ public class ThuocDAO implements SanPham_Interface {
                 thuocDTO.setDonViTinh(new DonViTinh(rs.getString("donViTinh"),rs.getString("tenDonViTinh")));
                 thuocDTO.setNhomHangHoa(new NhomHangHoa(rs.getString("nhomHangHoa"),rs.getString("tenNhom")));
                 thuocDTO.setChuongTrinhKhuyenMaiEntity(new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKhuyenMai"),rs.getInt("giamGia")));
-                thuocDTO.setQuyCachDongGoi(new QuyCachDongGoi(rs.getString("quyCachDongGoi"),rs.getString("tenQuyCachDongGoi")));
+                thuocDTO.setQuyCachDongGoi(rs.getString("quyCachDongGoi"));
                 thuocDTO.setNuocSanXuat(new NuocSanXuat(rs.getString("nuocSanXuat"),rs.getString("tenNuoc")));
+                thuocDTO.setThuongHieu(new ThuongHieu(rs.getString("thuongHieu"),rs.getString("tenThuongHieu")));
+                thuocDTO.setThuocKeDon(rs.getBoolean("thuocKeDon"));
+
                 TinhTrangSPEnum tinhTrangSPEnum=null;
                 if(rs.getString("trangThai").equals("Đang bán")) {
                     tinhTrangSPEnum = TinhTrangSPEnum.DANGBAN;
@@ -188,7 +193,9 @@ public Thuoc selectById(String id) {
             thuocDTO.setDonViTinh(new DonViTinh(rs.getString("donViTinh")));
             thuocDTO.setNhomHangHoa(new NhomHangHoa(rs.getString("nhomHangHoa")));
             thuocDTO.setChuongTrinhKhuyenMaiEntity(new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKhuyenMai")));
-            thuocDTO.setQuyCachDongGoi(new QuyCachDongGoi(rs.getString("quyCachDongGoi")));
+            thuocDTO.setQuyCachDongGoi(rs.getString("quyCachDongGoi"));
+            thuocDTO.setThuongHieu(new ThuongHieu(rs.getString("thuongHieu")));
+            thuocDTO.setThuocKeDon(rs.getBoolean("thuocKeDon"));
             thuocDTO.setNuocSanXuat(new NuocSanXuat(rs.getString("nuocSanXuat")));
             TinhTrangSPEnum tinhTrangSPEnum=null;
             if(rs.getString("trangThai").equals("Đang bán")) {
@@ -231,7 +238,21 @@ public Thuoc selectById(String id) {
             return false;
         }
     }
-
+    public boolean updateQuantity(String maThuoc, int quantity) {
+        int result = 0;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            String sql = "UPDATE thuoc SET soLuongTon = soLuongTon + ? WHERE maThuoc = ?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setInt(1, quantity);
+            pst.setString(2, maThuoc);
+            result = pst.executeUpdate();
+            JDBCUtil.closeConnection(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return result > 0;
+    }
     @Override
     public String getAutoIncrement() {
         Random random = new Random();

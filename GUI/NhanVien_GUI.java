@@ -486,13 +486,13 @@ public class NhanVien_GUI extends javax.swing.JPanel {
         jLabel35.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel35.setText("Chức vụ");
 
-        chucVu1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân Viên", "Quản Lí" }));
+        chucVu1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Nhân viên", "Quản lý" }));
         chucVu1.setBorder(null);
 
         jLabel36.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel36.setText("TÌnh Trạng");
 
-        tinhTrang1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đang Làm Việc", "Nghỉ Phép", "Nghỉ Việc" }));
+        tinhTrang1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Đang làm việc", "Nghỉ phép", "Nghỉ việc" }));
         tinhTrang1.setBorder(null);
 
         jLabel37.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
@@ -1009,21 +1009,21 @@ public class NhanVien_GUI extends javax.swing.JPanel {
         // TODO add your handling code here:
         try{
             int rowSelected=table_DSNV.getSelectedRow();
-            txt_ma1.setText(table_DSNV.getValueAt(rowSelected, 0).toString());
-            txt_ten1.setText(table_DSNV.getValueAt(rowSelected, 1).toString());
-            if(table_DSNV.getValueAt(rowSelected, 2).toString().equals("Nam")){
+            txt_ma1.setText(tableModel.getValueAt(rowSelected, 0).toString());
+            txt_ten1.setText(tableModel.getValueAt(rowSelected, 1).toString());
+            if(tableModel.getValueAt(rowSelected, 2).toString().equals("Nam")){
                 rad_nam1.setSelected(true);
             }
             else{
                 rad_nu1.setSelected(true);
             }
             txt_date1.setDate(new SimpleDateFormat("yyyy-MM-dd").parse(table_DSNV.getValueAt(rowSelected, 3).toString()));
-            txt_email1.setText(table_DSNV.getValueAt(rowSelected, 4).toString());
-            txt_sdt1.setText(table_DSNV.getValueAt(rowSelected, 5).toString());
-            txt_diachi1.setText(table_DSNV.getValueAt(rowSelected, 6).toString());
-            chucVu1.setSelectedItem(table_DSNV.getValueAt(rowSelected, 7).toString());
-            tinhTrang1.setSelectedItem(table_DSNV.getValueAt(rowSelected, 8).toString());
-            caLamViec1.setSelectedItem(table_DSNV.getValueAt(rowSelected, 9).toString());
+            txt_email1.setText(tableModel.getValueAt(rowSelected, 4).toString());
+            txt_sdt1.setText(tableModel.getValueAt(rowSelected, 5).toString());
+            txt_diachi1.setText(tableModel.getValueAt(rowSelected, 6).toString());
+            chucVu1.setSelectedItem(tableModel.getValueAt(rowSelected, 7).toString());
+            tinhTrang1.setSelectedItem(tableModel.getValueAt(rowSelected, 8).toString());
+            caLamViec1.setSelectedItem(tableModel.getValueAt(rowSelected, 9).toString());
 
 
 
@@ -1063,15 +1063,15 @@ public class NhanVien_GUI extends javax.swing.JPanel {
     private void btnCapNhatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCapNhatActionPerformed
         // TODO add your handling code here:
         try {
-            System.out.println("Hello");
+
             int gioiTinh;
             NhanVien nv=new NhanVien();
             NhanVienDAO nvdao=new NhanVienDAO();
             TinhTrangNVEnum tt=null;
-            if(tinhTrang1.getSelectedItem().equals("Đang làm việc")){
+            if(tinhTrang1.getSelectedItem().equals("Đang Làm Việc")){
                 tt=TinhTrangNVEnum.DANGLAMVIEC;
             }
-            else if(tinhTrang1.getSelectedItem().equals("Nghỉ phép")){
+            else if(tinhTrang1.getSelectedItem().equals("Nghỉ Phép")){
                 tt=TinhTrangNVEnum.NGHIPHEP;
             }
             else{
