@@ -883,7 +883,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
             lbl_donVi.setText(thuocDTO.getDonViTinh().getTenDonViTinh());
             lbl_quyCach.setText(thuocDTO.getQuyCachDongGoi());
             lbl_nhomThuoc.setText(thuocDTO.getNhomHangHoa().getTenNhomHang());
-            lbl_nuoc.setText(thuocDTO.getNuocSanXuat().getTenNuoc());
+            lbl_nuoc.setText(thuocDTO.isThuocKeDon()?"Có":"Không");
             lbl_donGia.setText(convert.toMoney(thuocDTO.getDonGia()));
             if(thuocDTO.getChuongTrinhKhuyenMaiEntity()!=null){
                 lbl_khuyenMai.setText(thuocDTO.getChuongTrinhKhuyenMaiEntity().getGiamGia()+"");
@@ -938,7 +938,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
         thuocDTO.setDonViTinh(new DonViTinh(sp_bus.timSanPham(maSP).getDonViTinh().getMaDonViTinh(),donVi));
         thuocDTO.setQuyCachDongGoi(sp_bus.timSanPham(maSP).getQuyCachDongGoi());
         thuocDTO.setNhomHangHoa(new NhomHangHoa(sp_bus.timSanPham(maSP).getNhomHangHoa().getMaNhomHang(),nhomThuoc));
-        thuocDTO.setNuocSanXuat(new NuocSanXuat(sp_bus.timSanPham(maSP).getNuocSanXuat().getMaNuoc(),nuoc));
+        thuocDTO.setThuocKeDon(sp_bus.timSanPham(maSP).isThuocKeDon());
         thuocDTO.setDonGia(convert.toDouble(donGia));
         ChuongTrinhKhuyenMai ctkm=new ChuongTrinhKhuyenMai();
         ctkm.setGiamGia(Integer.parseInt(khuyenMai));
