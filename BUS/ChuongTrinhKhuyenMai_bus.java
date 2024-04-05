@@ -17,7 +17,7 @@ public class ChuongTrinhKhuyenMai_bus implements ChuongTrinhKhuyenMai_Interface 
 
     @Override
     public ArrayList<ChuongTrinhKhuyenMai> getCTKMTheoMaCTKM(String maCTKM, String maLoai) {
-        return null;
+        return ctkm_dao.getCTKMTheoMaCTKM(maCTKM, maLoai);
     }
 
     @Override
