@@ -79,7 +79,33 @@ public boolean update(ChuongTrinhKhuyenMai t) {
 
     @Override
     public ArrayList<ChuongTrinhKhuyenMai> getallCTKMtheoLoaiKM(String ma) {
-        return null;
+    ArrayList<ChuongTrinhKhuyenMai> list = new ArrayList<>();
+    try{
+        Connection con=JDBCUtil.getConnection();
+        String sql="Select * from chuongtrinhkhuyenmai where maLoaiKM=?";
+        PreparedStatement pst=con.prepareStatement(sql);
+        pst.setString(1,ma);
+        ResultSet rs=pst.executeQuery();
+        while(rs.next()){
+            ChuongTrinhKhuyenMai ctkm=new ChuongTrinhKhuyenMai();
+            ctkm.setMaCTKM(rs.getString("maCTKM"));
+            ctkm.setTenCTKM(rs.getString("tenCTKM"));
+            ctkm.setMaLoaiKM(new LoaiKhuyenMai(rs.getString("maLoaiKM")));
+            ctkm.setNgayBatDau(rs.getDate("ngayBatDau"));
+            ctkm.setNgayKetThuc(rs.getDate("ngayKetThuc"));
+            ctkm.setSoTienToiThieu(rs.getDouble("soTienToiThieu"));
+            ctkm.setSoTienToiDa(rs.getDouble("soTienToiDa"));
+            ctkm.setGiamGia(rs.getInt("giamGia"));
+            ctkm.setTinhTrang(rs.getInt("trangThai"));
+            list.add(ctkm);
+        }
+        JDBCUtil.closeConnection(con);
+
+    }catch(SQLException ex){
+            Logger.getLogger(ChuongTrinhKhuyenMaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return list;
     }
 
     @Override
@@ -89,7 +115,33 @@ public boolean update(ChuongTrinhKhuyenMai t) {
 
     @Override
     public ArrayList<ChuongTrinhKhuyenMai> getCTKMTheoMaCTKM(String maCTKM, String maLoai) {
-        return null;
+    ArrayList<ChuongTrinhKhuyenMai> list = new ArrayList<>();
+    try{
+        Connection con=JDBCUtil.getConnection();
+        String sql="Select * from chuongtrinhkhuyenmai where maCTKM=? and maLoaiKM=?";
+        PreparedStatement pst=con.prepareStatement(sql);
+        pst.setString(1,maCTKM);
+        pst.setString(2,maLoai);
+        ResultSet rs=pst.executeQuery();
+        while(rs.next()){
+            ChuongTrinhKhuyenMai ctkm=new ChuongTrinhKhuyenMai();
+            ctkm.setMaCTKM(rs.getString("maCTKM"));
+            ctkm.setTenCTKM(rs.getString("tenCTKM"));
+            ctkm.setMaLoaiKM(new LoaiKhuyenMai(rs.getString("maLoaiKM")));
+            ctkm.setNgayBatDau(rs.getDate("ngayBatDau"));
+            ctkm.setNgayKetThuc(rs.getDate("ngayKetThuc"));
+            ctkm.setSoTienToiThieu(rs.getDouble("soTienToiThieu"));
+            ctkm.setSoTienToiDa(rs.getDouble("soTienToiDa"));
+            ctkm.setGiamGia(rs.getInt("giamGia"));
+            ctkm.setTinhTrang(rs.getInt("trangThai"));
+            list.add(ctkm);
+        }
+        JDBCUtil.closeConnection(con);
+
+    }catch(SQLException ex){
+        Logger.getLogger(ChuongTrinhKhuyenMaiDAO.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        return list;
     }
 
     @Override
