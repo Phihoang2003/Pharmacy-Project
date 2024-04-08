@@ -3,12 +3,17 @@ package GUI;
 import BUS.ChuongTrinhKhuyenMai_bus;
 import DTO.ChuongTrinhKhuyenMai;
 import DTO.LoaiKhuyenMai;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Desktop;
-import java.awt.Image;
+import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumnModel;
+import java.awt.*;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -19,23 +24,8 @@ import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Calendar;
-import javax.swing.table.DefaultTableModel;
 import java.util.Date;
 import java.util.Locale;
-import javax.swing.ButtonGroup;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import javax.swing.SwingConstants;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.TableColumnModel;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.CellType;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -56,9 +46,9 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
          ButtonGroup rdo_group = new ButtonGroup();
          rdo_group.add(rdo_sp);
          rdo_group.add(rdo_hd);
-         
-         dateNgayBatDau.setLocale(new Locale("vi","VN"));
-         dateNgayKetThuc.setLocale(new Locale("vi","VN"));
+
+         dateNgayBatDau.setLocale(Locale.forLanguageTag("vi-VN"));
+         dateNgayKetThuc.setLocale(Locale.forLanguageTag("vi-VN"));
           setBounds(0, 0, 1186, 748);
 
         ImageIcon img_btnTimKiem = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonTimKiem.png");
@@ -213,9 +203,9 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
 
     private void XoaRows(int row) {
         model.removeRow(row);
-        
+
     }
-    
+
     private void Xoa(){
         try {
         int row = jTable1.getSelectedRow();
@@ -231,7 +221,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Chưa chọn dữ liệu cần xoá !");
         }
-        
+
     }
 
 
@@ -271,13 +261,13 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
             e.printStackTrace();
         }
     }
-    
+
     private int SetTinhTrang(Date dateKT){
 //        Date datenow = new Date();
 //        if(datenow.after(dateKT)){
 //            return "Đã hết";
 //        }
-//        
+//
 //        return "Còn";
     Date datenow = new Date(); // Lấy ngày hiện tại
 
@@ -296,13 +286,13 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
 
     return 1;
     }
-    
+
     private boolean CheckValid(){
         String ten = txtTenCTKM.getText();
         String sotienTT = txtSoTienGiamTT.getText().trim();
         String sotienTD = txtSoTienGiamTD.getText().trim();
         String giamgia  = txtGiamGia.getText().trim();
- 
+
         if(ten.equals("")){
             JOptionPane.showMessageDialog(null, "Không để trống tên Chương trình ");
             return false;
@@ -321,7 +311,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Số tiền tối thiểu phải lớn hơn 0");
                 return false;
             }
-                
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Nhập số tiền không hợp lệ !");
                 return false;
@@ -337,7 +327,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Số tiền tối đa phải lớn hơn 0");
                 return false;
             }
-                
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Nhập số tiền không hợp lệ !");
                 return false;
@@ -347,7 +337,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
             return false;
         }
         }
-        
+
         if(giamgia.length() > 0){
             try {
                 double gg = Double.parseDouble(giamgia);
@@ -355,7 +345,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Số % giảm giá khoảng 0-100%");
                 return false;
             }
-                
+
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "Nhập số giảm giá không hợp lệ !");
                 return false;
@@ -366,12 +356,12 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         }
         try {
              ngaybatdau = new java.sql.Date(dateNgayBatDau.getDate().getTime());
-            
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Không để trống ngày bắt đầu !");
             return false;
         }
-        
+
         try {
             java.sql.Date ngayketthuc = new java.sql.Date(dateNgayKetThuc.getDate().getTime());
             LocalDate ngaybd = dateNgayBatDau.getDate().toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
@@ -385,16 +375,16 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
             if (khoangcach < 2) {
                  JOptionPane.showMessageDialog(null, "Ngày kết thúc với ngày bắt đầu cách it nhất 2 ngày !");
                 return false;
-                
+
             }
-            
-            
+
+
         } catch (Exception e) {
              JOptionPane.showMessageDialog(null, "Không để trống ngày kết thúc !");
             return false;
         }
-        
-        
+
+
         return true;
     }
     @SuppressWarnings("unchecked")
@@ -739,7 +729,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         LamMoi();
         XoahetDuLieuTrenTable();
         DocDuLieuTuSQLvaoTable();
-        
+
     }//GEN-LAST:event_btn_LamMoiMouseClicked
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -767,7 +757,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         txtSoTienGiamTD.setBackground(new Color(244, 244, 244));
         txtSoTienGiamTT.setEditable(false);
         txtSoTienGiamTT.setBackground(new Color(244, 244, 244));
-        
+
         TableColumnModel models = jTable1.getColumnModel();
         if(rdo_sp.isSelected()){
             models.getColumn(3).setWidth(0);
@@ -813,7 +803,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
 
     private void dateNgayBatDauPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_dateNgayBatDauPropertyChange
         // TODO add your handling code here:
-        
+
         if(dateNgayKetThuc.getDate() !=null && dateNgayBatDau.getDate() !=null){
 //            Date datenow = new Date();
 //            if(!datenow.before(dateNgayBatDau.getDate())){
@@ -837,7 +827,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
     }//GEN-LAST:event_dateNgayKetThucPropertyChange
 
     private void btn_XuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_XuatMouseClicked
-        btn_Xuat.setBackground(Color.CYAN);        
+        btn_Xuat.setBackground(Color.CYAN);
          JFileChooser fileChooser = new JFileChooser("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\fileExcel");
             fileChooser.setDialogTitle("Chọn nơi lưu file");
             int chon = fileChooser.showSaveDialog(null);
@@ -847,74 +837,74 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
                 if (!filePath.toLowerCase().endsWith(".xlsx")) {
                     filePath += ".xlsx";
                 }
-        
+
         XSSFWorkbook workbook = new XSSFWorkbook();
         XSSFSheet sheet = workbook.createSheet("Khuyến Mãi");
         XSSFRow row= null;
         Cell cell = null;
         row = sheet.createRow(3);
-        
+
         cell = row.createCell(0,CellType.STRING);
         cell.setCellValue("Mã Chương Trình");
-        
+
         cell = row.createCell(1,CellType.STRING);
         cell.setCellValue("Loại Khuyến Mãi");
-        
+
         cell = row.createCell(2,CellType.STRING);
         cell.setCellValue("Tên Chương Trình");
-        
+
         if(txtLoaiKM.getText().equals("GGHD")){
         cell = row.createCell(3,CellType.STRING);
         cell.setCellValue("Số tiền tối thiểu");
-        
+
         cell = row.createCell(4,CellType.STRING);
         cell.setCellValue("Số tiền tối đa");
-        
+
         cell = row.createCell(5,CellType.STRING);
         cell.setCellValue("Giảm giá");
-        
+
         cell = row.createCell(6,CellType.STRING);
         cell.setCellValue("Ngày bắt đầu ");
-        
+
         cell = row.createCell(7,CellType.STRING);
         cell.setCellValue("Ngày Kết Thúc");
-        
+
         cell = row.createCell(8,CellType.STRING);
         cell.setCellValue("Tình Trạng");
         }else{
         cell = row.createCell(3,CellType.STRING);
         cell.setCellValue("Giảm giá");
-        
+
         cell = row.createCell(4,CellType.STRING);
         cell.setCellValue("Ngày bắt đầu ");
-        
+
         cell = row.createCell(5,CellType.STRING);
         cell.setCellValue("Ngày Kết Thúc");
-        
+
         cell = row.createCell(6,CellType.STRING);
         cell.setCellValue("Tình Trạng");
         }
-        
-        
+
+
         ArrayList<ChuongTrinhKhuyenMai> dsCTKMHD = null;
         if(txtLoaiKM.getText().equals("GGHD"))dsCTKMHD = ctkmbus.getallCTKMtheoLoaiKM("GGHD");
         else dsCTKMHD = ctkmbus.getallCTKMtheoLoaiKM("GGSP");
-        
+
         int i =0;
         if(dsCTKMHD != null ){
             for (ChuongTrinhKhuyenMai kmhd: dsCTKMHD){
                 i++;
                 row = sheet.createRow(3+i);
-                
+
                 cell = row.createCell(0,CellType.STRING);
                 cell.setCellValue(kmhd.getMaCTKM());
-                
+
                 cell = row.createCell(1,CellType.STRING);
                 cell.setCellValue(kmhd.getMaLoaiKM().getMaLoaiKM());
-                
+
                 cell = row.createCell(2,CellType.STRING);
                 cell.setCellValue(kmhd.getTenCTKM());
-                
+
                 if(txtLoaiKM.getText().equals("GGHD")){
                     cell = row.createCell(3,CellType.NUMERIC);
                    cell.setCellValue(kmhd.getSoTienToiThieu());
@@ -934,23 +924,23 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
                    cell = row.createCell(8,CellType.STRING);
                    cell.setCellValue(kmhd.getTinhTrang());
                 }else{
-                
+
                 cell = row.createCell(3,CellType.NUMERIC);
                 cell.setCellValue(kmhd.getGiamGia());
-                
+
                 cell = row.createCell(4,CellType.STRING);
                 cell.setCellValue(kmhd.getNgayBatDau().toString());
-                
+
                 cell = row.createCell(5,CellType.STRING);
                 cell.setCellValue(kmhd.getNgayKetThuc().toString());
-                
+
                 cell = row.createCell(6,CellType.STRING);
                 cell.setCellValue(kmhd.getTinhTrang());
                 }
- 
-                
-                // Save file 
-                
+
+
+                // Save file
+
                     File fis = new File(filePath);
                     try {
                     FileOutputStream fisO = new FileOutputStream(fis);
@@ -960,13 +950,13 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                
+
             }
         }
             }
     }//GEN-LAST:event_btn_XuatMouseClicked
     // Mở file
-    
+
      private static void openExcelFile(File file) throws IOException {
          Desktop desktop = Desktop.getDesktop();
         if (desktop.isSupported(Desktop.Action.OPEN)) {
@@ -976,20 +966,20 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
             System.out.println("Không thể mở file.");
         }
     }
-    
+
     private void btn_XuatMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_XuatMouseEntered
         // TODO add your handling code here:
-        btn_Xuat.setBackground(Color.WHITE);  
+        btn_Xuat.setBackground(Color.WHITE);
     }//GEN-LAST:event_btn_XuatMouseEntered
 
     private void btn_XuatMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_XuatMouseExited
         // TODO add your handling code here:
-        btn_Xuat.setBackground(Color.WHITE);  
+        btn_Xuat.setBackground(Color.WHITE);
     }//GEN-LAST:event_btn_XuatMouseExited
 
     private void btn_XuatMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_XuatMouseReleased
         // TODO add your handling code here:
-        btn_Xuat.setBackground(Color.WHITE);  
+        btn_Xuat.setBackground(Color.WHITE);
     }//GEN-LAST:event_btn_XuatMouseReleased
 
 
@@ -1028,12 +1018,12 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
     private javax.swing.JTextField txtTimMaCTKM;
     // End of variables declaration//GEN-END:variables
     class CenterRenderer extends DefaultTableCellRenderer {
- 
+
     public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
         Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
         ((JLabel) c).setHorizontalAlignment(SwingConstants.CENTER); // Căn giữa nội dung của cột
         return c;
     }
     }
-    
+
 }
