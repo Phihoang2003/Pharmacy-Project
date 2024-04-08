@@ -4,9 +4,9 @@
  */
 package GUI;
 
-import java.awt.Image;
+import javax.swing.*;
+import java.awt.*;
 import java.util.Locale;
-import javax.swing.ImageIcon;
 
 /**
  *
@@ -19,28 +19,23 @@ public class HoaDon_GUI extends javax.swing.JPanel {
      */
     public HoaDon_GUI() {
         initComponents();
+        
         txt_date.setDateFormatString("MMM d, yyyy");
-        txt_date.setLocale(new Locale("vi","VN"));
+        txt_date.setLocale(Locale.forLanguageTag("vi-VN"));
         ImageIcon img_btnTimKiemSanPham = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonTimKiem.png");
         Image scaled_btnTimKiemSanPham = img_btnTimKiemSanPham.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnTimKiemSanPham = new ImageIcon(scaled_btnTimKiemSanPham);
-         btnTimKiemHoaDon.setIcon(img_btnTimKiemSanPham);
-         
-         ImageIcon img_btnXemChiTiet = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonXemChiTiet.png");
+        btnTimKiemHoaDon.setIcon(img_btnTimKiemSanPham);
+
+        ImageIcon img_btnXemChiTiet = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonXemChiTiet.png");
         Image scaled_btnXemChiTiet = img_btnXemChiTiet.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnXemChiTiet = new ImageIcon(scaled_btnXemChiTiet);
-         btnXemChiTiet.setIcon(img_btnXemChiTiet);
+        btnXemChiTiet.setIcon(img_btnXemChiTiet);
          
-         ImageIcon img_btnLamMoi = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonLamMoi.png");
+        ImageIcon img_btnLamMoi = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonLamMoi.png");
         Image scaled_btnLamMoi = img_btnLamMoi.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnLamMoi = new ImageIcon(scaled_btnLamMoi);
-         btnLamMoi.setIcon(img_btnLamMoi);
-         
-         
-         
-         
-         
-         
+        btnLamMoi.setIcon(img_btnLamMoi);
     }
 
     /**
@@ -247,7 +242,6 @@ public class HoaDon_GUI extends javax.swing.JPanel {
     private void btnLamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLamMoiActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLamMoiActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLamMoi;
