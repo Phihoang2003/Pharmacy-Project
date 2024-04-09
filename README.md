@@ -1,5 +1,5 @@
 # Pharmacy-Project
-Phần mềm chỉ phục vụ cho dược sĩ bán hàng và người quản lý để thực hiện công việc như: quản lý thuốc và các mảng liên quan đến thuốc, các quản lý bán hàng và báo cáo thống kê. 
+Phần mềm chỉ phục vụ cho dược sĩ bán hàng và người quản lý để thực hiện công việc như: quản lý thuốc và các mảng liên quan đến thuốc, các quản lý bán hàng và báo cáo thống kê. <br>
 Bộ phận quản lý của cửa hàng gốm một quản lý có toàn quyền quản lý hệ thống, dược sĩ đảm nhận các công việc khác như bán hàng, ghi nhận các thông tin về khách hàng và in ấn các hóa đơn. Quản lý có thể thêm, cập nhật, tìm, xóa, sửa sản phẩm cũng như thông tin nhân viên.
 Quản lý thuốc bao gồm các công việc nhập thuốc, tìm kiếm thuốc, kiểm tra danh mục đầu thuốc và tình trạng thuốc. Bộ phận quản lý thuốc phải kiểm tra được về các thông tin thuốc như mã thuốc, tên thuốc, đơn vị thuốc, đơn giá, nhà cung cấp. Chức năng nhập thuốc cho phép theo dõi số lượng thuốc nhập vào, đơn giá, tổng tiền và theo dõi được thuốc nhập vào từ hãng nào, hạn sử dụng còn hay hết, giúp nhà thuốc quản lý thông tin, hóa đơn nhập một cách khoa học và chặt chẽ.
 Thuốc còn 2 tháng hạn sử dụng thì hệ thống sẽ phát thông báo để dược sĩ ưu tiên bán trước.
