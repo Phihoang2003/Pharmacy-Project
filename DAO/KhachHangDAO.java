@@ -1,8 +1,6 @@
 package DAO;
 
 import DTO.KhachHang;
-import DTO.NhomKhachHang;
-import Interface.DaoInterface;
 import Interface.KhachHang_Interface;
 import config.JDBCUtil;
 
