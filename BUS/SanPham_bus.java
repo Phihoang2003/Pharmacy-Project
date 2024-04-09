@@ -12,7 +12,7 @@ public class SanPham_bus implements SanPham_Interface {
 
     @Override
     public ArrayList<Thuoc> selectAll() {
-        return null;
+        return thuocDAO.selectAll();
     }
 
     @Override
@@ -27,7 +27,7 @@ public class SanPham_bus implements SanPham_Interface {
 
     @Override
     public boolean update(Thuoc sp) {
-        return false;
+        return thuocDAO.update(sp);
     }
 
     @Override
@@ -57,7 +57,7 @@ public class SanPham_bus implements SanPham_Interface {
 
     @Override
     public void capNhatTinhTrang(String maSP, TinhTrangSPEnum tinhTrangDangBan) {
-
+        thuocDAO.capNhatTinhTrang(maSP, tinhTrangDangBan);
     }
 
     @Override

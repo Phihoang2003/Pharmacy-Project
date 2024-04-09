@@ -78,7 +78,7 @@ public class ChiTietHoaDonDAO implements ChiTietHoaDon_Interface {
                 Thuoc sp=new Thuoc(maSP);
                 sp.setTenThuoc(tenThuoc);
                 sp.setHanSuDung(hanSuDung);
-                sp.setNhomHangHoa(new NhomHangHoa(nhomHangHoa, nh_dao.getTenNhomHangHoa(nhomHangHoa)));
+                sp.setNhomHangHoa(new NhomHangHoa(nhomHangHoa, nh_dao.layTenNhomThuocTheoMa(nhomHangHoa)));
                 sp.setHoatChatChinh(hoatChatChinh);
                 sp.setQuyCachDongGoi(quyCachDongGoi);
                 sp.setNuocSanXuat(new NuocSanXuat(nuocSanXuat));

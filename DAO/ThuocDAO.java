@@ -20,11 +20,11 @@ public class ThuocDAO implements SanPham_Interface {
         int result = 0;
         try {
             Connection con = JDBCUtil.getConnection();
-            String sql = "INSERT INTO thuoc(maThuoc, tenThuoc, hanSuDung, khoiLuong,donViTinh, hoatChatChinh,duongDung, imgUrl, nhomHangHoa, dieuKienBaoQuan, chuongTrinhKhuyenMai, soLuongTon,quyCachDongGoi,nuocSanXuat,donGia, trangThai,thuocKeDon,thuongHieu) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO thuoc(maThuoc, tenThuoc, hanSuDung, khoiLuong,donViTinh, hoatChatChinh,duongDung, imgUrl, nhomHangHoa, dieuKienBaoQuan, chuongTrinhKhuyenMai, soLuongTon,quyCachDongGoi,nuocSanXuat,donGia, trangThai,thuocKeDon,thuongHieu) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setString(1, thuocDTO.getMaThuoc());
             pst.setString(2, thuocDTO.getTenThuoc());
-            pst.setDate(3, (Date) thuocDTO.getHanSuDung());
+            pst.setDate(3, new java.sql.Date(thuocDTO.getHanSuDung().getTime()));
             pst.setDouble(4, thuocDTO.getKhoiLuong());
             pst.setString(5, thuocDTO.getDonViTinh().getMaDonViTinh());
             pst.setString(6, thuocDTO.getHoatChatChinh());
@@ -99,9 +99,37 @@ public class ThuocDAO implements SanPham_Interface {
     }
 
     @Override
-    public boolean update(Thuoc t) {
-        return true;
+public boolean update(Thuoc t) {
+    int result = 0;
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "UPDATE thuoc SET tenThuoc = ?, hanSuDung = ?, khoiLuong = ?, hoatChatChinh = ?, duongDung = ?, imgUrl = ?, dieuKienBaoQuan = ?, donGia = ?, soLuongTon = ?, donViTinh = ?, nhomHangHoa = ?, chuongTrinhKhuyenMai = ?, quyCachDongGoi = ?, thuongHieu = ?, thuocKeDon = ?, nuocSanXuat = ?, trangThai = ? WHERE maThuoc = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, t.getTenThuoc());
+        pst.setDate(2, new java.sql.Date(t.getHanSuDung().getTime()));
+        pst.setDouble(3, t.getKhoiLuong());
+        pst.setString(4, t.getHoatChatChinh());
+        pst.setString(5, t.getDuongDung());
+        pst.setString(6, t.getImgUrl());
+        pst.setString(7, t.getDieuKienBaoQuan());
+        pst.setDouble(8, t.getDonGia());
+        pst.setInt(9, t.getSoLuongTon());
+        pst.setString(10, t.getDonViTinh().getMaDonViTinh());
+        pst.setString(11, t.getNhomHangHoa().getMaNhomHang());
+        pst.setString(12, t.getChuongTrinhKhuyenMaiEntity().getMaCTKM());
+        pst.setString(13, t.getQuyCachDongGoi());
+        pst.setString(14, t.getThuongHieu().getMaThuongHieu());
+        pst.setBoolean(15, t.isThuocKeDon());
+        pst.setString(16, t.getNuocSanXuat().getMaNuoc());
+        pst.setString(17, t.getTrangThai().toString());
+        pst.setString(18, t.getMaThuoc());
+        result = pst.executeUpdate();
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return result > 0;
+}
 
     @Override
     public ArrayList<Thuoc> kiemTraTonKho() {
@@ -159,14 +187,66 @@ public class ThuocDAO implements SanPham_Interface {
 
     @Override
     public void capNhatTinhTrang(String maSP, TinhTrangSPEnum tinhTrangDangBan) {
-
+        try{
+            Connection con=(Connection) JDBCUtil.getConnection();
+            String sql="UPDATE thuoc SET trangThai=? WHERE maThuoc=?";
+            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
+            pst.setString(1,tinhTrangDangBan.toString());
+            pst.setString(2,maSP);
+            pst.executeUpdate();
+            JDBCUtil.closeConnection(con);
+        }
+        catch(SQLException ex){
+            Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 
     @Override
-    public ArrayList<Thuoc> selectAll() {
-        return null;
+public ArrayList<Thuoc> selectAll() {
+    ArrayList<Thuoc> list = new ArrayList<>();
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "SELECT * FROM thuoc";
+        PreparedStatement pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            Thuoc thuoc = new Thuoc();
+            thuoc.setMaThuoc(rs.getString("maThuoc"));
+            thuoc.setTenThuoc(rs.getString("tenThuoc"));
+            thuoc.setHanSuDung(rs.getDate("hanSuDung"));
+            thuoc.setKhoiLuong(rs.getDouble("khoiLuong"));
+            thuoc.setHoatChatChinh(rs.getString("hoatChatChinh"));
+            thuoc.setDuongDung(rs.getString("duongDung"));
+            thuoc.setImgUrl(rs.getString("imgUrl"));
+            thuoc.setDieuKienBaoQuan(rs.getString("dieuKienBaoQuan"));
+            thuoc.setDonGia(rs.getDouble("donGia"));
+            thuoc.setSoLuongTon(rs.getInt("soLuongTon"));
+            thuoc.setDonViTinh(new DonViTinh(rs.getString("donViTinh")));
+            thuoc.setNhomHangHoa(new NhomHangHoa(rs.getString("nhomHangHoa")));
+            thuoc.setChuongTrinhKhuyenMaiEntity(new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKhuyenMai")));
+            thuoc.setQuyCachDongGoi(rs.getString("quyCachDongGoi"));
+            thuoc.setThuongHieu(new ThuongHieu(rs.getString("thuongHieu")));
+            thuoc.setThuocKeDon(rs.getBoolean("thuocKeDon"));
+            thuoc.setNuocSanXuat(new NuocSanXuat(rs.getString("nuocSanXuat")));
+            TinhTrangSPEnum tinhTrangSPEnum=null;
+            if(rs.getString("trangThai").equals("Đang bán")) {
+                tinhTrangSPEnum = TinhTrangSPEnum.DANGBAN;
+            }else if(rs.getString("trangThai").equals("Ngừng bán")){
+                tinhTrangSPEnum = TinhTrangSPEnum.NGUNGBAN;
+            }
+            else{
+                tinhTrangSPEnum = TinhTrangSPEnum.HETHANG;
+            }
+            thuoc.setTrangThai(tinhTrangSPEnum);
+            list.add(thuoc);
+        }
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return list;
+}
 
 
 @Override

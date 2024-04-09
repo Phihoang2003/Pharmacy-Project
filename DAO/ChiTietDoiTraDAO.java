@@ -58,7 +58,7 @@ public class ChiTietDoiTraDAO implements ChiTietDoiTra_Interface{
                 Thuoc th=new Thuoc(rs.getString("maThuoc"));
                 Date hanSuDung=rs.getDate("hanSuDung");
                 String nhomThuoc=rs.getString("nhomHangHoa");
-                String tenNhom=NhomHangHoaDAO.getInstance().getTenNhomHangHoa(nhomThuoc);
+                String tenNhom=NhomHangHoaDAO.getInstance().layTenNhomThuocTheoMa(nhomThuoc);
                 String tenThuoc=rs.getString("tenThuoc");
                 th.setTenThuoc(tenThuoc);
                 th.setHanSuDung(hanSuDung);

@@ -46,7 +46,7 @@ public class TrangChu_GUI extends JFrame {
     /**
      * Creates new form TrangChu_GUI
      */
-    public TrangChu_GUI() {
+    public TrangChu_GUI()  {
         initComponents();
         setExtendedState(JFrame.MAXIMIZED_BOTH);
         sanPhamGUI = new SanPham_GUI();

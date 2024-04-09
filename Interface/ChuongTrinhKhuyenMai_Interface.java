@@ -22,5 +22,5 @@ public interface ChuongTrinhKhuyenMai_Interface {
     public ChuongTrinhKhuyenMai kiemTraKhuyenMai(double tongTien);
     public String layTenKhuyenMaiTheoMa(String maKhuyenMai);
     public String layMaKhuyenMaiTheoTen(String tenKhuyenMai);
-    public ArrayList<ChuongTrinhKhuyenMai> getAllCTKMTheoLoaiKMVaTinhTrang(String loaiKM, String tinhTrang);
+    public ArrayList<ChuongTrinhKhuyenMai> getAllCTKMTheoLoaiKMVaTinhTrang(String loaiKM, int tinhTrang);
 }

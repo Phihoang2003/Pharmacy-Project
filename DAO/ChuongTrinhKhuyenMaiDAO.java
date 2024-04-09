@@ -222,9 +222,34 @@ public boolean update(ChuongTrinhKhuyenMai t) {
     }
 
     @Override
-    public ArrayList<ChuongTrinhKhuyenMai> getAllCTKMTheoLoaiKMVaTinhTrang(String loaiKM, String tinhTrang) {
-        return null;
+public ArrayList<ChuongTrinhKhuyenMai> getAllCTKMTheoLoaiKMVaTinhTrang(String loaiKM, int tinhTrang) {
+    ArrayList<ChuongTrinhKhuyenMai> list = new ArrayList<>();
+    try {
+        Connection con = config.JDBCUtil.getConnection();
+        String sql = "SELECT * FROM chuongtrinhkhuyenmai WHERE maLoaiKM = ? AND trangThai = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, loaiKM);
+        pst.setInt(2, tinhTrang);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            ChuongTrinhKhuyenMai ctkm = new ChuongTrinhKhuyenMai();
+            ctkm.setMaCTKM(rs.getString("maCTKM"));
+            ctkm.setTenCTKM(rs.getString("tenCTKM"));
+            ctkm.setMaLoaiKM(new LoaiKhuyenMai(rs.getString("maLoaiKM")));
+            ctkm.setNgayBatDau(rs.getDate("ngayBatDau"));
+            ctkm.setNgayKetThuc(rs.getDate("ngayKetThuc"));
+            ctkm.setSoTienToiThieu(rs.getDouble("soTienToiThieu"));
+            ctkm.setSoTienToiDa(rs.getDouble("soTienToiDa"));
+            ctkm.setGiamGia(rs.getInt("giamGia"));
+            ctkm.setTinhTrang(rs.getInt("trangThai"));
+            list.add(ctkm);
+        }
+        config.JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        java.util.logging.Logger.getLogger(ChuongTrinhKhuyenMaiDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return list;
+}
 
 
 }
