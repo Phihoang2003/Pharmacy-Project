@@ -15,6 +15,7 @@ public interface SanPham_Interface {
     public boolean update(Thuoc sp);
 
     public ArrayList<Thuoc> kiemTraTonKho();
+    public ArrayList<Thuoc> kiemTraHetHan();
 
     public int laySoLuongTonKhoTheoMaSP(String maSP);
 

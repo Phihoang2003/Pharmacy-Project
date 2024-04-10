@@ -17,25 +17,24 @@ import DTO.Thuoc;
 import DTO.NhaCungCap;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.awt.*;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
-import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.swing.*;
 
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
@@ -632,6 +631,7 @@ public class PhieuNhap_GUI extends JPanel {
 
 
     }
+
     private static void openExcelFile(File file) throws IOException {
         Desktop desktop = Desktop.getDesktop();
         if (desktop.isSupported(Desktop.Action.OPEN)) {

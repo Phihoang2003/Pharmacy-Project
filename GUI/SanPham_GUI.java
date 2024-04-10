@@ -3,21 +3,24 @@ package GUI;
 import BUS.*;
 import DTO.*;
 
-
-
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.io.File;
+import java.awt.Color;
+import java.awt.Font;
+import java.io.*;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import java.util.*;
 
-import java.util.Locale;
 /**
  *
  * @author USER
@@ -46,6 +49,10 @@ public class SanPham_GUI extends JPanel {
         nhh_bus = new NhomHangHoa_bus();
         ctkm_bus = new ChuongTrinhKhuyenMai_bus();
         initComponents();
+        ImageIcon img_btnTimKiem1 = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonTimKiem.png");
+        Image scaled_btnTimKiem1 = img_btnTimKiem1.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
+        img_btnTimKiem1 = new ImageIcon(scaled_btnTimKiem1);
+        btn_TimKiem.setIcon(img_btnTimKiem1);
         ImageIcon img_lblAnh = new ImageIcon("src//icon//labelAnh.png");
         Image scaled_lblAnh = img_lblAnh.getImage().getScaledInstance(150, 140, Image.SCALE_SMOOTH);
         img_lblAnh = new ImageIcon(scaled_lblAnh);
@@ -381,6 +388,43 @@ public class SanPham_GUI extends JPanel {
         return true;
 
     }
+    private void timKiem(String dieuKien){
+        String timKiem=txt_tim.getText().trim();
+        if(timKiem.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập từ khóa cần tìm");
+        }else{
+            model.setRowCount(0);
+            ArrayList<Thuoc> dsSP=sp_bus.selectAll();
+            DecimalFormat decimalFormat = new DecimalFormat();
+            boolean kt = false;
+            for(Thuoc th:dsSP){
+                    String formattedDonGia = decimalFormat.format(th.getDonGia()) + " VNĐ";
+                    String tenDVT = dvt_bus.layTenDVTTheoMa(th.getDonViTinh().getMaDonViTinh());
+                    String tenThuongHieu = th_bus.layTenThuongHieuTheoMa(th.getThuongHieu().getMaThuongHieu());
+                    String tenNSX = nsx_bus.layTenNSXTheoMa(th.getNuocSanXuat().getMaNuoc());
+                    String tenNhomThuoc=nhh_bus.layTenNhomThuocTheoMa(th.getNhomHangHoa().getMaNhomHang());
+                    String tenCTKM = ctkm_bus.layTenKhuyenMaiTheoMa(th.getChuongTrinhKhuyenMaiEntity().getMaCTKM());
+                    String hienThiKM = null;
+                    if (tenCTKM != null) {
+                        hienThiKM = tenCTKM;
+                    } else {
+                        hienThiKM = "Không giảm giá";
+                    }
+                    if(matchesSearchTerm(th,dieuKien)){
+                        model.addRow(new Object[]{th.getMaThuoc(), th.getTenThuoc(), tenNSX,
+                                th.getSoLuongTon(), formattedDonGia,tenNhomThuoc,
+                                tenDVT, th.getHanSuDung(), th.getHoatChatChinh(), tenThuongHieu,
+                                hienThiKM, th.getTrangThai(),th.getKhoiLuong(),th.getDuongDung(),th.getQuyCachDongGoi(),th.getDieuKienBaoQuan(),th.isThuocKeDon(),th.getImgUrl()});
+                        kt = true;
+                    }
+            }
+            if (!kt) {
+                JOptionPane.showMessageDialog(null, "Không tìm thấy sản phẩm");
+                lamMoi();
+            }
+
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -492,8 +536,6 @@ public class SanPham_GUI extends JPanel {
         jLabel9 = new JLabel();
         jLabel10 = new JLabel();
         txt_tim = new JTextField();
-        jPanel3 = new JPanel();
-        jLabel13 = new JLabel();
         btn_tonKho = new JPanel();
         jLabel11 = new JLabel();
         jLabel12 = new JLabel();
@@ -502,6 +544,7 @@ public class SanPham_GUI extends JPanel {
         jLabel29 = new JLabel();
         jLabel4 = new JLabel();
         jLabel27 = new JLabel();
+        btn_TimKiem = new JButton();
         jPanel2 = new JPanel();
         jScrollPane1 = new JScrollPane();
         table_thuoc = new JTable();
@@ -1352,8 +1395,18 @@ public class SanPham_GUI extends JPanel {
         );
 
         btn_hetHan.setBackground(new Color(255, 255, 255));
+        btn_hetHan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_hetHanMouseClicked(evt);
+            }
+        });
 
         jPanel6.setBackground(new Color(255, 255, 255));
+        jPanel6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel6MouseClicked(evt);
+            }
+        });
 
         jLabel7.setIcon(new ImageIcon("D:\\test2\\src\\icon\\delete.png")); // NOI18N
 
@@ -1400,6 +1453,11 @@ public class SanPham_GUI extends JPanel {
         );
 
         btn_xuat.setBackground(new Color(255, 255, 255));
+        btn_xuat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_xuatMouseClicked(evt);
+            }
+        });
 
         jLabel9.setIcon(new ImageIcon("D:\\test2\\src\\icon\\export_excel.png")); // NOI18N
 
@@ -1435,31 +1493,12 @@ public class SanPham_GUI extends JPanel {
             }
         });
 
-        jPanel3.setBackground(new Color(255, 255, 255));
-        jPanel3.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
-
-        jLabel13.setFont(new Font("Segoe UI", 0, 16)); // NOI18N
-        jLabel13.setIcon(new ImageIcon("D:\\test2\\src\\icon\\refresh.png")); // NOI18N
-        jLabel13.setText("Làm mới");
-
-        GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel13)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13)
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
         btn_tonKho.setBackground(new Color(255, 255, 255));
+        btn_tonKho.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_tonKhoMouseClicked(evt);
+            }
+        });
 
         jLabel11.setIcon(new ImageIcon("D:\\helloimg.jpg")); // NOI18N
 
@@ -1492,6 +1531,11 @@ public class SanPham_GUI extends JPanel {
         );
 
         btn_nhap.setBackground(new Color(255, 255, 255));
+        btn_nhap.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_nhapMouseClicked(evt);
+            }
+        });
 
         jLabel28.setIcon(new ImageIcon("D:\\test2\\src\\icon\\export_excel.png")); // NOI18N
 
@@ -1526,6 +1570,16 @@ public class SanPham_GUI extends JPanel {
 
         jLabel27.setIcon(new ImageIcon("D:\\test2\\src\\icon\\detail.png")); // NOI18N
 
+        btn_TimKiem.setBackground(new Color(0, 102, 0));
+        btn_TimKiem.setFont(new Font("Segoe UI", 1, 12)); // NOI18N
+        btn_TimKiem.setForeground(new Color(255, 255, 255));
+        btn_TimKiem.setText("Tìm");
+        btn_TimKiem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_TimKiemActionPerformed(evt);
+            }
+        });
+
         GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -1552,9 +1606,9 @@ public class SanPham_GUI extends JPanel {
                 .addComponent(btn_xuat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29)
                 .addComponent(txt_tim, GroupLayout.PREFERRED_SIZE, 173, GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(btn_TimKiem, GroupLayout.PREFERRED_SIZE, 81, GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(294, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -1564,20 +1618,20 @@ public class SanPham_GUI extends JPanel {
                     .addComponent(btn_nhap, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_tonKho, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnThem, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
-                                .addComponent(jPanel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txt_tim, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
-                            .addGap(24, 24, 24))
-                        .addComponent(btn_xuat, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                     .addComponent(btn_hetHan, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addComponent(jLabel27, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel4))
-                        .addComponent(btn_sua, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_sua, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                .addComponent(txt_tim, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btn_TimKiem, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE))
+                            .addGap(24, 24, 24))
+                        .addComponent(btn_xuat, GroupLayout.Alignment.LEADING, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
                 .addGap(476, 476, 476))
         );
 
@@ -1592,7 +1646,7 @@ public class SanPham_GUI extends JPanel {
             }
         ) {
             Class[] types = new Class [] {
-                String.class, String.class, Integer.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class,String.class,
+                String.class, String.class, Integer.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -1745,6 +1799,321 @@ public class SanPham_GUI extends JPanel {
         }
     }//GEN-LAST:event_btn_chonAnhActionPerformed
 
+    private boolean matchesSearchTerm(Thuoc sanPham, String search) {
+        String lowercaseSearch = search.toLowerCase(); // Chuyển chuỗi tìm kiếm về chữ thường
+
+        if (sanPham.getMaThuoc().toLowerCase().contains(lowercaseSearch)
+                || sanPham.getTenThuoc().toLowerCase().contains(lowercaseSearch)
+                || (sanPham.getDieuKienBaoQuan() != null && sanPham.getDieuKienBaoQuan().toLowerCase().contains(lowercaseSearch))
+                || (sanPham.getHoatChatChinh() != null && sanPham.getHoatChatChinh().toLowerCase().contains(lowercaseSearch))
+                ||(sanPham.getDuongDung() != null && sanPham.getDuongDung().toLowerCase().contains(lowercaseSearch))
+                || (sanPham.getQuyCachDongGoi() != null && sanPham.getQuyCachDongGoi().toLowerCase().contains(lowercaseSearch))
+                || (sanPham.isThuocKeDon()?"Có Kê Đơn":"Không Kê Đơn").toLowerCase().contains(lowercaseSearch)
+                || Double.toString(sanPham.getDonGia()).toLowerCase().contains(lowercaseSearch)
+                || sanPham.getTrangThai().toString().toLowerCase().contains(lowercaseSearch)
+                || Integer.toString(sanPham.getSoLuongTon()).toLowerCase().contains(lowercaseSearch))
+
+        {
+            return true;
+        }
+        if (sanPham.getNhomHangHoa() != null && sanPham.getNhomHangHoa().getMaNhomHang() != null) {
+            String tenNhomHang = nhh_bus.layTenNhomThuocTheoMa(sanPham.getNhomHangHoa().getMaNhomHang()).toLowerCase();
+            if (tenNhomHang.contains(lowercaseSearch)) {
+                return true;
+            }
+        }
+        if (sanPham.getThuongHieu() != null && sanPham.getThuongHieu().getMaThuongHieu() != null) {
+            String tenThuongHieu = th_bus.layTenThuongHieuTheoMa(sanPham.getThuongHieu().getMaThuongHieu()).toLowerCase();
+            if (tenThuongHieu.contains(lowercaseSearch)) {
+                return true;
+            }
+        }
+        if (sanPham.getNuocSanXuat() != null && sanPham.getNuocSanXuat().getMaNuoc() != null) {
+            String tenDanhMuc = nsx_bus.layTenNSXTheoMa(sanPham.getNuocSanXuat().getMaNuoc()).toLowerCase();
+            if (tenDanhMuc.contains(lowercaseSearch)) {
+                return true;
+            }
+        }
+        if (sanPham.getDonViTinh() != null && sanPham.getDonViTinh().getMaDonViTinh() != null) {
+            String tenDonViTinh = dvt_bus.layTenDVTTheoMa(sanPham.getDonViTinh().getMaDonViTinh()).toLowerCase();
+            if (tenDonViTinh.contains(lowercaseSearch)) {
+                return true;
+            }
+        }
+        if (sanPham.getChuongTrinhKhuyenMaiEntity() != null && sanPham.getChuongTrinhKhuyenMaiEntity().getMaCTKM() != null) {
+            String tenCTKM = ctkm_bus.layTenKhuyenMaiTheoMa(sanPham.getChuongTrinhKhuyenMaiEntity().getMaCTKM()).toLowerCase();
+            if (tenCTKM.contains(lowercaseSearch)) {
+                return true;
+            }
+        }
+        if (sanPham.getChuongTrinhKhuyenMaiEntity() == null || sanPham.getChuongTrinhKhuyenMaiEntity().getMaCTKM() == null) {
+            String km = "Không giảm giá".toLowerCase();
+            if (km.contains(lowercaseSearch)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+    private void kiemTraTonKho(){
+        ArrayList<Thuoc> listThuoc = sp_bus.kiemTraTonKho();
+        model.setRowCount(0);
+        DecimalFormat decimalFormat = new DecimalFormat();
+        for(Thuoc th:listThuoc){
+            String formattedDonGia = decimalFormat.format(th.getDonGia()) + " VNĐ";
+            String tenThuongHieu=th_bus.layTenThuongHieuTheoMa(th.getThuongHieu().getMaThuongHieu());
+            String tenNhomHang=nhh_bus.layTenNhomThuocTheoMa(th.getNhomHangHoa().getMaNhomHang());
+            String tenNSX=nsx_bus.layTenNSXTheoMa(th.getNuocSanXuat().getMaNuoc());
+            String tenDVT=dvt_bus.layTenDVTTheoMa(th.getDonViTinh().getMaDonViTinh());
+            String tenCTKM=ctkm_bus.layTenKhuyenMaiTheoMa(th.getChuongTrinhKhuyenMaiEntity().getMaCTKM());
+            String hienThiKM = null;
+            if (tenCTKM != null) {
+                hienThiKM = tenCTKM;
+            } else {
+                hienThiKM = "Không giảm giá";
+            }
+            model.addRow(new Object[]{th.getMaThuoc(), th.getTenThuoc(), tenNSX, th.getSoLuongTon(), formattedDonGia, tenNhomHang, tenDVT, th.getHanSuDung(), th.getHoatChatChinh(), tenThuongHieu, hienThiKM, th.getTrangThai(), th.getKhoiLuong(), th.getDuongDung(), th.getQuyCachDongGoi(), th.getDieuKienBaoQuan(), th.isThuocKeDon() ? "Có Kê Đơn" : "Không Kê Đơn", th.getImgUrl()});
+
+        }
+
+    }
+    private void kiemTraHetHan(){
+        ArrayList<Thuoc> listThuoc = sp_bus.kiemTraHetHan();
+        model.setRowCount(0);
+        DecimalFormat decimalFormat = new DecimalFormat();
+        for(Thuoc th:listThuoc){
+            String formattedDonGia = decimalFormat.format(th.getDonGia()) + " VNĐ";
+            String tenThuongHieu=th_bus.layTenThuongHieuTheoMa(th.getThuongHieu().getMaThuongHieu());
+            String tenNhomHang=nhh_bus.layTenNhomThuocTheoMa(th.getNhomHangHoa().getMaNhomHang());
+            String tenNSX=nsx_bus.layTenNSXTheoMa(th.getNuocSanXuat().getMaNuoc());
+            String tenDVT=dvt_bus.layTenDVTTheoMa(th.getDonViTinh().getMaDonViTinh());
+            String tenCTKM=ctkm_bus.layTenKhuyenMaiTheoMa(th.getChuongTrinhKhuyenMaiEntity().getMaCTKM());
+            String hienThiKM = null;
+            if (tenCTKM != null) {
+                hienThiKM = tenCTKM;
+            } else {
+                hienThiKM = "Không giảm giá";
+            }
+            model.addRow(new Object[]{th.getMaThuoc(), th.getTenThuoc(), tenNSX, th.getSoLuongTon(), formattedDonGia, tenNhomHang, tenDVT, th.getHanSuDung(), th.getHoatChatChinh(), tenThuongHieu, hienThiKM, th.getTrangThai(), th.getKhoiLuong(), th.getDuongDung(), th.getQuyCachDongGoi(), th.getDieuKienBaoQuan(), th.isThuocKeDon() ? "Có Kê Đơn" : "Không Kê Đơn", th.getImgUrl()});
+
+        }
+
+    }
+    private void xuatExcel() {
+        try {
+            JFileChooser fileChooser = new JFileChooser("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\fileExcel");
+            fileChooser.setDialogTitle("Chọn nơi lưu file");
+            int chon = fileChooser.showSaveDialog(null);
+            if (chon == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                String filePath = selectedFile.getAbsolutePath();
+                if (!filePath.toLowerCase().endsWith(".xlsx")) {
+                    filePath += ".xlsx";
+                }
+                XSSFWorkbook workbook = new XSSFWorkbook();
+                XSSFSheet sheet = workbook.createSheet("Danh sách sản phẩm");
+                XSSFRow row = null;
+                Cell cell = null;
+                row = sheet.createRow(0);
+                cell = row.createCell(0, CellType.STRING);
+                cell.setCellValue("Mã sản phẩm");
+                cell = row.createCell(1, CellType.STRING);
+                cell.setCellValue("Tên sản phẩm");
+                cell = row.createCell(2, CellType.STRING);
+                cell.setCellValue("Nước sản xuất");
+                cell = row.createCell(3, CellType.STRING);
+                cell.setCellValue("Số lượng tồn");
+                cell = row.createCell(4, CellType.STRING);
+                cell.setCellValue("Đơn giá");
+                cell = row.createCell(5, CellType.STRING);
+                cell.setCellValue("Nhóm thuốc");
+                cell = row.createCell(6, CellType.STRING);
+                cell.setCellValue("Đơn vị tính");
+                cell = row.createCell(7, CellType.STRING);
+                cell.setCellValue("Hạn sử dụng");
+                cell = row.createCell(8, CellType.STRING);
+                cell.setCellValue("Hoạt chất chính");
+                cell = row.createCell(9, CellType.STRING);
+                cell.setCellValue("Thương hiệu");
+                cell = row.createCell(10, CellType.STRING);
+                cell.setCellValue("Khuyến mãi");
+                cell = row.createCell(11, CellType.STRING);
+                cell.setCellValue("Tình trạng");
+                cell = row.createCell(12, CellType.STRING);
+                cell.setCellValue("Khối lượng");
+                cell = row.createCell(13, CellType.STRING);
+                cell.setCellValue("Đường dùng");
+                cell = row.createCell(14, CellType.STRING);
+                cell.setCellValue("Quy cách đóng gói");
+                cell = row.createCell(15, CellType.STRING);
+                cell.setCellValue("Điều kiện bảo quản");
+                cell = row.createCell(16, CellType.STRING);
+                cell.setCellValue("Thuốc kê đơn");
+                cell = row.createCell(17, CellType.STRING);
+                cell.setCellValue("Ảnh");
+
+
+                ArrayList<Thuoc> listItem = sp_bus.selectAll();
+                for (int i = 0; i < listItem.size(); i++) {
+                    Thuoc sp = listItem.get(i);
+                    String tenNSX = nsx_bus.layTenNSXTheoMa(sp.getNuocSanXuat().getMaNuoc());
+                    String tenThuongHieu = th_bus.layTenThuongHieuTheoMa(sp.getThuongHieu().getMaThuongHieu());
+                    String tenDVT = dvt_bus.layTenDVTTheoMa(sp.getDonViTinh().getMaDonViTinh());
+                    String tenNhomHang = nhh_bus.layTenNhomThuocTheoMa(sp.getNhomHangHoa().getMaNhomHang());
+                    String tenCTKM = ctkm_bus.layTenKhuyenMaiTheoMa(sp.getChuongTrinhKhuyenMaiEntity().getMaCTKM());
+                    row = sheet.createRow(1 + i);
+                    row.createCell(0).setCellValue(sp.getMaThuoc());
+                    row.createCell(1).setCellValue(sp.getTenThuoc());
+                    row.createCell(2).setCellValue(tenNSX);
+                    row.createCell(3).setCellValue(sp.getSoLuongTon());
+                    row.createCell(4).setCellValue(sp.getDonGia());
+                    row.createCell(5).setCellValue(tenNhomHang);
+                    row.createCell(6).setCellValue(tenDVT);
+                    row.createCell(7).setCellValue(sp.getHanSuDung());
+                    row.createCell(8).setCellValue(sp.getHoatChatChinh());
+                    row.createCell(9).setCellValue(tenThuongHieu);
+                    row.createCell(10).setCellValue(tenCTKM);
+                    row.createCell(11).setCellValue(sp.getTrangThai().toString());
+                    row.createCell(12).setCellValue(sp.getKhoiLuong());
+                    row.createCell(13).setCellValue(sp.getDuongDung());
+                    row.createCell(14).setCellValue(sp.getQuyCachDongGoi());
+                    row.createCell(15).setCellValue(sp.getDieuKienBaoQuan());
+                    row.createCell(16).setCellValue(sp.isThuocKeDon() ? "Có Kê Đơn" : "Không Kê Đơn");
+                    row.createCell(17).setCellValue(sp.getImgUrl());
+
+                }
+                File f = new File(filePath);
+                try (FileOutputStream fos = new FileOutputStream(f)) {
+                    workbook.write(fos);
+                    JOptionPane.showMessageDialog(null, "Xuất file thành công");
+                    openExcelFile(f);
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+    private void nhapExcel(){
+        File excelFile;
+        FileInputStream excelFIS = null;
+        BufferedInputStream excelBIS = null;
+        XSSFWorkbook excelImportToJTable = null;
+        String defaultCurrentDirectoryPath = "D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\fileExcel";
+        JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
+        excelFileChooser.setDialogTitle("Chọn file excel");
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("EXCEL FILES", "xls", "xlsx", "xlsm");
+        excelFileChooser.setFileFilter(fnef);
+        int excelChooser = excelFileChooser.showOpenDialog(null);
+        if (excelChooser == JFileChooser.APPROVE_OPTION) {
+            Set<Object> maSanPhamSet = new HashSet<>();
+            try {
+                excelFile = excelFileChooser.getSelectedFile();
+                excelFIS = new FileInputStream(excelFile);
+                excelBIS = new BufferedInputStream(excelFIS);
+                excelImportToJTable = new XSSFWorkbook(excelBIS);
+                XSSFSheet excelSheet = excelImportToJTable.getSheetAt(0);
+                for (int row = 1; row <= excelSheet.getLastRowNum(); row++) {
+                    XSSFRow excelRow = excelSheet.getRow(row);
+                    XSSFCell excelMaSP = excelRow.getCell(0);
+                    // Kiểm tra xem mã sản phẩm đã tồn tại trong tập hợp chưa
+                    String maSanPham = excelMaSP.getStringCellValue().trim();
+                    int existingRow = -1;
+                    // Kiểm tra xem mã sản phẩm nhập đã tồn tại trong bảng chưa
+                    for (int i = 0; i < model.getRowCount(); i++) {
+                        if (maSanPham.equals(model.getValueAt(i, 0).toString())) {
+                            existingRow = i;
+                            break;
+                        }
+                    }
+                    XSSFCell excelTenSP = excelRow.getCell(1);
+                    XSSFCell excelNuocSX = excelRow.getCell(2);
+                    XSSFCell excelSoLuongTon = excelRow.getCell(3);
+                    XSSFCell excelDonGia = excelRow.getCell(4);
+                    XSSFCell excelNhomhang= excelRow.getCell(5);
+                    XSSFCell excelDVT= excelRow.getCell(6);
+                    XSSFCell excelHSD = excelRow.getCell(7);
+                    XSSFCell excelHoatChat = excelRow.getCell(8);
+                    XSSFCell excelTH = excelRow.getCell(9);
+                    XSSFCell excelKhuyenMai = excelRow.getCell(10);
+                    XSSFCell excelTinhTrang = excelRow.getCell(11);
+                    XSSFCell excelKhoiLuong = excelRow.getCell(12);
+                    XSSFCell excelDuongDung = excelRow.getCell(13);
+                    XSSFCell excelQuyCach = excelRow.getCell(14);
+                    XSSFCell excelDKBQ = excelRow.getCell(15);
+                    XSSFCell excelThuocKeDon = excelRow.getCell(16);
+                    XSSFCell excelDuongDanAnh = excelRow.getCell(17);
+
+                    String khuyenMai = "";
+                    if (excelKhuyenMai != null) {
+                        khuyenMai = excelKhuyenMai.getStringCellValue().trim();
+                    } else {
+                        khuyenMai = "Không giảm giá";
+                    }
+                    int soLuongTonKho = (int) excelSoLuongTon.getNumericCellValue();
+                    double donGia = excelDonGia.getNumericCellValue();
+                    DecimalFormat decimalFormat = new DecimalFormat();
+                    String formattedDonGia = decimalFormat.format(donGia) + " VNĐ";
+                    String tinhTrang = excelTinhTrang.getStringCellValue().trim();
+                    if (soLuongTonKho == 0 && "Đang bán".equals(tinhTrang)) {
+                        tinhTrang = "Hết hàng";
+                    }
+                    if (existingRow != -1) {
+                        model.setValueAt(excelTenSP.getStringCellValue(), existingRow, 1);
+                        model.setValueAt(excelNuocSX.getStringCellValue(), existingRow, 2);
+                        model.setValueAt(excelSoLuongTon.getNumericCellValue(), existingRow, 3);
+                        model.setValueAt(formattedDonGia, existingRow, 4);
+                        model.setValueAt(excelNhomhang, existingRow, 5);
+                        model.setValueAt(excelDVT, existingRow, 6);
+                        model.setValueAt(excelHSD, existingRow, 7);
+                        model.setValueAt(excelHoatChat, existingRow, 8);
+                        model.setValueAt(excelTH, existingRow, 9);
+
+                        model.setValueAt(khuyenMai, existingRow, 10);
+                        model.setValueAt(excelTinhTrang, existingRow, 11);
+                        model.setValueAt(excelKhoiLuong, existingRow, 12);
+                        model.setValueAt(excelDuongDung, existingRow, 13);
+                        model.setValueAt(excelQuyCach, existingRow, 14);
+                        model.setValueAt(excelDKBQ, existingRow, 15);
+                        model.setValueAt(excelThuocKeDon, existingRow, 16);
+                        model.setValueAt(excelDuongDanAnh, existingRow, 17);
+
+                    } else {
+                        maSanPhamSet.add(maSanPham);
+                        model.addRow(new Object[]{maSanPham, excelTenSP.getStringCellValue(), excelNuocSX.getStringCellValue(), soLuongTonKho, formattedDonGia, excelNhomhang, excelDVT, excelHSD, excelHoatChat, excelTH, khuyenMai, tinhTrang, excelKhoiLuong, excelDuongDung, excelQuyCach, excelDKBQ, excelThuocKeDon, excelDuongDanAnh});
+                    }
+                }
+                JOptionPane.showMessageDialog(null, "Nhập thành công");
+            } catch (IOException iOException) {
+                JOptionPane.showMessageDialog(null, iOException.getMessage());
+            } finally {
+                try {
+                    if (excelFIS != null) {
+                        excelFIS.close();
+                    }
+                    if (excelBIS != null) {
+                        excelBIS.close();
+                    }
+                    if (excelImportToJTable != null) {
+                        excelImportToJTable.close();
+                    }
+                } catch (IOException iOException) {
+                    JOptionPane.showMessageDialog(null, iOException.getMessage());
+                }
+            }
+        }
+    }
+
+    //Hàm tự dộng mở file excel sau khi xuất
+    private static void openExcelFile(File file) throws IOException {
+        Desktop desktop = Desktop.getDesktop();
+        if (desktop.isSupported(Desktop.Action.OPEN)) {
+            desktop.open(file);
+        } else {
+            System.out.println("Không thể mở file.");
+        }
+    }
+
+
     private void table_thuocMouseClicked(java.awt.event.MouseEvent evt) throws ParseException {//GEN-FIRST:event_table_thuocMouseClicked
         // TODO add your handling code here:
         int row = table_thuoc.getSelectedRow();
@@ -1877,11 +2246,47 @@ public class SanPham_GUI extends JPanel {
         CapNhatSanPhamDialog.setVisible(true);
     }//GEN-LAST:event_btn_suaMouseClicked
 
+    private void btn_TimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TimKiemActionPerformed
+        // TODO add your handling code here:
+        String dieuKien = txt_tim.getText().trim();
+        timKiem(dieuKien);
+
+    }//GEN-LAST:event_btn_TimKiemActionPerformed
+
+    private void btn_tonKhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tonKhoMouseClicked
+        // TODO add your handling code here:
+
+        kiemTraTonKho();
+    }//GEN-LAST:event_btn_tonKhoMouseClicked
+
+    private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
+        // TODO add your handling code here:
+        kiemTraHetHan();
+    }//GEN-LAST:event_jPanel6MouseClicked
+
+    private void btn_nhapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_nhapMouseClicked
+        // TODO add your handling code here:
+        nhapExcel();
+
+    }//GEN-LAST:event_btn_nhapMouseClicked
+
+    private void btn_xuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_xuatMouseClicked
+        // TODO add your handling code here:
+        xuatExcel();
+    }//GEN-LAST:event_btn_xuatMouseClicked
+
+    private void btn_hetHanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_hetHanMouseClicked
+        // TODO add your handling code here:
+
+        kiemTraHetHan();
+    }//GEN-LAST:event_btn_hetHanMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private JDialog CapNhatSanPhamDialog;
     private JDialog ThemSanPhamDialog;
     private JPanel btnThem;
+    private JButton btn_TimKiem;
     private JButton btn_chonAnh;
     private JButton btn_chonAnh1;
     private JPanel btn_hetHan;
@@ -1911,7 +2316,6 @@ public class SanPham_GUI extends JPanel {
     private JLabel jLabel10;
     private JLabel jLabel11;
     private JLabel jLabel12;
-    private JLabel jLabel13;
     private JLabel jLabel14;
     private JLabel jLabel15;
     private JLabel jLabel16;
@@ -1965,7 +2369,6 @@ public class SanPham_GUI extends JPanel {
     private JPanel jPanel11;
     private JPanel jPanel12;
     private JPanel jPanel2;
-    private JPanel jPanel3;
     private JPanel jPanel6;
     private JPanel jPanel9;
     private JScrollPane jScrollPane1;

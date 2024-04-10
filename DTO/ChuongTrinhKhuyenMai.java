@@ -42,8 +42,6 @@ public class ChuongTrinhKhuyenMai {
 
 
 
-
-
     public double getSoTienToiDa() {
         return soTienToiDa;
     }

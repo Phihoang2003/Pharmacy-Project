@@ -32,7 +32,12 @@ public class SanPham_bus implements SanPham_Interface {
 
     @Override
     public ArrayList<Thuoc> kiemTraTonKho() {
-        return null;
+         return thuocDAO.kiemTraTonKho();
+    }
+
+    @Override
+    public ArrayList<Thuoc> kiemTraHetHan() {
+        return thuocDAO.kiemTraHetHan();
     }
 
     @Override
@@ -47,7 +52,7 @@ public class SanPham_bus implements SanPham_Interface {
 
     @Override
     public boolean kiemTraMaSanPhamTonTai(String maSP) {
-        return false;
+        return thuocDAO.kiemTraMaSanPhamTonTai(maSP);
     }
 
     @Override

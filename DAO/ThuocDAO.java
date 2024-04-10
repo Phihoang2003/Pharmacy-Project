@@ -133,7 +133,96 @@ public boolean update(Thuoc t) {
 
     @Override
     public ArrayList<Thuoc> kiemTraTonKho() {
-        return null;
+        ArrayList<Thuoc> list = new ArrayList<>();
+        try{
+            Connection con = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM thuoc ORDER BY soLuongTon ASC";
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Thuoc thuoc = new Thuoc();
+                thuoc.setMaThuoc(rs.getString("maThuoc"));
+                thuoc.setTenThuoc(rs.getString("tenThuoc"));
+                thuoc.setHanSuDung(rs.getDate("hanSuDung"));
+                thuoc.setKhoiLuong(rs.getDouble("khoiLuong"));
+                thuoc.setHoatChatChinh(rs.getString("hoatChatChinh"));
+                thuoc.setDuongDung(rs.getString("duongDung"));
+                thuoc.setImgUrl(rs.getString("imgUrl"));
+                thuoc.setDieuKienBaoQuan(rs.getString("dieuKienBaoQuan"));
+                thuoc.setDonGia(rs.getDouble("donGia"));
+                thuoc.setSoLuongTon(rs.getInt("soLuongTon"));
+                thuoc.setDonViTinh(new DonViTinh(rs.getString("donViTinh")));
+                thuoc.setNhomHangHoa(new NhomHangHoa(rs.getString("nhomHangHoa")));
+                thuoc.setChuongTrinhKhuyenMaiEntity(new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKhuyenMai")));
+                thuoc.setQuyCachDongGoi(rs.getString("quyCachDongGoi"));
+                thuoc.setThuongHieu(new ThuongHieu(rs.getString("thuongHieu")));
+                thuoc.setThuocKeDon(rs.getBoolean("thuocKeDon"));
+                thuoc.setNuocSanXuat(new NuocSanXuat(rs.getString("nuocSanXuat")));
+                TinhTrangSPEnum tinhTrangSPEnum = null;
+                if (rs.getString("trangThai").equals("Đang bán")) {
+                    tinhTrangSPEnum = TinhTrangSPEnum.DANGBAN;
+                } else if (rs.getString("trangThai").equals("Ngừng bán")) {
+                    tinhTrangSPEnum = TinhTrangSPEnum.NGUNGBAN;
+                } else {
+                    tinhTrangSPEnum = TinhTrangSPEnum.HETHANG;
+                }
+                thuoc.setTrangThai(tinhTrangSPEnum);
+                list.add(thuoc);
+            }
+            JDBCUtil.closeConnection(con);
+
+        }catch(SQLException ex){
+            Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return list;
+    }
+
+    @Override
+    public ArrayList<Thuoc> kiemTraHetHan() {
+        ArrayList<Thuoc> list = new ArrayList<>();
+        try{
+            Connection con = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM thuoc ORDER BY hanSuDung ASC";
+            PreparedStatement pst = con.prepareStatement(sql);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                Thuoc thuoc = new Thuoc();
+                thuoc.setMaThuoc(rs.getString("maThuoc"));
+                thuoc.setTenThuoc(rs.getString("tenThuoc"));
+                thuoc.setHanSuDung(rs.getDate("hanSuDung"));
+                thuoc.setKhoiLuong(rs.getDouble("khoiLuong"));
+                thuoc.setHoatChatChinh(rs.getString("hoatChatChinh"));
+                thuoc.setDuongDung(rs.getString("duongDung"));
+                thuoc.setImgUrl(rs.getString("imgUrl"));
+                thuoc.setDieuKienBaoQuan(rs.getString("dieuKienBaoQuan"));
+                thuoc.setDonGia(rs.getDouble("donGia"));
+                thuoc.setSoLuongTon(rs.getInt("soLuongTon"));
+                thuoc.setDonViTinh(new DonViTinh(rs.getString("donViTinh")));
+                thuoc.setNhomHangHoa(new NhomHangHoa(rs.getString("nhomHangHoa")));
+                thuoc.setChuongTrinhKhuyenMaiEntity(new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKhuyenMai")));
+                thuoc.setQuyCachDongGoi(rs.getString("quyCachDongGoi"));
+                thuoc.setThuongHieu(new ThuongHieu(rs.getString("thuongHieu")));
+                thuoc.setThuocKeDon(rs.getBoolean("thuocKeDon"));
+                thuoc.setNuocSanXuat(new NuocSanXuat(rs.getString("nuocSanXuat")));
+                TinhTrangSPEnum tinhTrangSPEnum = null;
+                if (rs.getString("trangThai").equals("Đang bán")) {
+                    tinhTrangSPEnum = TinhTrangSPEnum.DANGBAN;
+                } else if (rs.getString("trangThai").equals("Ngừng bán")) {
+                    tinhTrangSPEnum = TinhTrangSPEnum.NGUNGBAN;
+                } else {
+                    tinhTrangSPEnum = TinhTrangSPEnum.HETHANG;
+                }
+                thuoc.setTrangThai(tinhTrangSPEnum);
+                list.add(thuoc);
+            }
+            JDBCUtil.closeConnection(con);
+
+        }catch(SQLException ex){
+            Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return list;
     }
 
     @Override
