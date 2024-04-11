@@ -24,7 +24,7 @@ public class KhachHangDAO implements KhachHang_Interface {
             pst.setString(1,t.getMaKhachHang());
             pst.setString(2,t.getHoTen());
             pst.setString(3,t.getSdt());
-            pst.setString(4,t.getDiaChi());
+            pst.setInt(4,t.getDiemTichLuy());
             pst.setInt(5,t.getGioiIinh());
             result=pst.executeUpdate();
             JDBCUtil.closeConnection(con);
@@ -43,7 +43,7 @@ public class KhachHangDAO implements KhachHang_Interface {
             PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
             pst.setString(1,t.getMaKhachHang());
             pst.setString(2,t.getHoTen());
-            pst.setString(3,t.getDiaChi());
+            pst.setInt(3,t.getDiemTichLuy());
             pst.setString(4,t.getSdt());
             pst.setInt(5,t.getGioiIinh());
             pst.setString(6,t.getMaKhachHang());
@@ -72,7 +72,7 @@ public ArrayList<KhachHang> selectAll() {
             KhachHang khachHangDTO = new KhachHang();
             khachHangDTO.setMaKhachHang(rs.getString("maKhachHang"));
             khachHangDTO.setHoTen(rs.getString("tenKhachHang"));
-            khachHangDTO.setDiaChi(rs.getString("diaChi"));
+            khachHangDTO.setDiemTichLuy(rs.getInt("diemTichLuy"));
             khachHangDTO.setSdt(rs.getString("soDienThoai"));
             khachHangDTO.setGioiTinh(rs.getInt("gioiTinh"));
 
@@ -84,6 +84,23 @@ public ArrayList<KhachHang> selectAll() {
         Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
     return list;
+}
+
+    @Override
+public boolean capNhatDiemTichLuy(String maKH, int diemTichLuy) {
+    int result = 0;
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "UPDATE `khachhang` SET `diemTichLuy` = ? WHERE `maKhachHang` = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setInt(1, diemTichLuy);
+        pst.setString(2, maKH);
+        result = pst.executeUpdate();
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return result > 0;
 }
 
     @Override
@@ -99,7 +116,7 @@ public ArrayList<KhachHang> selectAll() {
                 khachHangDTO=new KhachHang();
                 khachHangDTO.setMaKhachHang(rs.getString("maKhachHang"));
                 khachHangDTO.setHoTen(rs.getString("tenKhachHang"));
-                khachHangDTO.setDiaChi(rs.getString("diaChi"));
+                khachHangDTO.setDiemTichLuy(rs.getInt("diemTichLuy"));
                 khachHangDTO.setSdt(rs.getString("soDienThoai"));
                 khachHangDTO.setGioiTinh(rs.getInt("gioiTinh"));
 
@@ -134,7 +151,7 @@ public ArrayList<KhachHang> selectAll() {
                 khachHangDTO=new KhachHang();
                 khachHangDTO.setMaKhachHang(rs.getString("maKhachHang"));
                 khachHangDTO.setHoTen(rs.getString("tenKhachHang"));
-                khachHangDTO.setDiaChi(rs.getString("diaChi"));
+                khachHangDTO.setDiemTichLuy(rs.getInt("diemTichLuy"));
                 khachHangDTO.setSdt(rs.getString("soDienThoai"));
                 khachHangDTO.setGioiTinh(rs.getInt("gioiTinh"));
             }
