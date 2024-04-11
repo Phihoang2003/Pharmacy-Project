@@ -97,8 +97,14 @@ public class HoaDon {
         }
     }
 
-    public void setTienThanhToan() {
-        this.tienThanhToan = tongTien - tienKhuyenMai;
+    public void setTienThanhToan(boolean diemTichLuy) {
+
+        if(!diemTichLuy){
+            this.tienThanhToan = tongTien - tienKhuyenMai;
+        }
+        else{
+            this.tienThanhToan = tongTien - tienKhuyenMai - khachHang.getDiemTichLuy();
+        }
     }
 
     public double getTienKhuyenMai() {
