@@ -63,7 +63,7 @@ public class HoaDonDAO implements HoaDon_Interface {
                 hoaDon.setChuongTrinhKM(new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM")));
                 hoaDon.setTongTien(rs.getDouble("tongTien"));
                 hoaDon.setTienKhuyenMai();
-                hoaDon.setTienThanhToan();
+                hoaDon.setTienThanhToan(false);
                 hoaDon.setNgayLapHD(rs.getDate("ngayLapHoaDon"));
                 hoaDon.setTinhTrang(rs.getInt("tinhTrang"));
                 hoaDon.setKhachHang(new KhachHang(rs.getString("khachHang")));
@@ -166,9 +166,9 @@ public class HoaDonDAO implements HoaDon_Interface {
                 String maKH= rs.getString("khachHang");
                 String hoTen= rs.getString("tenKhachHang");
                 String sdt= rs.getString("soDienThoai");
-                String diaChi= rs.getString("diaChi");
+                int diemTichLuy= rs.getInt("diemTichLuy");
                 int gioiTinh= rs.getInt("gioiTinh");
-                KhachHang kh= new KhachHang(maKH, hoTen, diaChi, sdt, gioiTinh);
+                KhachHang kh= new KhachHang(maKH, hoTen, sdt,diemTichLuy, gioiTinh);
                 NhanVien nv= new NhanVien(rs.getString("nhanVien"));
                 ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM"));
                 double tongTien= rs.getDouble("tongTien");
@@ -201,10 +201,10 @@ public class HoaDonDAO implements HoaDon_Interface {
                 String maKH= rs.getString("khachHang");
                 String hoTen= rs.getString("tenKhachHang");
                 String sdt1= rs.getString("soDienThoai");
-                String diaChi= rs.getString("diaChi");
+                int diemTichLuy= rs.getInt("diemTichLuy");
                 int gioiTinh= rs.getInt("gioiTinh");
                 Date ngayThamGia= rs.getDate("ngayThamGia");
-                KhachHang kh= new KhachHang(maKH, hoTen, diaChi, sdt1, ngayThamGia, gioiTinh);
+                KhachHang kh= new KhachHang(maKH, hoTen, diemTichLuy, sdt1, ngayThamGia, gioiTinh);
                 NhanVien nv= new NhanVien(rs.getString("nhanVien"));
                 ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM"));
                 double tongTien= rs.getDouble("tongTien");
@@ -236,7 +236,7 @@ public class HoaDonDAO implements HoaDon_Interface {
             String sqldel = "Delete from hoadon where year(ngayLapHoaDon)=year(now()) and month(ngayLapHoaDon)=month(now()) and day(ngayLapHoaDon)<day(now()) and tinhTrang=0";
              pst= (PreparedStatement) con.prepareStatement(sqldel);
             pst.executeUpdate();
-            String sql = "SELECT hd.*,kh.tenKhachHang, kh.gioiTinh, kh.soDienThoai,kh.ngayThamGia, kh.diaChi FROM hoadon as hd join khachhang as kh on hd.khachHang=kh.maKhachHang where tinhTrang=0";
+            String sql = "SELECT hd.*,kh.tenKhachHang, kh.gioiTinh, kh.soDienThoai,kh.ngayThamGia, kh.diemTichLuy FROM hoadon as hd join khachhang as kh on hd.khachHang=kh.maKhachHang where tinhTrang=0";
             pst = (PreparedStatement) con.prepareStatement(sql);
             ResultSet rs = pst.executeQuery();
 
@@ -245,10 +245,10 @@ public class HoaDonDAO implements HoaDon_Interface {
                 String maKH= rs.getString("khachHang");
                 String hoTen= rs.getString("tenKhachHang");
                 String sdt= rs.getString("soDienThoai");
-                String diaChi= rs.getString("diaChi");
+                int diemTichLuy= rs.getInt("diemTichLuy");
                 int gioiTinh= rs.getInt("gioiTinh");
                 Date ngayThamGia= rs.getDate("ngayThamGia");
-                KhachHang kh= new KhachHang(maKH, hoTen, diaChi, sdt, ngayThamGia, gioiTinh);
+                KhachHang kh= new KhachHang(maKH, hoTen, diemTichLuy, sdt, ngayThamGia, gioiTinh);
                 NhanVien nv= new NhanVien(rs.getString("nhanVien"));
                 ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM"));
                 double tongTien= rs.getDouble("tongTien");
