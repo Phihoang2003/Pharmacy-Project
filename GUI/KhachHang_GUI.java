@@ -467,11 +467,7 @@ public class KhachHang_GUI extends javax.swing.JPanel {
             new Object [][] {
                 {"TH37738", "Perasidon", null, "Ngủ", "Ở nơi khô ráo", "3 tháng kể từ ngày sản xuất"},
                 {"TH7373", "dfg", null, "dgfd", "fdg", "dfg"},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Mã Khách Hàng", "Tên Khách Hàng", "Giới Tính", "Địa Chỉ", "Số Điện Thoai", "Ngày Tham Gia"
