@@ -6,7 +6,7 @@ import java.util.Objects;
 public class KhachHang {
     private String maKhachHang;
     private String hoTen;
-    private String diaChi;
+    private int diemTichLuy;
     private String sdt;
     private Date ngayThamGia;
     private int gioiTinh;
@@ -16,11 +16,11 @@ public class KhachHang {
         this.maKhachHang = maKhachHang;
     }
 
-    public KhachHang(String maKhachHang, String hoten, String sdt, String diaChi, int gioiTinh) {
+    public KhachHang(String maKhachHang, String hoten, String sdt, int diemTichLuy, int gioiTinh) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoten;
         this.sdt = sdt;
-        this.diaChi = diaChi;
+        this.diemTichLuy = diemTichLuy;
         this.gioiTinh=gioiTinh;
     }
     public int getGioiIinh() {
@@ -31,10 +31,10 @@ public class KhachHang {
         this.gioiTinh = gioiTinh;
     }
 
-    public KhachHang(String maKhachHang, String hoTen, String diaChi, String sdt, Date ngayThamGia, int gioiTinh) {
+    public KhachHang(String maKhachHang, String hoTen, int diemTichLuy, String sdt, Date ngayThamGia, int gioiTinh) {
         this.maKhachHang = maKhachHang;
         this.hoTen = hoTen;
-        this.diaChi = diaChi;
+        this.diemTichLuy = diemTichLuy;
         this.sdt = sdt;
         this.ngayThamGia = ngayThamGia;
         this.gioiTinh= gioiTinh;
@@ -56,12 +56,12 @@ public class KhachHang {
         this.hoTen = hoTen;
     }
 
-    public String getDiaChi() {
-        return diaChi;
+    public int getDiemTichLuy() {
+        return diemTichLuy;
     }
 
-    public void setDiaChi(String diaChi) {
-        this.diaChi = diaChi;
+    public void setDiemTichLuy(int diemTichLuy) {
+        this.diemTichLuy = diemTichLuy;
     }
 
     public String getSdt() {
@@ -98,7 +98,7 @@ public class KhachHang {
         return "KhachHangDTO{" +
                 "maKhachHang=" + maKhachHang +
                 ", hoTen='" + hoTen + '\'' +
-                ", diaChi='" + diaChi + '\'' +
+                ", diemTichLuy='" + diemTichLuy + '\'' +
                 ", sdt='" + sdt + '\'' +
                 ", ngayThamGia=" + ngayThamGia +
                 ", gioiTinh=" + gioiTinh +

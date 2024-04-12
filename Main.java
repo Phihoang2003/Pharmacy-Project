@@ -255,8 +255,13 @@ public class Main {
 //        System.out.println(list);
 
         //findOneTK
-        TaiKhoanDAO tk_dao= TaiKhoanDAO.getInstance();
-        TaiKhoan tk= tk_dao.findOne("012345");
-        System.out.println(tk);
+//        TaiKhoanDAO tk_dao= TaiKhoanDAO.getInstance();
+//        TaiKhoan tk= tk_dao.findOne("012345");
+//        System.out.println(tk);
+
+        //TimThuoc
+       ThuocDAO thuoc_dao= ThuocDAO.getInstance();
+        Thuoc list= thuoc_dao.timSanPham("TH1223208187");
+        System.out.println(list);
     }
 }

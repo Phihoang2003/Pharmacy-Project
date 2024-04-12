@@ -11,6 +11,7 @@ public interface KhachHang_Interface {
     public boolean update(KhachHang updateKH);
     public boolean insert(KhachHang insertKH);
     public ArrayList<KhachHang> selectAll();
+    public boolean capNhatDiemTichLuy(String maKH, int diemTichLuy);
 
     public String getAutoIncrement();
     public KhachHang timKiemTheoSDT(String sdt);

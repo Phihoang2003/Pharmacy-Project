@@ -59,7 +59,7 @@ public ArrayList<NuocSanXuat> getAllNSX() {
 public String layTenNSXTheoMa(String maNSX) {
     String tenNuoc = null;
     try {
-        Connection con = config.JDBCUtil.getConnection();
+        Connection con = JDBCUtil.getConnection();
         String sql = "SELECT tenNuoc FROM nuocsanxuat WHERE maNuoc = ?";
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, maNSX);
@@ -67,7 +67,7 @@ public String layTenNSXTheoMa(String maNSX) {
         if (rs.next()) {
             tenNuoc = rs.getString("tenNuoc");
         }
-        config.JDBCUtil.closeConnection(con);
+        JDBCUtil.closeConnection(con);
     } catch (SQLException ex) {
         Logger.getLogger(NuocSanXuatDAO.class.getName()).log(Level.SEVERE, null, ex);
     }

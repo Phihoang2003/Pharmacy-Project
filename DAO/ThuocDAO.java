@@ -121,7 +121,11 @@ public boolean update(Thuoc t) {
         pst.setString(14, t.getThuongHieu().getMaThuongHieu());
         pst.setBoolean(15, t.isThuocKeDon());
         pst.setString(16, t.getNuocSanXuat().getMaNuoc());
-        pst.setString(17, t.getTrangThai().toString());
+        if (t.getTrangThai() != null) {
+            pst.setString(17, t.getTrangThai().toString());
+        } else {
+            pst.setString(17, "Đang bán"); // replace DEFAULT_VALUE with an appropriate default
+        }
         pst.setString(18, t.getMaThuoc());
         result = pst.executeUpdate();
         JDBCUtil.closeConnection(con);
@@ -266,6 +270,24 @@ public boolean update(Thuoc t) {
 
     @Override
     public boolean kiemTraMaSanPhamTonTai(String maSP) {
+        int sl=0;
+        try{
+            Connection con=JDBCUtil.getConnection();
+            String sql="SELECT COUNT(*) FROM thuoc WHERE maThuoc=?";
+            PreparedStatement pst=con.prepareStatement(sql);
+            pst.setString(1,maSP);
+            ResultSet rs=pst.executeQuery();
+            if(rs.next()){
+                sl=rs.getInt(1);
+                return sl>0;
+            }
+            JDBCUtil.closeConnection(con);
+
+        }
+        catch(SQLException ex){
+            Logger.getLogger(ThuocDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return false;
     }
 

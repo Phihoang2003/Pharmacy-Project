@@ -29,6 +29,11 @@ public class KhachHang_bus implements KhachHang_Interface {
     }
 
     @Override
+    public boolean capNhatDiemTichLuy(String maKH, int diemTichLuy) {
+        return kh_dao.capNhatDiemTichLuy(maKH, diemTichLuy);
+    }
+
+    @Override
     public String getAutoIncrement() {
         return kh_dao.getAutoIncrement();
     }

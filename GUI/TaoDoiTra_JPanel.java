@@ -752,6 +752,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
         lbl_TongTien.setText("");
         lbl_TienKhuyenMai.setText("");
         lbl_TienThanhToan.setText("");
+        jTextArea1.setText("");
         spinner_SoLuong.setValue(0);
         spinner_SoLuong.setEnabled(false);
 

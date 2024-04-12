@@ -212,9 +212,23 @@ public boolean update(ChuongTrinhKhuyenMai t) {
     }
 
     @Override
-    public String layTenKhuyenMaiTheoMa(String maKhuyenMai) {
-        return null;
+    public String layTenKhuyenMaiTheoMa(String maCTKM) {
+    String tenCTKM = null;
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "SELECT tenCTKM FROM chuongtrinhkhuyenmai WHERE maCTKM = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setString(1, maCTKM);
+        ResultSet rs = pst.executeQuery();
+        if (rs.next()) {
+            tenCTKM = rs.getString("tenCTKM");
+        }
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(ChuongTrinhKhuyenMaiDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return tenCTKM;
+}
 
     @Override
     public String layMaKhuyenMaiTheoTen(String tenKhuyenMai) {

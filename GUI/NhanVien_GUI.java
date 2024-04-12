@@ -1192,6 +1192,7 @@ public class NhanVien_GUI extends javax.swing.JPanel {
 
     private void btn_LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LamMoiActionPerformed
         // TODO add your handling code here:
+        refresh();
     }//GEN-LAST:event_btn_LamMoiActionPerformed
 
     private void loadData(){
