@@ -293,7 +293,7 @@ public boolean update(Thuoc t) {
 
     @Override
     public void capNhatKhuyenMai() {
-
+        System.out.println("Chưa cài đặt");
     }
 
     @Override
