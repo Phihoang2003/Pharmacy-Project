@@ -4,11 +4,8 @@
  */
 package GUI;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.UIManager;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *
@@ -27,6 +24,8 @@ public class TrangChu_GUI extends JFrame {
             doiTraGUI.setVisible(false);
             khuyenMai_GUI.setVisible(false);
             taiKhoan_GUI.setVisible(false);
+            Main_GUI.remove(lblImg);
+
         }
     private void resetAllPanels() {
         SanPham_Panel.setBackground(UIManager.getColor(Color.WHITE));
@@ -60,9 +59,16 @@ public class TrangChu_GUI extends JFrame {
         khuyenMai_GUI=new KhuyenMai_GUI();
         taiKhoan_GUI=new TaiKhoan_GUI();
         Main_GUI.setLayout(new BorderLayout());
+
+        TrangChu_Panel.setBackground(new Color(187, 222, 251));
+        selectedPanel=TrangChu_Panel;
+        ImageIcon img_TrangChu = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\img\\hinhnen1.jpeg");
+        Image scaled_TrangChu = img_TrangChu.getImage().getScaledInstance(1260, 785, Image.SCALE_SMOOTH);
+        img_TrangChu = new ImageIcon(scaled_TrangChu);
+         lblImg = new JLabel(img_TrangChu);
+        Main_GUI.add(lblImg, BorderLayout.CENTER);
         
 // Add SanPham_GUI instance to Main_GUI
-        resetVisible();
         
         
         TrangChu_Panel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -73,9 +79,24 @@ public class TrangChu_GUI extends JFrame {
             }
 
             public void mouseClicked(java.awt.event.MouseEvent evt) {
+                banHangGUI.setVisible(false);
+                khachHangGUI.setVisible(false);
+                sanPhamGUI.setVisible(false);
+                nhaCungCap_GUI.setVisible(false);
+                nhanVienGUI.setVisible(false);
+                hoaDonGUI.setVisible(false);
+                phieuNhapGUI.setVisible(false);
+                doiTraGUI.setVisible(false);
+                khuyenMai_GUI.setVisible(false);
+                taiKhoan_GUI.setVisible(false);
                 resetAllPanels();
                 TrangChu_Panel.setBackground(new Color(187, 222, 251));
-               selectedPanel=TrangChu_Panel;
+                selectedPanel=TrangChu_Panel;
+                ImageIcon img_TrangChu = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\img\\hinhnen1.jpeg");
+                Image scaled_TrangChu = img_TrangChu.getImage().getScaledInstance(1260, 785, Image.SCALE_SMOOTH);
+                img_TrangChu = new ImageIcon(scaled_TrangChu);
+                lblImg = new JLabel(img_TrangChu);
+                Main_GUI.add(lblImg, BorderLayout.CENTER);
             }
 
             public void mouseExited(java.awt.event.MouseEvent evt) {
@@ -93,10 +114,11 @@ public class TrangChu_GUI extends JFrame {
 
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 resetAllPanels();
+                resetVisible();
                 SanPham_Panel.setBackground(new Color(187, 222, 251));
                 selectedPanel=SanPham_Panel;
                 Main_GUI.add(sanPhamGUI,BorderLayout.CENTER);
-                resetVisible();
+
                 sanPhamGUI.setVisible(true);
                 
                 
@@ -429,7 +451,7 @@ public class TrangChu_GUI extends JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(3000, 600));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\man_50px.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\man_50px.png")); // NOI18N
         jLabel1.setMaximumSize(new java.awt.Dimension(60, 60));
         jLabel1.setPreferredSize(new java.awt.Dimension(2000, 2000));
 
@@ -449,7 +471,7 @@ public class TrangChu_GUI extends JFrame {
         SanPham_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
         SanPham_Panel.setRequestFocusEnabled(false);
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\product.png")); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\product.png")); // NOI18N
         jLabel6.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -486,7 +508,7 @@ public class TrangChu_GUI extends JFrame {
         HoaDon_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
         HoaDon_Panel.setRequestFocusEnabled(false);
 
-        jLabel8.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\customer.png")); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\bill.png")); // NOI18N
         jLabel8.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -518,7 +540,7 @@ public class TrangChu_GUI extends JFrame {
         NhaCungCapPanel.setPreferredSize(new java.awt.Dimension(162, 50));
         NhaCungCapPanel.setRequestFocusEnabled(false);
 
-        jLabel10.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\supplier.png")); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\supplier.png")); // NOI18N
         jLabel10.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel11.setBackground(new Color(255, 255, 255));
@@ -550,7 +572,7 @@ public class TrangChu_GUI extends JFrame {
         NhanVien_Panel.setBackground(new Color(255, 255, 255));
         NhanVien_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
 
-        jLabel12.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\customer.png")); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\employee.png")); // NOI18N
         jLabel12.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -578,7 +600,7 @@ public class TrangChu_GUI extends JFrame {
         ThongKe_Panel.setBackground(new Color(255, 255, 255));
         ThongKe_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
 
-        jLabel14.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\statistical.png")); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\statistic.png")); // NOI18N
         jLabel14.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -610,7 +632,7 @@ public class TrangChu_GUI extends JFrame {
         BanHang_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
         BanHang_Panel.setRequestFocusEnabled(false);
 
-        jLabel18.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\account.png")); // NOI18N
+        jLabel18.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\sell.png")); // NOI18N
         jLabel18.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel19.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -625,7 +647,7 @@ public class TrangChu_GUI extends JFrame {
         SanPham_Panel2.setPreferredSize(new java.awt.Dimension(162, 50));
         SanPham_Panel2.setRequestFocusEnabled(false);
 
-        jLabel20.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\product.png")); // NOI18N
+        jLabel20.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\product.png")); // NOI18N
         jLabel20.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel21.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -689,7 +711,7 @@ public class TrangChu_GUI extends JFrame {
         KhachHang_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
         KhachHang_Panel.setRequestFocusEnabled(false);
 
-        jLabel22.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\customer.png")); // NOI18N
+        jLabel22.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\customer.png")); // NOI18N
         jLabel22.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -721,7 +743,7 @@ public class TrangChu_GUI extends JFrame {
         PhieuNhap_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
         PhieuNhap_Panel.setRequestFocusEnabled(false);
 
-        jLabel24.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\customer.png")); // NOI18N
+        jLabel24.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\person-fill-add.png")); // NOI18N
         jLabel24.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel25.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -753,7 +775,7 @@ public class TrangChu_GUI extends JFrame {
         DoiTra_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
         DoiTra_Panel.setRequestFocusEnabled(false);
 
-        jLabel26.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\customer.png")); // NOI18N
+        jLabel26.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\return.png")); // NOI18N
         jLabel26.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel27.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -790,7 +812,7 @@ public class TrangChu_GUI extends JFrame {
             }
         });
 
-        jLabel16.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\home.png")); // NOI18N
+        jLabel16.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\home.png")); // NOI18N
         jLabel16.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -832,7 +854,7 @@ public class TrangChu_GUI extends JFrame {
         KhuyenMai_Panel.setBackground(new Color(255, 255, 255));
         KhuyenMai_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
 
-        jLabel28.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\statistical.png")); // NOI18N
+        jLabel28.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\coupon.png")); // NOI18N
         jLabel28.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jlabel.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -860,7 +882,7 @@ public class TrangChu_GUI extends JFrame {
         TaiKhoan_Panel.setBackground(new Color(255, 255, 255));
         TaiKhoan_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
 
-        jLabel30.setIcon(new javax.swing.ImageIcon("D:\\test2\\src\\icon\\statistical.png")); // NOI18N
+        jLabel30.setIcon(new javax.swing.ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\account.png")); // NOI18N
         jLabel30.setPreferredSize(new java.awt.Dimension(40, 40));
 
         jLabel31.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
@@ -1126,6 +1148,7 @@ public class TrangChu_GUI extends JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel lblImg;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

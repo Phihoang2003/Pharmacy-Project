@@ -5,7 +5,14 @@
 package GUI;
 
 import javax.swing.table.DefaultTableModel;
+
+import BUS.ChiTietDoiTra_bus;
+import BUS.DoiTra_bus;
+import DTO.ChiTietDoiTra;
+import DTO.DoiTra;
 import utils.ConvertDoubleToMoney;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -15,7 +22,8 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
 
     private String maDT;
     private DefaultTableModel tableModel;
-    
+    private DoiTra_bus dt_bus=new DoiTra_bus();
+    private ChiTietDoiTra_bus ctdt_bus=new ChiTietDoiTra_bus();
     private ConvertDoubleToMoney convert = new ConvertDoubleToMoney();
     
     public ChiTietDoiTra_GUI(String maDT) {
@@ -24,10 +32,32 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         
         // import data
-        String[] cols = {"Mã", "Tên sản phẩm", "Kích thước", "Màu sắc", "Số lượng", "Giá bán", "Thành tiền"};
+        String[] cols = {"Mã", "Tên sản phẩm", "Nhóm thuốc", "Hạn sử dụng", "Số lượng", "Giá bán", "Thành tiền"};
         tableModel = new DefaultTableModel(cols, 0);
         table_DoiTra.setModel(tableModel);
         table_DoiTra.setEnabled(false);
+
+        DoiTra dt = dt_bus.getDoiTraTheoMa(maDT);
+        if(dt != null) {
+            lbl_MaDoiTra.setText(dt.getMaDT());
+            lbl_MaNhanVien.setText(dt.getNhanVien().getMaNhanVien());
+            if(dt.getHoaDon().getKhachHang() != null) {
+                lbl_TenKhachHang.setText(dt.getHoaDon().getKhachHang().getHoTen());
+                lbl_SoDienThoai.setText(dt.getHoaDon().getKhachHang().getSdt());
+            } else {
+                lbl_TenKhachHang.setText("");
+                lbl_SoDienThoai.setText("");
+            }
+            lbl_NgayLap.setText(dt.getThoiGianDoiTra().toString());
+            lbl_HinhThuc.setText(dt.getHinhThucDoiTra().toString());
+            lbl_TienHoanTra.setText(convert.toMoney(dt.getTongTien()));
+
+            ArrayList<ChiTietDoiTra> ctdtList = ctdt_bus.getAllCTDTTheoMaDT(maDT);
+            for (ChiTietDoiTra ctdt : ctdtList) {
+                String[] data = {ctdt.getSanPham().getMaThuoc(), ctdt.getSanPham().getTenThuoc(), ctdt.getSanPham().getNhomHangHoa().getTenNhomHang(), ctdt.getSanPham().getHanSuDung().toString(), ctdt.getSoLuong()+"", convert.toMoney(ctdt.getGiaBan()), convert.toMoney(ctdt.getThanhTien())};
+                tableModel.addRow(data);
+            }
+        }
         
         
         
@@ -73,7 +103,7 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã", "Tên sản phẩm", "Kích thước", "Màu sắc", "Số lượng", "Giá bán", "Thành tiền"
+                "Mã", "Tên sản phẩm", "Hoạt chất chính", "Đơn vị tính", "Số lượng", "Giá bán", "Thành tiền"
             }
         ) {
             Class[] types = new Class [] {
@@ -94,25 +124,25 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 811, 280));
 
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel10.setText("Tiền hoàn trả");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 503, 114, -1));
 
-        lbl_TienHoanTra.setFont(new java.awt.Font("Times New Roman", 2, 16)); // NOI18N
+        lbl_TienHoanTra.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
         getContentPane().add(lbl_TienHoanTra, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 503, 120, 20));
 
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 2, 16)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
         jLabel13.setText("VND");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 503, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel20.setText("Hình thức đổi trả");
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 468, -1, -1));
 
-        lbl_HinhThuc.setFont(new java.awt.Font("Times New Roman", 2, 16)); // NOI18N
+        lbl_HinhThuc.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
         getContentPane().add(lbl_HinhThuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 468, 120, 20));
 
-        jPanel1.setBackground(new java.awt.Color(187, 205, 197));
+        jPanel1.setBackground(new java.awt.Color(22, 97, 86));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -128,40 +158,40 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 20));
 
-        jPanel2.setBackground(new java.awt.Color(187, 205, 197));
+        jPanel2.setBackground(new java.awt.Color(22, 97, 86));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel4.setText("Tên khách hàng");
 
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel2.setText("Mã đổi trả");
 
-        lbl_MaDoiTra.setFont(new java.awt.Font("Times New Roman", 2, 16)); // NOI18N
+        lbl_MaDoiTra.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
         lbl_MaDoiTra.setText(" ");
 
-        lbl_TenKhachHang.setFont(new java.awt.Font("Times New Roman", 2, 16)); // NOI18N
+        lbl_TenKhachHang.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel3.setText("Mã nhân viên");
 
-        lbl_MaNhanVien.setFont(new java.awt.Font("Times New Roman", 2, 16)); // NOI18N
+        lbl_MaNhanVien.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel6.setText("Ngày lập");
 
-        lbl_NgayLap.setFont(new java.awt.Font("Times New Roman", 2, 16)); // NOI18N
+        lbl_NgayLap.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
 
-        lbl_SoDienThoai.setFont(new java.awt.Font("Times New Roman", 2, 16)); // NOI18N
+        lbl_SoDienThoai.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jLabel8.setText("Số điện thoại");
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setText("THÔNG TIN CHI TIẾT ĐỔI TRẢ");
 
         jButton1.setBackground(new java.awt.Color(0, 51, 51));
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 15)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Xác nhận");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -233,7 +263,7 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 890, 640));
 
-        jPanel3.setBackground(new java.awt.Color(187, 205, 197));
+        jPanel3.setBackground(new java.awt.Color(22, 97, 86));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

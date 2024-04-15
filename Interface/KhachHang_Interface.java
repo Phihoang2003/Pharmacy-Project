@@ -13,6 +13,7 @@ public interface KhachHang_Interface {
     public ArrayList<KhachHang> selectAll();
     public boolean capNhatDiemTichLuy(String maKH, int diemTichLuy);
 
+
     public String getAutoIncrement();
     public KhachHang timKiemTheoSDT(String sdt);
 

@@ -520,7 +520,7 @@
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="H&#xec;nh Minh H&#x1ecd;a"/>
               </Properties>
@@ -528,7 +528,7 @@
             <Component class="javax.swing.JButton" name="btn_chonAnh">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ch&#x1ecd;n &#x1ea2;nh"/>
               </Properties>
@@ -644,7 +644,7 @@
             <Component class="com.toedter.calendar.JDateChooser" name="jdc_NgayNhap">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -1175,7 +1175,7 @@
             <Component class="javax.swing.JLabel" name="jLabel51">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="H&#xec;nh Minh H&#x1ecd;a"/>
               </Properties>
@@ -1183,7 +1183,7 @@
             <Component class="javax.swing.JButton" name="btn_chonAnh1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ch&#x1ecd;n &#x1ea2;nh"/>
               </Properties>
@@ -1299,7 +1299,7 @@
             <Component class="com.toedter.calendar.JDateChooser" name="jdc_NgayNhap1">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -1810,7 +1810,7 @@
             <Component class="javax.swing.JLabel" name="jLabel71">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="H&#xec;nh Minh H&#x1ecd;a"/>
               </Properties>
@@ -1889,7 +1889,7 @@
             <Component class="com.toedter.calendar.JDateChooser" name="jdc_NgayNhap2">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="14" style="0"/>
+                  <Font name="Segoe UI" size="14" style="0"/>
                 </Property>
               </Properties>
               <AuxValues>
@@ -2125,7 +2125,7 @@
                   <Color blue="0" green="66" red="0" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                  <Font name="Times New Roman" size="15" style="1"/>
+                  <Font name="Segoe UI" size="15" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" id="white" palette="1" red="ff" type="palette"/>
@@ -2561,7 +2561,7 @@
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder/>
               </Border>
-              <Font PropertyName="font" name="Times New Roman" size="12" style="0"/>
+              <Font PropertyName="font" name="Segoe UI" size="12" style="0"/>
             </TitledBorder>
           </Border>
         </Property>

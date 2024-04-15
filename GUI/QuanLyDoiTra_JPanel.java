@@ -62,27 +62,27 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         jScrollPane1 = new JScrollPane();
         table_DanhSachDoiTra = new JTable();
 
-        setBackground(new Color(0, 102, 0));
+        setBackground(new Color(22, 97, 86));
         setMinimumSize(new Dimension(1020, 700));
         setPreferredSize(new Dimension(1000, 640));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Jpanel_ThaoTac.setBackground(new Color(0, 102, 0));
-        Jpanel_ThaoTac.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Các thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new Font("Times New Roman", 1, 14), new Color(255, 255, 255))); // NOI18N
+        Jpanel_ThaoTac.setBackground(new Color(22, 97, 86));
+        Jpanel_ThaoTac.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Các thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new Font("Segoe UI", 1, 14), new Color(255, 255, 255))); // NOI18N
         Jpanel_ThaoTac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_MaHoaDon.setBackground(new Color(255, 255, 255));
-        lbl_MaHoaDon.setFont(new Font("Times New Roman", 1, 16)); // NOI18N
+        lbl_MaHoaDon.setFont(new Font("Segoe UI", 1, 16)); // NOI18N
         lbl_MaHoaDon.setForeground(new Color(255, 255, 255));
         lbl_MaHoaDon.setText("Mã đơn đổi trả");
         Jpanel_ThaoTac.add(lbl_MaHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 20, 120, 20));
 
-        jLabel1.setFont(new Font("Times New Roman", 1, 16)); // NOI18N
+        jLabel1.setFont(new Font("Segoe UI", 1, 16)); // NOI18N
         jLabel1.setForeground(new Color(255, 255, 255));
         jLabel1.setText("Ngày Lập");
         Jpanel_ThaoTac.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 60, 150, 20));
 
-        txt_MaDonDoiTra.setFont(new Font("Times New Roman", 0, 16)); // NOI18N
+        txt_MaDonDoiTra.setFont(new Font("Segoe UI", 0, 16)); // NOI18N
         txt_MaDonDoiTra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_MaDonDoiTraActionPerformed(evt);
@@ -92,7 +92,7 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         Jpanel_ThaoTac.add(jdc_NgayLap, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 200, 30));
 
         btn_TimKiem.setBackground(new Color(0, 51, 51));
-        btn_TimKiem.setFont(new Font("Times New Roman", 1, 15)); // NOI18N
+        btn_TimKiem.setFont(new Font("Segoe UI", 1, 15)); // NOI18N
         btn_TimKiem.setForeground(new Color(255, 255, 255));
         btn_TimKiem.setText("Tìm kiếm");
         btn_TimKiem.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -104,7 +104,7 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         Jpanel_ThaoTac.add(btn_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 120, 30));
 
         btn_LamMoi.setBackground(new Color(0, 51, 51));
-        btn_LamMoi.setFont(new Font("Times New Roman", 1, 15)); // NOI18N
+        btn_LamMoi.setFont(new Font("Segoe UI", 1, 15)); // NOI18N
         btn_LamMoi.setForeground(new Color(255, 255, 255));
         btn_LamMoi.setText("Làm mới");
         btn_LamMoi.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -116,7 +116,7 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         Jpanel_ThaoTac.add(btn_LamMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 120, 30));
 
         btn_XemChiTiet.setBackground(new Color(0, 51, 51));
-        btn_XemChiTiet.setFont(new Font("Times New Roman", 1, 15)); // NOI18N
+        btn_XemChiTiet.setFont(new Font("Segoe UI", 1, 15)); // NOI18N
         btn_XemChiTiet.setForeground(Color.white);
         btn_XemChiTiet.setText("Xem chi tiết");
         btn_XemChiTiet.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -129,8 +129,8 @@ public class QuanLyDoiTra_JPanel extends JPanel {
 
         add(Jpanel_ThaoTac, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 100));
 
-        Jpanel_Table.setBackground(new Color(0, 102, 0));
-        Jpanel_Table.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh sách đơn đổi trả", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new Font("Times New Roman", 1, 14), new Color(255, 255, 255))); // NOI18N
+        Jpanel_Table.setBackground(new Color(22, 97, 86));
+        Jpanel_Table.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh sách đơn đổi trả", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new Font("Segoe UI", 1, 14), new Color(255, 255, 255))); // NOI18N
         Jpanel_Table.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         Jpanel_Table.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

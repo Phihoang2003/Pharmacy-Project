@@ -65,6 +65,55 @@ public class NhaCungCapDAO implements NhaCungCap_Interface {
         }
         return result>0;
     }
+    public NhaCungCap timKiemTheoSDT(String sdt) {
+        NhaCungCap nhaCungCapDTO = null;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM `nhacungcap` WHERE `soDienThoai`=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, sdt);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                nhaCungCapDTO = new NhaCungCap();
+                nhaCungCapDTO.setMaNhaCungCap(rs.getString("maNhaCungCap"));
+                nhaCungCapDTO.setTenNhaCungCap(rs.getString("tenNhaCungCap"));
+                nhaCungCapDTO.setDiaChi(rs.getString("diaChi"));
+                nhaCungCapDTO.setSoDienThoai(rs.getString("soDienThoai"));
+            }
+            JDBCUtil.closeConnection(con);
+        } catch (SQLException ex) {
+
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nhaCungCapDTO;
+    }
+    public NhaCungCap kiemTraLapThongTin(NhaCungCap khMoi) {
+        NhaCungCap kh = null;
+        Connection connection;
+        PreparedStatement statement;
+        ResultSet resultSet;
+
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM `nhacungcap` WHERE `tenNhaCungCap` = ? AND `diaChi` = ? AND `soDienThoai` = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, khMoi.getTenNhaCungCap());
+            statement.setString(2, khMoi.getDiaChi());
+            statement.setString(3, khMoi.getSoDienThoai());
+
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                kh = new NhaCungCap();
+                kh.setTenNhaCungCap(resultSet.getString("tenNhaCungCap"));
+                kh.setDiaChi(resultSet.getString("diaChi"));
+                kh.setSoDienThoai(resultSet.getString("soDienThoai"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return kh;
+    }
 
    @Override
 public ArrayList<NhaCungCap> selectAll() {

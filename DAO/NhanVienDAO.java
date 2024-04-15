@@ -115,9 +115,38 @@ public class NhanVienDAO implements NhanVien_Interface {
         return result;
     }
 
-    @Override
-    public Boolean checkNV(String email, String sdt)  {
-        return null;
+    public NhanVien kiemTraLapThongTin(NhanVien nvMoi) {
+        NhanVien nv = null;
+        Connection connection;
+        PreparedStatement statement;
+        ResultSet resultSet;
+
+        try {
+            connection = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM nhanvien WHERE hoTen = ? AND gioiTinh = ? AND sdt = ? AND email = ? AND diaChi = ? AND ngaySinh = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, nvMoi.getHoTen());
+            statement.setInt(2, nvMoi.getGioiTinh());
+            statement.setString(3, nvMoi.getSdt());
+            statement.setString(4, nvMoi.getEmail());
+            statement.setString(5, nvMoi.getDiaChi());
+            statement.setDate(6, (Date) nvMoi.getNgaySinh());
+
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                nv = new NhanVien();
+                nv.setHoTen(resultSet.getString("hoTen"));
+                nv.setGioiTinh(resultSet.getInt("gioiTinh"));
+                nv.setSdt(resultSet.getString("sdt"));
+                nv.setDiaChi(resultSet.getString("diaChi"));
+                nv.setNgaySinh(resultSet.getDate("ngaySinh"));
+                nv.setEmail(resultSet.getString("email"));
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return nv;
     }
 
 
@@ -158,6 +187,12 @@ public class NhanVienDAO implements NhanVien_Interface {
         }
         return nv;
     }
+
+    @Override
+    public Boolean checkNV(String email, String sdt) {
+        return null;
+    }
+
     @Override
     public NhanVien selectById(String t) {
         NhanVien nv = null;

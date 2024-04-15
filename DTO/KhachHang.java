@@ -11,6 +11,7 @@ public class KhachHang {
     private Date ngayThamGia;
     private int gioiTinh;
     public KhachHang() {
+        this.ngayThamGia= new Date();
     }
     public KhachHang(String maKhachHang) {
         this.maKhachHang = maKhachHang;

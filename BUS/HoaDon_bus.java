@@ -74,4 +74,9 @@ public class HoaDon_bus implements HoaDon_Interface{
     public boolean capNhatHoaDonLuuTam(HoaDon hoaDon, ArrayList<ChiTietHoaDon> danhSachCTHD) {
         return hd_dao.capNhatHoaDonLuuTam(hoaDon,danhSachCTHD);
     }
+
+    @Override
+    public ArrayList<HoaDon> selectAll() {
+        return hd_dao.selectAll();
+    }
 }

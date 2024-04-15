@@ -613,7 +613,7 @@ public class SanPham_GUI extends JPanel {
 
         jPanel9.setBackground(new Color(255, 255, 255));
 
-        jPanel10.setBackground(new Color(0, 102, 0));
+        jPanel10.setBackground(new Color(22, 97, 86));
 
         jLabel14.setFont(new Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel14.setForeground(new Color(255, 255, 255));
@@ -752,10 +752,10 @@ public class SanPham_GUI extends JPanel {
             }
         });
 
-        jLabel6.setFont(new Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel6.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
         jLabel6.setText("Hình Minh Họa");
 
-        btn_chonAnh.setFont(new Font("Times New Roman", 0, 14)); // NOI18N
+        btn_chonAnh.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
         btn_chonAnh.setText("Chọn Ảnh");
         btn_chonAnh.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -763,7 +763,7 @@ public class SanPham_GUI extends JPanel {
             }
         });
 
-        btn_them.setBackground(new Color(0, 102, 0));
+        btn_them.setBackground(new Color(22, 97, 86));
         btn_them.setFont(new Font("Segoe UI Black", 1, 13)); // NOI18N
         btn_them.setForeground(new Color(255, 255, 255));
         btn_them.setText("Thêm Sản Phẩm");
@@ -803,7 +803,7 @@ public class SanPham_GUI extends JPanel {
         //jdc_NgayNhap.setSelectableDateRange(new Date(), null);
         //jdc_NgayNhap.setMinSelectableDate(new Date());
         jdc_NgayNhap.setMaxSelectableDate(new Date());
-        jdc_NgayNhap.setFont(new Font("Times New Roman", 0, 14)); // NOI18N
+        jdc_NgayNhap.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
 
         GroupLayout jPanel9Layout = new GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -1001,7 +1001,7 @@ public class SanPham_GUI extends JPanel {
 
         jPanel11.setBackground(new Color(255, 255, 255));
 
-        jPanel12.setBackground(new Color(0, 102, 0));
+        jPanel12.setBackground(new Color(22, 97, 86));
 
         jLabel18.setFont(new Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel18.setForeground(new Color(255, 255, 255));
@@ -1140,10 +1140,10 @@ public class SanPham_GUI extends JPanel {
             }
         });
 
-        jLabel51.setFont(new Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel51.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
         jLabel51.setText("Hình Minh Họa");
 
-        btn_chonAnh1.setFont(new Font("Times New Roman", 0, 14)); // NOI18N
+        btn_chonAnh1.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
         btn_chonAnh1.setText("Chọn Ảnh");
         btn_chonAnh1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1151,7 +1151,7 @@ public class SanPham_GUI extends JPanel {
             }
         });
 
-        btn_them1.setBackground(new Color(0, 102, 0));
+        btn_them1.setBackground(new Color(22, 97, 86));
         btn_them1.setFont(new Font("Segoe UI Black", 1, 13)); // NOI18N
         btn_them1.setForeground(new Color(255, 255, 255));
         btn_them1.setText("Cập Nhật Sản Phẩm");
@@ -1191,7 +1191,7 @@ public class SanPham_GUI extends JPanel {
         //jdc_NgayNhap.setSelectableDateRange(new Date(), null);
         //jdc_NgayNhap.setMinSelectableDate(new Date());
         jdc_NgayNhap.setMaxSelectableDate(new Date());
-        jdc_NgayNhap1.setFont(new Font("Times New Roman", 0, 14)); // NOI18N
+        jdc_NgayNhap1.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
 
         GroupLayout jPanel11Layout = new GroupLayout(jPanel11);
         jPanel11.setLayout(jPanel11Layout);
@@ -1389,7 +1389,7 @@ public class SanPham_GUI extends JPanel {
 
         jPanel13.setBackground(new Color(255, 255, 255));
 
-        jPanel14.setBackground(new Color(0, 102, 0));
+        jPanel14.setBackground(new Color(22, 97, 86));
 
         jLabel55.setFont(new Font("Segoe UI Black", 1, 14)); // NOI18N
         jLabel55.setForeground(new Color(255, 255, 255));
@@ -1528,7 +1528,7 @@ public class SanPham_GUI extends JPanel {
             }
         });
 
-        jLabel71.setFont(new Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel71.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
         jLabel71.setText("Hình Minh Họa");
 
         cbo_thuocKeDon2.setModel(new DefaultComboBoxModel<>(new String[] { "Có Kê Đơn", "Không Kê Đơn" }));
@@ -1551,7 +1551,7 @@ public class SanPham_GUI extends JPanel {
         //jdc_NgayNhap.setSelectableDateRange(new Date(), null);
         //jdc_NgayNhap.setMinSelectableDate(new Date());
         jdc_NgayNhap.setMaxSelectableDate(new Date());
-        jdc_NgayNhap2.setFont(new Font("Times New Roman", 0, 14)); // NOI18N
+        jdc_NgayNhap2.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
 
         GroupLayout jPanel13Layout = new GroupLayout(jPanel13);
         jPanel13.setLayout(jPanel13Layout);
@@ -1738,7 +1738,7 @@ public class SanPham_GUI extends JPanel {
             }
         });
 
-        btn_TimKiem.setBackground(new Color(0, 102, 0));
+        btn_TimKiem.setBackground(new Color(22, 97, 86));
         btn_TimKiem.setFont(new Font("Segoe UI", 1, 12)); // NOI18N
         btn_TimKiem.setForeground(new Color(255, 255, 255));
         btn_TimKiem.setText("Tìm");
@@ -1788,8 +1788,8 @@ public class SanPham_GUI extends JPanel {
                 .addContainerGap())
         );
 
-        btn_LamMoi.setBackground(new Color(0, 102, 0));
-        btn_LamMoi.setFont(new Font("Times New Roman", 1, 15)); // NOI18N
+        btn_LamMoi.setBackground(new Color(22, 97, 86));
+        btn_LamMoi.setFont(new Font("Segoe UI", 1, 15)); // NOI18N
         btn_LamMoi.setForeground(Color.white);
         btn_LamMoi.setText("Làm mới");
         btn_LamMoi.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -2115,7 +2115,7 @@ public class SanPham_GUI extends JPanel {
                 .addGap(492, 492, 492))
         );
 
-        jPanel2.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh Sách Thuốc", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new Font("Times New Roman", 0, 12))); // NOI18N
+        jPanel2.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh Sách Thuốc", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new Font("Segoe UI", 0, 12))); // NOI18N
 
         table_thuoc.setModel(new DefaultTableModel(
             new Object [][] {
@@ -2561,7 +2561,7 @@ public class SanPham_GUI extends JPanel {
                         model.addRow(new Object[]{maSanPham, excelTenSP.getStringCellValue(), excelNuocSX.getStringCellValue(), soLuongTonKho, formattedDonGia, excelNhomhang, excelDVT, excelHSD, excelHoatChat, excelTH, khuyenMai, tinhTrang, excelKhoiLuong, excelDuongDung, excelQuyCach, excelDKBQ, excelThuocKeDon, excelDuongDanAnh});
                     }
                 }
-                JOptionPane.showMessageDialog(null, "Nhập thành công");
+                JOptionPane.showMessageDialog(this, "Nhập thành công");
             } catch (IOException iOException) {
                 JOptionPane.showMessageDialog(null, iOException.getMessage());
             } finally {

@@ -53,7 +53,7 @@ public class Main {
 //        System.out.println(kh);
 //        test insert NhanVien
 //        NhanVienDAO nv_dao= NhanVienDAO.getInstance();
-//        NhanVienDTO nv= new NhanVienDTO(nv_dao.getAutoIncrement(),"PhiUpdate6",1,"0967312797", new Date(2023,Calendar.APRIL,12), TinhTrangNVEnum.NGHIPHEP,"hoansdfđs842@gmail.com",new Date(2023,Calendar.APRIL,3), CaLamViecEnum.CA2);
+//        NhanVien nv= new NhanVien(nv_dao.getAutoIncrement(),"PhiUpdate6","sadk",1,"0967312797", new Date(2023,Calendar.APRIL,12), TinhTrangNVEnum.NGHIPHEP,ChucVuEnum.QUANLY,"hoansdfđs842@gmail.com",new Date(2023,Calendar.APRIL,3), CaLamViecEnum.CA2);
 //        nv_dao.insert(nv);
         //test update NhanVien
 //       NhanVienDAO nv_dao= NhanVienDAO.getInstance();
@@ -260,8 +260,18 @@ public class Main {
 //        System.out.println(tk);
 
         //TimThuoc
-       ThuocDAO thuoc_dao= ThuocDAO.getInstance();
-        Thuoc list= thuoc_dao.timSanPham("TH1223208187");
-        System.out.println(list);
+//       ThuocDAO thuoc_dao= ThuocDAO.getInstance();
+//        Thuoc list= thuoc_dao.timSanPham("TH092992922");
+//        System.out.println(list);
+
+        //test get san pham theo maHD
+//        ChiTietHoaDonDAO cthd_dao= ChiTietHoaDonDAO.getInstance();
+//        ArrayList<Thuoc> list= cthd_dao.getSanPhamTheoMaHD("HD514159501");
+//        System.out.println(list);
+
+        //test get CTHD theo maHD va maSP
+//        ChiTietHoaDonDAO cthd_dao= ChiTietHoaDonDAO.getInstance();
+//        ArrayList<ChiTietHoaDon> list= cthd_dao.getCTHDTheoMaHDvaMaSP("HD514159501","TH101230923");
+//        System.out.println(list);
     }
 }

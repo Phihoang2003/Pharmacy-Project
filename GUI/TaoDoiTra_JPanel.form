@@ -41,7 +41,7 @@
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder/>
               </Border>
-              <Font PropertyName="font" name="Times New Roman" size="14" style="1"/>
+              <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -179,7 +179,7 @@
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="16" style="0"/>
+              <Font name="Segoe UI" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="M&#xe3; ho&#xe1; &#x111;&#x1a1;n"/>
           </Properties>
@@ -187,7 +187,7 @@
         <Component class="javax.swing.JTextField" name="txt_MaHoaDon">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="16" style="0"/>
+              <Font name="Segoe UI" size="16" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -197,7 +197,7 @@
               <Color blue="0" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="15" style="1"/>
+              <Font name="Segoe UI" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -212,7 +212,7 @@
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="1"/>
+              <Font name="Segoe UI" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="M&#xe3; kh&#xe1;ch h&#xe0;ng"/>
           </Properties>
@@ -220,7 +220,7 @@
         <Component class="javax.swing.JLabel" name="lbl_MaKhachHang">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
@@ -228,7 +228,7 @@
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="1"/>
+              <Font name="Segoe UI" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="T&#xea;n kh&#xe1;ch h&#xe0;ng"/>
           </Properties>
@@ -236,7 +236,7 @@
         <Component class="javax.swing.JLabel" name="lbl_TenKhachHang">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
@@ -244,7 +244,7 @@
         <Component class="javax.swing.JLabel" name="jLabel7">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="1"/>
+              <Font name="Segoe UI" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ng&#xe0;y l&#x1ead;p"/>
           </Properties>
@@ -252,7 +252,7 @@
         <Component class="javax.swing.JLabel" name="lbl_NgayLap">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
@@ -260,7 +260,7 @@
         <Component class="javax.swing.JLabel" name="jLabel9">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="1"/>
+              <Font name="Segoe UI" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="S&#x1ed1; &#x111;i&#x1ec7;n tho&#x1ea1;i"/>
           </Properties>
@@ -268,7 +268,7 @@
         <Component class="javax.swing.JLabel" name="lbl_SoDienThoai">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
@@ -276,7 +276,7 @@
         <Component class="javax.swing.JLabel" name="jLabel11">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="1"/>
+              <Font name="Segoe UI" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="T&#x1ed5;ng ti&#x1ec1;n"/>
           </Properties>
@@ -284,7 +284,7 @@
         <Component class="javax.swing.JLabel" name="lbl_TongTien">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
@@ -292,7 +292,7 @@
         <Component class="javax.swing.JLabel" name="jLabel13">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="1"/>
+              <Font name="Segoe UI" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ti&#x1ec1;n khuy&#x1ebf;n m&#xe3;i"/>
           </Properties>
@@ -300,7 +300,7 @@
         <Component class="javax.swing.JLabel" name="lbl_TienKhuyenMai">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
@@ -308,7 +308,7 @@
         <Component class="javax.swing.JLabel" name="jLabel17">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="1"/>
+              <Font name="Segoe UI" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ti&#x1ec1;n ph&#x1ea3;i thanh to&#xe1;n"/>
           </Properties>
@@ -316,7 +316,7 @@
         <Component class="javax.swing.JLabel" name="lbl_TienThanhToan">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
@@ -324,7 +324,7 @@
         <Component class="javax.swing.JLabel" name="lbl_tongTien1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value="VND"/>
           </Properties>
@@ -332,7 +332,7 @@
         <Component class="javax.swing.JLabel" name="lbl_KhuyenMai2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value="VND"/>
           </Properties>
@@ -340,7 +340,7 @@
         <Component class="javax.swing.JLabel" name="lbl_thanhToan1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value="VND"/>
           </Properties>
@@ -376,7 +376,7 @@
               <Color blue="0" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="15" style="1"/>
+              <Font name="Segoe UI" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -391,7 +391,7 @@
         <Component class="javax.swing.JLabel" name="jLabel25">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="16" style="0"/>
+              <Font name="Segoe UI" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="S&#x1ed1; l&#x1b0;&#x1ee3;ng"/>
           </Properties>
@@ -399,7 +399,7 @@
         <Component class="javax.swing.JSpinner" name="spinner_SoLuong">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="15" style="0"/>
+              <Font name="Segoe UI" size="15" style="0"/>
             </Property>
           </Properties>
         </Component>
@@ -409,7 +409,7 @@
               <Color blue="9" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="15" style="1"/>
+              <Font name="Segoe UI" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -427,7 +427,7 @@
               <Color blue="0" green="0" red="cc" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="15" style="1"/>
+              <Font name="Segoe UI" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -452,7 +452,7 @@
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder/>
               </Border>
-              <Font PropertyName="font" name="Times New Roman" size="14" style="1"/>
+              <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
             </TitledBorder>
           </Border>
         </Property>
@@ -527,7 +527,7 @@
         <Component class="javax.swing.JLabel" name="jLabel26">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="16" style="0"/>
+              <Font name="Segoe UI" size="16" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="H&#xec;nh th&#x1ee9;c &#x111;&#x1ed5;i tr&#x1ea3;"/>
           </Properties>
@@ -541,7 +541,7 @@
               <ComponentRef name="buttonGroup"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="16" style="2"/>
+              <Font name="Segoe UI" size="16" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ho&#xe0;n tr&#x1ea3;"/>
           </Properties>
@@ -558,7 +558,7 @@
               <ComponentRef name="buttonGroup"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="16" style="2"/>
+              <Font name="Segoe UI" size="16" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value="&#x110;&#x1ed5;i m&#x1edb;i"/>
           </Properties>
@@ -569,7 +569,7 @@
         <Component class="javax.swing.JLabel" name="jLabel24">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="1"/>
+              <Font name="Segoe UI" size="20" style="1"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Ti&#x1ec1;n ho&#xe0;n tr&#x1ea3;"/>
           </Properties>
@@ -577,7 +577,7 @@
         <Component class="javax.swing.JLabel" name="lbl_TienHoanTra">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value=" "/>
           </Properties>
@@ -588,7 +588,7 @@
               <Color blue="0" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="15" style="1"/>
+              <Font name="Segoe UI" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -603,7 +603,7 @@
         <Component class="javax.swing.JLabel" name="lbl_TienHoanTra1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="20" style="2"/>
+              <Font name="Segoe UI" size="20" style="2"/>
             </Property>
             <Property name="text" type="java.lang.String" value="VND"/>
           </Properties>
@@ -614,7 +614,7 @@
               <Color blue="0" green="66" red="0" type="rgb"/>
             </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Times New Roman" size="15" style="1"/>
+              <Font name="Segoe UI" size="15" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -670,7 +670,7 @@
               <Border PropertyName="innerBorder" info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder/>
               </Border>
-              <Font PropertyName="font" name="Times New Roman" size="14" style="1"/>
+              <Font PropertyName="font" name="Segoe UI" size="14" style="1"/>
             </TitledBorder>
           </Border>
         </Property>

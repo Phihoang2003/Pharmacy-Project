@@ -65,9 +65,35 @@ public class DoiTraDAO implements DoiTra_Interface {
     }
 
     @Override
-    public ArrayList<DoiTra> getAllDoiTra() {
-        return null;
+public ArrayList<DoiTra> getAllDoiTra() {
+    ArrayList<DoiTra> list = new ArrayList<>();
+    PreparedStatement pst = null;
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "SELECT * FROM doitra";
+        pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()) {
+            String maDT = rs.getString("maDT");
+            String maHD = rs.getString("maHD");
+            HoaDon hd = new HoaDon(maHD);
+
+            String maNV = rs.getString("maNV");
+            NhanVien nv = new NhanVien(maNV);
+            Date thoiGian = rs.getDate("thoiGianDoiTra");
+            String hinhThuc = rs.getString("hinhThucDoiTra");
+            String lyDo = rs.getString("lyDoDoiTra");
+            double tongTien = rs.getDouble("tongTien");
+
+            DoiTra dt = new DoiTra(maDT, hd, nv, toEnum.HinhThucDTToEnum(hinhThuc),lyDo, thoiGian, tongTien);
+            list.add(dt);
+        }
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(DoiTraDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return list;
+}
 
     @Override
     public DoiTra getDoiTraTheoMa(String ma) {
@@ -110,6 +136,7 @@ public class DoiTraDAO implements DoiTra_Interface {
 
             dt = new DoiTra(maDT, hd, nv, toEnum.HinhThucDTToEnum(hinhThuc),lyDo, thoiGian, tongTien);
         }
+        JDBCUtil.closeConnection(con);
     } catch (SQLException ex) {
         Logger.getLogger(DoiTraDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -117,13 +144,68 @@ public class DoiTraDAO implements DoiTra_Interface {
 }
 
     @Override
-    public ArrayList<DoiTra> getDoiTraTheoNgayLap(Date ngayLap) {
-        return null;
+public ArrayList<DoiTra> getDoiTraTheoNgayLap(Date ngayLap) {
+    ArrayList<DoiTra> list = new ArrayList<>();
+    PreparedStatement pst = null;
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "SELECT * FROM doitra WHERE thoiGianDoiTra = ?";
+        pst = con.prepareStatement(sql);
+        pst.setDate(1, ngayLap);
+        ResultSet rs = pst.executeQuery();
+        while(rs.next()) {
+            String maDT = rs.getString("maDT");
+            String maHD = rs.getString("maHD");
+            HoaDon hd = new HoaDon(maHD);
+
+            String maNV = rs.getString("maNV");
+            NhanVien nv = new NhanVien(maNV);
+            Date thoiGian = rs.getDate("thoiGianDoiTra");
+            String hinhThuc = rs.getString("hinhThucDoiTra");
+            String lyDo = rs.getString("lyDoDoiTra");
+            double tongTien = rs.getDouble("tongTien");
+
+            DoiTra dt = new DoiTra(maDT, hd, nv, toEnum.HinhThucDTToEnum(hinhThuc),lyDo, thoiGian, tongTien);
+            list.add(dt);
+        }
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(DoiTraDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return list;
+}
 
     @Override
     public DoiTra getDoiTraTheoDieuKien(String ma, Date ngayLap) {
-        return null;
+        DoiTra dt  = null;
+        PreparedStatement pst = null;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM doitra WHERE thoiGianDoiTra = ? AND maDT = ?";
+            pst = con.prepareStatement(sql);
+            pst.setDate(1, ngayLap);
+            pst.setString(2, ma);
+            ResultSet rs = pst.executeQuery();
+            while(rs.next()) {
+                String maDT = rs.getString("maDT");
+                String maHD = rs.getString("maHD");
+                HoaDon hd = new HoaDon(maHD);
+
+                String maNV = rs.getString("maNV");
+                NhanVien nv = new NhanVien(maNV);
+                Date thoiGian = rs.getDate("thoiGianDoiTra");
+                String hinhThuc = rs.getString("hinhThucDoiTra");
+                String lyDo = rs.getString("lyDoDoiTra");
+                double tongTien = rs.getDouble("tongTien");
+
+                dt = new DoiTra(maDT, hd, nv, toEnum.HinhThucDTToEnum(hinhThuc),lyDo, thoiGian, tongTien);
+
+            }
+            JDBCUtil.closeConnection(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(DoiTraDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dt;
     }
 
     @Override

@@ -29,7 +29,7 @@ public class DangNhap_GUI extends JFrame {
     private NhanVien_bus nv_bus;
     public DangNhap_GUI() {
         initComponents();
-        String b = "<HTML><u>Quên mật khẩu?</u></HTML>";
+
 //        jlb_QuanMatKhau.setText(b);
 //        ImageIcon img_btnTimKiem = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\stores.png");
 //        Image scaled_btnTimKiem = img_btnTimKiem.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
@@ -130,7 +130,7 @@ public class DangNhap_GUI extends JFrame {
         jPanel2.setBorder(BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(187, 205, 197));
+        jLabel1.setBackground(new java.awt.Color(22, 97, 86));
         jLabel1.setIcon(new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\img\\svgtopng\\login-image.png")); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 500, 400));
 
@@ -139,18 +139,18 @@ public class DangNhap_GUI extends JFrame {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jlb_TenTaiKhoan.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jlb_TenTaiKhoan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlb_TenTaiKhoan.setText("Tên tài khoản");
         jPanel3.add(jlb_TenTaiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 180, -1, -1));
 
-        jlb_MatKhau.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jlb_MatKhau.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jlb_MatKhau.setText("Mật khẩu");
         jPanel3.add(jlb_MatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 240, -1, -1));
 
         jlb_QuanMatKhau.setDisplayedMnemonic('\u0001');
-        jlb_QuanMatKhau.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
+        jlb_QuanMatKhau.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
         jlb_QuanMatKhau.setForeground(new java.awt.Color(51, 153, 255));
-        jlb_QuanMatKhau.setText("Quên mật khẩu?");
+
         jlb_QuanMatKhau.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jlb_QuanMatKhau.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -160,7 +160,7 @@ public class DangNhap_GUI extends JFrame {
         jPanel3.add(jlb_QuanMatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 390, 190, 30));
 
         btn_HuyBo.setBackground(new java.awt.Color(0, 51, 51));
-        btn_HuyBo.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btn_HuyBo.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn_HuyBo.setForeground(new java.awt.Color(255, 255, 255));
         btn_HuyBo.setText("Hủy bỏ");
         btn_HuyBo.setBorder(null);
@@ -177,7 +177,7 @@ public class DangNhap_GUI extends JFrame {
         });
         jPanel3.add(btn_HuyBo, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 320, 120, 40));
 
-        jlb_DangNhap.setFont(new java.awt.Font("Times New Roman", 1, 44)); // NOI18N
+        jlb_DangNhap.setFont(new java.awt.Font("Segoe UI", 1, 44)); // NOI18N
         jlb_DangNhap.setHorizontalAlignment(SwingConstants.CENTER);
         jlb_DangNhap.setText("Đăng Nhập");
         jlb_DangNhap.setToolTipText("");
@@ -188,7 +188,7 @@ public class DangNhap_GUI extends JFrame {
         jlb_DangNhap.getAccessibleContext().setAccessibleParent(jlb_DangNhap);
 
         btn_DangNhap4.setBackground(new java.awt.Color(0, 51, 51));
-        btn_DangNhap4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
+        btn_DangNhap4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         btn_DangNhap4.setForeground(new java.awt.Color(255, 255, 255));
         btn_DangNhap4.setText("Đăng nhập");
         btn_DangNhap4.setBorder(null);
@@ -205,7 +205,7 @@ public class DangNhap_GUI extends JFrame {
         });
         jPanel3.add(btn_DangNhap4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 320, 120, 40));
 
-        jtf_TenTaiKhoan.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jtf_TenTaiKhoan.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jtf_TenTaiKhoan.setText("0976474170");
         jtf_TenTaiKhoan.setToolTipText("");
         jtf_TenTaiKhoan.addActionListener(new java.awt.event.ActionListener() {
@@ -215,7 +215,7 @@ public class DangNhap_GUI extends JFrame {
         });
         jPanel3.add(jtf_TenTaiKhoan, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 180, 227, 30));
 
-        jpf_MatKhau.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jpf_MatKhau.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jpf_MatKhau.setText("1111");
         jpf_MatKhau.setToolTipText("");
         jPanel3.add(jpf_MatKhau, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 227, 30));
@@ -223,7 +223,7 @@ public class DangNhap_GUI extends JFrame {
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 0, 930, 440));
 
         btn_DangNhap1.setBackground(new java.awt.Color(0, 51, 51));
-        btn_DangNhap1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        btn_DangNhap1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btn_DangNhap1.setForeground(new java.awt.Color(255, 255, 255));
         btn_DangNhap1.setText("Đăng nhập");
         btn_DangNhap1.setBorder(BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));

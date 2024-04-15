@@ -217,10 +217,10 @@ public class BanHang_GUI extends javax.swing.JPanel {
         ck_tichLuy = new javax.swing.JCheckBox();
         jInternalFrame1 = new javax.swing.JInternalFrame();
 
-        setBackground(new java.awt.Color(0, 102, 0));
+        setBackground(new java.awt.Color(22, 97, 86));
         setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("QUẢN LÍ BÁN HÀNG");
 
@@ -238,7 +238,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
             }
         });
 
-        btnTimKiemHoaDonChuaThanhToan.setBackground(new java.awt.Color(0, 102, 0));
+        btnTimKiemHoaDonChuaThanhToan.setBackground(new java.awt.Color(22, 97, 86));
         btnTimKiemHoaDonChuaThanhToan.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnTimKiemHoaDonChuaThanhToan.setForeground(new java.awt.Color(255, 255, 255));
         btnTimKiemHoaDonChuaThanhToan.setText("Tìm Kiếm");
@@ -248,7 +248,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
             }
         });
 
-        btnThanhToan.setBackground(new java.awt.Color(0, 102, 0));
+        btnThanhToan.setBackground(new java.awt.Color(22, 97, 86));
         btnThanhToan.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnThanhToan.setForeground(new java.awt.Color(255, 255, 255));
         btnThanhToan.setText("Thanh Toán");
@@ -317,7 +317,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel3.setText("Mã Sản Phẩm");
 
-        btnTimKiemSanPham.setBackground(new java.awt.Color(0, 102, 0));
+        btnTimKiemSanPham.setBackground(new java.awt.Color(22, 97, 86));
         btnTimKiemSanPham.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnTimKiemSanPham.setForeground(new java.awt.Color(255, 255, 255));
         btnTimKiemSanPham.setText("Tìm Kiếm");
@@ -343,7 +343,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
             }
         });
 
-        btnThemVaoGio.setBackground(new java.awt.Color(0, 102, 0));
+        btnThemVaoGio.setBackground(new java.awt.Color(22, 97, 86));
         btnThemVaoGio.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnThemVaoGio.setForeground(new java.awt.Color(255, 255, 255));
         btnThemVaoGio.setText("Thêm vào giỏ");
@@ -353,7 +353,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
             }
         });
 
-        btnCapNhatSoLuong.setBackground(new java.awt.Color(0, 102, 0));
+        btnCapNhatSoLuong.setBackground(new java.awt.Color(22, 97, 86));
         btnCapNhatSoLuong.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnCapNhatSoLuong.setForeground(new java.awt.Color(255, 255, 255));
         btnCapNhatSoLuong.setText("Cập nhật số lượng");
@@ -376,7 +376,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
         jLabel22.setText("Quy Cách Đóng Gói");
 
         jLabel23.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
-        jLabel23.setText("Nước Sản Xuất");
+        jLabel23.setText("Thuốc kê đơn");
 
         jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel24.setText("Nhóm Thuốc");
@@ -587,7 +587,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLabel5.setText("Số Điện Thoại");
 
-        btnTimKiemHoaDon.setBackground(new java.awt.Color(0, 102, 0));
+        btnTimKiemHoaDon.setBackground(new java.awt.Color(22, 97, 86));
         btnTimKiemHoaDon.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnTimKiemHoaDon.setForeground(new java.awt.Color(255, 255, 255));
         btnTimKiemHoaDon.setText("Tìm Kiếm");
@@ -597,7 +597,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
             }
         });
 
-        btnLamMoiHoaDon.setBackground(new java.awt.Color(0, 102, 0));
+        btnLamMoiHoaDon.setBackground(new java.awt.Color(22, 97, 86));
         btnLamMoiHoaDon.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnLamMoiHoaDon.setForeground(new java.awt.Color(255, 255, 255));
         btnLamMoiHoaDon.setText("Làm Mới");
@@ -607,7 +607,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
             }
         });
 
-        btnLuuTamHoaDon.setBackground(new java.awt.Color(0, 102, 0));
+        btnLuuTamHoaDon.setBackground(new java.awt.Color(22, 97, 86));
         btnLuuTamHoaDon.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnLuuTamHoaDon.setForeground(new java.awt.Color(255, 255, 255));
         btnLuuTamHoaDon.setText("Lưu Tạm");
@@ -617,7 +617,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
             }
         });
 
-        btnTaoHoaDon.setBackground(new java.awt.Color(0, 102, 0));
+        btnTaoHoaDon.setBackground(new java.awt.Color(22, 97, 86));
         btnTaoHoaDon.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnTaoHoaDon.setForeground(new java.awt.Color(255, 255, 255));
         btnTaoHoaDon.setText("Tạo Hóa Đơn");
@@ -660,7 +660,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
         jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel16.setText("Tiền Nhận");
 
-        btnTinhHoaDon.setBackground(new java.awt.Color(0, 102, 0));
+        btnTinhHoaDon.setBackground(new java.awt.Color(22, 97, 86));
         btnTinhHoaDon.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
         btnTinhHoaDon.setForeground(new java.awt.Color(255, 255, 255));
         btnTinhHoaDon.setText("Tính");
@@ -676,7 +676,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
         jLabel18.setText("VND");
 
-        ck_tichLuy.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        ck_tichLuy.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         ck_tichLuy.setText("Sử dụng Điểm Tích Lũy");
         ck_tichLuy.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1041,6 +1041,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
             hoaDon.setChuongTrinhKM(ctkm);
         }
         else{
+
             lbl_khuyenMaiHoaDon.setText("0");
             hoaDon.setChuongTrinhKM(new ChuongTrinhKhuyenMai());
         }

@@ -20,5 +20,5 @@ public interface HoaDon_Interface {
     public ArrayList<HoaDon> getHoaDonTheoNgayLap(java.sql.Date ngayLap);
     public ArrayList<HoaDon> getHoaDonTheoMaHDvaNgayLap(String maHD, Date ngayLap);
     public boolean capNhatHoaDonLuuTam(HoaDon hoaDon, ArrayList<ChiTietHoaDon> danhSachCTHD);
-
+    public ArrayList<HoaDon> selectAll();
 }

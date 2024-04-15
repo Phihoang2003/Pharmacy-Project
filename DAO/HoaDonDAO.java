@@ -157,7 +157,7 @@ public class HoaDonDAO implements HoaDon_Interface {
         HoaDon hoadon=null;
         try{
             Connection con=JDBCUtil.getConnection();
-            String sql = "SELECT hd.*,kh.tenKhachHang, kh.soDienThoai,kh.ngayThamGia, kh.diaChi,kh.gioiTinh FROM hoadon as hd join khachhang as kh on hd.khachHang=kh.maKhachHang where maHD = ? AND tinhTrang=1";
+            String sql = "SELECT hd.*,kh.tenKhachHang, kh.soDienThoai,kh.ngayThamGia,kh.gioiTinh,kh.diemTichLuy FROM hoadon as hd join khachhang as kh on hd.khachHang=kh.maKhachHang where maHD = ? AND tinhTrang=1";
             PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
             pst.setString(1, maHD);
             ResultSet rs = pst.executeQuery();
@@ -191,7 +191,7 @@ public class HoaDonDAO implements HoaDon_Interface {
         ArrayList<HoaDon> list = new ArrayList<>();
         try{
             Connection con=JDBCUtil.getConnection();
-            String sql = "SELECT hd.*,kh.tenKhachHang, kh.gioiTinh, kh.soDienThoai,kh.ngayThamGia, kh.diaChi FROM hoadon as hd join khachhang as kh on hd.khachHang=kh.maKhachHang where tinhTrang=0 and kh.soDienThoai=?";
+            String sql = "SELECT hd.*,kh.tenKhachHang, kh.gioiTinh, kh.soDienThoai,kh.ngayThamGia FROM hoadon as hd join khachhang as kh on hd.khachHang=kh.maKhachHang where tinhTrang=0 and kh.soDienThoai=?";
             PreparedStatement pst = (PreparedStatement) con.prepareStatement(sql);
             pst.setString(1, sdt);
             ResultSet rs = pst.executeQuery();
@@ -275,9 +275,40 @@ public class HoaDonDAO implements HoaDon_Interface {
     }
 
     @Override
-    public ArrayList<HoaDon> getHoaDonTheoNgayLap(Date ngayLap) {
-        return null;
+public ArrayList<HoaDon> getHoaDonTheoNgayLap(Date ngayLapHoaDon) {
+    ArrayList<HoaDon> list = new ArrayList<>();
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "SELECT * FROM hoadon WHERE ngayLapHoaDon = ?";
+        PreparedStatement pst = con.prepareStatement(sql);
+        pst.setDate(1, new java.sql.Date(ngayLapHoaDon.getTime()));
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            String maHD= rs.getString("maHD");
+            String maKH= rs.getString("khachHang");
+            String hoTen= rs.getString("tenKhachHang");
+            String sdt= rs.getString("soDienThoai");
+            int diemTichLuy= rs.getInt("diemTichLuy");
+            int gioiTinh= rs.getInt("gioiTinh");
+            Date ngayThamGia= rs.getDate("ngayThamGia");
+            KhachHang kh= new KhachHang(maKH, hoTen, diemTichLuy, sdt, ngayThamGia, gioiTinh);
+            NhanVien nv= new NhanVien(rs.getString("nhanVien"));
+            ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM"));
+            double tongTien= rs.getDouble("tongTien");
+            double tienKhuyenMai= rs.getDouble("tienKhuyenMai");
+            double tienThanhToan= rs.getDouble("tienThanhToan");
+            Date ngayLap= rs.getDate("ngayLapHoaDon");
+            int tinhTrang= rs.getInt("tinhTrang");
+            HoaDon hd= new HoaDon(maHD, ngayLap, kh, nv, ctkm, tienKhuyenMai, tongTien, tienThanhToan, tinhTrang);
+
+            list.add(hd);
+        }
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
     }
+    return list;
+}
 
     @Override
     public ArrayList<HoaDon> getHoaDonTheoMaHDvaNgayLap(String maHD, java.util.Date ngayLap) {
@@ -328,4 +359,33 @@ public class HoaDonDAO implements HoaDon_Interface {
         }
         return true;
     }
+
+    @Override
+public ArrayList<HoaDon> selectAll() {
+    ArrayList<HoaDon> list = new ArrayList<>();
+    try {
+        Connection con = JDBCUtil.getConnection();
+        String sql = "SELECT * FROM hoadon";
+        PreparedStatement pst = con.prepareStatement(sql);
+        ResultSet rs = pst.executeQuery();
+        while (rs.next()) {
+            String maHD= rs.getString("maHD");
+            String maKH= rs.getString("khachHang");
+            KhachHang kh= new KhachHang(maKH);
+            NhanVien nv= new NhanVien(rs.getString("nhanVien"));
+            ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM"));
+            double tongTien= rs.getDouble("tongTien");
+            double tienKhuyenMai= rs.getDouble("tienKhuyenMai");
+            double tienThanhToan= rs.getDouble("tienThanhToan");
+            Date ngayLap= rs.getDate("ngayLapHoaDon");
+            int tinhTrang= rs.getInt("tinhTrang");
+            HoaDon hd= new HoaDon(maHD, ngayLap, kh, nv, ctkm, tienKhuyenMai, tongTien, tienThanhToan, tinhTrang);
+            list.add(hd);
+        }
+        JDBCUtil.closeConnection(con);
+    } catch (SQLException ex) {
+        Logger.getLogger(HoaDonDAO.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return list;
+}
 }

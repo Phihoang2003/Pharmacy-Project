@@ -44,6 +44,11 @@ public class NhaCungCap_bus implements NhaCungCap_Interface {
     }
 
     @Override
+    public NhaCungCap timKiemTheoSDT(String sdt) {
+        return ncc_dao.timKiemTheoSDT(sdt);
+    }
+
+    @Override
     public NhaCungCap selectById(String id) {
         return ncc_dao.selectById(id);
     }
@@ -52,4 +57,5 @@ public class NhaCungCap_bus implements NhaCungCap_Interface {
     public String getAutoIncrement() {
         return ncc_dao.getAutoIncrement();
     }
+
 }
