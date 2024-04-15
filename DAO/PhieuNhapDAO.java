@@ -111,6 +111,20 @@ public boolean update(PhieuNhap mhn) {
 
     @Override
     public boolean kiemTraMaMatHangNhapTonTai(String maMHN) {
+        try{
+            Connection con=JDBCUtil.getConnection();
+            String sql="SELECT COUNT(*) FROM `phieunhap` WHERE `maPN`=?";
+            PreparedStatement pst=(PreparedStatement) con.prepareStatement(sql);
+            pst.setString(1, maMHN);
+            ResultSet rs=pst.executeQuery();
+            if(rs.next()){
+                int sl=rs.getInt(1);
+                return sl>0;
+            }
+            JDBCUtil.closeConnection(con);
+        }catch(SQLException ex){
+            Logger.getLogger(PhieuNhapDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return false;
     }
     @Override

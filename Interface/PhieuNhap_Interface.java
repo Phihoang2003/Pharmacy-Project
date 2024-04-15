@@ -16,4 +16,5 @@ public interface PhieuNhap_Interface {
 
     public boolean kiemTraMaMatHangNhapTonTai(String maMHN);
     public String getAutoIncrement();
+
 }

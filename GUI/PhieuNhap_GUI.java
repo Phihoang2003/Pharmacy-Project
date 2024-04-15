@@ -17,6 +17,7 @@ import DTO.Thuoc;
 import DTO.NhaCungCap;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -25,8 +26,11 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.awt.*;
 import java.io.*;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 import java.util.logging.Level;
@@ -303,7 +307,11 @@ public class PhieuNhap_GUI extends JPanel {
         btn_Luu.setPreferredSize(new Dimension(90, 31));
         btn_Luu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_LuuActionPerformed(evt);
+                try {
+                    btn_LuuActionPerformed(evt);
+                } catch (ParseException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
 
@@ -579,6 +587,92 @@ public class PhieuNhap_GUI extends JPanel {
         }
 
     }
+    private void nhapExcel() {
+        File excelFile;
+        FileInputStream excelFIS = null;
+        BufferedInputStream excelBIS = null;
+        XSSFWorkbook excelImportToJTable = null;
+        String defaultCurrentDirectoryPath = "D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\fileExcel";
+        JFileChooser excelFileChooser = new JFileChooser(defaultCurrentDirectoryPath);
+        excelFileChooser.setDialogTitle("Chọn file excel");
+        FileNameExtensionFilter fnef = new FileNameExtensionFilter("EXCEL FILES", "xls", "xlsx", "xlsm");
+        excelFileChooser.setFileFilter(fnef);
+        int excelChooser = excelFileChooser.showOpenDialog(null);
+        if (excelChooser == JFileChooser.APPROVE_OPTION) {
+//            Set<Object> maMHNSet = new HashSet<>();
+            try {
+                excelFile = excelFileChooser.getSelectedFile();
+                excelFIS = new FileInputStream(excelFile);
+                excelBIS = new BufferedInputStream(excelFIS);
+                excelImportToJTable = new XSSFWorkbook(excelBIS);
+                XSSFSheet excelSheet = excelImportToJTable.getSheetAt(0);
+                DateTimeFormatter formatterExcel = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                DateTimeFormatter formatterTable = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                for (int row = 1; row < excelSheet.getPhysicalNumberOfRows(); row++) {
+                    XSSFRow excelRow = excelSheet.getRow(row);
+                    XSSFCell excelMaMHN = excelRow.getCell(0);
+                    // Kiểm tra xem mã mặt hàng nhập đã tồn tại trong tập hợp chưa
+                    String maMHN = excelMaMHN.getStringCellValue().trim();
+                    int existingRow = -1;
+                    // Kiểm tra xem mã mặt hàng nhập đã tồn tại trong bảng chưa
+                    for (int i = 0; i < model.getRowCount(); i++) {
+                        if (maMHN.equals(model.getValueAt(i, 0).toString())) {
+                            existingRow = i;
+                            break;
+                        }
+                    }
+
+                    XSSFCell excelTenNCC = excelRow.getCell(1);
+                    XSSFCell excelMaSP = excelRow.getCell(2);
+                    XSSFCell excelSoLuongNhap = excelRow.getCell(3);
+                    XSSFCell excelNgayNhap = excelRow.getCell(4);
+                    int soLuongNhap = (int) excelSoLuongNhap.getNumericCellValue();
+                    String ngayNhapString = "";
+                    if (excelNgayNhap.getCellType() == CellType.STRING) {
+                        // Nếu kiểu dữ liệu của cell là String
+                        ngayNhapString = excelNgayNhap.getStringCellValue();
+                        LocalDate ngayNhap = LocalDate.parse(ngayNhapString, formatterExcel);
+                        ngayNhapString = ngayNhap.format(formatterTable);
+                    } else if (DateUtil.isCellDateFormatted(excelNgayNhap)) {
+                        // Nếu kiểu dữ liệu của cell là ngày
+                        Date ngayNhapDate = excelNgayNhap.getDateCellValue();
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                        ngayNhapString = sdf.format(ngayNhapDate);
+                    }
+                    LocalDate ngayNhap = LocalDate.parse(ngayNhapString);
+
+                    if (existingRow != -1) {
+                        //Mã mặt hàng đã tồn tại, cập nhật các giá trị
+                        model.setValueAt(excelMaSP.getStringCellValue(), existingRow, 1);
+                        model.setValueAt(excelTenNCC.getStringCellValue(), existingRow, 2);
+                        model.setValueAt(soLuongNhap, existingRow, 3);
+                        model.setValueAt(ngayNhap, existingRow, 4);
+                    } else {
+                        //Mã mặt hàng chưa tồn tại, thêm vào table
+//                        maMHNSet.add(maMHN);
+                        model.addRow(new Object[]{maMHN, excelMaSP, excelTenNCC, soLuongNhap, ngayNhap});
+                    }
+                }
+                JOptionPane.showMessageDialog(null, "Nhập thành công");
+            } catch (IOException iOException) {
+                JOptionPane.showMessageDialog(null, iOException.getMessage());
+            } finally {
+                try {
+                    if (excelFIS != null) {
+                        excelFIS.close();
+                    }
+                    if (excelBIS != null) {
+                        excelBIS.close();
+                    }
+                    if (excelImportToJTable != null) {
+                        excelImportToJTable.close();
+                    }
+                } catch (IOException iOException) {
+                    JOptionPane.showMessageDialog(null, iOException.getMessage());
+                }
+            }
+        }
+    }
     private void xuatExcel(){
         try{
             JFileChooser fileChooser=new JFileChooser("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\fileExcel");
@@ -630,6 +724,35 @@ public class PhieuNhap_GUI extends JPanel {
         }
 
 
+    }
+    private void luu() throws ParseException {
+        for (int i = 0; i < model.getRowCount(); i++) {
+            String maMHN = model.getValueAt(i, 0).toString();
+            String maSP = model.getValueAt(i, 1).toString();
+            String tenNCC = model.getValueAt(i, 2).toString();
+            String maNCC = ncc_bus.layMaNhaCungCapTheoTen(tenNCC);
+            NhaCungCap ncc = new NhaCungCap(maNCC);
+            Thuoc sp = new Thuoc(maSP);
+            int soLuongNhapMoi = Integer.parseInt(model.getValueAt(i, 3).toString());
+            int soLuongNhapBanDau = laySoLuongNhapBanDau(maMHN);
+            int soLuongHT = sp_bus.laySoLuongTonKhoTheoMaSP(maSP);
+            int soLuongThayDoi = soLuongNhapBanDau - soLuongNhapMoi;
+            int soLuongMoiCapNhat = soLuongHT - soLuongThayDoi;
+
+            java.util.Date utilDate = new SimpleDateFormat("yyyy-MM-dd").parse(model.getValueAt(i, 4).toString());
+            java.sql.Date ngayNhap = new java.sql.Date(utilDate.getTime());
+            PhieuNhap mhn = new PhieuNhap(maMHN, ncc, sp, soLuongNhapMoi, ngayNhap);
+            if (!mhn_bus.kiemTraMaMatHangNhapTonTai(maMHN)) {
+                mhn_bus.insert(mhn);
+                int soLuongHienTai = sp_bus.laySoLuongTonKhoTheoMaSP(maSP);
+                int soLuongMoi = soLuongHienTai + soLuongNhapMoi;
+                sp_bus.capNhatSoLuong(maSP, soLuongMoi);
+            } else {
+                mhn_bus.update(mhn);
+                sp_bus.capNhatSoLuong(maSP, soLuongMoiCapNhat);
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Lưu thành công");
     }
 
     private static void openExcelFile(File file) throws IOException {
@@ -713,11 +836,13 @@ public class PhieuNhap_GUI extends JPanel {
 
     private void btn_NhapExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_NhapExcelActionPerformed
         // TODO add your handling code here:
+        nhapExcel();
        
     }//GEN-LAST:event_btn_NhapExcelActionPerformed
 
-    private void btn_LuuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LuuActionPerformed
+    private void btn_LuuActionPerformed(java.awt.event.ActionEvent evt) throws ParseException {//GEN-FIRST:event_btn_LuuActionPerformed
         // TODO add your handling code here:
+        luu();
        
     }//GEN-LAST:event_btn_LuuActionPerformed
     //Hàm lưu dữ liệu từ table vào db
