@@ -8,7 +8,7 @@ public class Thuoc {
     private String tenThuoc;
     private Date hanSuDung;
     private String hoatChatChinh;
-    private double khoiLuong;
+    private String khoiLuong;
     private String imgUrl;
     private String duongDung;
     private DonViTinh donViTinh;
@@ -30,7 +30,7 @@ public class Thuoc {
     public Thuoc() {
     }
 
-    public Thuoc(String maThuoc, String tenThuoc,boolean thuocKeDon,ThuongHieu thuongHieu, Date hanSuDung, String hoatChatChinh, double khoiLuong, String imgUrl, String duongDung, DonViTinh donViTinh, NhomHangHoa nhomHangHoa, ChuongTrinhKhuyenMai chuongTrinhKhuyenMaiEntity, String quyCachDongGoi, NuocSanXuat nuocSanXuat, double donGia, int soLuongTon, String dieuKienBaoQuan, TinhTrangSPEnum trangThai) {
+    public Thuoc(String maThuoc, String tenThuoc,boolean thuocKeDon,ThuongHieu thuongHieu, Date hanSuDung, String hoatChatChinh, String khoiLuong, String imgUrl, String duongDung, DonViTinh donViTinh, NhomHangHoa nhomHangHoa, ChuongTrinhKhuyenMai chuongTrinhKhuyenMaiEntity, String quyCachDongGoi, NuocSanXuat nuocSanXuat, double donGia, int soLuongTon, String dieuKienBaoQuan, TinhTrangSPEnum trangThai) {
         this.maThuoc = maThuoc;
         this.tenThuoc = tenThuoc;
         this.hanSuDung = hanSuDung;
@@ -83,11 +83,11 @@ public class Thuoc {
         this.hoatChatChinh = hoatChatChinh;
     }
 
-    public double getKhoiLuong() {
+    public String getKhoiLuong() {
         return khoiLuong;
     }
 
-    public void setKhoiLuong(double khoiLuong) {
+    public void setKhoiLuong(String khoiLuong) {
         this.khoiLuong = khoiLuong;
     }
 

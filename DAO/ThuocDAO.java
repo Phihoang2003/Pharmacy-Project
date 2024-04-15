@@ -25,7 +25,7 @@ public class ThuocDAO implements SanPham_Interface {
             pst.setString(1, thuocDTO.getMaThuoc());
             pst.setString(2, thuocDTO.getTenThuoc());
             pst.setDate(3, new java.sql.Date(thuocDTO.getHanSuDung().getTime()));
-            pst.setDouble(4, thuocDTO.getKhoiLuong());
+            pst.setString(4, thuocDTO.getKhoiLuong());
             pst.setString(5, thuocDTO.getDonViTinh().getMaDonViTinh());
             pst.setString(6, thuocDTO.getHoatChatChinh());
             pst.setString(7, thuocDTO.getDuongDung());
@@ -62,7 +62,7 @@ public class ThuocDAO implements SanPham_Interface {
                 thuocDTO.setMaThuoc(rs.getString("maThuoc"));
                 thuocDTO.setTenThuoc(rs.getString("tenThuoc"));
                 thuocDTO.setHanSuDung(rs.getDate("hanSuDung"));
-                thuocDTO.setKhoiLuong(rs.getDouble("khoiLuong"));
+                thuocDTO.setKhoiLuong(rs.getString("khoiLuong"));
                 thuocDTO.setHoatChatChinh(rs.getString("hoatChatChinh"));
                 thuocDTO.setDuongDung(rs.getString("duongDung"));
                 thuocDTO.setImgUrl(rs.getString("imgUrl"));
@@ -71,12 +71,12 @@ public class ThuocDAO implements SanPham_Interface {
                 thuocDTO.setSoLuongTon(rs.getInt("soLuongTon"));
                 thuocDTO.setDonViTinh(new DonViTinh(rs.getString("donViTinh"),rs.getString("tenDonViTinh")));
                 thuocDTO.setNhomHangHoa(new NhomHangHoa(rs.getString("nhomHangHoa"),rs.getString("tenNhom")));
-                thuocDTO.setChuongTrinhKhuyenMaiEntity(new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKhuyenMai"),rs.getInt("giamGia")));
+
                 thuocDTO.setQuyCachDongGoi(rs.getString("quyCachDongGoi"));
                 thuocDTO.setNuocSanXuat(new NuocSanXuat(rs.getString("nuocSanXuat"),rs.getString("tenNuoc")));
                 thuocDTO.setThuongHieu(new ThuongHieu(rs.getString("thuongHieu"),rs.getString("tenThuongHieu")));
                 thuocDTO.setThuocKeDon(rs.getBoolean("thuocKeDon"));
-
+                String maCTKM = rs.getString("chuongTrinhKhuyenMai");
                 TinhTrangSPEnum tinhTrangSPEnum=null;
                 if(rs.getString("trangThai").equals("Đang bán")) {
                     tinhTrangSPEnum = TinhTrangSPEnum.DANGBAN;
@@ -87,6 +87,22 @@ public class ThuocDAO implements SanPham_Interface {
                     tinhTrangSPEnum = TinhTrangSPEnum.HETHANG;
                 }
                 thuocDTO.setTrangThai(tinhTrangSPEnum);
+                ChuongTrinhKhuyenMai chuongTrinhKhuyenMai = null;
+                if (maCTKM != null) {
+                    chuongTrinhKhuyenMai = new ChuongTrinhKhuyenMai(maCTKM);
+                    String sqlKM = "Select giamGia from chuongtrinhkhuyenmai where maCTKM=? and maLoaiKM='GGSP'";
+                    pst = con.prepareStatement(sqlKM);
+                    pst.setString(1, maCTKM);
+
+                    rs = pst.executeQuery();
+                    if (rs.next()) {
+                        int giamGia = rs.getInt("giamGia");
+                        chuongTrinhKhuyenMai.setGiamGia(giamGia);
+                    }
+                }
+                thuocDTO.setChuongTrinhKhuyenMaiEntity(chuongTrinhKhuyenMai);
+
+
 
             }
             JDBCUtil.closeConnection(con);
@@ -107,7 +123,7 @@ public boolean update(Thuoc t) {
         PreparedStatement pst = con.prepareStatement(sql);
         pst.setString(1, t.getTenThuoc());
         pst.setDate(2, new java.sql.Date(t.getHanSuDung().getTime()));
-        pst.setDouble(3, t.getKhoiLuong());
+        pst.setString(3, t.getKhoiLuong());
         pst.setString(4, t.getHoatChatChinh());
         pst.setString(5, t.getDuongDung());
         pst.setString(6, t.getImgUrl());
@@ -148,7 +164,7 @@ public boolean update(Thuoc t) {
                 thuoc.setMaThuoc(rs.getString("maThuoc"));
                 thuoc.setTenThuoc(rs.getString("tenThuoc"));
                 thuoc.setHanSuDung(rs.getDate("hanSuDung"));
-                thuoc.setKhoiLuong(rs.getDouble("khoiLuong"));
+                thuoc.setKhoiLuong(rs.getString("khoiLuong"));
                 thuoc.setHoatChatChinh(rs.getString("hoatChatChinh"));
                 thuoc.setDuongDung(rs.getString("duongDung"));
                 thuoc.setImgUrl(rs.getString("imgUrl"));
@@ -195,7 +211,7 @@ public boolean update(Thuoc t) {
                 thuoc.setMaThuoc(rs.getString("maThuoc"));
                 thuoc.setTenThuoc(rs.getString("tenThuoc"));
                 thuoc.setHanSuDung(rs.getDate("hanSuDung"));
-                thuoc.setKhoiLuong(rs.getDouble("khoiLuong"));
+                thuoc.setKhoiLuong(rs.getString("khoiLuong"));
                 thuoc.setHoatChatChinh(rs.getString("hoatChatChinh"));
                 thuoc.setDuongDung(rs.getString("duongDung"));
                 thuoc.setImgUrl(rs.getString("imgUrl"));
@@ -326,7 +342,7 @@ public ArrayList<Thuoc> selectAll() {
             thuoc.setMaThuoc(rs.getString("maThuoc"));
             thuoc.setTenThuoc(rs.getString("tenThuoc"));
             thuoc.setHanSuDung(rs.getDate("hanSuDung"));
-            thuoc.setKhoiLuong(rs.getDouble("khoiLuong"));
+            thuoc.setKhoiLuong(rs.getString("khoiLuong"));
             thuoc.setHoatChatChinh(rs.getString("hoatChatChinh"));
             thuoc.setDuongDung(rs.getString("duongDung"));
             thuoc.setImgUrl(rs.getString("imgUrl"));
@@ -374,7 +390,7 @@ public Thuoc selectById(String id) {
             thuocDTO.setMaThuoc(rs.getString("maThuoc"));
             thuocDTO.setTenThuoc(rs.getString("tenThuoc"));
             thuocDTO.setHanSuDung(rs.getDate("hanSuDung"));
-            thuocDTO.setKhoiLuong(rs.getDouble("khoiLuong"));
+            thuocDTO.setKhoiLuong(rs.getString("khoiLuong"));
             thuocDTO.setHoatChatChinh(rs.getString("hoatChatChinh"));
             thuocDTO.setDuongDung(rs.getString("duongDung"));
             thuocDTO.setImgUrl(rs.getString("imgUrl"));
