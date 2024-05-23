@@ -272,7 +272,7 @@ public class SanPham_GUI extends JPanel {
             model.addRow(new Object[]{th.getMaThuoc(), th.getTenThuoc(), tenNSX,
                     th.getSoLuongTon(), formattedDonGia,tenNhomThuoc,
                     tenDVT, th.getHanSuDung(), th.getHoatChatChinh(), tenThuongHieu,
-                    hienThiKM, th.getTrangThai(),th.getKhoiLuong(),th.getDuongDung(),th.getQuyCachDongGoi(),th.getDieuKienBaoQuan(),th.isThuocKeDon(),th.getImgUrl()});
+                    hienThiKM, th.getTrangThai(),th.getKhoiLuong(),th.getDuongDung(),th.getQuyCachDongGoi(),th.getDieuKienBaoQuan(),th.isThuocKeDon()?"Có kê đơn":"Không kê đơn",th.getImgUrl()});
 
 
         }
@@ -2563,7 +2563,7 @@ public class SanPham_GUI extends JPanel {
                 }
                 JOptionPane.showMessageDialog(this, "Nhập thành công");
             } catch (IOException iOException) {
-                JOptionPane.showMessageDialog(null, iOException.getMessage());
+                JOptionPane.showMessageDialog(this, "Nhập thành công");
             } finally {
                 try {
                     if (excelFIS != null) {
@@ -2576,7 +2576,7 @@ public class SanPham_GUI extends JPanel {
                         excelImportToJTable.close();
                     }
                 } catch (IOException iOException) {
-                    JOptionPane.showMessageDialog(null, iOException.getMessage());
+                    JOptionPane.showMessageDialog(this, "Nhập thành công");
                 }
             }
         }

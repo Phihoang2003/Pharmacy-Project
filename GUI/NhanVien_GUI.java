@@ -263,6 +263,8 @@ public class NhanVien_GUI extends JPanel {
         btnThem.setText("Thêm Nhân Viên");
         btnThem.addActionListener(this::btnThemActionPerformed);
 
+        btn_LamMoi.addActionListener(this::btnLamMoiActionPerformed);
+
         btnHuyThem.setBackground(new Color(204, 0, 51));
         btnHuyThem.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
         btnHuyThem.setForeground(new Color(255, 255, 255));
@@ -525,7 +527,7 @@ public class NhanVien_GUI extends JPanel {
                                                                                 .addGap(41, 41, 41)
                                                                                 .addComponent(caLamViec1, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE))
                                                                         .addComponent(lblBirth1, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(lblCCCD1, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(lblCCCD1, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(txt_ten1)
                                                                         .addComponent(lblChucVu1, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(txt_cccd1)
@@ -737,9 +739,9 @@ public class NhanVien_GUI extends JPanel {
                                 .addComponent(iconThem, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(iconCapNhat)
-                                .addComponent(jPanel5)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel7)
+//                                .addComponent(jPanel5)
+//                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+//                                .addComponent(jPanel7)
                                 .addGap(50, 50, 50)
                                 .addComponent(txt_NhapSDT, GroupLayout.PREFERRED_SIZE, 244, GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 50)
@@ -756,9 +758,9 @@ public class NhanVien_GUI extends JPanel {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(3, 3, 3)
                                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(iconCapNhat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jPanel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+//                                                        .addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(iconCapNhat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+//                                                        .addComponent(jPanel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
                                 .addGap(476, 476, 476))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
@@ -773,7 +775,7 @@ public class NhanVien_GUI extends JPanel {
         table_DSNV.setModel(new DefaultTableModel(
                 new Object[][]{},
                 new String[]{
-                        "Mã ", "Họ Tên", "Giới Tính", "Ngày Sinh", "Email", "Số Điện Thoại", "Địa Chỉ", "Chức Vụ", "Tình Trạng", "Ca Làm Việc"
+                        "Mã ", "Họ Tên", "Giới Tính", "Ngày Sinh", "Email", "Số Điện Thoại", "Căn cước công dân", "Chức Vụ", "Tình Trạng", "Ca Làm Việc"
                 }
         ) {
             final Class[] types = new Class[]{
@@ -993,6 +995,9 @@ public class NhanVien_GUI extends JPanel {
         nv.setChucVu(Objects.equals(chucVu.getSelectedItem(), "Nhân Viên") ? ChucVuEnum.NHANVIEN : ChucVuEnum.QUANLY);
         nv.setTrangThai(tt);
         return nv;
+    }
+    private void btnLamMoiActionPerformed(ActionEvent evt) {
+        refresh();
     }
 
     private void btnThemActionPerformed(ActionEvent evt) {

@@ -449,7 +449,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel24.setText("Tiền hoàn trả");
 
         lbl_TienHoanTra.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
@@ -466,7 +466,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
             }
         });
 
-        lbl_TienHoanTra1.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_TienHoanTra1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
         lbl_TienHoanTra1.setText("VND");
 
         btn_LamMoi.setBackground(new java.awt.Color(22, 97, 86));

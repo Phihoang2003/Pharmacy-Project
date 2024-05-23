@@ -206,7 +206,7 @@ public class ThongTinDoiTra_GUI extends javax.swing.JFrame {
 
         lbl_SoDienThoai.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
         jLabel8.setText("Số điện thoại");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

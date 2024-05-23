@@ -156,34 +156,34 @@ public class PhieuNhap_GUI extends JPanel {
         panel_ThongTin.setPreferredSize(new Dimension(998, 87));
         panel_ThongTin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_MaMatHangNhap.setFont(new Font("Segoe UI", 0, 16)); // NOI18N
+        lbl_MaMatHangNhap.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         lbl_MaMatHangNhap.setText("Mã mặt hàng nhập");
         lbl_MaMatHangNhap.setPreferredSize(new Dimension(85, 15));
         panel_ThongTin.add(lbl_MaMatHangNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 120, 20));
 
-        lbl_MaNhaCungCap.setFont(new Font("Segoe UI", 0, 16)); // NOI18N
+        lbl_MaNhaCungCap.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         lbl_MaNhaCungCap.setText("Nhà cung cấp");
         lbl_MaNhaCungCap.setPreferredSize(new Dimension(85, 15));
         panel_ThongTin.add(lbl_MaNhaCungCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 120, 30));
 
-        txt_MaMatHangNhap.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
+        txt_MaMatHangNhap.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         txt_MaMatHangNhap.setPreferredSize(new Dimension(68, 26));
         txt_MaMatHangNhap.setEditable(false);
         panel_ThongTin.add(txt_MaMatHangNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 200, 30));
 
-        lbl_NgayNhap.setFont(new Font("Segoe UI", 0, 16)); // NOI18N
+        lbl_NgayNhap.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         lbl_NgayNhap.setText("Ngày nhập");
         lbl_NgayNhap.setPreferredSize(new Dimension(85, 15));
         panel_ThongTin.add(lbl_NgayNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, -1, 30));
 
-        lbl_SoLuong.setFont(new Font("Segoe UI", 0, 16)); // NOI18N
+        lbl_SoLuong.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         lbl_SoLuong.setText("Số lượng");
         lbl_SoLuong.setMaximumSize(new Dimension(82, 15));
         lbl_SoLuong.setMinimumSize(new Dimension(82, 15));
         lbl_SoLuong.setPreferredSize(new Dimension(85, 15));
         panel_ThongTin.add(lbl_SoLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 70, 26));
 
-        cbo_MaNhaCungCap.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
+        cbo_MaNhaCungCap.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         panel_ThongTin.add(cbo_MaNhaCungCap, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 200, 30));
 
         jdc_NgayNhap.setDate(new Date());
@@ -191,22 +191,22 @@ public class PhieuNhap_GUI extends JPanel {
         //jdc_NgayNhap.setSelectableDateRange(new Date(), null);
         //jdc_NgayNhap.setMinSelectableDate(new Date());
         jdc_NgayNhap.setMaxSelectableDate(new Date());
-        jdc_NgayNhap.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
+        jdc_NgayNhap.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         panel_ThongTin.add(jdc_NgayNhap, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, 200, 30));
 
-        spinner_SoLuong.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
+        spinner_SoLuong.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         SpinnerNumberModel modelSpinner = new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1);
         spinner_SoLuong.setModel(modelSpinner);
         panel_ThongTin.add(spinner_SoLuong, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, 108, 30));
 
-        txt_An.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
+        txt_An.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         txt_An.setText("jTextField1");
         panel_ThongTin.add(txt_An, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 200, 30));
 
-        txt_MaSanPham.setFont(new Font("Segoe UI", 0, 14)); // NOI18N
+        txt_MaSanPham.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         panel_ThongTin.add(txt_MaSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 20, 200, 30));
 
-        lbl_MaSanPham.setFont(new Font("Segoe UI", 0, 16)); // NOI18N
+        lbl_MaSanPham.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         lbl_MaSanPham.setText("Mã sản phẩm");
         panel_ThongTin.add(lbl_MaSanPham, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, -1));
 
@@ -214,7 +214,7 @@ public class PhieuNhap_GUI extends JPanel {
         panel_ThaoTac.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Các thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new Font("Segoe UI", 0, 12))); // NOI18N
         panel_ThaoTac.setPreferredSize(new Dimension(990, 50));
 
-        lbl_NgayNhap_Search.setFont(new Font("Segoe UI", 0, 16)); // NOI18N
+        lbl_NgayNhap_Search.setFont(new Font("Segoe UI", 0, 13)); // NOI18N
         lbl_NgayNhap_Search.setText("Ngày nhập");
 
         btn_TimKiem.setBackground(new Color(22, 97, 86));

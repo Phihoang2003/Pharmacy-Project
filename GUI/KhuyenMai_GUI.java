@@ -444,7 +444,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         JPanel_ThongTinCTKM.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)), "Thông tin chương trình khuyến mãi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new Color(255, 255, 255))); // NOI18N
         JPanel_ThongTinCTKM.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel1.setForeground(new Color(255, 255, 255));
         jLabel1.setText("Tên Chương Trình");
         JPanel_ThongTinCTKM.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 120, 30));
@@ -454,7 +454,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         txtTenCTKM.setBorder(null);
         JPanel_ThongTinCTKM.add(txtTenCTKM, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 170, 30));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel3.setForeground(new Color(255, 255, 255));
         jLabel3.setText("Ngày Kết Thúc");
         jLabel3.setPreferredSize(new java.awt.Dimension(109, 30));
@@ -473,7 +473,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         txtMaCTKM.setBorder(null);
         JPanel_ThongTinCTKM.add(txtMaCTKM, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 170, 30));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel5.setForeground(new Color(255, 255, 255));
         jLabel5.setText("Giảm Giá (%)");
         jLabel5.setPreferredSize(new java.awt.Dimension(109, 30));
@@ -488,7 +488,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         });
         JPanel_ThongTinCTKM.add(dateNgayKetThuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 60, 180, 30));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel6.setForeground(new Color(255, 255, 255));
         jLabel6.setText("Loại Khuyến Mãi");
         jLabel6.setPreferredSize(new java.awt.Dimension(109, 30));
@@ -499,7 +499,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         txtSoTienGiamTD.setBorder(null);
         JPanel_ThongTinCTKM.add(txtSoTienGiamTD, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 170, 30));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel7.setForeground(new Color(255, 255, 255));
         jLabel7.setText("Ngày Bắt Đầu");
         jLabel7.setPreferredSize(new java.awt.Dimension(109, 30));
@@ -515,13 +515,13 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         JPanel_ThongTinCTKM.add(dateNgayBatDau, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 20, 180, 30));
 
         jLabel8.setBackground(new Color(22, 97, 86));
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel8.setForeground(new Color(255, 255, 255));
         jLabel8.setText("Mã Chương Trình");
         jLabel8.setPreferredSize(new java.awt.Dimension(109, 30));
         JPanel_ThongTinCTKM.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 120, 30));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel9.setForeground(new Color(255, 255, 255));
         jLabel9.setText("Tiền  Tối Thiểu Để Giảm");
         jLabel9.setPreferredSize(new java.awt.Dimension(109, 30));
@@ -532,7 +532,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         txtSoTienGiamTT.setBorder(null);
         JPanel_ThongTinCTKM.add(txtSoTienGiamTT, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 170, 30));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel10.setForeground(new Color(255, 255, 255));
         jLabel10.setText("Tiền Tối Đa Được Giảm");
         jLabel10.setPreferredSize(new java.awt.Dimension(109, 30));
@@ -593,7 +593,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         JPanel_ThaoTac.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)), "Thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12))); // NOI18N
         JPanel_ThaoTac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
         jLabel4.setText("Mã Chương Trình");
         jLabel4.setPreferredSize(new java.awt.Dimension(109, 30));
         JPanel_ThaoTac.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 120, 30));
