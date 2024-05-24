@@ -7,19 +7,14 @@ package GUI;
 import BUS.*;
 import DTO.*;
 
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JOptionPane;
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -120,7 +115,8 @@ public class BanHang_GUI extends javax.swing.JPanel {
                         int val = Integer.parseInt(textField.getText());
                         spinnerModel.setValue(val);
                     }catch(NumberFormatException et){
-                        JOptionPane.showMessageDialog(null, "Số lượng nhập phải là chữ số!");
+//                        JOptionPane.showMessageDialog(null, "Số lượng nhập phải là chữ số!");
+
                     }
 
                 }
@@ -332,6 +328,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
 
         jSpinner1.setToolTipText("");
         jSpinner1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+
 
         btnXoaKhoiGio.setBackground(new java.awt.Color(204, 0, 51));
         btnXoaKhoiGio.setFont(new java.awt.Font("Segoe UI Black", 0, 12)); // NOI18N
@@ -948,7 +945,41 @@ public class BanHang_GUI extends javax.swing.JPanel {
         }
         for (ChiTietHoaDon cthd:cthdList){
             if(cthd.getThuoc().getMaThuoc().equals(maSP)){
-                JOptionPane.showMessageDialog(this, "Sản phẩm đã có trong giỏ hàng");
+//                JOptionPane.showMessageDialog(this, "Sản phẩm đã có trong giỏ hàng");
+//                return;
+                int row=0;
+                for(int i=0;i<tableModel_GioHang.getRowCount();i++){
+                    if(table_gioHang.getValueAt(i, 0).equals(maSP)){
+                        row=i;
+                        break;
+                    }
+                }
+                soLuong=Integer.parseInt(table_gioHang.getValueAt(row, 4).toString())+(int)jSpinner1.getValue();
+
+                String maSPUpdate=table_gioHang.getValueAt(row, 0).toString();
+                for(ChiTietHoaDon cthd2:cthdList){
+                    if(cthd2.getThuoc().getMaThuoc().equals(maSPUpdate)){
+                        cthd2.setSoLuong(soLuong);
+                        cthd2.setThanhTien();
+                        tableModel_GioHang.setValueAt(soLuong, row, 4);
+                        tableModel_GioHang.setValueAt(convert.toMoney(cthd.getThanhTien()), row, 7);
+                        break;
+                    }
+                }
+                tinhTienGioHang();
+                table_gioHang.clearSelection();
+                spinnerModel.setValue(1);
+                txt_MaSanPham.setText("");
+                spinnerModel.setValue(0);
+                lbl_tenThuoc.setText("");
+                lbl_hoatChat.setText("");
+                lbl_donVi.setText("");
+                lbl_quyCach.setText("");
+                lbl_nhomThuoc.setText("");
+                lbl_nuoc.setText("");
+                lbl_donGia.setText("");
+                lbl_khuyenMai.setText("");
+
                 return;
             }
         }
@@ -1350,6 +1381,7 @@ private void lamMoi(){
                         hoaDon.setTienKhuyenMai();
                         hoaDon.setTienThanhToan(true);
                         double tienThanhToan= hoaDon.getTienThanhToan();
+
                         lbl_tienThanhToan.setText(convert.toMoney(tienThanhToan));
                     }
                 }

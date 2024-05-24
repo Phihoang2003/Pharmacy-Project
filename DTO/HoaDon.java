@@ -103,7 +103,12 @@ public class HoaDon {
             this.tienThanhToan = tongTien - tienKhuyenMai;
         }
         else{
-            this.tienThanhToan = tongTien - tienKhuyenMai - khachHang.getDiemTichLuy();
+            if(tongTien - tienKhuyenMai - khachHang.getDiemTichLuy()<0){
+                this.tienThanhToan = 0;
+            }
+           else{
+                this.tienThanhToan = tongTien - tienKhuyenMai - khachHang.getDiemTichLuy();
+            }
         }
     }
 
