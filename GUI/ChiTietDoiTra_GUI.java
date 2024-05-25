@@ -142,7 +142,7 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
         lbl_HinhThuc.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
         getContentPane().add(lbl_HinhThuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 468, 120, 20));
 
-        jPanel1.setBackground(new java.awt.Color(22, 97, 86));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -158,7 +158,7 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 20));
 
-        jPanel2.setBackground(new java.awt.Color(22, 97, 86));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
@@ -184,7 +184,7 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
 
         lbl_SoDienThoai.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel8.setText("Số điện thoại");
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -263,7 +263,7 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 890, 640));
 
-        jPanel3.setBackground(new java.awt.Color(22, 97, 86));
+        jPanel3.setBackground(new java.awt.Color(255,255,255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);

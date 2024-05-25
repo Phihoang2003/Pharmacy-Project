@@ -331,7 +331,11 @@ public class HoaDon_GUI extends javax.swing.JPanel {
                         else {
                             XoahetDuLieuTrenTable();
                         for (HoaDon hd : ds) {
-                            addRows(new Object[]{hd.getMaHD(),hd.getKhachHang().getMaKhachHang(),hd.getNhanVien().getMaNhanVien(),hd.getChuongTrinhKM().getMaCTKM(),hd.getNgayLapHD(),hd.getTienKhuyenMai(), hd.getTongTien(), hd.getTienThanhToan(),hd.getTinhTrang()});
+                            if(hd.getKhachHang()!=null){
+                                addRows(new Object[]{hd.getMaHD(),hd.getKhachHang().getMaKhachHang(),hd.getNhanVien().getMaNhanVien(),hd.getChuongTrinhKM().getMaCTKM(),hd.getNgayLapHD(),hd.getTienKhuyenMai(), hd.getTongTien(), hd.getTienThanhToan(),hd.getTinhTrang()});
+                            }else{
+                                addRows(new Object[]{hd.getMaHD(),hd.getNhanVien().getMaNhanVien(),hd.getChuongTrinhKM().getMaCTKM(),hd.getNgayLapHD(),hd.getTienKhuyenMai(), hd.getTongTien(), hd.getTienThanhToan(),hd.getTinhTrang()});
+                            }
                         }
                         }
                         }

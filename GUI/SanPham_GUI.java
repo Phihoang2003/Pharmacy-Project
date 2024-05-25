@@ -50,6 +50,9 @@ public class SanPham_GUI extends JPanel {
         nhh_bus = new NhomHangHoa_bus();
         ctkm_bus = new ChuongTrinhKhuyenMai_bus();
         initComponents();
+        txt_ma.setEnabled(false);
+        txt_ma1.setEnabled(false);
+        txt_ma2.setEnabled(false);
         ImageIcon img_btnTimKiem1 = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonTimKiem.png");
         Image scaled_btnTimKiem1 = img_btnTimKiem1.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnTimKiem1 = new ImageIcon(scaled_btnTimKiem1);
@@ -2472,7 +2475,7 @@ public class SanPham_GUI extends JPanel {
             ex.printStackTrace();
         }
     }
-    private void nhapExcel(){
+    private void nhapExcel() {
         File excelFile;
         FileInputStream excelFIS = null;
         BufferedInputStream excelBIS = null;
@@ -2493,7 +2496,15 @@ public class SanPham_GUI extends JPanel {
                 XSSFSheet excelSheet = excelImportToJTable.getSheetAt(0);
                 for (int row = 1; row <= excelSheet.getLastRowNum(); row++) {
                     XSSFRow excelRow = excelSheet.getRow(row);
+                    if (excelRow == null) {
+                        continue;
+                    }
+
                     XSSFCell excelMaSP = excelRow.getCell(0);
+                    if (excelMaSP == null) {
+                        continue;
+                    }
+
                     // Kiểm tra xem mã sản phẩm đã tồn tại trong tập hợp chưa
                     String maSanPham = excelMaSP.getStringCellValue().trim();
                     int existingRow = -1;
@@ -2504,12 +2515,13 @@ public class SanPham_GUI extends JPanel {
                             break;
                         }
                     }
+
                     XSSFCell excelTenSP = excelRow.getCell(1);
                     XSSFCell excelNuocSX = excelRow.getCell(2);
                     XSSFCell excelSoLuongTon = excelRow.getCell(3);
                     XSSFCell excelDonGia = excelRow.getCell(4);
-                    XSSFCell excelNhomhang= excelRow.getCell(5);
-                    XSSFCell excelDVT= excelRow.getCell(6);
+                    XSSFCell excelNhomhang = excelRow.getCell(5);
+                    XSSFCell excelDVT = excelRow.getCell(6);
                     XSSFCell excelHSD = excelRow.getCell(7);
                     XSSFCell excelHoatChat = excelRow.getCell(8);
                     XSSFCell excelTH = excelRow.getCell(9);
@@ -2522,48 +2534,55 @@ public class SanPham_GUI extends JPanel {
                     XSSFCell excelThuocKeDon = excelRow.getCell(16);
                     XSSFCell excelDuongDanAnh = excelRow.getCell(17);
 
-                    String khuyenMai = "";
-                    if (excelKhuyenMai != null) {
-                        khuyenMai = excelKhuyenMai.getStringCellValue().trim();
-                    } else {
-                        khuyenMai = "Không giảm giá";
-                    }
-                    int soLuongTonKho = (int) excelSoLuongTon.getNumericCellValue();
-                    double donGia = excelDonGia.getNumericCellValue();
-                    DecimalFormat decimalFormat = new DecimalFormat();
-                    String formattedDonGia = decimalFormat.format(donGia) + " VNĐ";
-                    String tinhTrang = excelTinhTrang.getStringCellValue().trim();
+                    String tenSP = excelTenSP != null ? excelTenSP.getStringCellValue().trim() : "";
+                    String nuocSX = excelNuocSX != null ? excelNuocSX.getStringCellValue().trim() : "";
+                    int soLuongTonKho = excelSoLuongTon != null ? (int) excelSoLuongTon.getNumericCellValue() : 0;
+                    double donGia = excelDonGia != null ? excelDonGia.getNumericCellValue() : 0.0;
+                    String formattedDonGia = new DecimalFormat().format(donGia) + " VNĐ";
+                    String nhomHang = excelNhomhang != null ? excelNhomhang.getStringCellValue().trim() : "";
+                    String dvt = excelDVT != null ? excelDVT.getStringCellValue().trim() : "";
+                    String hsd = excelHSD != null ? excelHSD.getStringCellValue().trim() : "";
+                    String hoatChat = excelHoatChat != null ? excelHoatChat.getStringCellValue().trim() : "";
+                    String th = excelTH != null ? excelTH.getStringCellValue().trim() : "";
+                    String khuyenMai = excelKhuyenMai != null ? excelKhuyenMai.getStringCellValue().trim() : "Không giảm giá";
+                    String tinhTrang = excelTinhTrang != null ? excelTinhTrang.getStringCellValue().trim() : "";
                     if (soLuongTonKho == 0 && "Đang bán".equals(tinhTrang)) {
                         tinhTrang = "Hết hàng";
                     }
+                    String khoiLuong = excelKhoiLuong != null ? excelKhoiLuong.getStringCellValue().trim() : "";
+                    String duongDung = excelDuongDung != null ? excelDuongDung.getStringCellValue().trim() : "";
+                    String quyCach = excelQuyCach != null ? excelQuyCach.getStringCellValue().trim() : "";
+                    String dkbq = excelDKBQ != null ? excelDKBQ.getStringCellValue().trim() : "";
+                    String thuocKeDon = excelThuocKeDon != null ? excelThuocKeDon.getStringCellValue().trim() : "";
+                    String duongDanAnh = excelDuongDanAnh != null ? excelDuongDanAnh.getStringCellValue().trim() : "";
+
                     if (existingRow != -1) {
-                        model.setValueAt(excelTenSP.getStringCellValue(), existingRow, 1);
-                        model.setValueAt(excelNuocSX.getStringCellValue(), existingRow, 2);
-                        model.setValueAt(excelSoLuongTon.getNumericCellValue(), existingRow, 3);
+                        model.setValueAt(tenSP, existingRow, 1);
+                        model.setValueAt(nuocSX, existingRow, 2);
+                        model.setValueAt(soLuongTonKho, existingRow, 3);
                         model.setValueAt(formattedDonGia, existingRow, 4);
-                        model.setValueAt(excelNhomhang, existingRow, 5);
-                        model.setValueAt(excelDVT, existingRow, 6);
-                        model.setValueAt(excelHSD, existingRow, 7);
-                        model.setValueAt(excelHoatChat, existingRow, 8);
-                        model.setValueAt(excelTH, existingRow, 9);
-
+                        model.setValueAt(nhomHang, existingRow, 5);
+                        model.setValueAt(dvt, existingRow, 6);
+                        model.setValueAt(hsd, existingRow, 7);
+                        model.setValueAt(hoatChat, existingRow, 8);
+                        model.setValueAt(th, existingRow, 9);
                         model.setValueAt(khuyenMai, existingRow, 10);
-                        model.setValueAt(excelTinhTrang, existingRow, 11);
-                        model.setValueAt(excelKhoiLuong, existingRow, 12);
-                        model.setValueAt(excelDuongDung, existingRow, 13);
-                        model.setValueAt(excelQuyCach, existingRow, 14);
-                        model.setValueAt(excelDKBQ, existingRow, 15);
-                        model.setValueAt(excelThuocKeDon, existingRow, 16);
-                        model.setValueAt(excelDuongDanAnh, existingRow, 17);
-
+                        model.setValueAt(tinhTrang, existingRow, 11);
+                        model.setValueAt(khoiLuong, existingRow, 12);
+                        model.setValueAt(duongDung, existingRow, 13);
+                        model.setValueAt(quyCach, existingRow, 14);
+                        model.setValueAt(dkbq, existingRow, 15);
+                        model.setValueAt(thuocKeDon, existingRow, 16);
+                        model.setValueAt(duongDanAnh, existingRow, 17);
                     } else {
                         maSanPhamSet.add(maSanPham);
-                        model.addRow(new Object[]{maSanPham, excelTenSP.getStringCellValue(), excelNuocSX.getStringCellValue(), soLuongTonKho, formattedDonGia, excelNhomhang, excelDVT, excelHSD, excelHoatChat, excelTH, khuyenMai, tinhTrang, excelKhoiLuong, excelDuongDung, excelQuyCach, excelDKBQ, excelThuocKeDon, excelDuongDanAnh});
+                        model.addRow(new Object[]{maSanPham, tenSP, nuocSX, soLuongTonKho, formattedDonGia, nhomHang, dvt, hsd, hoatChat, th, khuyenMai, tinhTrang, khoiLuong, duongDung, quyCach, dkbq, thuocKeDon, duongDanAnh});
                     }
                 }
                 JOptionPane.showMessageDialog(this, "Nhập thành công");
-            } catch (IOException iOException) {
-                JOptionPane.showMessageDialog(this, "Nhập thành công");
+            } catch (IOException | NullPointerException e) {
+                e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Lỗi khi nhập file Excel: " + e.getMessage());
             } finally {
                 try {
                     if (excelFIS != null) {
@@ -2576,11 +2595,12 @@ public class SanPham_GUI extends JPanel {
                         excelImportToJTable.close();
                     }
                 } catch (IOException iOException) {
-                    JOptionPane.showMessageDialog(this, "Nhập thành công");
+                    iOException.printStackTrace();
                 }
             }
         }
     }
+
     private void luu() throws ParseException {
         for(int i=0;i<model.getRowCount();i++){
             String maSP=model.getValueAt(i, 0).toString();
@@ -2710,15 +2730,32 @@ public class SanPham_GUI extends JPanel {
         txt_quyCachDongGoi2.setText(model.getValueAt(row, 14).toString());
         txt_dieuKienBaoQuan2.setText(model.getValueAt(row, 15).toString());
         cbo_thuocKeDon2.setSelectedItem(model.getValueAt(row, 16).toString());
-        String img1 = model.getValueAt(row, 17).toString();
-        ImageIcon imageIcon1 = new ImageIcon(img1);
-        Image image1 = imageIcon1.getImage();
-        int width1 = Math.max(lbl_anhSanPham1.getWidth(), 1);
-        int height1 = Math.max(lbl_anhSanPham1.getHeight(), 1);
-        Image newImg1 = image1.getScaledInstance(width1, height1, Image.SCALE_SMOOTH);
-        ImageIcon finalImageIcon1 = new ImageIcon(newImg1);
-        lbl_anhSanPham2.setIcon(finalImageIcon1);
-        lbl_anhSanPham2.setText(model.getValueAt(row, 17).toString());
+        try {
+            String img1 = model.getValueAt(row, 17).toString();
+            File imgFile = new File(img1);
+
+            if (imgFile.exists() && !imgFile.isDirectory()) { // Kiểm tra file tồn tại
+                ImageIcon imageIcon1 = new ImageIcon(img1);
+                Image image1 = imageIcon1.getImage();
+
+                int width1 = Math.max(lbl_anhSanPham1.getWidth(), 1);
+                int height1 = Math.max(lbl_anhSanPham1.getHeight(), 1);
+
+                Image newImg1 = image1.getScaledInstance(width1, height1, Image.SCALE_SMOOTH);
+                ImageIcon finalImageIcon1 = new ImageIcon(newImg1);
+
+                lbl_anhSanPham2.setIcon(finalImageIcon1);
+                lbl_anhSanPham2.setText("");
+            } else {
+                lbl_anhSanPham2.setIcon(null);
+                lbl_anhSanPham2.setText("Image not found");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            lbl_anhSanPham2.setIcon(null);
+            lbl_anhSanPham2.setText("Error loading image");
+        }
+
 
 
     }//GEN-LAST:event_table_thuocMouseClicked
@@ -2814,7 +2851,7 @@ public class SanPham_GUI extends JPanel {
         // TODO add your handling code here:
         int selectTedRow=table_thuoc.getSelectedRow();
         if(selectTedRow==-1){
-            JOptionPane.showMessageDialog(null,"Bạn chưa chọn nhân viên cần cập nhật");
+            JOptionPane.showMessageDialog(null,"Bạn chưa chọn sản phẩm cần cập nhật");
             return;
         }
         CapNhatSanPhamDialog.setVisible(true);

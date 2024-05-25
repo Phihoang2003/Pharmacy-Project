@@ -277,6 +277,7 @@ public class HoaDonDAO implements HoaDon_Interface {
     @Override
 public ArrayList<HoaDon> getHoaDonTheoNgayLap(Date ngayLapHoaDon) {
     ArrayList<HoaDon> list = new ArrayList<>();
+    KhachHangDAO kh_dao=new KhachHangDAO();
     try {
         Connection con = JDBCUtil.getConnection();
         String sql = "SELECT * FROM hoadon WHERE ngayLapHoaDon = ?";
@@ -286,12 +287,17 @@ public ArrayList<HoaDon> getHoaDonTheoNgayLap(Date ngayLapHoaDon) {
         while (rs.next()) {
             String maHD= rs.getString("maHD");
             String maKH= rs.getString("khachHang");
-            String hoTen= rs.getString("tenKhachHang");
-            String sdt= rs.getString("soDienThoai");
-            int diemTichLuy= rs.getInt("diemTichLuy");
-            int gioiTinh= rs.getInt("gioiTinh");
-            Date ngayThamGia= rs.getDate("ngayThamGia");
-            KhachHang kh= new KhachHang(maKH, hoTen, diemTichLuy, sdt, ngayThamGia, gioiTinh);
+
+            KhachHang kh=null;
+            if(maKH!=null){
+                KhachHang kh1=kh_dao.selectById(maKH);
+                String hoTen= kh1.getHoTen();
+                String sdt= kh1.getSdt();
+                int diemTichLuy= kh1.getDiemTichLuy();
+                int gioiTinh= kh1.getGioiIinh();
+                Date ngayThamGia= new java.sql.Date(kh1.getNgayThamGia().getTime());
+                kh= new KhachHang(maKH, hoTen, diemTichLuy, sdt, ngayThamGia, gioiTinh);
+            }
             NhanVien nv= new NhanVien(rs.getString("nhanVien"));
             ChuongTrinhKhuyenMai ctkm= new ChuongTrinhKhuyenMai(rs.getString("chuongTrinhKM"));
             double tongTien= rs.getDouble("tongTien");
