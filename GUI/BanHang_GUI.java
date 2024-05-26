@@ -888,6 +888,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Mã sản phẩm không được để trống");
             return;
         }
+
         Thuoc thuocDTO=sp_bus.timSanPham(maSP);
         if(thuocDTO!=null){
             if(thuocDTO.getTrangThai().equals(TinhTrangSPEnum.HETHANG)){

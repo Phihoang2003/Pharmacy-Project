@@ -53,7 +53,7 @@ public class ThuocDAO implements SanPham_Interface {
         Thuoc thuocDTO=null;
         try {
             Connection con=JDBCUtil.getConnection();
-            String sql="SELECT sp.*,dvt.tenDonViTinh,nhh.tenNhom,ctkm.giamGia,nsx.tenNuoc,th.tenThuongHieu FROM thuoc sp JOIN donvitinh dvt ON sp.donViTinh=dvt.maDonViTinh JOIN nhomhanghoa nhh ON sp.nhomHangHoa=nhh.maNhom JOIN thuonghieu th ON sp.thuongHieu=th.maThuongHieu JOIN chuongtrinhkhuyenmai ctkm ON sp.chuongTrinhKhuyenMai=ctkm.maCTKM  JOIN nuocsanxuat nsx ON sp.nuocSanXuat=nsx.maNuoc WHERE maThuoc=?";
+            String sql="SELECT sp.*,dvt.tenDonViTinh,nhh.tenNhom,ctkm.giamGia,nsx.tenNuoc,th.tenThuongHieu FROM thuoc sp JOIN donvitinh dvt ON sp.donViTinh=dvt.maDonViTinh JOIN nhomhanghoa nhh ON sp.nhomHangHoa=nhh.maNhom JOIN thuonghieu th ON sp.thuongHieu=th.maThuongHieu LEFT JOIN chuongtrinhkhuyenmai ctkm ON sp.chuongTrinhKhuyenMai=ctkm.maCTKM  JOIN nuocsanxuat nsx ON sp.nuocSanXuat=nsx.maNuoc WHERE maThuoc=?";
             PreparedStatement pst=con.prepareStatement(sql);
             pst.setString(1,ma);
             ResultSet rs=pst.executeQuery();
@@ -76,7 +76,9 @@ public class ThuocDAO implements SanPham_Interface {
                 thuocDTO.setNuocSanXuat(new NuocSanXuat(rs.getString("nuocSanXuat"),rs.getString("tenNuoc")));
                 thuocDTO.setThuongHieu(new ThuongHieu(rs.getString("thuongHieu"),rs.getString("tenThuongHieu")));
                 thuocDTO.setThuocKeDon(rs.getBoolean("thuocKeDon"));
+
                 String maCTKM = rs.getString("chuongTrinhKhuyenMai");
+
                 TinhTrangSPEnum tinhTrangSPEnum=null;
                 if(rs.getString("trangThai").equals("Đang bán")) {
                     tinhTrangSPEnum = TinhTrangSPEnum.DANGBAN;
@@ -89,6 +91,7 @@ public class ThuocDAO implements SanPham_Interface {
                 thuocDTO.setTrangThai(tinhTrangSPEnum);
                 ChuongTrinhKhuyenMai chuongTrinhKhuyenMai = null;
                 if (maCTKM != null) {
+
                     chuongTrinhKhuyenMai = new ChuongTrinhKhuyenMai(maCTKM);
                     String sqlKM = "Select giamGia from chuongtrinhkhuyenmai where maCTKM=? and maLoaiKM='GGSP'";
                     pst = con.prepareStatement(sqlKM);
@@ -100,6 +103,7 @@ public class ThuocDAO implements SanPham_Interface {
                         chuongTrinhKhuyenMai.setGiamGia(giamGia);
                     }
                 }
+
                 thuocDTO.setChuongTrinhKhuyenMaiEntity(chuongTrinhKhuyenMai);
 
 

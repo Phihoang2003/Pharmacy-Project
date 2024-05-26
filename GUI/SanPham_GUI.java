@@ -52,7 +52,7 @@ public class SanPham_GUI extends JPanel {
         initComponents();
         txt_ma.setEnabled(false);
         txt_ma1.setEnabled(false);
-        txt_ma2.setEnabled(false);
+
         ImageIcon img_btnTimKiem1 = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonTimKiem.png");
         Image scaled_btnTimKiem1 = img_btnTimKiem1.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnTimKiem1 = new ImageIcon(scaled_btnTimKiem1);
@@ -133,11 +133,11 @@ public class SanPham_GUI extends JPanel {
             String duongDung=txt_duongDung.getText();
             Date hanSuDung=jdc_NgayNhap.getDate();
             TinhTrangSPEnum tinhTrang = null;
-            if (cbo_tinhTrang.getSelectedItem().equals("Đang bán")) {
+            if (cbo_tinhTrang.getSelectedItem().equals("Đang Bán")) {
                 tinhTrang = TinhTrangSPEnum.DANGBAN;
-            } else if (cbo_tinhTrang.getSelectedItem().equals("Ngừng bán")) {
+            } else if (cbo_tinhTrang.getSelectedItem().equals("Ngừng Bán")) {
                 tinhTrang = TinhTrangSPEnum.NGUNGBAN;
-            } else if (cbo_tinhTrang.getSelectedItem().equals("Hết hàng")) {
+            } else if (cbo_tinhTrang.getSelectedItem().equals("Hết Hàng")) {
                 tinhTrang = TinhTrangSPEnum.HETHANG;
             }
             if (soLuong > 0) {
@@ -211,11 +211,11 @@ public class SanPham_GUI extends JPanel {
                 String duongDung = txt_duongDung1.getText();
                 Date hanSuDung = jdc_NgayNhap1.getDate();
                 TinhTrangSPEnum tinhTrang = null;
-                if (cbo_tinhTrang1.getSelectedItem().equals("Đang bán")) {
+                if (cbo_tinhTrang1.getSelectedItem().equals("Đang Bán")) {
                     tinhTrang = TinhTrangSPEnum.DANGBAN;
-                } else if (cbo_tinhTrang1.getSelectedItem().equals("Ngừng bán")) {
+                } else if (cbo_tinhTrang1.getSelectedItem().equals("Ngừng Bán")) {
                     tinhTrang = TinhTrangSPEnum.NGUNGBAN;
-                } else if (cbo_tinhTrang1.getSelectedItem().equals("Hết hàng")) {
+                } else if (cbo_tinhTrang1.getSelectedItem().equals("Hết Hàng")) {
                     tinhTrang = TinhTrangSPEnum.HETHANG;
                 }
 
@@ -2546,8 +2546,8 @@ public class SanPham_GUI extends JPanel {
                     String th = excelTH != null ? excelTH.getStringCellValue().trim() : "";
                     String khuyenMai = excelKhuyenMai != null ? excelKhuyenMai.getStringCellValue().trim() : "Không giảm giá";
                     String tinhTrang = excelTinhTrang != null ? excelTinhTrang.getStringCellValue().trim() : "";
-                    if (soLuongTonKho == 0 && "Đang bán".equals(tinhTrang)) {
-                        tinhTrang = "Hết hàng";
+                    if (soLuongTonKho == 0 && "Đang Bán".equals(tinhTrang)) {
+                        tinhTrang = "Hết Hàng";
                     }
                     String khoiLuong = excelKhoiLuong != null ? excelKhoiLuong.getStringCellValue().trim() : "";
                     String duongDung = excelDuongDung != null ? excelDuongDung.getStringCellValue().trim() : "";
