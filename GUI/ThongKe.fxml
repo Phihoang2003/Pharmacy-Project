@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1265.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAO.ThongKeDAO">
+   <children>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <AnchorPane prefHeight="44.0" prefWidth="1266.0" styleClass="nav-form" stylesheets="@dashboard.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="nav_doanhThu" layoutY="6.0" mnemonicParsing="false" onAction="#switchForm" styleClass="nav-btn" stylesheets="@dashboard.css" text="Thống kê doanh thu">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="nav_loiNhuan" layoutX="159.0" layoutY="6.0" mnemonicParsing="false" onAction="#switchForm" styleClass="nav-btn" stylesheets="@dashboard.css" text="Thống kê lợi nhuận">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="nav_tienVon" layoutX="313.0" layoutY="6.0" mnemonicParsing="false" onAction="#switchForm" styleClass="nav-btn" stylesheets="@dashboard.css" text="Sản phẩm bán chạy">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </top>
+         <center>
+            <AnchorPane fx:id="home_form11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="1266.0" stylesheets="@dashboard.css" BorderPane.alignment="CENTER">
+               <children>
+                  <AnchorPane fx:id="doanhThu_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="1266.0" stylesheets="@dashboard.css" visible="false">
+                     <children>
+                        <AnchorPane fx:id="home_form121" layoutX="16.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="1234.0" stylesheets="@dashboard.css">
+                           <children>
+                              <BarChart fx:id="doanhThu_chart" layoutY="34.4" prefHeight="394.0" prefWidth="1234.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="34.0">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
+                           </children>
+                           <styleClass>
+                              <String fx:value="white-bg" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                        <AnchorPane fx:id="home_form1211" layoutX="16.0" layoutY="451.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="1234.0" stylesheets="@dashboard.css">
+                           <styleClass>
+                              <String fx:value="white-bg" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                           <children>
+                              <PieChart fx:id="doanhThu_piechart" layoutX="828.0" layoutY="11.0" prefHeight="266.0" prefWidth="366.0" />
+                              <TableView fx:id="doanhthu_table" layoutX="14.0" layoutY="13.0" prefHeight="253.0" prefWidth="793.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="433.0" AnchorPane.topAnchor="13.0">
+                                <columns>
+                                  <TableColumn fx:id="doanhthu_ngay_col" prefWidth="359.99996304512024" text="Ngày" />
+                                    <TableColumn fx:id="doanhthu_col" prefWidth="429.5999755859375" text="Doanh thu" />
+                                </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="loiNhuan_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1266.0" stylesheets="@dashboard.css" visible="false">
+                     <children>
+                        <AnchorPane fx:id="home_form1211" layoutX="16.0" layoutY="12.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="1234.0" stylesheets="@dashboard.css">
+                           <children>
+                              <BarChart fx:id="loiNhuan_chart" layoutY="34.4" prefHeight="394.0" prefWidth="1234.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="34.0">
+                                 <xAxis>
+                                    <CategoryAxis side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <NumberAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                           <styleClass>
+                              <String fx:value="white-bg" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                        <AnchorPane fx:id="home_form12111" layoutX="16.0" layoutY="451.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="280.0" prefWidth="1234.0" stylesheets="@dashboard.css">
+                           <styleClass>
+                              <String fx:value="white-bg" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                           <children>
+                              <PieChart fx:id="loiNhuan_piechart" layoutX="784.0" layoutY="-23.0" prefHeight="326.0" prefWidth="471.0" />
+                              <TableView fx:id="loiNhuan_table" layoutX="14.0" layoutY="13.0" prefHeight="253.0" prefWidth="793.0" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="433.0" AnchorPane.topAnchor="13.0">
+                                 <columns>
+                                    <TableColumn fx:id="loiNhuan_ngay_col" prefWidth="359.99996304512024" text="Ngày" />
+                                    <TableColumn fx:id="loiNhuan_col" prefWidth="429.5999755859375" text="Lợi nhuận" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane fx:id="tienVon_form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="1266.0" stylesheets="@dashboard.css">
+                     <children>
+                        <AnchorPane fx:id="home_form1211" layoutX="16.0" layoutY="16.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1234.0" stylesheets="@dashboard.css" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="16.0">
+                           <children>
+                              <BarChart fx:id="bestSeller_chart" layoutY="28.0" legendVisible="false" prefHeight="673.0" prefWidth="1219.0" title="Top 5 sản phẩm bán chạy" titleSide="BOTTOM" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="28.0">
+                                 <xAxis>
+                                    <NumberAxis prefWidth="1194.0" side="BOTTOM" />
+                                 </xAxis>
+                                 <yAxis>
+                                    <CategoryAxis side="LEFT" />
+                                 </yAxis>
+                              </BarChart>
+                           </children>
+                           <styleClass>
+                              <String fx:value="white-bg" />
+                              <String fx:value="shadow" />
+                           </styleClass>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <Label layoutX="413.0" layoutY="28.0" text="Từ" />
+                  <DatePicker fx:id="date_start" layoutX="440.0" layoutY="24.0" />
+                  <Label layoutX="648.0" layoutY="29.0" text="Đến" />
+                  <DatePicker fx:id="date_end" layoutX="677.0" layoutY="24.0" />
+               </children>
+            </AnchorPane>
+         </center>
+      </BorderPane>
+   </children>
+</StackPane>

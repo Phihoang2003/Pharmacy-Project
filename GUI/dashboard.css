@@ -1,0 +1,192 @@
+.top-form{
+    -fx-background: #efefef;
+    -fx-border: #000;
+    -fx-border-width: .4px .4px .2px .4px ;
+}
+.close{
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+.close:hover{
+    -fx-background-color: #f43f57;
+}
+
+.minimize{
+    -fx-background-color: transparent;
+    -fx-cursor: hand;
+}
+.minimize:hover{
+    -fx-background-color: #ddd;
+}
+
+.nav-form{
+    -fx-background-color: white;
+}
+
+.nav-btn{ 
+    /* -fx-background-color : #00000015; */
+    -fx-cursor : hand; 
+    /* -fx-border-color: #23139662; */
+    /* -fx-border-width: 0 0 2px 0; */
+    -fx-border-width: 0 0 0 0;
+    -fx-background-color : transparent;
+    -fx-padding: 17px;
+}
+
+.gray_bg{ 
+    -fx-background-color : #00000015; 
+}
+
+.logout { 
+    -fx-background-color : #23139662; 
+    -fx-background-radius : 10px; 
+    -fx-cursor : hand; 
+} 
+
+.logout:hover{ 
+    -fx-background-color: #0ab570; 
+}
+
+.shadow {  
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 5,0,0,0); 
+}
+
+.white-bg{ 
+    -fx-background-color : #fff; 
+    -fx-background-radius : 8px; 
+}
+
+.card{ 
+    -fx-background-color : linear-gradient(to right, #2e4d39, #396b57); 
+    -fx-background-radius : 5px;
+}
+
+.textfield{ 
+    -fx-background-color : linear-gradient(to bottom, #efefef, #eee); 
+    -fx-background-radius : 4px; 
+    -fx-border-color : linear-gradient(to bottom right, #2323825e, #236d6e30); 
+    -fx-border-radius : 4px; 
+    -fx-border-width : 1px; 
+}
+
+.textfield:focused{ 
+    -fx-background-color : #fff; 
+    -fx-border_width:2px;
+}
+
+.import-btn{ 
+    -fx-background-color : #eee; 
+    -fx-text-fill : red; 
+    -fx-font-size : 14px; 
+    -fx-font-family : "Arial"; 
+    -fx-cursor : hand;
+}
+
+.add-btn{ 
+    -fx-background-color : #243e6b; 
+    -fx-background-radius : 8px; 
+    -fx-text-fill : #fff; 
+    -fx-font-size : 14px; 
+    -fx-cursor : hand; 
+    -fx-font-family : "Arial"; 
+}
+
+.add-btn:hover{ 
+    -fx-background-color : #234969a1; 
+}
+
+.update-btn{ 
+    -fx-background-color : #3b754d; 
+    -fx-background-radius : 8px; 
+    -fx-text-fill : #fff; 
+    -fx-font-size : 14px; 
+    -fx-cursor : hand; 
+    -fx-font-family : "Arial"; 
+}
+.update-btn:hover{ 
+    -fx-background-color : #459d5e; 
+}
+
+.clear-btn{  
+    -fx-background-color : #7f417a; 
+    -fx-background-radius : 8px; 
+    -fx-text-fill : #fff; 
+    -fx-font-size : 14px; 
+    -fx-cursor : hand; 
+    -fx-font-family : "Arial";
+}
+.clear-btn:hover{ 
+    -fx-background-color : #ae54a8; 
+}
+
+.delete-btn {  
+    -fx-background-color : #86292d; 
+    -fx-background-radius : 8px; 
+    -fx-text-fill : #fff; 
+    -fx-font-size : 14px; 
+    -fx-cursor : hand; 
+    -fx-font-family : "Arial"; 
+}
+
+.delete-btn:hover{ -fx-background-color : #b52647; }
+
+.search{ 
+    -fx-background-color : transparent; 
+    -fx-border-color: linear-gradient(to bottom right, #23825e, #6d6e30);
+    -fx-font-size: 14px; 
+    -fx-font-family: "Tahoma"; 
+    -fx-border-width: 1px;  
+    -fx-padding: 0px 0px 0px 28px; 
+    -fx-border-radius: 5px;
+}
+.search:focused{ 
+    -fx-border-width : 2px;
+}
+
+.table-view{ 
+    -fx-background-color : transparent; 
+    -fx-padding : 0px; 
+    -fx-border-color : linear-gradient(to bottom right, #23825e, #6d6e30); 
+    -fx-border-radius : 8px; 
+    -fx-border-width : 2px; 
+}
+
+.table-view .column-header-background{  
+    -fx-background-color : linear-gradient(to bottom right, #23825e, #6d6e30); 
+    -fx-background-radius : 8px 8px 0px 0px;
+}
+
+.table-view .column-header, .filter{ 
+    -fx-background-color : transparent; 
+    -fx-size : 40px; 
+}
+
+.table-view .column-header .label{ 
+    -fx-text-fill : #fff; -fx-font-family : "Arial";
+}
+
+.pay-btn {  
+    -fx-background-color: #86292d; 
+    -fx-background-radius: 8px; 
+    -fx-text-fill: #fff; 
+    -fx-font-size: 14px; 
+    -fx-cursor: hand; 
+    -fx-font-family: "Arial"; 
+}
+
+.pay-btn:hover{
+    -fx-background-color: #2490ae;
+}
+
+.receipt-btn {  
+    -fx-background-color: #6b5536; 
+    -fx-background-radius: 8px; 
+    -fx-text-fill: #fff; 
+    -fx-font-size: 14px; 
+    -fx-cursor: hand; 
+    -fx-font-family: "Arial"; 
+}
+
+.receipt-btn:hover{
+    -fx-background-color: #a17434;
+}

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="798.0" prefWidth="1265.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DAO.TrangChuDAO">
+   <children>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="728.0" prefWidth="1140.0" stylesheets="@dashboard.css">
+         <children>
+            <AnchorPane layoutX="12.0" layoutY="14.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="218.0" prefWidth="1214.0" stylesheets="@dashboard.css" AnchorPane.bottomAnchor="568.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+               <styleClass>
+                  <String fx:value="white-bg" />
+                  <String fx:value="shadow" />
+               </styleClass>
+               <children>
+                  <AnchorPane layoutX="16.0" layoutY="22.0" prefHeight="159.0" prefWidth="292.0" stylesheets="@dashboard.css">
+                     <children>
+                        <AnchorPane layoutY="-3.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="179.0" prefWidth="390.0" styleClass="card" stylesheets="@dashboard.css" AnchorPane.bottomAnchor="-16.0" AnchorPane.topAnchor="-3.0">
+                           <children>
+                              <ImageView fitHeight="106.0" fitWidth="122.0" layoutX="22.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../img/9055552_bxs_group_icon.png" />
+                                 </image>
+                              </ImageView>
+                              <Label layoutX="135.0" layoutY="126.0" text="Đơn đặt hàng trong ngày" textFill="WHITE" AnchorPane.topAnchor="127.0">
+                                 <font>
+                                    <Font name="Tahoma" size="19.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="home_numberOrder" layoutX="336.0" layoutY="28.0" text="0" textFill="WHITE">
+                                 <font>
+                                    <Font name="Tahoma" size="21.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="424.0" layoutY="19.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="179.0" prefWidth="390.0" styleClass="card" stylesheets="@dashboard.css" AnchorPane.bottomAnchor="19.399999999999977" AnchorPane.leftAnchor="424.0" AnchorPane.rightAnchor="424.79999999999995" AnchorPane.topAnchor="19.0">
+                     <children>
+                        <Label fx:id="home_totalIncome" contentDisplay="RIGHT" layoutX="336.0" layoutY="26.0" text="0" textAlignment="RIGHT" textFill="WHITE" textOverrun="CENTER_ELLIPSIS" AnchorPane.bottomAnchor="118.0" AnchorPane.rightAnchor="33.59999999999991" AnchorPane.topAnchor="26.0">
+                           <font>
+                              <Font name="Tahoma" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label contentDisplay="RIGHT" layoutX="171.0" layoutY="126.0" text="Doanh thu trong ngày" textAlignment="RIGHT" textFill="WHITE" AnchorPane.topAnchor="126.0">
+                           <font>
+                              <Font name="Tahoma" size="19.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="128.0" fitWidth="100.0" layoutX="25.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/6843092_currency_finance_financial_income_management_icon.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="930.0" layoutY="19.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="179.0" prefWidth="390.0" styleClass="card" stylesheets="@dashboard.css" AnchorPane.bottomAnchor="19.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="19.0">
+                     <children>
+                        <ImageView fitHeight="128.0" fitWidth="100.0" layoutX="25.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../img/box.png" />
+                           </image>
+                        </ImageView>
+                        <Label contentDisplay="RIGHT" layoutX="174.0" layoutY="125.0" text="Sản phẩm trong kho" textAlignment="RIGHT" textFill="WHITE" AnchorPane.topAnchor="125.0">
+                           <font>
+                              <Font name="Tahoma" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="home_availableProducts" contentDisplay="RIGHT" layoutX="334.0" layoutY="26.0" text="0" textAlignment="RIGHT" textFill="WHITE" textOverrun="CENTER_ELLIPSIS">
+                           <font>
+                              <Font name="Tahoma" size="21.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="chart" layoutX="14.0" layoutY="244.8" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="1214.0" stylesheets="@dashboard.css" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="12.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="245.0">
+               <styleClass>
+                  <String fx:value="white-bg" />
+                  <String fx:value="shadow" />
+               </styleClass>
+               <children>
+                  <AnchorPane layoutX="11.0" layoutY="15.0" prefHeight="510.0" prefWidth="602.0" stylesheets="@dashboard.css">
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                     <children>
+                        <AreaChart fx:id="home_incomeChart" layoutX="26.0" layoutY="40.0" prefHeight="510.0" prefWidth="602.0" stylesheets="@dashboard.css" title="Doanh thu" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis side="LEFT" />
+                           </yAxis>
+                        </AreaChart>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane layoutX="627.0" layoutY="15.0" prefHeight="510.0" prefWidth="602.0" stylesheets="@dashboard.css">
+                     <styleClass>
+                        <String fx:value="white-bg" />
+                        <String fx:value="shadow" />
+                     </styleClass>
+                     <children>
+                        <BarChart fx:id="home_orderChart" layoutX="-24.8" layoutY="-9.6" prefHeight="510.0" prefWidth="603.0" stylesheets="@dashboard.css" title="Đơn đặt hàng" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                           <xAxis>
+                              <CategoryAxis side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis prefHeight="330.0" prefWidth="34.0" side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</StackPane>
