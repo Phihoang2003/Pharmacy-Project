@@ -142,7 +142,7 @@ public class NhaCungCap_GUI extends JPanel {
 
         jPanel9.setBackground(new Color(37, 51, 49));
 
-        jLabel8.setFont(new Font("Segoe UI Black", Font.BOLD, 14));
+        jLabel8.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 14));
         jLabel8.setForeground(new Color(255, 255, 255));
         jLabel8.setText("THÊM NHÀ CUNG CẤP");
         jLabel8.setHorizontalAlignment(JLabel.CENTER);
@@ -164,19 +164,19 @@ public class NhaCungCap_GUI extends JPanel {
                                 .addGap(24, 24, Short.MAX_VALUE))
         );
 
-        lblMa.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblMa.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblMa.setText("Mã Nhà Cung Cấp");
 
-        lblSDT.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblSDT.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblSDT.setText("Số Điện Thoại");
 
-        lblDiaChi.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblDiaChi.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblDiaChi.setText("Địa Chỉ");
 
-        lblTen.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblTen.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblTen.setText("Tên Nhà Cung Cấp");
 
-        lblTinhTrang.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblTinhTrang.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblTinhTrang.setText("Tình Trạng");
 
         txt_ma.setEditable(false);
@@ -186,13 +186,13 @@ public class NhaCungCap_GUI extends JPanel {
         cboTinhTrang.setBorder(null);
         cboTinhTrang.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         btnThem.setBackground(new Color(22, 97, 86));
-        btnThem.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnThem.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnThem.setForeground(new Color(255, 255, 255));
         btnThem.setText("Thêm Nhà Cung Cấp");
         btnThem.addActionListener(this::btnThemActionPerformed);
 
         btnHuyThem.setBackground(new Color(173, 79, 40));
-        btnHuyThem.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnHuyThem.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnHuyThem.setForeground(new Color(255, 255, 255));
         btnHuyThem.setText("Hủy Bỏ");
         // Đặt kích thước cho btnHuyThem bằng với btnThem
@@ -293,7 +293,7 @@ public class NhaCungCap_GUI extends JPanel {
         jPanel10.setBackground(new Color(255, 255, 255));
         jPanel11.setBackground(new Color(22, 97, 86));
 
-        jLabel14.setFont(new Font("Segoe UI Black", Font.BOLD, 14));
+        jLabel14.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 14));
         jLabel14.setForeground(new Color(255, 255, 255));
         jLabel14.setText("CẬP NHẬT NHÀ CUNG CẤP");
 
@@ -314,19 +314,19 @@ public class NhaCungCap_GUI extends JPanel {
                                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        lblMa1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblMa1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblMa1.setText("Mã nhà Cung Cấp");
 
-        lblSDT1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblSDT1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblSDT1.setText("Số Điện Thoại");
 
-        lblDiaChi1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblDiaChi1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblDiaChi1.setText("Địa Chỉ");
 
-        lblTen1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblTen1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblTen1.setText("Tên Nhà Cung Cấp");
 
-        lblTinhTrang1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblTinhTrang1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblTinhTrang1.setText("Tình Trạng");
 
         txt_ma1.setEditable(false);
@@ -337,13 +337,13 @@ public class NhaCungCap_GUI extends JPanel {
         cboTinhTrang.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
 
         btnCapNhat.setBackground(new Color(22, 97, 86));
-        btnCapNhat.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnCapNhat.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnCapNhat.setForeground(new Color(255, 255, 255));
         btnCapNhat.setText("Cập Nhật Nhà Cung Cấp");
         btnCapNhat.addActionListener(this::btnCapNhatActionPerformed);
 
         btnHuyCapNhat.setBackground(new Color(204, 0, 51));
-        btnHuyCapNhat.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnHuyCapNhat.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnHuyCapNhat.setForeground(new Color(255, 255, 255));
         btnHuyCapNhat.setText("Hủy Bỏ");
         btnHuyCapNhat.addActionListener(this::btnHuyCapNhatActionPerformed);
@@ -435,7 +435,7 @@ public class NhaCungCap_GUI extends JPanel {
         iconThem.setBackground(new Color(255, 255, 255));
         jLabel2.setSvgImage("icon/person-fill-add.svg", 70, 70);
         jLabel1.setBackground(new Color(255, 255, 255));
-        jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel1.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel1.setForeground(new Color(102, 102, 255));
         jLabel1.setText("THÊM");
         jLabel1.setHorizontalAlignment(JLabel.CENTER);
@@ -461,7 +461,7 @@ public class NhaCungCap_GUI extends JPanel {
 
         jLabel5.setSvgImage("icon/edit.svg", 70, 70);
 
-        jLabel3.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel3.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel3.setForeground(new Color(102, 102, 255));
         jLabel3.setText("CẬP NHẬT");
         jLabel3.setHorizontalAlignment(JLabel.CENTER);
@@ -484,7 +484,7 @@ public class NhaCungCap_GUI extends JPanel {
 
         jPanel5.setBackground(new Color(255, 255, 255));
 
-        jLabel4.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel4.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel4.setForeground(new Color(102, 102, 255));
         jLabel4.setText("CHI TIẾT");
         jLabel4.setHorizontalAlignment(JLabel.CENTER);
@@ -509,7 +509,7 @@ public class NhaCungCap_GUI extends JPanel {
 
         jLabel9.setSvgImage("icon/excel.svg", 70, 70);
 
-        jLabel10.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel10.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel10.setForeground(new Color(102, 102, 255));
         jLabel10.setText("XUẤT EXCEL");
         jLabel10.setHorizontalAlignment(JLabel.CENTER);
@@ -534,7 +534,7 @@ public class NhaCungCap_GUI extends JPanel {
         jTextField1.addActionListener(this::jTextField1ActionPerformed);
 
         btn_LamMoi.setBackground(new Color(32, 131, 116));
-        btn_LamMoi.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        btn_LamMoi.setFont(new Font("Bahnschrift", Font.BOLD, 15));
         btn_LamMoi.setForeground(Color.white);
         btn_LamMoi.setText("Làm mới");
         btn_LamMoi.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -542,7 +542,7 @@ public class NhaCungCap_GUI extends JPanel {
         btn_LamMoi.setPreferredSize(new Dimension(90, 31));
 
         btn_TimKiem.setBackground(new Color(32, 131, 116));
-        btn_TimKiem.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        btn_TimKiem.setFont(new Font("Bahnschrift", Font.BOLD, 15));
         btn_TimKiem.setForeground(new Color(255, 255, 255));
         btn_TimKiem.setText("Tìm");
         btn_TimKiem.addActionListener(this::btn_TimKiemActionPerformed);
@@ -590,7 +590,7 @@ public class NhaCungCap_GUI extends JPanel {
                                         .addComponent(btn_TimKiem, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel8.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh Sách Nhà Cung Cấp", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Segoe UI", Font.BOLD, 12)));
+        jPanel8.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh Sách Nhà Cung Cấp", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Bahnschrift", Font.BOLD, 12)));
 
         table_DSNCC.setModel(new DefaultTableModel(
                 new Object [][] {},

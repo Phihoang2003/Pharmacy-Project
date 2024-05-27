@@ -28,6 +28,11 @@ public class HoaDon {
         this.maHD = maHD;
     }
 
+    public HoaDon(Date ngayLapHD, double tienThanhToan) {
+        this.ngayLapHD = ngayLapHD;
+        this.tienThanhToan = tienThanhToan;
+    }
+
     public HoaDon(String maHD, Date ngayLapHD, KhachHang khachHang, NhanVien nhanVien,
                   ChuongTrinhKhuyenMai chuongTrinhKM, double tienKhuyenMai, double tongTien, double tienThanhToan, int tinhTrang) {
         this.maHD = maHD;
@@ -103,12 +108,7 @@ public class HoaDon {
             this.tienThanhToan = tongTien - tienKhuyenMai;
         }
         else{
-            if(tongTien - tienKhuyenMai - khachHang.getDiemTichLuy()<0){
-                this.tienThanhToan = 0;
-            }
-           else{
-                this.tienThanhToan = tongTien - tienKhuyenMai - khachHang.getDiemTichLuy();
-            }
+            this.tienThanhToan = tongTien - tienKhuyenMai - khachHang.getDiemTichLuy();
         }
     }
 
@@ -149,5 +149,22 @@ public class HoaDon {
         HoaDon other = (HoaDon) obj;
         return Objects.equals(maHD, other.maHD);
     }
+    private double loiNhuan;
 
+    // existing constructors...
+
+    public HoaDon(double loiNhuan, Date ngayLapHD) {
+        this.ngayLapHD = ngayLapHD;
+        this.loiNhuan = loiNhuan;
+    }
+
+    // existing methods...
+
+    public double getLoiNhuan() {
+        return loiNhuan;
+    }
+
+    public void setLoiNhuan(double loiNhuan) {
+        this.loiNhuan = loiNhuan;
+    }
 }

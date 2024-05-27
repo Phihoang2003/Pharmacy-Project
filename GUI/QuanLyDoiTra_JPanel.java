@@ -18,17 +18,17 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         initComponents();
         setBounds(0, 0, 1173, 699);
         
-        ImageIcon img_btnTimKiem = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonTimKiem.png");
+        ImageIcon img_btnTimKiem = new ImageIcon("icon/buttonTimKiem.png");
         Image scaled_btnTimKiem = img_btnTimKiem.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnTimKiem = new ImageIcon(scaled_btnTimKiem);
         btn_TimKiem.setIcon(img_btnTimKiem);
         
-        ImageIcon img_btnXemChiTiet = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonXemChiTiet.png");
+        ImageIcon img_btnXemChiTiet = new ImageIcon("icon/buttonXemChiTiet.png");
         Image scaled_btnXemChiTiet = img_btnXemChiTiet.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnXemChiTiet = new ImageIcon(scaled_btnXemChiTiet);
         btn_XemChiTiet.setIcon(img_btnXemChiTiet);
         
-        ImageIcon img_btnLamMoi = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonLamMoi.png");
+        ImageIcon img_btnLamMoi = new ImageIcon("icon/buttonLamMoi.png");
         Image scaled_btnLamMoi = img_btnLamMoi.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnLamMoi = new ImageIcon(scaled_btnLamMoi);
         btn_LamMoi.setIcon(img_btnLamMoi);
@@ -68,21 +68,21 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Jpanel_ThaoTac.setBackground(new Color(22, 97, 86));
-        Jpanel_ThaoTac.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Các thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new Font("Segoe UI", 1, 14), new Color(255, 255, 255))); // NOI18N
+        Jpanel_ThaoTac.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Các thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new Font("Bahnschrift", 1, 14), new Color(255, 255, 255))); // NOI18N
         Jpanel_ThaoTac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_MaHoaDon.setBackground(new Color(255, 255, 255));
-        lbl_MaHoaDon.setFont(new Font("Segoe UI", 1, 16)); // NOI18N
+        lbl_MaHoaDon.setFont(new Font("Bahnschrift", 1, 16)); // NOI18N
         lbl_MaHoaDon.setForeground(new Color(255, 255, 255));
         lbl_MaHoaDon.setText("Mã đơn đổi trả");
         Jpanel_ThaoTac.add(lbl_MaHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 20, 120, 20));
 
-        jLabel1.setFont(new Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel1.setFont(new Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel1.setForeground(new Color(255, 255, 255));
         jLabel1.setText("Ngày Lập");
         Jpanel_ThaoTac.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 60, 150, 20));
 
-        txt_MaDonDoiTra.setFont(new Font("Segoe UI", 0, 16)); // NOI18N
+        txt_MaDonDoiTra.setFont(new Font("Bahnschrift", 0, 16)); // NOI18N
         txt_MaDonDoiTra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txt_MaDonDoiTraActionPerformed(evt);
@@ -92,7 +92,7 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         Jpanel_ThaoTac.add(jdc_NgayLap, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 200, 30));
 
         btn_TimKiem.setBackground(new Color(0, 51, 51));
-        btn_TimKiem.setFont(new Font("Segoe UI", 1, 15)); // NOI18N
+        btn_TimKiem.setFont(new Font("Bahnschrift", 1, 15)); // NOI18N
         btn_TimKiem.setForeground(new Color(255, 255, 255));
         btn_TimKiem.setText("Tìm kiếm");
         btn_TimKiem.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -104,7 +104,7 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         Jpanel_ThaoTac.add(btn_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 120, 30));
 
         btn_LamMoi.setBackground(new Color(0, 51, 51));
-        btn_LamMoi.setFont(new Font("Segoe UI", 1, 15)); // NOI18N
+        btn_LamMoi.setFont(new Font("Bahnschrift", 1, 15)); // NOI18N
         btn_LamMoi.setForeground(new Color(255, 255, 255));
         btn_LamMoi.setText("Làm mới");
         btn_LamMoi.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -116,7 +116,7 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         Jpanel_ThaoTac.add(btn_LamMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 120, 30));
 
         btn_XemChiTiet.setBackground(new Color(0, 51, 51));
-        btn_XemChiTiet.setFont(new Font("Segoe UI", 1, 15)); // NOI18N
+        btn_XemChiTiet.setFont(new Font("Bahnschrift", 1, 15)); // NOI18N
         btn_XemChiTiet.setForeground(Color.white);
         btn_XemChiTiet.setText("Xem chi tiết");
         btn_XemChiTiet.setHorizontalTextPosition(SwingConstants.RIGHT);
@@ -130,7 +130,7 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         add(Jpanel_ThaoTac, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1260, 100));
 
         Jpanel_Table.setBackground(new Color(22, 97, 86));
-        Jpanel_Table.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh sách đơn đổi trả", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new Font("Segoe UI", 1, 14), new Color(255, 255, 255))); // NOI18N
+        Jpanel_Table.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh sách đơn đổi trả", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new Font("Bahnschrift", 1, 14), new Color(255, 255, 255))); // NOI18N
         Jpanel_Table.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
         Jpanel_Table.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

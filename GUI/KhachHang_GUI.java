@@ -151,7 +151,7 @@ public class KhachHang_GUI extends JPanel {
 
         jPanel9.setBackground(new Color(37, 51, 49));
 
-        jLabel8.setFont(new Font("Segoe UI Black", Font.BOLD, 14));
+        jLabel8.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 14));
         jLabel8.setForeground(new Color(255, 255, 255));
         jLabel8.setText("THÊM KHÁCH HÀNG");
         jLabel8.setHorizontalAlignment(JLabel.CENTER);
@@ -173,10 +173,10 @@ public class KhachHang_GUI extends JPanel {
                                 .addGap(21, 21, 21))
         );
 
-        lblHoTen.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblHoTen.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblHoTen.setText("Tên Khách Hàng");
 
-        lblGioiTinh.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblGioiTinh.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblGioiTinh.setText("Giới Tính");
 
         Gender.add(rad_nam);
@@ -186,22 +186,22 @@ public class KhachHang_GUI extends JPanel {
         Gender.add(rad_nu);
         rad_nu.setText("Nữ");
 
-        lblSDT.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblSDT.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblSDT.setText("Số Điện Thoại");
 
-        lblMa.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblMa.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblMa.setText("Mã khách hàng");
         txt_ma.setEditable(false);
         txt_ma.setBackground(new Color(204, 204, 204));
 
         btnThem.setBackground(new Color(22, 97, 86));
-        btnThem.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnThem.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnThem.setForeground(new Color(255, 255, 255));
         btnThem.setText("Thêm Khách Hàng");
         btnThem.addActionListener(this::btnThemActionPerformed);
 
         btnHuyThem.setBackground(new Color(173, 79, 40));
-        btnHuyThem.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnHuyThem.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnHuyThem.setForeground(new Color(255, 255, 255));
         btnHuyThem.setText("Hủy Bỏ");
         // Đặt kích thước cho btnHuyThem bằng với btnThem
@@ -294,7 +294,7 @@ public class KhachHang_GUI extends JPanel {
         jPanel10.setBackground(new Color(255, 255, 255));
         jPanel11.setBackground(new Color(22, 97, 86));
 
-        jLabel14.setFont(new Font("Segoe UI Black", Font.BOLD, 14));
+        jLabel14.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 14));
         jLabel14.setForeground(new Color(255, 255, 255));
         jLabel14.setText("CẬP NHẬT KHÁCH HÀNG");
 
@@ -315,19 +315,19 @@ public class KhachHang_GUI extends JPanel {
                                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        lblSDT1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblSDT1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblSDT1.setText("Số Điện Thoại");
 
-        lblHoTen1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblHoTen1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblHoTen1.setText("Họ Tên");
 
-        lblMa1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblMa1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblMa1.setText("Mã Khách Hàng");
 
         txt_ma1.setEditable(false);
         txt_ma1.setBackground(new Color(204, 204, 204));
 
-        lblGioiTinh1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblGioiTinh1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblGioiTinh1.setText("Giới Tính");
 
         Gender.add(rad_nam1);
@@ -337,13 +337,13 @@ public class KhachHang_GUI extends JPanel {
         rad_nu1.setText("Nữ");
 
         btnCapNhat.setBackground(new Color(22, 97, 86));
-        btnCapNhat.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnCapNhat.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnCapNhat.setForeground(new Color(255, 255, 255));
         btnCapNhat.setText("Cập Nhật Khách Hàng");
         btnCapNhat.addActionListener(this::btnCapNhatActionPerformed);
 
         btnHuyCapNhat.setBackground(new Color(204, 0, 51));
-        btnHuyCapNhat.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnHuyCapNhat.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnHuyCapNhat.setForeground(new Color(255, 255, 255));
         btnHuyCapNhat.setText("Hủy Bỏ");
         btnHuyCapNhat.addActionListener(this::btnHuyCapNhatActionPerformed);
@@ -429,7 +429,7 @@ public class KhachHang_GUI extends JPanel {
         iconThem.setBackground(new Color(255, 255, 255));
         jLabel2.setSvgImage("icon/person-fill-add.svg", 70, 70);
         jLabel1.setBackground(new Color(255, 255, 255));
-        jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel1.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel1.setForeground(new Color(102, 102, 255));
         jLabel1.setText("THÊM");
         jLabel1.setHorizontalAlignment(JLabel.CENTER);
@@ -455,7 +455,7 @@ public class KhachHang_GUI extends JPanel {
 
         jLabel5.setSvgImage("icon/edit.svg", 70, 70);
 
-        jLabel3.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel3.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel3.setForeground(new Color(102, 102, 255));
         jLabel3.setText("CẬP NHẬT");
         jLabel3.setHorizontalAlignment(JLabel.CENTER);
@@ -478,7 +478,7 @@ public class KhachHang_GUI extends JPanel {
 
         jPanel5.setBackground(new Color(255, 255, 255));
 
-        jLabel4.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel4.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel4.setForeground(new Color(102, 102, 255));
         jLabel4.setText("CHI TIẾT");
         jLabel4.setHorizontalAlignment(JLabel.CENTER);
@@ -503,7 +503,7 @@ public class KhachHang_GUI extends JPanel {
 
         jLabel9.setSvgImage("icon/excel.svg", 70, 70);
 
-        jLabel10.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel10.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel10.setForeground(new Color(102, 102, 255));
         jLabel10.setText("XUẤT EXCEL");
         jLabel10.setHorizontalAlignment(JLabel.CENTER);
@@ -528,7 +528,7 @@ public class KhachHang_GUI extends JPanel {
         jTextField1.addActionListener(this::jTextField1ActionPerformed);
 
         btn_LamMoi.setBackground(new Color(32, 131, 116));
-        btn_LamMoi.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        btn_LamMoi.setFont(new Font("Bahnschrift", Font.BOLD, 15));
         btn_LamMoi.setForeground(Color.white);
         btn_LamMoi.setText("Làm mới");
         btn_LamMoi.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -536,7 +536,7 @@ public class KhachHang_GUI extends JPanel {
         btn_LamMoi.setPreferredSize(new Dimension(90, 31));
 
         btn_TimKiem.setBackground(new Color(32, 131, 116));
-        btn_TimKiem.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        btn_TimKiem.setFont(new Font("Bahnschrift", Font.BOLD, 15));
         btn_TimKiem.setForeground(new Color(255, 255, 255));
         btn_TimKiem.setText("Tìm");
         btn_TimKiem.addActionListener(this::btn_TimKiemActionPerformed);
@@ -582,7 +582,7 @@ public class KhachHang_GUI extends JPanel {
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel8.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh Sách Khách Hàng", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Segoe UI", Font.BOLD, 12)));
+        jPanel8.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh Sách Khách Hàng", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Bahnschrift", Font.BOLD, 12)));
 
         table_DSKH.setModel(new DefaultTableModel(
                 new Object[][]{},

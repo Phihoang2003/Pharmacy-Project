@@ -28,15 +28,15 @@ public class HoaDon_GUI extends javax.swing.JPanel {
         setBounds(0, 0, 1186, 748);
 //          Jpanel_ThaoTac.setBorder(BorderFactory.createTitledBorder("Thao tác"));
 //        Jpanel_Table.setBorder(BorderFactory.createTitledBorder("Bảng danh sách"));
-        ImageIcon img_btnTimKiem = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonTimKiem.png");
+        ImageIcon img_btnTimKiem = new ImageIcon("icon/buttonTimKiem.png");
         Image scaled_btnTimKiem = img_btnTimKiem.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnTimKiem = new ImageIcon(scaled_btnTimKiem);
         btn_TimKiem.setIcon(img_btnTimKiem);
-        ImageIcon img_btnXemChiTiet = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonXemChiTiet.png");
+        ImageIcon img_btnXemChiTiet = new ImageIcon("icon/buttonXemChiTiet.png");
         Image scaled_btnXemChiTiet = img_btnXemChiTiet.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnXemChiTiet = new ImageIcon(scaled_btnXemChiTiet);
         btn_XemChiTiet.setIcon(img_btnXemChiTiet);
-        ImageIcon img_btnXoa = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonXoa.png");
+        ImageIcon img_btnXoa = new ImageIcon("icon/buttonXoa.png");
         Image scaled_btnXoa = img_btnXoa.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnXoa = new ImageIcon(scaled_btnXoa);
         btn_LamMoi.setIcon(img_btnXoa);
@@ -114,7 +114,7 @@ public class HoaDon_GUI extends javax.swing.JPanel {
         Jpanel_TieuDeHoaDon.setBackground(new java.awt.Color(22, 97, 86));
         Jpanel_TieuDeHoaDon.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lbl_TieuDeHoaDon.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_TieuDeHoaDon.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         lbl_TieuDeHoaDon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lbl_TieuDeHoaDon.setText("QUẢN LÝ HÓA ĐƠN");
         lbl_TieuDeHoaDon.setForeground(Color.WHITE);
@@ -123,16 +123,16 @@ public class HoaDon_GUI extends javax.swing.JPanel {
         add(Jpanel_TieuDeHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1186, 50));
 
         Jpanel_ThaoTac.setBackground(new java.awt.Color(22, 97, 86));
-        Jpanel_ThaoTac.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12))); // NOI18N
+        Jpanel_ThaoTac.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Bahnschrift", 0, 12))); // NOI18N
         Jpanel_ThaoTac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         Jpanel_ThaoTac.setBackground(Color.WHITE);
 
-        lbl_MaHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lbl_MaHoaDon.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         lbl_MaHoaDon.setText("Mã Hóa Đơn");
         Jpanel_ThaoTac.add(lbl_MaHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 20, 120, 20));
 
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         jLabel1.setText("Ngày Lập Hóa Đơn");
 
         Jpanel_ThaoTac.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 60, 150, 20));
@@ -152,7 +152,7 @@ public class HoaDon_GUI extends javax.swing.JPanel {
         Jpanel_ThaoTac.add(dateNgayLap, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 200, 25));
 
         btn_TimKiem.setBackground(new java.awt.Color(0, 51, 51));
-        btn_TimKiem.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_TimKiem.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_TimKiem.setForeground(new java.awt.Color(255, 255, 255));
         btn_TimKiem.setText("Tìm kiếm");
         btn_TimKiem.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -164,7 +164,7 @@ public class HoaDon_GUI extends javax.swing.JPanel {
         Jpanel_ThaoTac.add(btn_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 120, 30));
 
         btn_LamMoi.setBackground(new java.awt.Color(0, 51, 51));
-        btn_LamMoi.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_LamMoi.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_LamMoi.setForeground(new java.awt.Color(255, 255, 255));
         btn_LamMoi.setText("Làm mới");
         btn_LamMoi.addActionListener(new java.awt.event.ActionListener() {
@@ -175,7 +175,7 @@ public class HoaDon_GUI extends javax.swing.JPanel {
         Jpanel_ThaoTac.add(btn_LamMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 120, 30));
 
         btn_XemChiTiet.setBackground(new java.awt.Color(0, 51, 51));
-        btn_XemChiTiet.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_XemChiTiet.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_XemChiTiet.setForeground(java.awt.Color.white);
         btn_XemChiTiet.setText("Xem chi tiết");
         btn_XemChiTiet.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -189,7 +189,7 @@ public class HoaDon_GUI extends javax.swing.JPanel {
         add(Jpanel_ThaoTac, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 1170, 100));
 
         Jpanel_Table.setBackground(Color.WHITE);
-        Jpanel_Table.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Danh sách hóa đơn", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12))); // NOI18N
+        Jpanel_Table.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Danh sách hóa đơn", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Bahnschrift", 0, 12))); // NOI18N
         Jpanel_Table.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Jpanel_Table.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -331,11 +331,7 @@ public class HoaDon_GUI extends javax.swing.JPanel {
                         else {
                             XoahetDuLieuTrenTable();
                         for (HoaDon hd : ds) {
-                            if(hd.getKhachHang()!=null){
-                                addRows(new Object[]{hd.getMaHD(),hd.getKhachHang().getMaKhachHang(),hd.getNhanVien().getMaNhanVien(),hd.getChuongTrinhKM().getMaCTKM(),hd.getNgayLapHD(),hd.getTienKhuyenMai(), hd.getTongTien(), hd.getTienThanhToan(),hd.getTinhTrang()});
-                            }else{
-                                addRows(new Object[]{hd.getMaHD(),hd.getNhanVien().getMaNhanVien(),hd.getChuongTrinhKM().getMaCTKM(),hd.getNgayLapHD(),hd.getTienKhuyenMai(), hd.getTongTien(), hd.getTienThanhToan(),hd.getTinhTrang()});
-                            }
+                            addRows(new Object[]{hd.getMaHD(),hd.getKhachHang().getMaKhachHang(),hd.getNhanVien().getMaNhanVien(),hd.getChuongTrinhKM().getMaCTKM(),hd.getNgayLapHD(),hd.getTienKhuyenMai(), hd.getTongTien(), hd.getTienThanhToan(),hd.getTinhTrang()});
                         }
                         }
                         }

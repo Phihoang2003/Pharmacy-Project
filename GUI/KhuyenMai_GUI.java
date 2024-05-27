@@ -8,7 +8,7 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-
+import com.toedter.calendar.JDateChooser;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
@@ -47,26 +47,27 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
          rdo_group.add(rdo_sp);
          rdo_group.add(rdo_hd);
 
+
          dateNgayBatDau.setLocale(Locale.forLanguageTag("vi-VN"));
          dateNgayKetThuc.setLocale(Locale.forLanguageTag("vi-VN"));
-          setBounds(0, 0, 1186, 748);
+         setBounds(0, 0, 1186, 748);
 
-        ImageIcon img_btnTimKiem = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonTimKiem.png");
+        ImageIcon img_btnTimKiem = new ImageIcon("icon/buttonTimKiem.png");
         Image scaled_btnTimKiem = img_btnTimKiem.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnTimKiem = new ImageIcon(scaled_btnTimKiem);
         btn_TimKiem.setIcon(img_btnTimKiem);
 
-        ImageIcon img_btnThem = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonThem.png");
+        ImageIcon img_btnThem = new ImageIcon("icon/buttonThem.png");
         Image scaled_btnThem = img_btnThem.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnThem = new ImageIcon(scaled_btnThem);
         btn_Them.setIcon(img_btnThem);
 
-        ImageIcon img_btnLamMoi = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonLamMoi.png");
+        ImageIcon img_btnLamMoi = new ImageIcon("icon/buttonLamMoi.png");
         Image scaled_btnLamMoi = img_btnLamMoi.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnLamMoi = new ImageIcon(scaled_btnLamMoi);
         btn_LamMoi.setIcon(img_btnLamMoi);
 
-        ImageIcon img_btnCapNhat = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonCapNhat.png");
+        ImageIcon img_btnCapNhat = new ImageIcon("icon/buttonCapNhat.png");
         Image scaled_btnCapNhat = img_btnCapNhat.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnCapNhat = new ImageIcon(scaled_btnCapNhat);
         btn_CapNhat.setIcon(img_btnCapNhat);
@@ -432,7 +433,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setBackground(new Color(22, 97, 86));
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         jLabel2.setForeground(new Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(SwingConstants.CENTER);
         jLabel2.setText("QUẢN LÝ CHƯƠNG TRÌNH KHUYẾN MÃI");
@@ -441,39 +442,39 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 40));
 
         JPanel_ThongTinCTKM.setBackground(new Color(22, 97, 86));
-        JPanel_ThongTinCTKM.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)), "Thông tin chương trình khuyến mãi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new Color(255, 255, 255))); // NOI18N
+        JPanel_ThongTinCTKM.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)), "Thông tin chương trình khuyến mãi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Bahnschrift", 0, 12), new Color(255, 255, 255))); // NOI18N
         JPanel_ThongTinCTKM.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jLabel1.setForeground(new Color(255, 255, 255));
         jLabel1.setText("Tên Chương Trình");
         JPanel_ThongTinCTKM.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 120, 30));
 
-        txtTenCTKM.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtTenCTKM.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         txtTenCTKM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtTenCTKM.setBorder(null);
         JPanel_ThongTinCTKM.add(txtTenCTKM, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 170, 30));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jLabel3.setForeground(new Color(255, 255, 255));
         jLabel3.setText("Ngày Kết Thúc");
         jLabel3.setPreferredSize(new java.awt.Dimension(109, 30));
         JPanel_ThongTinCTKM.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 100, 30));
 
-        txtGiamGia.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtGiamGia.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         txtGiamGia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtGiamGia.setBorder(null);
         txtGiamGia.setFocusCycleRoot(true);
         JPanel_ThongTinCTKM.add(txtGiamGia, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, 170, 30));
 
         txtMaCTKM.setEditable(false);
-        txtMaCTKM.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtMaCTKM.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         txtMaCTKM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtMaCTKM.setBackground(new Color(244, 244, 244));
         txtMaCTKM.setBorder(null);
         JPanel_ThongTinCTKM.add(txtMaCTKM, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 170, 30));
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         jLabel5.setForeground(new Color(255, 255, 255));
         jLabel5.setText("Giảm Giá (%)");
         jLabel5.setPreferredSize(new java.awt.Dimension(109, 30));
@@ -488,18 +489,18 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         });
         JPanel_ThongTinCTKM.add(dateNgayKetThuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 60, 180, 30));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         jLabel6.setForeground(new Color(255, 255, 255));
         jLabel6.setText("Loại Khuyến Mãi");
         jLabel6.setPreferredSize(new java.awt.Dimension(109, 30));
         JPanel_ThongTinCTKM.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 160, 30));
 
-        txtSoTienGiamTD.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtSoTienGiamTD.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         txtSoTienGiamTD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtSoTienGiamTD.setBorder(null);
         JPanel_ThongTinCTKM.add(txtSoTienGiamTD, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 60, 170, 30));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         jLabel7.setForeground(new Color(255, 255, 255));
         jLabel7.setText("Ngày Bắt Đầu");
         jLabel7.setPreferredSize(new java.awt.Dimension(109, 30));
@@ -515,31 +516,31 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         JPanel_ThongTinCTKM.add(dateNgayBatDau, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 20, 180, 30));
 
         jLabel8.setBackground(new Color(22, 97, 86));
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Bahnschrift", 0, 14)); // NOI18N
         jLabel8.setForeground(new Color(255, 255, 255));
         jLabel8.setText("Mã Chương Trình");
         jLabel8.setPreferredSize(new java.awt.Dimension(109, 30));
         JPanel_ThongTinCTKM.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 120, 30));
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         jLabel9.setForeground(new Color(255, 255, 255));
         jLabel9.setText("Tiền  Tối Thiểu Để Giảm");
         jLabel9.setPreferredSize(new java.awt.Dimension(109, 30));
         JPanel_ThongTinCTKM.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 180, 30));
 
-        txtSoTienGiamTT.setFont(new java.awt.Font("Segoe UI", 0, 12)); // NOI18N
+        txtSoTienGiamTT.setFont(new java.awt.Font("Bahnschrift", 0, 12)); // NOI18N
         txtSoTienGiamTT.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtSoTienGiamTT.setBorder(null);
         JPanel_ThongTinCTKM.add(txtSoTienGiamTT, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 170, 30));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         jLabel10.setForeground(new Color(255, 255, 255));
         jLabel10.setText("Tiền Tối Đa Được Giảm");
         jLabel10.setPreferredSize(new java.awt.Dimension(109, 30));
         JPanel_ThongTinCTKM.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, 160, 30));
 
         rdo_sp.setBackground(new Color(22, 97, 86));
-        rdo_sp.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        rdo_sp.setFont(new java.awt.Font("Bahnschrift", 3, 12)); // NOI18N
         rdo_sp.setText("Áp dụng cho sản phẩm");
         rdo_hd.setForeground(Color.WHITE);
         rdo_sp.setForeground(Color.WHITE);
@@ -551,7 +552,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         JPanel_ThongTinCTKM.add(rdo_sp, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, -1, -1));
 
         rdo_hd.setBackground(new Color(22, 97, 86));
-        rdo_hd.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        rdo_hd.setFont(new java.awt.Font("Bahnschrift", 3, 12)); // NOI18N
         rdo_hd.setSelected(true);
         rdo_hd.setText("Áp dụng cho hoá đơn");
         rdo_hd.addActionListener(new java.awt.event.ActionListener() {
@@ -563,7 +564,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
 
         txtLoaiKM.setEditable(false);
         txtLoaiKM.setBackground(new Color(244, 244, 244));
-        txtLoaiKM.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtLoaiKM.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         txtLoaiKM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         JPanel_ThongTinCTKM.add(txtLoaiKM, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 100, 170, 30));
 
@@ -590,16 +591,16 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         add(JPanel_ThongTinCTKM, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 1240, 150));
 
         JPanel_ThaoTac.setBackground(new Color(255, 255, 255));
-        JPanel_ThaoTac.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)), "Thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12))); // NOI18N
+        JPanel_ThaoTac.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)), "Thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Bahnschrift", 0, 12))); // NOI18N
         JPanel_ThaoTac.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 13)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         jLabel4.setText("Mã Chương Trình");
         jLabel4.setPreferredSize(new java.awt.Dimension(109, 30));
         JPanel_ThaoTac.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 120, 30));
 
         btn_TimKiem.setBackground(new Color(22, 97, 86));
-        btn_TimKiem.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_TimKiem.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_TimKiem.setForeground(new Color(255, 255, 255));
         btn_TimKiem.setText("Tìm Kiếm");
         btn_TimKiem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -611,7 +612,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         JPanel_ThaoTac.add(btn_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, 120, 30));
 
         btn_LamMoi.setBackground(new Color(22, 97, 86));
-        btn_LamMoi.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_LamMoi.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_LamMoi.setForeground(new Color(255, 255, 255));
         btn_LamMoi.setText("Làm Mới");
         btn_LamMoi.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -628,7 +629,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         JPanel_ThaoTac.add(btn_LamMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 120, 30));
 
         btn_Them.setBackground(new Color(22, 97, 86));
-        btn_Them.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_Them.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_Them.setForeground(new Color(255, 255, 255));
         btn_Them.setText("Thêm");
         btn_Them.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -640,7 +641,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         JPanel_ThaoTac.add(btn_Them, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 20, 120, 30));
 
         btn_CapNhat.setBackground(new Color(22, 97, 86));
-        btn_CapNhat.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_CapNhat.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_CapNhat.setForeground(new Color(255, 255, 255));
         btn_CapNhat.setText("Cập Nhật");
         btn_CapNhat.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -660,7 +661,7 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         add(JPanel_ThaoTac, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 1240, 60));
 
         JPanel_Table.setBackground(new Color(255, 255, 255));
-        JPanel_Table.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh sách bảng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12))); // NOI18N
+        JPanel_Table.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh sách bảng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Bahnschrift", 0, 12))); // NOI18N
 
         jTable1.setModel(new DefaultTableModel(
             new Object [][] {
@@ -846,47 +847,23 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
         Cell cell = null;
         row = sheet.createRow(3);
 
-        cell = row.createCell(0,CellType.STRING);
-        cell.setCellValue("Mã Chương Trình");
+        row.createCell(0).setCellValue("Mã Chương Trình");
+row.createCell(1).setCellValue("Loại Khuyến Mãi");
+row.createCell(2).setCellValue("Tên Chương Trình");
 
-        cell = row.createCell(1,CellType.STRING);
-        cell.setCellValue("Loại Khuyến Mãi");
-
-        cell = row.createCell(2,CellType.STRING);
-        cell.setCellValue("Tên Chương Trình");
-
-        if(txtLoaiKM.getText().equals("GGHD")){
-        cell = row.createCell(3,CellType.STRING);
-        cell.setCellValue("Số tiền tối thiểu");
-
-        cell = row.createCell(4,CellType.STRING);
-        cell.setCellValue("Số tiền tối đa");
-
-        cell = row.createCell(5,CellType.STRING);
-        cell.setCellValue("Giảm giá");
-
-        cell = row.createCell(6,CellType.STRING);
-        cell.setCellValue("Ngày bắt đầu ");
-
-        cell = row.createCell(7,CellType.STRING);
-        cell.setCellValue("Ngày Kết Thúc");
-
-        cell = row.createCell(8,CellType.STRING);
-        cell.setCellValue("Tình Trạng");
-        }else{
-        cell = row.createCell(3,CellType.STRING);
-        cell.setCellValue("Giảm giá");
-
-        cell = row.createCell(4,CellType.STRING);
-        cell.setCellValue("Ngày bắt đầu ");
-
-        cell = row.createCell(5,CellType.STRING);
-        cell.setCellValue("Ngày Kết Thúc");
-
-        cell = row.createCell(6,CellType.STRING);
-        cell.setCellValue("Tình Trạng");
-        }
-
+if(txtLoaiKM.getText().equals("GGHD")){
+    row.createCell(3).setCellValue("Số tiền tối thiểu");
+    row.createCell(4).setCellValue("Số tiền tối đa");
+    row.createCell(5).setCellValue("Giảm giá");
+    row.createCell(6).setCellValue("Ngày bắt đầu ");
+    row.createCell(7).setCellValue("Ngày Kết Thúc");
+    row.createCell(8).setCellValue("Tình Trạng");
+}else{
+    row.createCell(3).setCellValue("Giảm giá");
+    row.createCell(4).setCellValue("Ngày bắt đầu ");
+    row.createCell(5).setCellValue("Ngày Kết Thúc");
+    row.createCell(6).setCellValue("Tình Trạng");
+}
 
         ArrayList<ChuongTrinhKhuyenMai> dsCTKMHD = null;
         if(txtLoaiKM.getText().equals("GGHD"))dsCTKMHD = ctkmbus.getallCTKMtheoLoaiKM("GGHD");
@@ -894,67 +871,75 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
 
         int i =0;
         if(dsCTKMHD != null ){
-            for (ChuongTrinhKhuyenMai kmhd: dsCTKMHD){
-                i++;
-                row = sheet.createRow(3+i);
+    for (ChuongTrinhKhuyenMai kmhd: dsCTKMHD){
+        i++;
+        row = sheet.createRow(3+i);
 
-                cell = row.createCell(0,CellType.STRING);
-                cell.setCellValue(kmhd.getMaCTKM());
+        cell = row.createCell(0);
+        cell.setCellType(CellType.STRING);
+        cell.setCellValue(kmhd.getMaCTKM());
 
-                cell = row.createCell(1,CellType.STRING);
-                cell.setCellValue(kmhd.getMaLoaiKM().getMaLoaiKM());
+        cell = row.createCell(1);
+        cell.setCellType(CellType.STRING);
+        cell.setCellValue(kmhd.getMaLoaiKM().getMaLoaiKM());
 
-                cell = row.createCell(2,CellType.STRING);
-                cell.setCellValue(kmhd.getTenCTKM());
+        cell = row.createCell(2);
+        cell.setCellType(CellType.STRING);
+        cell.setCellValue(kmhd.getTenCTKM());
 
-                if(txtLoaiKM.getText().equals("GGHD")){
-                    cell = row.createCell(3,CellType.NUMERIC);
-                   cell.setCellValue(kmhd.getSoTienToiThieu());
+        if(txtLoaiKM.getText().equals("GGHD")){
+            cell = row.createCell(3);
+            cell.setCellType(CellType.NUMERIC);
+            cell.setCellValue(kmhd.getSoTienToiThieu());
 
-                   cell = row.createCell(4,CellType.NUMERIC);
-                   cell.setCellValue(kmhd.getSoTienToiDa());
+            cell = row.createCell(4);
+            cell.setCellType(CellType.NUMERIC);
+            cell.setCellValue(kmhd.getSoTienToiDa());
 
-                   cell = row.createCell(5,CellType.NUMERIC);
-                   cell.setCellValue(kmhd.getGiamGia());
+            cell = row.createCell(5);
+            cell.setCellType(CellType.NUMERIC);
+            cell.setCellValue(kmhd.getGiamGia());
 
-                   cell = row.createCell(6,CellType.STRING);
-                   cell.setCellValue(kmhd.getNgayBatDau().toString());
+            cell = row.createCell(6);
+            cell.setCellType(CellType.STRING);
+            cell.setCellValue(kmhd.getNgayBatDau().toString());
 
-                   cell = row.createCell(7,CellType.STRING);
-                   cell.setCellValue(kmhd.getNgayKetThuc().toString());
+            cell = row.createCell(7);
+            cell.setCellType(CellType.STRING);
+            cell.setCellValue(kmhd.getNgayKetThuc().toString());
 
-                   cell = row.createCell(8,CellType.STRING);
-                   cell.setCellValue(kmhd.getTinhTrang());
-                }else{
+            cell = row.createCell(8);
+            cell.setCellType(CellType.STRING);
+            cell.setCellValue(kmhd.getTinhTrang());
+        }else{
+            cell = row.createCell(3);
+            cell.setCellType(CellType.NUMERIC);
+            cell.setCellValue(kmhd.getGiamGia());
 
-                cell = row.createCell(3,CellType.NUMERIC);
-                cell.setCellValue(kmhd.getGiamGia());
+            cell = row.createCell(4);
+            cell.setCellType(CellType.STRING);
+            cell.setCellValue(kmhd.getNgayBatDau().toString());
 
-                cell = row.createCell(4,CellType.STRING);
-                cell.setCellValue(kmhd.getNgayBatDau().toString());
+            cell = row.createCell(5);
+            cell.setCellType(CellType.STRING);
+            cell.setCellValue(kmhd.getNgayKetThuc().toString());
 
-                cell = row.createCell(5,CellType.STRING);
-                cell.setCellValue(kmhd.getNgayKetThuc().toString());
-
-                cell = row.createCell(6,CellType.STRING);
-                cell.setCellValue(kmhd.getTinhTrang());
-                }
-
-
-                // Save file
-
-                    File fis = new File(filePath);
-                    try {
-                    FileOutputStream fisO = new FileOutputStream(fis);
-                    workbook.write(fisO);
-//                    fisO.close();
-                        openExcelFile(fis);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }
+            cell = row.createCell(6);
+            cell.setCellType(CellType.STRING);
+            cell.setCellValue(kmhd.getTinhTrang());
         }
+
+        // Save file
+        File fis = new File(filePath);
+        try {
+            FileOutputStream fisO = new FileOutputStream(fis);
+            workbook.write(fisO);
+            openExcelFile(fis);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
             }
     }//GEN-LAST:event_btn_XuatMouseClicked
     // Mở file

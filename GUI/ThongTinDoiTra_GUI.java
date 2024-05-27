@@ -96,7 +96,7 @@ public class ThongTinDoiTra_GUI extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         jLabel1.setText("THÔNG TIN ĐỔI TRẢ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, 37));
 
@@ -130,31 +130,31 @@ public class ThongTinDoiTra_GUI extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 811, 280));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel10.setText("Tiền hoàn trả");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 503, 114, -1));
 
-        lbl_TienHoanTra.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_TienHoanTra.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         getContentPane().add(lbl_TienHoanTra, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 503, 120, 20));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         jLabel13.setText("VND");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 503, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel20.setText("Hình thức đổi trả");
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 468, -1, -1));
 
-        lbl_HinhThuc.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_HinhThuc.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         getContentPane().add(lbl_HinhThuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 468, 120, 20));
 
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("Cảm ơn quý khách đã mua hàng tại cửa hàng của chúng tôi! Hẹn gặp lại lần sau !");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 560, 811, -1));
 
         btn_XuatHoaDon.setBackground(new Color(0, 51, 51));
-        btn_XuatHoaDon.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_XuatHoaDon.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_XuatHoaDon.setForeground(new Color(255, 255, 255));
         btn_XuatHoaDon.setText("Xuất hoá đơn");
         btn_XuatHoaDon.addActionListener(new java.awt.event.ActionListener() {
@@ -183,30 +183,30 @@ public class ThongTinDoiTra_GUI extends javax.swing.JFrame {
         jPanel2.setBackground(new Color(255,255,255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel4.setText("Tên khách hàng");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel2.setText("Mã đổi trả");
 
-        lbl_MaDoiTra.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_MaDoiTra.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         lbl_MaDoiTra.setText(" ");
 
-        lbl_TenKhachHang.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_TenKhachHang.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel3.setText("Mã nhân viên");
 
-        lbl_MaNhanVien.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_MaNhanVien.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel6.setText("Ngày lập");
 
-        lbl_NgayLap.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_NgayLap.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
 
-        lbl_SoDienThoai.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_SoDienThoai.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 13)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel8.setText("Số điện thoại");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);

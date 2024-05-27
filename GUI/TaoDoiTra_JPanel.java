@@ -13,7 +13,7 @@ import utils.ConvertDoubleToMoney;
 import utils.ConvertStringToEnum;
 import utils.Global;
 
-import java.awt.Image;
+import java.awt.*;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
@@ -56,32 +56,32 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
         initComponents();
         setBounds(0, 0, 1173, 699);
          
-        ImageIcon img_btnTimKiemHoaDon = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonTimKiem.png");
+        ImageIcon img_btnTimKiemHoaDon = new ImageIcon("icon/buttonTimKiem.png");
         Image scaled_btnTimKiemHoaDon = img_btnTimKiemHoaDon.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnTimKiemHoaDon = new ImageIcon(scaled_btnTimKiemHoaDon);
         btn_TimKiemHoaDon.setIcon(img_btnTimKiemHoaDon);
         
-        ImageIcon img_btnThemVaoGio = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonThem.png");
+        ImageIcon img_btnThemVaoGio = new ImageIcon("icon/buttonThem.png");
         Image scaled_btnThemVaoGio = img_btnThemVaoGio.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnThemVaoGio = new ImageIcon(scaled_btnThemVaoGio);
         btn_ThemVaoGio.setIcon(img_btnThemVaoGio);
         
-        ImageIcon img_btnCapNhatSoLuong = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonCapNhat.png");
+        ImageIcon img_btnCapNhatSoLuong = new ImageIcon("icon/buttonCapNhat.png");
         Image scaled_btnCapNhatSoLuong = img_btnCapNhatSoLuong.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnCapNhatSoLuong = new ImageIcon(scaled_btnCapNhatSoLuong);
         btn_CapNhatSoLuong.setIcon(img_btnCapNhatSoLuong);
         
-        ImageIcon img_btnXoaKhoiGio = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonXoa.png");
+        ImageIcon img_btnXoaKhoiGio = new ImageIcon("icon/buttonXoa.png");
         Image scaled_btnXoaKhoiGio = img_btnXoaKhoiGio.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnXoaKhoiGio = new ImageIcon(scaled_btnXoaKhoiGio);
         btn_XoaKhoiGio.setIcon(img_btnXoaKhoiGio);
         
-        ImageIcon img_btnTaoDoiTra = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonThem.png");
+        ImageIcon img_btnTaoDoiTra = new ImageIcon("icon/buttonThem.png");
         Image scaled_btnTaoDoiTra = img_btnTaoDoiTra.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnTaoDoiTra = new ImageIcon(scaled_btnTaoDoiTra);
         btn_TaoDoiTra.setIcon(img_btnTaoDoiTra);
         
-        ImageIcon img_btnLamMoi = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonLamMoi.png");
+        ImageIcon img_btnLamMoi = new ImageIcon("icon/buttonLamMoi.png");
         Image scaled_btnLamMoi = img_btnLamMoi.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnLamMoi = new ImageIcon(scaled_btnLamMoi);
         btn_LamMoi.setIcon(img_btnLamMoi); 
@@ -192,15 +192,15 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Thông tin hoá đơn", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Thông tin hoá đơn", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Bahnschrift", 1, 14))); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         jLabel2.setText("Mã hoá đơn");
 
-        txt_MaHoaDon.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        txt_MaHoaDon.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
 
         btn_TimKiemHoaDon.setBackground(new java.awt.Color(22, 97, 86));
-        btn_TimKiemHoaDon.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_TimKiemHoaDon.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_TimKiemHoaDon.setForeground(new java.awt.Color(255, 255, 255));
         btn_TimKiemHoaDon.setText("Tìm kiếm");
         btn_TimKiemHoaDon.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -210,55 +210,55 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel3.setText("Mã khách hàng");
 
-        lbl_MaKhachHang.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_MaKhachHang.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_MaKhachHang.setText(" ");
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel5.setText("Tên khách hàng");
 
-        lbl_TenKhachHang.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_TenKhachHang.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_TenKhachHang.setText(" ");
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel7.setText("Ngày lập");
 
-        lbl_NgayLap.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_NgayLap.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_NgayLap.setText(" ");
 
-        jLabel9.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel9.setText("Số điện thoại");
 
-        lbl_SoDienThoai.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_SoDienThoai.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_SoDienThoai.setText(" ");
 
-        jLabel11.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel11.setText("Tổng tiền");
 
-        lbl_TongTien.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_TongTien.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_TongTien.setText(" ");
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel13.setText("Tiền khuyến mãi");
 
-        lbl_TienKhuyenMai.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_TienKhuyenMai.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_TienKhuyenMai.setText(" ");
 
-        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel17.setText("Tiền phải thanh toán");
 
-        lbl_TienThanhToan.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_TienThanhToan.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_TienThanhToan.setText(" ");
 
-        lbl_tongTien1.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_tongTien1.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_tongTien1.setText("VND");
 
-        lbl_KhuyenMai2.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_KhuyenMai2.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_KhuyenMai2.setText("VND");
 
-        lbl_thanhToan1.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_thanhToan1.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_thanhToan1.setText("VND");
 
         table_HoaDon.setModel(new DefaultTableModel(
@@ -277,7 +277,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(table_HoaDon);
 
         btn_ThemVaoGio.setBackground(new java.awt.Color(22, 97, 86));
-        btn_ThemVaoGio.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_ThemVaoGio.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_ThemVaoGio.setForeground(new java.awt.Color(255, 255, 255));
         btn_ThemVaoGio.setText("Thêm vào giỏ");
         btn_ThemVaoGio.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -287,13 +287,13 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         jLabel25.setText("Số lượng");
 
-        spinner_SoLuong.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
+        spinner_SoLuong.setFont(new java.awt.Font("Bahnschrift", 0, 15)); // NOI18N
 
         btn_CapNhatSoLuong.setBackground(new java.awt.Color(22, 97, 86));
-        btn_CapNhatSoLuong.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_CapNhatSoLuong.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_CapNhatSoLuong.setForeground(new java.awt.Color(255, 255, 255));
         btn_CapNhatSoLuong.setText("Cập nhật số lượng");
         btn_CapNhatSoLuong.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -304,7 +304,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
         });
 
         btn_XoaKhoiGio.setBackground(new java.awt.Color(204, 0, 0));
-        btn_XoaKhoiGio.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_XoaKhoiGio.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_XoaKhoiGio.setForeground(new java.awt.Color(255, 255, 255));
         btn_XoaKhoiGio.setText("Xoá khỏi giỏ");
         btn_XoaKhoiGio.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -424,15 +424,16 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1240, 350));
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Thông tin đơn đổi trả", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Thông tin đơn đổi trả", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Bahnschrift", 1, 14))); // NOI18N
 
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         jLabel26.setText("Hình thức đổi trả");
 
         radiobtn_HoanTra.setBackground(new java.awt.Color(22, 97, 86));
         buttonGroup.add(radiobtn_HoanTra);
-        radiobtn_HoanTra.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        radiobtn_HoanTra.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         radiobtn_HoanTra.setText("Hoàn trả");
+        radiobtn_HoanTra.setForeground(Color.WHITE);
         radiobtn_HoanTra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radiobtn_HoanTraActionPerformed(evt);
@@ -441,22 +442,23 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
 
         radiobtn_DoiMoi.setBackground(new java.awt.Color(22, 97, 86));
         buttonGroup.add(radiobtn_DoiMoi);
-        radiobtn_DoiMoi.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        radiobtn_DoiMoi.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         radiobtn_DoiMoi.setText("Đổi mới");
+        radiobtn_DoiMoi.setForeground(Color.WHITE);
         radiobtn_DoiMoi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radiobtn_DoiMoiActionPerformed(evt);
             }
         });
 
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel24.setText("Tiền hoàn trả");
 
-        lbl_TienHoanTra.setFont(new java.awt.Font("Segoe UI", 2, 20)); // NOI18N
+        lbl_TienHoanTra.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_TienHoanTra.setText(" ");
 
         btn_TaoDoiTra.setBackground(new java.awt.Color(22, 97, 86));
-        btn_TaoDoiTra.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_TaoDoiTra.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_TaoDoiTra.setForeground(new java.awt.Color(255, 255, 255));
         btn_TaoDoiTra.setText("Tạo đơn đổi trả");
         btn_TaoDoiTra.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -466,11 +468,11 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
             }
         });
 
-        lbl_TienHoanTra1.setFont(new java.awt.Font("Segoe UI", 2, 18)); // NOI18N
+        lbl_TienHoanTra1.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_TienHoanTra1.setText("VND");
 
         btn_LamMoi.setBackground(new java.awt.Color(22, 97, 86));
-        btn_LamMoi.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_LamMoi.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_LamMoi.setForeground(new java.awt.Color(255, 255, 255));
         btn_LamMoi.setText("Làm mới");
         btn_LamMoi.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
@@ -480,7 +482,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel1.setText("Lý Do Đổi Trả");
 
         jTextArea1.setColumns(10);
@@ -543,7 +545,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
         add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 620, 1240, 140));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Giỏ hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14))); // NOI18N
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Giỏ hàng", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Bahnschrift", 1, 14))); // NOI18N
 
         table_GioHang.setModel(new DefaultTableModel(
             new Object [][] {

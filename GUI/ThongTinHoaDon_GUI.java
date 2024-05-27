@@ -104,36 +104,36 @@ public class ThongTinHoaDon_GUI extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         jLabel1.setText("THÔNG TIN HOÁ ĐƠN");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(317, 40, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel2.setText("Mã hoá đơn");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 98, 90, -1));
 
-        lbl_MaHoaDon.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lbl_MaHoaDon.setFont(new java.awt.Font("Bahnschrift", 2, 14)); // NOI18N
         getContentPane().add(lbl_MaHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 120, 20));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel4.setText("Tên khách hàng");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
-        lbl_TenKhachHang.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lbl_TenKhachHang.setFont(new java.awt.Font("Bahnschrift", 2, 14)); // NOI18N
         getContentPane().add(lbl_TenKhachHang, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 200, 20));
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel6.setText("Ngày lập");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(602, 98, 90, -1));
 
-        lbl_NgayLap.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_NgayLap.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         getContentPane().add(lbl_NgayLap, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 100, 120, 20));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel8.setText("Số điện thoại");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(602, 130, 95, -1));
 
-        lbl_SoDienThoai.setFont(new java.awt.Font("Segoe UI", 2, 14)); // NOI18N
+        lbl_SoDienThoai.setFont(new java.awt.Font("Bahnschrift", 2, 14)); // NOI18N
         getContentPane().add(lbl_SoDienThoai, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 130, 120, 20));
 
         table.setModel(new javax.swing.table.DefaultTableModel(
@@ -167,49 +167,49 @@ public class ThongTinHoaDon_GUI extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 174, 811, 300));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel10.setText("Tổng tiền");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 492, 109, -1));
 
-        lbl_TongTien.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_TongTien.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         getContentPane().add(lbl_TongTien, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 492, 120, 20));
 
-        jLabel12.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel12.setText("Khuyến mãi");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 524, 109, -1));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         jLabel13.setText("VND");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, -1, -1));
 
-        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel16.setText("Tiền phải thanh toán");
         getContentPane().add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 492, -1, -1));
 
-        lbl_TienThanhToan.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_TienThanhToan.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         getContentPane().add(lbl_TienThanhToan, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 490, 120, 20));
 
-        jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel18.setText("Tiền nhận");
         getContentPane().add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 524, 70, -1));
 
-        lbl_TienNhan.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_TienNhan.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         getContentPane().add(lbl_TienNhan, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 520, 120, 20));
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel20.setText("Tiền trả lại");
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 556, 78, -1));
 
-        lbl_TienTraLai.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_TienTraLai.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         getContentPane().add(lbl_TienTraLai, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 550, 120, 20));
 
-        jLabel22.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel22.setFont(new java.awt.Font("Bahnschrift", 1, 20)); // NOI18N
         jLabel22.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel22.setText("Cảm ơn quý khách đã mua hàng tại cửa hàng của chúng tôi! Hẹn gặp lại lần sau !");
         getContentPane().add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 640, 811, -1));
 
         btn_XuatHoaDon.setBackground(new java.awt.Color(0, 51, 51));
-        btn_XuatHoaDon.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        btn_XuatHoaDon.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_XuatHoaDon.setForeground(new java.awt.Color(255, 255, 255));
         btn_XuatHoaDon.setText("Xuất hoá đơn");
         btn_XuatHoaDon.addActionListener(new java.awt.event.ActionListener() {
@@ -219,29 +219,29 @@ public class ThongTinHoaDon_GUI extends javax.swing.JFrame {
         });
         getContentPane().add(btn_XuatHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 690, 140, 30));
 
-        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel14.setText("Mã nhân viên");
         getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 100, 100, -1));
 
-        lbl_MaNhanVien.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_MaNhanVien.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         getContentPane().add(lbl_MaNhanVien, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, 120, 20));
 
-        jLabel15.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         jLabel15.setText("%");
         getContentPane().add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, -1, -1));
 
-        lbl_KhuyenMai.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_KhuyenMai.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         getContentPane().add(lbl_KhuyenMai, new org.netbeans.lib.awtextra.AbsoluteConstraints(167, 524, 40, 20));
 
-        jLabel24.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         jLabel24.setText("VND");
         getContentPane().add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 520, -1, -1));
 
-        jLabel25.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         jLabel25.setText("VND");
         getContentPane().add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 550, -1, -1));
 
-        jLabel26.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         jLabel26.setText("VND");
         getContentPane().add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, -1, -1));
 

@@ -63,6 +63,7 @@ public class NhanVien_GUI extends JPanel {
         Image scaled_btnTimKiem = img_btnTimKiem.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnTimKiem = new ImageIcon(scaled_btnTimKiem);
         btn_TimKiem.setIcon(img_btnTimKiem);
+
         SVGImage img_btnLamMoi = new SVGImage();
         img_btnLamMoi.setSvgImage("icon/update.svg", 15, 15);
         btn_LamMoi.setIcon(img_btnLamMoi.getIcon());
@@ -188,7 +189,7 @@ public class NhanVien_GUI extends JPanel {
 
         jPanel9.setBackground(new Color(22, 97, 86));
 
-        jLabel8.setFont(new Font("Segoe UI Black", Font.BOLD, 14));
+        jLabel8.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 14));
         jLabel8.setForeground(new Color(255, 255, 255));
         jLabel8.setText("THÊM NHÂN VIÊN");
 
@@ -209,27 +210,27 @@ public class NhanVien_GUI extends JPanel {
                                 .addContainerGap(24, Short.MAX_VALUE))
         );
 
-        lblEmail.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblEmail.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblEmail.setText("Email");
 
-        lblSDT.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblSDT.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblSDT.setText("Số Điện Thoại");
 
-        lblCCCD.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblCCCD.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblCCCD.setText("Căn cước công dân");
 
-        lblHoTen.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblHoTen.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblHoTen.setText("Họ Tên");
 
-        lblMa.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblMa.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblMa.setText("Mã Nhân Viên");
         txt_ma.setEditable(false);
         txt_ma.setBackground(new Color(204, 204, 204));
 
-        lblBirth.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblBirth.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblBirth.setText("Ngày Sinh");
 
-        lblGioiTinh.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblGioiTinh.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblGioiTinh.setText("Giới Tính");
 
         Gender.add(rad_nam);
@@ -239,34 +240,32 @@ public class NhanVien_GUI extends JPanel {
         Gender.add(rad_nu);
         rad_nu.setText("Nữ");
 
-        lblChucVu.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblChucVu.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblChucVu.setText("Chức vụ");
 
         chucVu.setModel(new DefaultComboBoxModel<>(new String[]{"Nhân Viên", "Quản Lí"}));
         chucVu.setBorder(null);
 
-        lblTinhTrang.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblTinhTrang.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblTinhTrang.setText("Tình Trạng");
 
         tinhTrang.setModel(new DefaultComboBoxModel<>(new String[]{"Đang Làm Việc", "Nghỉ Phép", "Nghỉ Việc"}));
         tinhTrang.setBorder(null);
 
-        lblCaLam.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblCaLam.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblCaLam.setText("Ca Làm Việc");
 
         caLamViec.setModel(new DefaultComboBoxModel<>(new String[]{"Ca 1", "Ca 2"}));
         caLamViec.setBorder(null);
 
         btnThem.setBackground(new Color(22, 97, 86));
-        btnThem.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnThem.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnThem.setForeground(new Color(255, 255, 255));
         btnThem.setText("Thêm Nhân Viên");
         btnThem.addActionListener(this::btnThemActionPerformed);
 
-        btn_LamMoi.addActionListener(this::btnLamMoiActionPerformed);
-
         btnHuyThem.setBackground(new Color(204, 0, 51));
-        btnHuyThem.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnHuyThem.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnHuyThem.setForeground(new Color(255, 255, 255));
         btnHuyThem.setText("Hủy Bỏ");
         btnHuyThem.addActionListener(e -> {
@@ -407,7 +406,7 @@ public class NhanVien_GUI extends JPanel {
 
         jPanel11.setBackground(new Color(22, 97, 86));
 
-        jLabel14.setFont(new Font("Segoe UI Black", Font.BOLD, 14));
+        jLabel14.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 14));
         jLabel14.setForeground(new Color(255, 255, 255));
         jLabel14.setText("CẬP NHẬT NHÂN VIÊN");
 
@@ -428,28 +427,28 @@ public class NhanVien_GUI extends JPanel {
                                 .addContainerGap(26, Short.MAX_VALUE))
         );
 
-        lblEmail1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblEmail1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblEmail1.setText("Email");
 
-        lblSDT1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblSDT1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblSDT1.setText("Số Điện Thoại");
 
-        lblCCCD1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblCCCD1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblCCCD1.setText("Căn cước công dân");
 
-        lblHoTen1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblHoTen1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblHoTen1.setText("Họ Tên");
 
-        lblMa1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblMa1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblMa1.setText("Mã Nhân Viên");
 
         txt_ma1.setEditable(false);
         txt_ma1.setBackground(new Color(204, 204, 204));
 
-        lblBirth1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblBirth1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblBirth1.setText("Ngày Sinh");
 
-        lblGioiTinh1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblGioiTinh1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblGioiTinh1.setText("Giới Tính");
 
         Gender.add(rad_nam1);
@@ -458,32 +457,32 @@ public class NhanVien_GUI extends JPanel {
         Gender.add(rad_nu1);
         rad_nu1.setText("Nữ");
 
-        lblChucVu1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblChucVu1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblChucVu1.setText("Chức vụ");
 
         chucVu1.setModel(new DefaultComboBoxModel<>(new String[]{"Nhân viên", "Quản lý"}));
         chucVu1.setBorder(null);
 
-        lblTinhTrang1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblTinhTrang1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblTinhTrang1.setText("Tình Trạng");
 
         tinhTrang1.setModel(new DefaultComboBoxModel<>(new String[]{"Đang làm việc", "Nghỉ phép", "Nghỉ việc"}));
         tinhTrang1.setBorder(null);
 
-        lblCaLam1.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblCaLam1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
         lblCaLam1.setText("Ca Làm Việc");
 
         caLamViec1.setModel(new DefaultComboBoxModel<>(new String[]{"Ca 1", "Ca 2"}));
         caLamViec1.setBorder(null);
 
         btnCapNhat.setBackground(new Color(22, 97, 86));
-        btnCapNhat.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnCapNhat.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnCapNhat.setForeground(new Color(255, 255, 255));
         btnCapNhat.setText("Cập Nhật Nhân Viên");
         btnCapNhat.addActionListener(this::btnCapNhatActionPerformed);
 
         btnHuyCapNhat.setBackground(new Color(204, 0, 51));
-        btnHuyCapNhat.setFont(new Font("Segoe UI Black", Font.BOLD, 13));
+        btnHuyCapNhat.setFont(new Font("Bahnschrift SemiBold", Font.BOLD, 13));
         btnHuyCapNhat.setForeground(new Color(255, 255, 255));
         btnHuyCapNhat.setText("Hủy Bỏ");
         btnHuyCapNhat.addActionListener(this::btnHuyCapNhatActionPerformed);
@@ -527,7 +526,7 @@ public class NhanVien_GUI extends JPanel {
                                                                                 .addGap(41, 41, 41)
                                                                                 .addComponent(caLamViec1, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE))
                                                                         .addComponent(lblBirth1, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(lblCCCD1, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(lblCCCD1, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(txt_ten1)
                                                                         .addComponent(lblChucVu1, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(txt_cccd1)
@@ -617,7 +616,7 @@ public class NhanVien_GUI extends JPanel {
         iconThem.setBackground(new Color(255, 255, 255));
         jLabel2.setSvgImage("icon/person-fill-add.svg", 70, 70);
         jLabel1.setBackground(new Color(255, 255, 255));
-        jLabel1.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel1.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel1.setForeground(new Color(102, 102, 255));
         jLabel1.setText("THÊM");
         jLabel1.setHorizontalAlignment(JLabel.CENTER);
@@ -642,7 +641,7 @@ public class NhanVien_GUI extends JPanel {
 
         jLabel5.setSvgImage("icon/edit.svg", 70, 70);
 
-        jLabel3.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel3.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel3.setForeground(new Color(102, 102, 255));
         jLabel3.setText("CẬP NHẬT");
         jLabel3.setHorizontalAlignment(JLabel.CENTER);
@@ -665,7 +664,7 @@ public class NhanVien_GUI extends JPanel {
 
         jPanel5.setBackground(new Color(255, 255, 255));
 
-        jLabel4.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel4.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel4.setForeground(new Color(102, 102, 255));
         jLabel4.setText("CHI TIẾT");
         jLabel4.setHorizontalAlignment(JLabel.CENTER);
@@ -690,7 +689,7 @@ public class NhanVien_GUI extends JPanel {
 
         jLabel9.setSvgImage("icon/excel.svg", 70, 70);
 
-        jLabel10.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        jLabel10.setFont(new Font("Bahnschrift", Font.BOLD, 16));
         jLabel10.setForeground(new Color(102, 102, 255));
         jLabel10.setText("XUẤT EXCEL");
         jLabel10.setHorizontalAlignment(JLabel.CENTER);
@@ -714,11 +713,11 @@ public class NhanVien_GUI extends JPanel {
         txt_NhapSDT.setText("Nhập nội dung tìm kiếm");
         txt_NhapSDT.addActionListener(this::txt_NhapSDTActionPerformed);
 
-        jLabel38.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        jLabel38.setFont(new Font("Bahnschrift", Font.PLAIN, 14));
         jLabel38.setText("Tìm Kiếm Theo Số Điện Thoại");
 
         btn_LamMoi.setBackground(new Color(32, 131, 116));
-        btn_LamMoi.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        btn_LamMoi.setFont(new Font("Bahnschrift", Font.BOLD, 15));
         btn_LamMoi.setForeground(Color.white);
         btn_LamMoi.setText("Làm mới");
         btn_LamMoi.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -726,7 +725,7 @@ public class NhanVien_GUI extends JPanel {
         btn_LamMoi.setPreferredSize(new Dimension(90, 31));
 
         btn_TimKiem.setBackground(new Color(32, 131, 116));
-        btn_TimKiem.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        btn_TimKiem.setFont(new Font("Bahnschrift", Font.BOLD, 15));
         btn_TimKiem.setForeground(new Color(255, 255, 255));
         btn_TimKiem.setText("Tìm");
         btn_TimKiem.addActionListener(this::btn_TimKiemActionPerformed);
@@ -739,9 +738,9 @@ public class NhanVien_GUI extends JPanel {
                                 .addComponent(iconThem, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(iconCapNhat)
-//                                .addComponent(jPanel5)
-//                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-//                                .addComponent(jPanel7)
+                                .addComponent(jPanel5)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jPanel7)
                                 .addGap(50, 50, 50)
                                 .addComponent(txt_NhapSDT, GroupLayout.PREFERRED_SIZE, 244, GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 50)
@@ -758,9 +757,9 @@ public class NhanVien_GUI extends JPanel {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(3, 3, 3)
                                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-//                                                        .addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(iconCapNhat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
-//                                                        .addComponent(jPanel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+                                                        .addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(iconCapNhat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jPanel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
                                 .addGap(476, 476, 476))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
@@ -771,11 +770,11 @@ public class NhanVien_GUI extends JPanel {
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel12.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh Sách Nhân Viên", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Segoe UI", Font.PLAIN, 12)));
+        jPanel12.setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)), "Danh Sách Nhân Viên", TitledBorder.DEFAULT_JUSTIFICATION, TitledBorder.DEFAULT_POSITION, new Font("Bahnschrift", Font.PLAIN, 12)));
         table_DSNV.setModel(new DefaultTableModel(
                 new Object[][]{},
                 new String[]{
-                        "Mã ", "Họ Tên", "Giới Tính", "Ngày Sinh", "Email", "Số Điện Thoại", "Căn cước công dân", "Chức Vụ", "Tình Trạng", "Ca Làm Việc"
+                        "Mã ", "Họ Tên", "Giới Tính", "Ngày Sinh", "Email", "Số Điện Thoại", "Địa Chỉ", "Chức Vụ", "Tình Trạng", "Ca Làm Việc"
                 }
         ) {
             final Class[] types = new Class[]{
@@ -995,9 +994,6 @@ public class NhanVien_GUI extends JPanel {
         nv.setChucVu(Objects.equals(chucVu.getSelectedItem(), "Nhân Viên") ? ChucVuEnum.NHANVIEN : ChucVuEnum.QUANLY);
         nv.setTrangThai(tt);
         return nv;
-    }
-    private void btnLamMoiActionPerformed(ActionEvent evt) {
-        refresh();
     }
 
     private void btnThemActionPerformed(ActionEvent evt) {

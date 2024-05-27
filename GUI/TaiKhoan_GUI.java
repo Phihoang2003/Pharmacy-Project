@@ -17,11 +17,11 @@ public class TaiKhoan_GUI extends javax.swing.JPanel {
     public TaiKhoan_GUI() {
         initComponents();
         setBounds(0, 0, 1186, 748);
-        ImageIcon img_btnTimKiem = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonTimKiem.png");
+        ImageIcon img_btnTimKiem = new ImageIcon("icon/buttonTimKiem.png");
         Image scaled_btnTimKiem = img_btnTimKiem.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnTimKiem = new ImageIcon(scaled_btnTimKiem);
         btn_TimKiem.setIcon(img_btnTimKiem);
-        ImageIcon img_btnXoa = new ImageIcon("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\icon\\buttonXoa.png");
+        ImageIcon img_btnXoa = new ImageIcon("icon/buttonXoa.png");
         Image scaled_btnXoa = img_btnXoa.getImage().getScaledInstance(15, 15, Image.SCALE_SMOOTH);
         img_btnXoa = new ImageIcon(scaled_btnXoa);
         btn_CapNhat.setIcon(img_btnXoa);
@@ -54,15 +54,15 @@ public class TaiKhoan_GUI extends javax.swing.JPanel {
 
         panel_QuanLyTaiKhoan.setBackground(new java.awt.Color(22, 97, 86));
 
-        lbl_QuanLyTaiKhoan.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        lbl_QuanLyTaiKhoan.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         lbl_QuanLyTaiKhoan.setForeground(new java.awt.Color(255, 255, 255));
         lbl_QuanLyTaiKhoan.setText("Quản Lý Tài Khoản");
         panel_QuanLyTaiKhoan.add(lbl_QuanLyTaiKhoan);
 
         panel_ThaoTacTK.setBackground(new java.awt.Color(22, 97, 86));
-        panel_ThaoTacTK.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Các thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        panel_ThaoTacTK.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Các thao tác", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Bahnschrift", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
-        lbl_NhapTenTK.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lbl_NhapTenTK.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         lbl_NhapTenTK.setForeground(new java.awt.Color(255, 255, 255));
         lbl_NhapTenTK.setText("Nhập tên tài khoản");
 
@@ -74,7 +74,7 @@ public class TaiKhoan_GUI extends javax.swing.JPanel {
         });
 
         btn_TimKiem.setBackground(new java.awt.Color(0, 51, 51));
-        btn_TimKiem.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btn_TimKiem.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         btn_TimKiem.setForeground(new java.awt.Color(255, 255, 255));
         btn_TimKiem.setText("Tìm kiếm");
         btn_TimKiem.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -86,7 +86,7 @@ public class TaiKhoan_GUI extends javax.swing.JPanel {
         });
 
         btn_CapNhat.setBackground(new java.awt.Color(0, 51, 51));
-        btn_CapNhat.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        btn_CapNhat.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         btn_CapNhat.setForeground(new java.awt.Color(255, 255, 255));
         btn_CapNhat.setText("Cập nhật");
         btn_CapNhat.setToolTipText("");
@@ -102,7 +102,7 @@ public class TaiKhoan_GUI extends javax.swing.JPanel {
         cbo_TinhTrang.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"Đang hoạt động", "Ngưng hoạt động"}));
         cbo_TinhTrang.setPreferredSize(new java.awt.Dimension(200, 30));
 
-        lbl_TinhTrang.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        lbl_TinhTrang.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         lbl_TinhTrang.setForeground(new java.awt.Color(255, 255, 255));
         lbl_TinhTrang.setText("Tình trạng tài khoản");
 
@@ -140,7 +140,7 @@ public class TaiKhoan_GUI extends javax.swing.JPanel {
         );
 
         panel_TableTaiKhoan.setBackground(new java.awt.Color(22, 97, 86));
-        panel_TableTaiKhoan.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Bảng danh sách tài khoản", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        panel_TableTaiKhoan.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), "Bảng danh sách tài khoản", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Bahnschrift", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
 
         table_DanhSachTK.setModel(new DefaultTableModel(
             new Object [][] {

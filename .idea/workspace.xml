@@ -4,9 +4,49 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be436af1-be81-4b31-aedc-ff2cc31b958a" name="Changes" comment="add function">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am__Changes_.xml" afterDir="false" />
+    <list default="true" id="be436af1-be81-4b31-aedc-ff2cc31b958a" name="Changes" comment="Merge branch 'main' of https://github.com/Phihoang2003/Pharmacy-Project&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/6843092_currency_finance_financial_income_management_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/9055552_bxs_group_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/box.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/commons-collections4-4.4.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/commons-compress-1.26.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/commons-io-2.16.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/log4j-api-2.23.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/log4j-core-2.23.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/poi-5.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/poi-ooxml-5.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/poi-ooxml-full-5.2.5.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/poi-ooxml-schemas-4.1.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am_[Changes]/xmlbeans-5.2.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_27_05_2024_10_21_am__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAO/HoaDonDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/HoaDonDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAO/ThuocDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/DAO/ThuocDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTO/HoaDon.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/HoaDon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DTO/Thuoc.java" beforeDir="false" afterPath="$PROJECT_DIR$/DTO/Thuoc.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/BanHang_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/BanHang_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ChiTietDoiTra_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ChiTietDoiTra_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ChiTietHoaDon_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ChiTietHoaDon_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/HoaDon_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/HoaDon_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/KhuyenMai_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/KhuyenMai_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/NhanVien_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/NhanVien_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/PhieuNhap_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/PhieuNhap_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/SanPham_GUI.form" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/SanPham_GUI.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/SanPham_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/SanPham_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/TaoDoiTra_JPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/TaoDoiTra_JPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/ThongTinDoiTra_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/ThongTinDoiTra_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/GUI/TrangChu_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/GUI/TrangChu_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Pharmacy.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/JDBCUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/config/JDBCUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fileExcel/xuatSanPham.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/batik-bin-1.17.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/library/poi-3.15.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf/thongtinhoadonHD451262718.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pdf/thongtinhoadonHD710967795.pdf" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,38 +101,38 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.TrangChu_GUI.executor": "Run",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/tieut/IdeaProjects/Pharmacy-Project/library/log4j-core-2.23.1.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.ApplicationConfigurable",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.TrangChu_GUI.executor&quot;: &quot;Run&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/tieut/IdeaProjects/Pharmacy-Project/library/log4j-core-2.23.1.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.ApplicationConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="GUI" />
@@ -103,8 +143,9 @@
   </component>
   <component name="RunManager">
     <configuration name="TrangChu_GUI" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="22" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="GUI.TrangChu_GUI" />
-      <module name="Pharmacy-Project" />
       <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-22.0.1\lib&quot; --add-modules=javafx.base,javafx.controls,javafx.graphics,javafx.media,javafx.fxml --add-exports javafx.base/com.sun.javafx.logging=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.application=ALL-UNNAMED --add-exports javafx.graphics/com.sun.javafx.embed=ALL-UNNAMED" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,7 +180,9 @@
       <workItem from="1716701473723" duration="3539000" />
       <workItem from="1716706003847" duration="65448000" />
       <workItem from="1716780063181" duration="126000" />
-      <workItem from="1716780207255" duration="1029000" />
+      <workItem from="1716780207255" duration="1254000" />
+      <workItem from="1716781663461" duration="214000" />
+      <workItem from="1716782019228" duration="2731000" />
     </task>
     <task id="LOCAL-00001" summary="add function">
       <option name="closed" value="true" />
@@ -149,7 +192,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716780391406</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add function">
+      <option name="closed" value="true" />
+      <created>1716781263659</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716781263660</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,7 +211,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -170,7 +233,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="push code" />
     <MESSAGE value="add function" />
-    <option name="LAST_COMMIT_MESSAGE" value="add function" />
+    <MESSAGE value="Merge branch 'main' of https://github.com/Phihoang2003/Pharmacy-Project&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'main' of https://github.com/Phihoang2003/Pharmacy-Project&#10;&#10;# Conflicts:&#10;#&#9;.idea/workspace.xml" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

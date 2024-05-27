@@ -124,22 +124,22 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 811, 280));
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel10.setText("Tiền hoàn trả");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 503, 114, -1));
 
-        lbl_TienHoanTra.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_TienHoanTra.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         getContentPane().add(lbl_TienHoanTra, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 503, 120, 20));
 
-        jLabel13.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         jLabel13.setText("VND");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(341, 503, -1, -1));
 
-        jLabel20.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel20.setText("Hình thức đổi trả");
         getContentPane().add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 468, -1, -1));
 
-        lbl_HinhThuc.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_HinhThuc.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         getContentPane().add(lbl_HinhThuc, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 468, 120, 20));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -161,37 +161,37 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel4.setText("Tên khách hàng");
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel2.setText("Mã đổi trả");
 
-        lbl_MaDoiTra.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_MaDoiTra.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
         lbl_MaDoiTra.setText(" ");
 
-        lbl_TenKhachHang.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_TenKhachHang.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel3.setText("Mã nhân viên");
 
-        lbl_MaNhanVien.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_MaNhanVien.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Bahnschrift", 1, 16)); // NOI18N
         jLabel6.setText("Ngày lập");
 
-        lbl_NgayLap.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_NgayLap.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
 
-        lbl_SoDienThoai.setFont(new java.awt.Font("Segoe UI", 2, 16)); // NOI18N
+        lbl_SoDienThoai.setFont(new java.awt.Font("Bahnschrift", 2, 16)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel8.setText("Số điện thoại");
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
         jLabel1.setText("THÔNG TIN CHI TIẾT ĐỔI TRẢ");
 
         jButton1.setBackground(new java.awt.Color(0, 51, 51));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 15)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Xác nhận");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -263,7 +263,7 @@ public class ChiTietDoiTra_GUI extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 890, 640));
 
-        jPanel3.setBackground(new java.awt.Color(255,255,255));
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
