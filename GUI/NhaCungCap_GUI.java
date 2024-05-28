@@ -582,7 +582,7 @@ public class NhaCungCap_GUI extends JPanel {
 //                                .addComponent(jPanel5)
 //                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btn_xuat)
-                                .addComponent(cboTinhTrang)
+//                                .addComponent(cboTinhTrang)
                                 .addGap(10, 30, 50)
                                 .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 244, GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 50)
@@ -608,7 +608,7 @@ public class NhaCungCap_GUI extends JPanel {
                                         .addGap(41, 41, 41)
 
                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(cboTinhTrang)
+//                                        .addComponent(cboTinhTrang)
                                         .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btn_LamMoi, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
                                         .addComponent(btn_TimKiem, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
@@ -721,7 +721,7 @@ public class NhaCungCap_GUI extends JPanel {
                 }
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 XSSFWorkbook workbook = new XSSFWorkbook();
-                XSSFSheet sheet = workbook.createSheet("Danh sách nhà cung cấp");
+                XSSFSheet sheet = workbook.createSheet("Danh sách nhân viên");
                 XSSFRow row;
                 row = sheet.createRow(0);
                 Cell cell = row.createCell(0, CellType.STRING);
