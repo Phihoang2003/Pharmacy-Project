@@ -46,7 +46,7 @@ public class DoiTra_GUI extends javax.swing.JPanel {
 
         panel_menu.setBackground(new Color(22, 97, 86));
 
-        btn_TaoDoiTra.setBackground(new Color(0, 51, 51));
+        btn_TaoDoiTra.setBackground(new Color(22, 97, 86));
         btn_TaoDoiTra.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_TaoDoiTra.setForeground(new Color(255, 255, 255));
         btn_TaoDoiTra.setText("Tạo đơn đổi trả");
@@ -56,7 +56,7 @@ public class DoiTra_GUI extends javax.swing.JPanel {
             }
         });
 
-        btn_QuanLyDoiTra.setBackground(new Color(0, 51, 51));
+        btn_QuanLyDoiTra.setBackground(new Color(128,82,246));
         btn_QuanLyDoiTra.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_QuanLyDoiTra.setForeground(new Color(255, 255, 255));
         btn_QuanLyDoiTra.setText("Quản lý đơn đổi trả");

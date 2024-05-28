@@ -91,7 +91,7 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         Jpanel_ThaoTac.add(txt_MaDonDoiTra, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 200, 30));
         Jpanel_ThaoTac.add(jdc_NgayLap, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 200, 30));
 
-        btn_TimKiem.setBackground(new Color(0, 51, 51));
+        btn_TimKiem.setBackground(new Color(22, 97, 86));
         btn_TimKiem.setFont(new Font("Bahnschrift", 1, 15)); // NOI18N
         btn_TimKiem.setForeground(new Color(255, 255, 255));
         btn_TimKiem.setText("Tìm kiếm");
@@ -103,7 +103,7 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         });
         Jpanel_ThaoTac.add(btn_TimKiem, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 120, 30));
 
-        btn_LamMoi.setBackground(new Color(0, 51, 51));
+        btn_LamMoi.setBackground(new Color(22, 97, 86));
         btn_LamMoi.setFont(new Font("Bahnschrift", 1, 15)); // NOI18N
         btn_LamMoi.setForeground(new Color(255, 255, 255));
         btn_LamMoi.setText("Làm mới");
@@ -115,7 +115,7 @@ public class QuanLyDoiTra_JPanel extends JPanel {
         });
         Jpanel_ThaoTac.add(btn_LamMoi, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 20, 120, 30));
 
-        btn_XemChiTiet.setBackground(new Color(0, 51, 51));
+        btn_XemChiTiet.setBackground(new Color(22, 97, 86));
         btn_XemChiTiet.setFont(new Font("Bahnschrift", 1, 15)); // NOI18N
         btn_XemChiTiet.setForeground(Color.white);
         btn_XemChiTiet.setText("Xem chi tiết");

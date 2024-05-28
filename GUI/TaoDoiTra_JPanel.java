@@ -199,7 +199,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
 
         txt_MaHoaDon.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
 
-        btn_TimKiemHoaDon.setBackground(new java.awt.Color(0, 102, 0));
+        btn_TimKiemHoaDon.setBackground(new java.awt.Color(22, 97, 86));
         btn_TimKiemHoaDon.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_TimKiemHoaDon.setForeground(new java.awt.Color(255, 255, 255));
         btn_TimKiemHoaDon.setText("Tìm kiếm");
@@ -276,7 +276,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(table_HoaDon);
 
-        btn_ThemVaoGio.setBackground(new java.awt.Color(0, 102, 0));
+        btn_ThemVaoGio.setBackground(new java.awt.Color(22, 97, 86));
         btn_ThemVaoGio.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_ThemVaoGio.setForeground(new java.awt.Color(255, 255, 255));
         btn_ThemVaoGio.setText("Thêm vào giỏ");
@@ -292,7 +292,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
 
         spinner_SoLuong.setFont(new java.awt.Font("Bahnschrift", 0, 15)); // NOI18N
 
-        btn_CapNhatSoLuong.setBackground(new java.awt.Color(0, 102, 9));
+        btn_CapNhatSoLuong.setBackground(new java.awt.Color(22, 97, 86));
         btn_CapNhatSoLuong.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_CapNhatSoLuong.setForeground(new java.awt.Color(255, 255, 255));
         btn_CapNhatSoLuong.setText("Cập nhật số lượng");
@@ -473,7 +473,7 @@ public class TaoDoiTra_JPanel extends javax.swing.JPanel {
         lbl_TienHoanTra1.setFont(new java.awt.Font("Bahnschrift", 2, 20)); // NOI18N
         lbl_TienHoanTra1.setText("VND");
 
-        btn_LamMoi.setBackground(new java.awt.Color(0, 102, 0));
+        btn_LamMoi.setBackground(new java.awt.Color(22, 97, 86));
         btn_LamMoi.setFont(new java.awt.Font("Bahnschrift", 1, 15)); // NOI18N
         btn_LamMoi.setForeground(new java.awt.Color(255, 255, 255));
         btn_LamMoi.setText("Làm mới");

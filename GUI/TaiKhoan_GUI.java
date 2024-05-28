@@ -73,7 +73,7 @@ public class TaiKhoan_GUI extends javax.swing.JPanel {
             }
         });
 
-        btn_TimKiem.setBackground(new java.awt.Color(0, 51, 51));
+        btn_TimKiem.setBackground(new java.awt.Color(32, 131, 116));
         btn_TimKiem.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         btn_TimKiem.setForeground(new java.awt.Color(255, 255, 255));
         btn_TimKiem.setText("Tìm kiếm");
@@ -85,7 +85,7 @@ public class TaiKhoan_GUI extends javax.swing.JPanel {
             }
         });
 
-        btn_CapNhat.setBackground(new java.awt.Color(0, 51, 51));
+        btn_CapNhat.setBackground(new java.awt.Color(32, 131, 116));
         btn_CapNhat.setFont(new java.awt.Font("Bahnschrift", 0, 16)); // NOI18N
         btn_CapNhat.setForeground(new java.awt.Color(255, 255, 255));
         btn_CapNhat.setText("Cập nhật");
