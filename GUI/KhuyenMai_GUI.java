@@ -733,8 +733,10 @@ public class KhuyenMai_GUI extends javax.swing.JPanel {
 
     private void rdo_spActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdo_spActionPerformed
         txtSoTienGiamTD.setEditable(false);
+        txtSoTienGiamTD.setText("Không");
         txtSoTienGiamTD.setBackground(new Color(244, 244, 244));
         txtSoTienGiamTT.setEditable(false);
+        txtSoTienGiamTT.setText("Không");
         txtSoTienGiamTT.setBackground(new Color(244, 244, 244));
 
         TableColumnModel models = jTable1.getColumnModel();
