@@ -211,12 +211,15 @@
         }
 
         public boolean isThuocKeDon() {
-            return thuocKeDon;
+            if (this.thuocKeDon) return true;
+            return false;
         }
 
         public void setThuocKeDon(boolean thuocKeDon) {
             this.thuocKeDon = thuocKeDon;
         }
+
+
 
         public ThuongHieu getThuongHieu() {
             return thuongHieu;

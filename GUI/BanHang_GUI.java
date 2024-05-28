@@ -938,9 +938,11 @@ public class BanHang_GUI extends javax.swing.JPanel {
         if (thuocDTO != null) {
             if (thuocDTO.getTrangThai().equals(TinhTrangSPEnum.HETHANG)) {
                 JOptionPane.showMessageDialog(this, "Sản phẩm đã hết hàng!");
+                return;
             }
             if (thuocDTO.getTrangThai().equals(TinhTrangSPEnum.NGUNGBAN)) {
                 JOptionPane.showMessageDialog(this, "Sản phẩm đã ngừng bán!");
+                return;
             }
             lbl_tenThuoc.setText(thuocDTO.getTenThuoc());
             lbl_hoatChat.setText(thuocDTO.getHoatChatChinh());
@@ -985,10 +987,15 @@ public class BanHang_GUI extends javax.swing.JPanel {
         if (!kiemTraSoLuongNhap()) {
             return;
         }
+
         for (ChiTietHoaDon cthd : cthdList) {
+
+
             if (cthd.getThuoc().getMaThuoc().equals(maSP)) {
 //                JOptionPane.showMessageDialog(this, "Sản phẩm đã có trong giỏ hàng");
 //                return;
+
+
                 int row = 0;
                 for (int i = 0; i < tableModel_GioHang.getRowCount(); i++) {
                     if (table_gioHang.getValueAt(i, 0).equals(maSP)) {
@@ -1003,6 +1010,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
                     if (cthd2.getThuoc().getMaThuoc().equals(maSPUpdate)) {
                         cthd2.setSoLuong(soLuong);
                         cthd2.setThanhTien();
+
                         tableModel_GioHang.setValueAt(soLuong, row, 4);
                         tableModel_GioHang.setValueAt(convert.toMoney(cthd.getThanhTien()), row, 7);
                         break;
