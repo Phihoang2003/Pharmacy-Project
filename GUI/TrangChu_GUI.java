@@ -544,6 +544,10 @@ public class TrangChu_GUI extends JFrame {
                     }
                 });
             }
+
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLabel1.setToolTipText("Đăng xuất");
+            }
         });
 
         jLabel2.setFont(new Font("Bahnschrift", Font.BOLD, 18));
