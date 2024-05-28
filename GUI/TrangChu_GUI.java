@@ -1004,7 +1004,7 @@ public class TrangChu_GUI extends JFrame {
         LocalDate today = LocalDate.now();
         // Convert java.sql.Date to java.time.LocalDate
         LocalDate expiryLocalDate = expiryDate.toLocalDate();
-        return expiryLocalDate.isBefore(today.plusMonths(1)) && !expiryLocalDate.isBefore(today);
+        return expiryLocalDate.isBefore(today.plusMonths(2)) && !expiryLocalDate.isBefore(today);
     }
 
     public void checkMedicineExpiry() {
@@ -1025,7 +1025,7 @@ public class TrangChu_GUI extends JFrame {
                     String strExpiryDate = dateFormat.format(expiryDate);
                     // Append the warning message for this medicine to the overall warning message
                     // Append the warning message for this medicine to the overall warning message
-                    warningMessage.append("Thuốc ").append(medicineName).append(" sắp hết hạn trong vòng 1 tháng. Ngày hết hạn: ").append(strExpiryDate).append("\n");
+                    warningMessage.append("Thuốc ").append(medicineName).append(" sắp hết hạn trong vòng 2 tháng. Ngày hết hạn: ").append(strExpiryDate).append("\n");
                 }
             }
 
