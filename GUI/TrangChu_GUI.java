@@ -131,16 +131,6 @@ public class TrangChu_GUI extends JFrame {
                 trangChuStage.setX(273); // Change this to the desired x position
                 trangChuStage.setY(20);
 
-                root.setOnMousePressed((MouseEvent event) -> {
-                    x = event.getSceneX();
-                    y = event.getSceneY();
-                });
-
-                root.setOnMouseDragged((MouseEvent event) -> {
-                    trangChuStage.setX(event.getSceneX() - x);
-                    trangChuStage.setY(event.getSceneY() - y);
-                });
-
                 trangChuStage.initStyle(StageStyle.TRANSPARENT);
                 trangChuStage.setScene(scene);
                 trangChuStage.show();
