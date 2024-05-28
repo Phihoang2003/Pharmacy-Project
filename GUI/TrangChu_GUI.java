@@ -504,17 +504,17 @@ public class TrangChu_GUI extends JFrame {
         JLabel jLabel31 = new JLabel();
         Main_GUI = new JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new Color(255, 255, 255));
-        jPanel1.setMinimumSize(new java.awt.Dimension(200, 100));
+        jPanel1.setMinimumSize(new Dimension(200, 100));
         jPanel1.setName("");
-        jPanel1.setPreferredSize(new java.awt.Dimension(3000, 600));
+        jPanel1.setPreferredSize(new Dimension(3000, 600));
 
         jLabel1.setFont(new Font("Ban", Font.PLAIN, 14));
         jLabel1.setSvgImage("icon/logout.svg", 60, 60);
-        jLabel1.setMaximumSize(new java.awt.Dimension(60, 60));
-        jLabel1.setPreferredSize(new java.awt.Dimension(2000, 2000));
+        jLabel1.setMaximumSize(new Dimension(60, 60));
+        jLabel1.setPreferredSize(new Dimension(2000, 2000));
 
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -526,7 +526,7 @@ public class TrangChu_GUI extends JFrame {
                 });
 
                 // Create a new instance of DangNhap_GUI and make it visible
-                java.awt.EventQueue.invokeLater(() -> {
+                EventQueue.invokeLater(() -> {
                     try {
                         new DangNhap_GUI().setVisible(true);
                     } catch (Exception e) {
@@ -534,30 +534,26 @@ public class TrangChu_GUI extends JFrame {
                     }
                 });
             }
-
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jLabel1.setToolTipText("Đăng xuất");
-            }
         });
 
         jLabel2.setFont(new Font("Bahnschrift", Font.BOLD, 18));
         jLabel2.setText(Global.getName());
 
         jLabel3.setBackground(new Color(204, 204, 204));
-        jLabel3.setFont(new Font("Bahnschrift Light", Font.PLAIN, 14));
-        jLabel3.setText(Global.getChucvu());
+        jLabel3.setFont(new Font("Bahnschrift Light", Font.PLAIN, 12));
+        jLabel3.setText(Global.getChucvu().equals("Quản lý") ? "Người quản lý" : "Nhân viên");
 
         jSeparator1.setForeground(new Color(204, 204, 204));
 
         jPanel2.setBackground(new Color(255, 255, 255));
-        jPanel2.setPreferredSize(new java.awt.Dimension(313, 600));
+        jPanel2.setPreferredSize(new Dimension(313, 600));
 
         SanPham_Panel.setBackground(new Color(255, 255, 255));
-        SanPham_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        SanPham_Panel.setPreferredSize(new Dimension(162, 50));
         SanPham_Panel.setRequestFocusEnabled(false);
 
         jLabel6.setSvgImage("icon/product.svg", 35, 35);
-        jLabel6.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel6.setPreferredSize(new Dimension(40, 40));
 
         jLabel7.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jLabel7.setText("Sản Phẩm");
@@ -565,25 +561,25 @@ public class TrangChu_GUI extends JFrame {
         GroupLayout SanPham_PanelLayout = new GroupLayout(SanPham_Panel);
         SanPham_Panel.setLayout(SanPham_PanelLayout);
         SanPham_PanelLayout.setHorizontalGroup(
-                SanPham_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                SanPham_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(SanPham_PanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel7, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         SanPham_PanelLayout.setVerticalGroup(
-                SanPham_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                SanPham_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel6, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel7, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         HoaDon_Panel.setBackground(new Color(255, 255, 255));
-        HoaDon_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        HoaDon_Panel.setPreferredSize(new Dimension(162, 50));
 
         jLabel8.setSvgImage("icon/bill.svg", 35, 35);
-        jLabel8.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel8.setPreferredSize(new Dimension(40, 40));
 
         jLabel9.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jLabel9.setText("Hóa Đơn");
@@ -591,413 +587,413 @@ public class TrangChu_GUI extends JFrame {
         GroupLayout HoaDon_PanelLayout = new GroupLayout(HoaDon_Panel);
         HoaDon_Panel.setLayout(HoaDon_PanelLayout);
         HoaDon_PanelLayout.setHorizontalGroup(
-                HoaDon_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                HoaDon_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(HoaDon_PanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel8, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel9, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         HoaDon_PanelLayout.setVerticalGroup(
-                HoaDon_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                HoaDon_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel8, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel9, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         NhaCungCapPanel.setBackground(new Color(255, 255, 255));
-        NhaCungCapPanel.setPreferredSize(new java.awt.Dimension(162, 50));
+        NhaCungCapPanel.setPreferredSize(new Dimension(162, 50));
 
         jLabel10.setSvgImage("icon/supplier.svg", 35, 35);
-        jLabel10.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel10.setPreferredSize(new Dimension(40, 40));
 
         jLabel11.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jLabel11.setText("Nhà Cung Cấp");
 
-        javax.swing.GroupLayout NhaCungCapPanelLayout = new javax.swing.GroupLayout(NhaCungCapPanel);
+        GroupLayout NhaCungCapPanelLayout = new GroupLayout(NhaCungCapPanel);
         NhaCungCapPanel.setLayout(NhaCungCapPanelLayout);
         NhaCungCapPanelLayout.setHorizontalGroup(
-                NhaCungCapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                NhaCungCapPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(NhaCungCapPanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel10, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel11, GroupLayout.PREFERRED_SIZE, 110, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         NhaCungCapPanelLayout.setVerticalGroup(
-                NhaCungCapPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                NhaCungCapPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel10, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel11, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         NhanVien_Panel.setBackground(new Color(255, 255, 255));
-        NhanVien_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        NhanVien_Panel.setPreferredSize(new Dimension(162, 50));
 
         jLabel12.setSvgImage("icon/employee.svg", 35, 35);
-        jLabel12.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel12.setPreferredSize(new Dimension(40, 40));
 
         jLabel13.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jLabel13.setText("Nhân Viên");
 
-        javax.swing.GroupLayout NhanVien_PanelLayout = new javax.swing.GroupLayout(NhanVien_Panel);
+        GroupLayout NhanVien_PanelLayout = new GroupLayout(NhanVien_Panel);
         NhanVien_Panel.setLayout(NhanVien_PanelLayout);
         NhanVien_PanelLayout.setHorizontalGroup(
-                NhanVien_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                NhanVien_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(NhanVien_PanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel12, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel13, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         NhanVien_PanelLayout.setVerticalGroup(
-                NhanVien_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                NhanVien_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel13, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel12, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         ThongKe_Panel.setBackground(new Color(255, 255, 255));
-        ThongKe_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        ThongKe_Panel.setPreferredSize(new Dimension(162, 50));
 
         jLabel14.setSvgImage("icon/statistic.svg", 35, 35);
-        jLabel14.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel14.setPreferredSize(new Dimension(40, 40));
 
         jLabel15.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jLabel15.setText("Thống Kê");
 
-        javax.swing.GroupLayout ThongKe_PanelLayout = new javax.swing.GroupLayout(ThongKe_Panel);
+        GroupLayout ThongKe_PanelLayout = new GroupLayout(ThongKe_Panel);
         ThongKe_Panel.setLayout(ThongKe_PanelLayout);
         ThongKe_PanelLayout.setHorizontalGroup(
-                ThongKe_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                ThongKe_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(ThongKe_PanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel14, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel15, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ThongKe_PanelLayout.setVerticalGroup(
-                ThongKe_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE)
-                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                ThongKe_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel14, GroupLayout.PREFERRED_SIZE, 42, Short.MAX_VALUE)
+                        .addComponent(jLabel15, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         BanHang_Panel.setBackground(new Color(255, 255, 255));
-        BanHang_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        BanHang_Panel.setPreferredSize(new Dimension(162, 50));
         BanHang_Panel.setRequestFocusEnabled(false);
 
         jLabel18.setSvgImage("icon/sell.svg", 35, 35);
-        jLabel18.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel18.setPreferredSize(new Dimension(40, 40));
 
         jLabel19.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jLabel19.setText("Bán hàng");
 
         jLabel20.setSvgImage("icon/product.svg", 35, 35);
-        jLabel20.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel20.setPreferredSize(new Dimension(40, 40));
 
         jLabel21.setFont(new Font("Bahnschrift", Font.BOLD, 14));
         jLabel21.setText("Sản Phẩm");
 
-        javax.swing.GroupLayout BanHang_PanelLayout = new javax.swing.GroupLayout(BanHang_Panel);
+        GroupLayout BanHang_PanelLayout = new GroupLayout(BanHang_Panel);
         BanHang_Panel.setLayout(BanHang_PanelLayout);
         BanHang_PanelLayout.setHorizontalGroup(
-                BanHang_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                BanHang_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(BanHang_PanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel18, GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel18, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel19, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         BanHang_PanelLayout.setVerticalGroup(
                 BanHang_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                        .addComponent(jLabel18, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel19, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         KhachHang_Panel.setBackground(new Color(255, 255, 255));
-        KhachHang_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        KhachHang_Panel.setPreferredSize(new Dimension(162, 50));
         KhachHang_Panel.setRequestFocusEnabled(false);
 
         jLabel22.setSvgImage("icon/customer.svg", 35, 35);
-        jLabel22.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel22.setPreferredSize(new Dimension(40, 40));
 
         jLabel23.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jLabel23.setText("Khách Hàng");
 
-        javax.swing.GroupLayout KhachHang_PanelLayout = new javax.swing.GroupLayout(KhachHang_Panel);
+        GroupLayout KhachHang_PanelLayout = new GroupLayout(KhachHang_Panel);
         KhachHang_Panel.setLayout(KhachHang_PanelLayout);
         KhachHang_PanelLayout.setHorizontalGroup(
-                KhachHang_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                KhachHang_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(KhachHang_PanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel22, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel23, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         KhachHang_PanelLayout.setVerticalGroup(
-                KhachHang_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel23, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                KhachHang_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel22, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel23, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         PhieuNhap_Panel.setBackground(new Color(255, 255, 255));
-        PhieuNhap_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        PhieuNhap_Panel.setPreferredSize(new Dimension(162, 50));
         PhieuNhap_Panel.setRequestFocusEnabled(false);
 
         jLabel24.setSvgImage("icon/document.svg", 35, 35);
-        jLabel24.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel24.setPreferredSize(new Dimension(40, 40));
 
         jLabel25.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jLabel25.setText("Phiếu Nhập");
 
-        javax.swing.GroupLayout PhieuNhap_PanelLayout = new javax.swing.GroupLayout(PhieuNhap_Panel);
+        GroupLayout PhieuNhap_PanelLayout = new GroupLayout(PhieuNhap_Panel);
         PhieuNhap_Panel.setLayout(PhieuNhap_PanelLayout);
         PhieuNhap_PanelLayout.setHorizontalGroup(
-                PhieuNhap_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                PhieuNhap_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(PhieuNhap_PanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel24, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel25, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PhieuNhap_PanelLayout.setVerticalGroup(
-                PhieuNhap_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel24, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                PhieuNhap_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel24, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel25, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
         );
 
         DoiTra_Panel.setBackground(new Color(255, 255, 255));
-        DoiTra_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        DoiTra_Panel.setPreferredSize(new Dimension(162, 50));
         DoiTra_Panel.setRequestFocusEnabled(false);
 
         jLabel26.setSvgImage("icon/return.svg", 35, 35);
-        jLabel26.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel26.setPreferredSize(new Dimension(40, 40));
 
         jLabel27.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jLabel27.setText("Đổi Trả");
 
-        javax.swing.GroupLayout DoiTra_PanelLayout = new javax.swing.GroupLayout(DoiTra_Panel);
+        GroupLayout DoiTra_PanelLayout = new GroupLayout(DoiTra_Panel);
         DoiTra_Panel.setLayout(DoiTra_PanelLayout);
         DoiTra_PanelLayout.setHorizontalGroup(
-                DoiTra_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                DoiTra_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(DoiTra_PanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel26, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel27, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DoiTra_PanelLayout.setVerticalGroup(
-                DoiTra_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel27, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                DoiTra_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel26, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel27, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         TrangChu_Panel.setBackground(new Color(255, 255, 255));
-        TrangChu_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        TrangChu_Panel.setPreferredSize(new Dimension(162, 50));
         TrangChu_Panel.setRequestFocusEnabled(false);
 
 
         jLabel16.setSvgImage("icon/home.svg", 35, 35);
-        jLabel16.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel16.setPreferredSize(new Dimension(40, 40));
 
         jLabel17.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jLabel17.setText("Trang Chủ");
 
-        javax.swing.GroupLayout TrangChu_PanelLayout = new javax.swing.GroupLayout(TrangChu_Panel);
+        GroupLayout TrangChu_PanelLayout = new GroupLayout(TrangChu_Panel);
         TrangChu_Panel.setLayout(TrangChu_PanelLayout);
         TrangChu_PanelLayout.setHorizontalGroup(
-                TrangChu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                TrangChu_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(TrangChu_PanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel16, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel17, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         TrangChu_PanelLayout.setVerticalGroup(
-                TrangChu_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                TrangChu_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel16, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel17, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         KhuyenMai_Panel.setBackground(new Color(255, 255, 255));
-        KhuyenMai_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        KhuyenMai_Panel.setPreferredSize(new Dimension(162, 50));
 
         jLabel28.setSvgImage("icon/coupon.svg", 35, 35);
-        jLabel28.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel28.setPreferredSize(new Dimension(40, 40));
 
         jlabel.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jlabel.setText("Khuyến Mãi");
 
-        javax.swing.GroupLayout KhuyenMai_PanelLayout = new javax.swing.GroupLayout(KhuyenMai_Panel);
+        GroupLayout KhuyenMai_PanelLayout = new GroupLayout(KhuyenMai_Panel);
         KhuyenMai_Panel.setLayout(KhuyenMai_PanelLayout);
         KhuyenMai_PanelLayout.setHorizontalGroup(
-                KhuyenMai_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                KhuyenMai_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(KhuyenMai_PanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel28, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jlabel, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         KhuyenMai_PanelLayout.setVerticalGroup(
-                KhuyenMai_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                KhuyenMai_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jlabel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel28, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
         TaiKhoan_Panel.setBackground(new Color(255, 255, 255));
-        TaiKhoan_Panel.setPreferredSize(new java.awt.Dimension(162, 50));
+        TaiKhoan_Panel.setPreferredSize(new Dimension(162, 50));
 
         jLabel30.setSvgImage("icon/account.svg", 35, 35);
-        jLabel30.setPreferredSize(new java.awt.Dimension(40, 40));
+        jLabel30.setPreferredSize(new Dimension(40, 40));
 
         jLabel31.setFont(new Font("Bahnschrift", Font.BOLD, 13));
         jLabel31.setText("Tài Khoản");
 
-        javax.swing.GroupLayout TaiKhoan_PanelLayout = new javax.swing.GroupLayout(TaiKhoan_Panel);
+        GroupLayout TaiKhoan_PanelLayout = new GroupLayout(TaiKhoan_Panel);
         TaiKhoan_Panel.setLayout(TaiKhoan_PanelLayout);
         TaiKhoan_PanelLayout.setHorizontalGroup(
-                TaiKhoan_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                TaiKhoan_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(TaiKhoan_PanelLayout.createSequentialGroup()
                                 .addGap(24, 24, 24)
-                                .addComponent(jLabel30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel30, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(jLabel31, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         TaiKhoan_PanelLayout.setVerticalGroup(
-                TaiKhoan_PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel31, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel30, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                TaiKhoan_PanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel31, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel30, GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(TaiKhoan_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(KhuyenMai_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(KhachHang_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(SanPham_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(BanHang_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(NhaCungCapPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(NhanVien_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(TrangChu_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(HoaDon_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(DoiTra_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(PhieuNhap_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                                        .addComponent(ThongKe_Panel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))
+                                .addGroup(jPanel2Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                                        .addComponent(TaiKhoan_Panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(KhuyenMai_Panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(KhachHang_Panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(SanPham_Panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(BanHang_Panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(NhaCungCapPanel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(NhanVien_Panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(TrangChu_Panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(HoaDon_Panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(DoiTra_Panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(PhieuNhap_Panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                        .addComponent(ThongKe_Panel, GroupLayout.Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))
                                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
-                jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addComponent(TrangChu_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TrangChu_Panel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(BanHang_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(BanHang_Panel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(SanPham_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(SanPham_Panel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(HoaDon_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(HoaDon_Panel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(DoiTra_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(DoiTra_Panel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(PhieuNhap_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(PhieuNhap_Panel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(KhachHang_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(KhachHang_Panel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(NhaCungCapPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(NhaCungCapPanel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(NhanVien_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(NhanVien_Panel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(ThongKe_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ThongKe_Panel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(KhuyenMai_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(KhuyenMai_Panel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15)
-                                .addComponent(TaiKhoan_Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(TaiKhoan_Panel, GroupLayout.PREFERRED_SIZE, 42, GroupLayout.PREFERRED_SIZE)
                                 .addGap(15, 15, 15))
         );
 
-        Main_GUI.setPreferredSize(new java.awt.Dimension(1500, 800));
+        Main_GUI.setPreferredSize(new Dimension(1500, 800));
 
-        javax.swing.GroupLayout Main_GUILayout = new javax.swing.GroupLayout(Main_GUI);
+        GroupLayout Main_GUILayout = new GroupLayout(Main_GUI);
         Main_GUI.setLayout(Main_GUILayout);
         Main_GUILayout.setHorizontalGroup(
-                Main_GUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                Main_GUILayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 1684, Short.MAX_VALUE)
         );
         Main_GUILayout.setVerticalGroup(
-                Main_GUILayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                Main_GUILayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGap(0, 795, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        GroupLayout jPanel1Layout = new GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(16, 16, 16)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 188, GroupLayout.PREFERRED_SIZE)
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                                .addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)
+                                                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                                 .addGap(14, 14, 14)
-                                                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                                .addComponent(jLabel2, GroupLayout.PREFERRED_SIZE, 161, GroupLayout.PREFERRED_SIZE))
                                                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                                                .addComponent(jLabel3, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE))))))
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addContainerGap()
-                                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, 227, GroupLayout.PREFERRED_SIZE)))
                                 .addGap(24, 24, 24)
-                                .addComponent(Main_GUI, javax.swing.GroupLayout.DEFAULT_SIZE, 1684, Short.MAX_VALUE))
+                                .addComponent(Main_GUI, GroupLayout.DEFAULT_SIZE, 1684, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                jPanel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+                        .addGroup(GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addContainerGap()
-                                                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                                .addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 71, GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                                 .addGap(15, 15, 15)
                                                                 .addComponent(jLabel2)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                                                 .addComponent(jLabel3)))
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 12, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jPanel2, GroupLayout.PREFERRED_SIZE, 687, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(1, 1, 1))
-                                        .addComponent(Main_GUI, javax.swing.GroupLayout.PREFERRED_SIZE, 795, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(Main_GUI, GroupLayout.PREFERRED_SIZE, 795, GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 33, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1958, Short.MAX_VALUE)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, GroupLayout.Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 1958, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
-                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 828, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jPanel1, GroupLayout.PREFERRED_SIZE, 828, GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -1050,7 +1046,7 @@ public class TrangChu_GUI extends JFrame {
     // Existing look and feel setting code...
 
     /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
+        EventQueue.invokeLater(() -> {
             try {
                 TrangChu_GUI trangChuGui = new TrangChu_GUI();
                 trangChuGui.setVisible(true);
