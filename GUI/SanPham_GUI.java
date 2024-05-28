@@ -2390,7 +2390,8 @@ public class SanPham_GUI extends JPanel {
 
     private void xuatExcel() {
         try {
-            JFileChooser fileChooser = new JFileChooser("D:\\TrenLop\\PTUD\\Phamarcy_Project\\src\\fileExcel");
+            String defaultCurrentDirectoryPath = "src/fileExcel";
+            JFileChooser fileChooser = new JFileChooser(defaultCurrentDirectoryPath);
             fileChooser.setDialogTitle("Chọn nơi lưu file");
             int chon = fileChooser.showSaveDialog(null);
             if (chon == JFileChooser.APPROVE_OPTION) {
@@ -2669,7 +2670,7 @@ public class SanPham_GUI extends JPanel {
     }
 
     //Hàm tự dộng mở file excel sau khi xuất
-    private static void openExcelFile(File file) throws IOException {
+    public static void openExcelFile(File file) throws IOException {
         Desktop desktop = Desktop.getDesktop();
         if (desktop.isSupported(Desktop.Action.OPEN)) {
             desktop.open(file);
@@ -2866,47 +2867,36 @@ public class SanPham_GUI extends JPanel {
     }//GEN-LAST:event_btn_suaMouseClicked
 
     private void btn_TimKiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_TimKiemActionPerformed
-        // TODO add your handling code here:
         String dieuKien = txt_tim.getText().trim();
         timKiem(dieuKien);
 
     }//GEN-LAST:event_btn_TimKiemActionPerformed
 
     private void btn_tonKhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_tonKhoMouseClicked
-        // TODO add your handling code here:
-
         kiemTraTonKho();
     }//GEN-LAST:event_btn_tonKhoMouseClicked
 
     private void jPanel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseClicked
-        // TODO add your handling code here:
         kiemTraHetHan();
     }//GEN-LAST:event_jPanel6MouseClicked
 
     private void btn_nhapMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_nhapMouseClicked
-        // TODO add your handling code here:
         nhapExcel();
-
     }//GEN-LAST:event_btn_nhapMouseClicked
 
     private void btn_xuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_xuatMouseClicked
-        // TODO add your handling code here:
         xuatExcel();
     }//GEN-LAST:event_btn_xuatMouseClicked
 
     private void btn_hetHanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_hetHanMouseClicked
-        // TODO add your handling code here:
-
         kiemTraHetHan();
     }//GEN-LAST:event_btn_hetHanMouseClicked
 
     private void btnLuuMouseClicked(java.awt.event.MouseEvent evt) throws ParseException {//GEN-FIRST:event_btnLuuMouseClicked
-        // TODO add your handling code here:
         luu();
     }//GEN-LAST:event_btnLuuMouseClicked
 
     private void btn_LamMoiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LamMoiActionPerformed
-        // TODO add your handling code here:
         lamMoi();
     }//GEN-LAST:event_btn_LamMoiActionPerformed
 

@@ -8,7 +8,7 @@ package GUI;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
-
+import org.apache.commons.logging.*;
 import DTO.ChiTietHoaDon;
 import DTO.HoaDon;
 import utils.ConvertDoubleToMoney;
@@ -51,12 +51,12 @@ public class ThongTinHoaDon_GUI extends javax.swing.JFrame {
         lbl_TienNhan.setText(convert.toMoney(tienNhan));
         lbl_TienTraLai.setText(convert.toMoney(tienTraLai));
         
-        String[] cols = {"Mã sản phẩm", "Tên sản phẩm", "Hoạt chất chính", "Nhóm thuốc", "Số lượng", "Giá gốc", "Giá bán", "Thành tiền"};
+        String[] cols = {"Tên sản phẩm", "Đơn vị tính", "Số lượng", "Đơn giá", "Thành tiền"};
         tableModel = new DefaultTableModel(cols, 0);
         table.setModel(tableModel);
         
         for (ChiTietHoaDon cthd : cthdList) {
-            String[] data = {cthd.getThuoc().getMaThuoc(), cthd.getThuoc().getTenThuoc(), cthd.getThuoc().getHoatChatChinh(), cthd.getThuoc().getNhomHangHoa().getTenNhomHang(), cthd.getSoLuong()+"", convert.toMoney(cthd.getGiaGoc()), convert.toMoney(cthd.getGiaBan()), convert.toMoney(cthd.getThanhTien())};
+            String[] data = {cthd.getThuoc().getTenThuoc(), cthd.getThuoc().getDonViTinh().getTenDonViTinh(), cthd.getSoLuong()+"", convert.toMoney(cthd.getGiaBan()), convert.toMoney(cthd.getThanhTien())};
             tableModel.addRow(data);
         }
     }
@@ -81,6 +81,7 @@ public class ThongTinHoaDon_GUI extends javax.swing.JFrame {
         lbl_MaNhanVien = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        btn_close = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         lbl_TienNhan = new javax.swing.JLabel();
@@ -135,31 +136,35 @@ public class ThongTinHoaDon_GUI extends javax.swing.JFrame {
 
         table.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Mã thuốc", "Tên thuốc", "Hoạt chất chính", "Nhóm thuốc", "Số lượng", "Giá bán", "Thành tiền"
+                "Tên thuốc", "Đơn vị tính", "Số lượng", "Đơn giá", "Thành tiền"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         table.setEnabled(false);
         table.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setViewportView(table);
         if (table.getColumnModel().getColumnCount() > 0) {
-            table.getColumnModel().getColumn(1).setPreferredWidth(30);
-            table.getColumnModel().getColumn(2).setPreferredWidth(50);
-            table.getColumnModel().getColumn(3).setPreferredWidth(50);
-            table.getColumnModel().getColumn(4).setPreferredWidth(20);
+            table.getColumnModel().getColumn(0).setPreferredWidth(30);
+            table.getColumnModel().getColumn(2).setPreferredWidth(20);
         }
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 174, 811, 300));
@@ -186,18 +191,35 @@ public class ThongTinHoaDon_GUI extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(187, 205, 197));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
+        btn_close.setText("X");
+        btn_close.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_closeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_closeMouseExited(evt);
+            }
+        });
+        btn_close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_closeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 888, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 822, Short.MAX_VALUE)
+                .addComponent(btn_close, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
+            .addComponent(btn_close, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 20));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 30));
 
         jPanel3.setBackground(new java.awt.Color(187, 205, 197));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -349,8 +371,21 @@ public class ThongTinHoaDon_GUI extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btn_XuatHoaDonActionPerformed
 
+    private void btn_closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_closeActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_btn_closeActionPerformed
+
+    private void btn_closeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseEntered
+        btn_close.setBackground(Color.red);
+    }//GEN-LAST:event_btn_closeMouseEntered
+
+    private void btn_closeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_closeMouseExited
+        btn_close.setBackground(Color.white);
+    }//GEN-LAST:event_btn_closeMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_XuatHoaDon;
+    private javax.swing.JButton btn_close;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel12;

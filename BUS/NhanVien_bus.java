@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class NhanVien_bus implements NhanVien_Interface {
     NhanVienDAO NVdao = new NhanVienDAO();
 
-
     @Override
     public Boolean checkNV(String email, String sdt) {
         return null;
@@ -25,6 +24,10 @@ public class NhanVien_bus implements NhanVien_Interface {
         return NVdao.findBySDT(sdt);
     }
 
+    @Override
+    public NhanVien findByMa(String ma) {
+        return NVdao.findByMa(ma);
+    }
 
     @Override
     public boolean update(NhanVien updateNV) {

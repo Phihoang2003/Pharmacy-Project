@@ -7,6 +7,8 @@ package GUI;
 import BUS.KhachHang_bus;
 import DAO.KhachHangDAO;
 import DTO.KhachHang;
+import DTO.Thuoc;
+import DTO.TinhTrangSPEnum;
 import utils.SVGImage;
 
 import javax.swing.*;
@@ -16,7 +18,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,7 +82,6 @@ public class KhachHang_GUI extends JPanel {
 
         refresh();
     }
-
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
         CapNhatKhachHangDialog = new JDialog();
@@ -130,7 +133,7 @@ public class KhachHang_GUI extends JPanel {
         JPanel jPanel7 = new JPanel();
         SVGImage jLabel9 = new SVGImage();
         JLabel jLabel10 = new JLabel();
-        JTextField jTextField1 = new JTextField();
+        jTextField1 = new JTextField();
         btn_LamMoi = new JButton();
         btn_TimKiem = new JButton();
         JPanel jPanel8 = new JPanel();
@@ -289,7 +292,7 @@ public class KhachHang_GUI extends JPanel {
         CapNhatKhachHangDialog.setAlwaysOnTop(true);
         CapNhatKhachHangDialog.setBackground(new Color(255, 255, 255));
         CapNhatKhachHangDialog.setLocation(new Point(500, 50));
-        CapNhatKhachHangDialog.setSize(new Dimension(630, 740));
+        CapNhatKhachHangDialog.setSize(new Dimension(490, 540));
 
         jPanel10.setBackground(new Color(255, 255, 255));
         jPanel11.setBackground(new Color(22, 97, 86));
@@ -302,17 +305,17 @@ public class KhachHang_GUI extends JPanel {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
                 jPanel11Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel14)
-                                .addGap(206, 206, 206))
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
                 jPanel11Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
+                                .addGap(24, 24, Short.MAX_VALUE)
                                 .addComponent(jLabel14)
-                                .addContainerGap(26, Short.MAX_VALUE))
+                                .addGap(24, 24, Short.MAX_VALUE))
         );
 
         lblSDT1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
@@ -524,8 +527,13 @@ public class KhachHang_GUI extends JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jTextField1.setText("Nhập nội dung tìm kiếm");
+        jTextField1.setText("Nhập số điện thoại khách hàng");
         jTextField1.addActionListener(this::jTextField1ActionPerformed);
+        jTextField1.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                jTextField1.setText("");
+            }
+        });
 
         btn_LamMoi.setBackground(new Color(32, 131, 116));
         btn_LamMoi.setFont(new Font("Bahnschrift", Font.BOLD, 15));
@@ -534,6 +542,7 @@ public class KhachHang_GUI extends JPanel {
         btn_LamMoi.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btn_LamMoi.setHorizontalAlignment(SwingConstants.LEADING);
         btn_LamMoi.setPreferredSize(new Dimension(90, 31));
+        btn_LamMoi.addActionListener(this::btn_LamMoiActionPerformed);
 
         btn_TimKiem.setBackground(new Color(32, 131, 116));
         btn_TimKiem.setFont(new Font("Bahnschrift", Font.BOLD, 15));
@@ -663,7 +672,6 @@ public class KhachHang_GUI extends JPanel {
     }
 
     private void table_DSKHMouseClicked() {
-        // TODO add your handling code here:
         try {
             int rowSelected = table_DSKH.getSelectedRow();
             txt_ma1.setText(tableModel.getValueAt(rowSelected, 0).toString());
@@ -680,12 +688,12 @@ public class KhachHang_GUI extends JPanel {
     }
 
     private void btn_TimKiemActionPerformed(ActionEvent evt) {
-        String id = txt_NhapSDT.getText();
-        if (id.isBlank()) {
+        String sdt = jTextField1.getText();
+        if (sdt.isBlank()) {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập số điện thoại của khách hàng");
             return;
         }
-        KhachHang nv = bus.timKiemTheoSDT(id);
+        KhachHang nv = bus.timKiemTheoSDT(sdt);
         if (nv == null) {
             JOptionPane.showMessageDialog(this, "Nhân viên không tồn tại");
         } else {
@@ -694,6 +702,9 @@ public class KhachHang_GUI extends JPanel {
         }
     }
 
+    private void btn_LamMoiActionPerformed(ActionEvent evt) {
+        refresh();
+    }
     private boolean checkRangBuoc() {
         if (txt_ten.getText().isEmpty() || txt_sdt.getText().isEmpty()) {
             JOptionPane.showMessageDialog(ThemKhachHangDialog, "Các trường không được để trống");
@@ -849,4 +860,5 @@ public class KhachHang_GUI extends JPanel {
         tableModel.setRowCount(0);
         loadData();
     }
+    private JTextField jTextField1;
 }

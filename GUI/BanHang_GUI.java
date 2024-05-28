@@ -12,7 +12,6 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.*;
@@ -26,24 +25,24 @@ import utils.Global;
  * @author USER
  */
 public class BanHang_GUI extends javax.swing.JPanel {
-    private DefaultTableModel tableModel_GioHang;
-    private DefaultTableModel tableModel_HoaDon;
+    private final DefaultTableModel tableModel_GioHang;
+    private final DefaultTableModel tableModel_HoaDon;
     private SpinnerNumberModel spinnerModel;
     private ArrayList<ChiTietHoaDon> cthdList = new ArrayList<ChiTietHoaDon>();
-    private SanPham_bus sp_bus = new SanPham_bus();
+    private final SanPham_bus sp_bus = new SanPham_bus();
     private ArrayList<HoaDon> hdList = new ArrayList<HoaDon>();
-    private ChuongTrinhKhuyenMai_bus ctkm_bus = new ChuongTrinhKhuyenMai_bus();
-    private ConvertDoubleToMoney convert = new ConvertDoubleToMoney();
+    private final ChuongTrinhKhuyenMai_bus ctkm_bus = new ChuongTrinhKhuyenMai_bus();
+    private final ConvertDoubleToMoney convert = new ConvertDoubleToMoney();
     private HoaDon hoaDon = new HoaDon();
-    private KhachHang_bus kh_bus = new KhachHang_bus();
-    private HoaDon_bus hd_bus = new HoaDon_bus();
-    private ChiTietHoaDon_bus cthd_bus = new ChiTietHoaDon_bus();
+    private final KhachHang_bus kh_bus = new KhachHang_bus();
+    private final HoaDon_bus hd_bus = new HoaDon_bus();
+    private final ChiTietHoaDon_bus cthd_bus = new ChiTietHoaDon_bus();
     private KhachHang khachHang = new KhachHang();
 
     /**
      * Creates new form BanHang_GUI
      */
-    public BanHang_GUI() throws SQLException {
+    public BanHang_GUI() {
 
         initComponents();
         ImageIcon img_btnTimKiemSanPham = new ImageIcon("icon/buttonTimKiem.png");
@@ -89,7 +88,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
         jScrollPane1.setViewportView(table_HoaDon);
 
 
-        String[] cols_GioHang = {"Mã Thuốc", "Tên Thuốc", "Hoạt chất chính", "Nhóm thuốc", "Số lượng", "Giá gốc", "Giá bán", "Thành Tiền"};
+        String[] cols_GioHang = {"Mã Thuốc", "Tên Thuốc", "Hoạt chất chính", "Nhóm thuốc", "Số lượng", "Đơn vị tính", "Giá gốc", "Giá bán", "Thành Tiền"};
         tableModel_GioHang = new DefaultTableModel(cols_GioHang, 0);
         table_gioHang.setModel(tableModel_GioHang);
 
@@ -556,20 +555,20 @@ public class BanHang_GUI extends javax.swing.JPanel {
 
         table_gioHang.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Mã Thuốc", "Tên Thuốc", "Hoạt chất chính", "Nhóm thuốc", "Số lượng", "Giá bán", "Thành Tiền"
+                "Mã thuốc", "Tên thuốc", "Hoạt chất chính", "Nhóm thuốc", "Số lượng", "Đơn vị tính", "Giá bán", "Thành Tiền"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -720,6 +719,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
         lbl_tienThanhToan.setBackground(new java.awt.Color(204, 204, 204));
         lbl_tienThanhToan.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         lbl_tienThanhToan.setForeground(new java.awt.Color(153, 0, 51));
+        lbl_tienThanhToan.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         lbl_tienThanhToan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 51), 3));
 
         lbl_tienTraLai.setBackground(new java.awt.Color(204, 204, 204));
@@ -1068,6 +1068,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
                     cthd.getThuoc().getHoatChatChinh(),
                     cthd.getThuoc().getNhomHangHoa().getTenNhomHang(),
                     cthd.getSoLuong(),
+                    cthd.getThuoc().getDonViTinh().getTenDonViTinh(),
                     convert.toMoney(cthd.getGiaGoc()),
                     convert.toMoney(cthd.getGiaBan()),
                     convert.toMoney(cthd.getThanhTien())
@@ -1263,7 +1264,8 @@ public class BanHang_GUI extends javax.swing.JPanel {
             return;
         }
         if (hoaDon.getKhachHang() == null) {
-            hoaDon.setKhachHang(new KhachHang());
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập khách hàng trước khi tạo hóa đơn");
+            return;
         }
         NhanVien nv = new NhanVien(Global.getMa());
         hoaDon.setNhanVien(nv);

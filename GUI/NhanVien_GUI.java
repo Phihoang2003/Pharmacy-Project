@@ -2,11 +2,13 @@ package GUI;
 
 import BUS.NhanVien_bus;
 import DAO.NhanVienDAO;
-import DTO.CaLamViecEnum;
-import DTO.ChucVuEnum;
-import DTO.NhanVien;
-import DTO.TinhTrangNVEnum;
+import DTO.*;
 import com.toedter.calendar.JDateChooser;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import utils.SVGImage;
 
 import javax.swing.*;
@@ -16,13 +18,18 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static GUI.SanPham_GUI.openExcelFile;
+
 public class NhanVien_GUI extends JPanel {
     private final NhanVien_bus bus = new NhanVien_bus();
+
     private DefaultTableModel tableModel = new DefaultTableModel();
     private JDialog CapNhatNhanVienDialog;
     private ButtonGroup Gender;
@@ -163,7 +170,7 @@ public class NhanVien_GUI extends JPanel {
         JPanel jPanel5 = new JPanel();
         JLabel jLabel4 = new JLabel();
         SVGImage jLabel13 = new SVGImage();
-        JPanel jPanel7 = new JPanel();
+        JPanel btn_xuat = new JPanel();
         SVGImage jLabel9 = new SVGImage();
         JLabel jLabel10 = new JLabel();
         txt_NhapSDT = new JTextField();
@@ -287,7 +294,7 @@ public class NhanVien_GUI extends JPanel {
                                                 .addGroup(jPanel6Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                                         .addGroup(jPanel6Layout.createSequentialGroup()
                                                                 .addComponent(lblMa, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(233, 233, 233)
+                                                                .addGap(233, 275, 275)
                                                                 .addComponent(lblHoTen, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel6Layout.createSequentialGroup()
                                                                 .addGroup(jPanel6Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -400,7 +407,7 @@ public class NhanVien_GUI extends JPanel {
         CapNhatNhanVienDialog.setAlwaysOnTop(true);
         CapNhatNhanVienDialog.setBackground(new Color(255, 255, 255));
         CapNhatNhanVienDialog.setLocation(new Point(500, 50));
-        CapNhatNhanVienDialog.setSize(new Dimension(630, 740));
+        CapNhatNhanVienDialog.setSize(new Dimension(660, 740));
 
         jPanel10.setBackground(new Color(255, 255, 255));
 
@@ -499,7 +506,7 @@ public class NhanVien_GUI extends JPanel {
                                                 .addGroup(jPanel10Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                                         .addGroup(jPanel10Layout.createSequentialGroup()
                                                                 .addComponent(lblMa1, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(233, 233, 233)
+                                                                .addGap(233, 260, 260)
                                                                 .addComponent(lblHoTen1, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE))
                                                         .addGroup(jPanel10Layout.createSequentialGroup()
                                                                 .addGroup(jPanel10Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -526,7 +533,7 @@ public class NhanVien_GUI extends JPanel {
                                                                                 .addGap(41, 41, 41)
                                                                                 .addComponent(caLamViec1, GroupLayout.PREFERRED_SIZE, 121, GroupLayout.PREFERRED_SIZE))
                                                                         .addComponent(lblBirth1, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-                                                                        .addComponent(lblCCCD1, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+                                                                        .addComponent(lblCCCD1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(txt_ten1)
                                                                         .addComponent(lblChucVu1, GroupLayout.PREFERRED_SIZE, 53, GroupLayout.PREFERRED_SIZE)
                                                                         .addComponent(txt_cccd1)
@@ -685,7 +692,12 @@ public class NhanVien_GUI extends JPanel {
                         .addComponent(jLabel4)
         );
 
-        jPanel7.setBackground(new Color(255, 255, 255));
+        btn_xuat.setBackground(new Color(255, 255, 255));
+        btn_xuat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_xuatMouseClicked(evt);
+            }
+        });
 
         jLabel9.setSvgImage("icon/excel.svg", 70, 70);
 
@@ -694,15 +706,15 @@ public class NhanVien_GUI extends JPanel {
         jLabel10.setText("XUẤT EXCEL");
         jLabel10.setHorizontalAlignment(JLabel.CENTER);
 
-        GroupLayout jPanel7Layout = new GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-                jPanel7Layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+        GroupLayout btn_xuatLayout = new GroupLayout(btn_xuat);
+        btn_xuat.setLayout(btn_xuatLayout);
+        btn_xuatLayout.setHorizontalGroup(
+                btn_xuatLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
                         .addComponent(jLabel9)
                         .addComponent(jLabel10, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
         );
-        jPanel7Layout.setVerticalGroup(
-                jPanel7Layout.createSequentialGroup()
+        btn_xuatLayout.setVerticalGroup(
+                btn_xuatLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -723,6 +735,7 @@ public class NhanVien_GUI extends JPanel {
         btn_LamMoi.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btn_LamMoi.setHorizontalAlignment(SwingConstants.LEADING);
         btn_LamMoi.setPreferredSize(new Dimension(90, 31));
+        btn_LamMoi.addActionListener(this::btn_LamMoiActionPerformed);
 
         btn_TimKiem.setBackground(new Color(32, 131, 116));
         btn_TimKiem.setFont(new Font("Bahnschrift", Font.BOLD, 15));
@@ -738,9 +751,9 @@ public class NhanVien_GUI extends JPanel {
                                 .addComponent(iconThem, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(iconCapNhat)
-                                .addComponent(jPanel5)
+//                                .addComponent(jPanel5)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel7)
+                                .addComponent(btn_xuat)
                                 .addGap(50, 50, 50)
                                 .addComponent(txt_NhapSDT, GroupLayout.PREFERRED_SIZE, 244, GroupLayout.PREFERRED_SIZE)
                                 .addGap(10, 10, 50)
@@ -757,9 +770,9 @@ public class NhanVien_GUI extends JPanel {
                                         .addGroup(jPanel1Layout.createSequentialGroup()
                                                 .addGap(3, 3, 3)
                                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+//                                                        .addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(iconCapNhat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jPanel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+                                                        .addComponent(btn_xuat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
                                 .addGap(476, 476, 476))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(41, 41, 41)
@@ -844,6 +857,77 @@ public class NhanVien_GUI extends JPanel {
     private void txt_NhapSDTActionPerformed(ActionEvent actionEvent) {
     }
 
+    private void xuatExcel() {
+        try {
+            String defaultCurrentDirectoryPath = "src/fileExcel";
+            JFileChooser fileChooser = new JFileChooser(defaultCurrentDirectoryPath);
+            fileChooser.setDialogTitle("Chọn nơi lưu file");
+            int chon = fileChooser.showSaveDialog(null);
+            if (chon == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                String filePath = selectedFile.getAbsolutePath();
+                if (!filePath.toLowerCase().endsWith(".xlsx")) {
+                    filePath += ".xlsx";
+                }
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                XSSFWorkbook workbook = new XSSFWorkbook();
+                XSSFSheet sheet = workbook.createSheet("Danh sách nhân viên");
+                XSSFRow row = null;
+                Cell cell = null;
+                row = sheet.createRow(0);
+                cell = row.createCell(0, CellType.STRING);
+                cell.setCellValue("Mã nhân viên");
+                cell = row.createCell(1, CellType.STRING);
+                cell.setCellValue("Tên nhân viên");
+                cell = row.createCell(2, CellType.STRING);
+                cell.setCellValue("Giới tính");
+                cell = row.createCell(3, CellType.STRING);
+                cell.setCellValue("Ngày sinh");
+                cell = row.createCell(4, CellType.STRING);
+                cell.setCellValue("Email");
+                cell = row.createCell(5, CellType.STRING);
+                cell.setCellValue("Số điện thoại");
+                cell = row.createCell(6, CellType.STRING);
+                cell.setCellValue("Địa chỉ");
+                cell = row.createCell(7, CellType.STRING);
+                cell.setCellValue("Chức vụ");
+                cell = row.createCell(8, CellType.STRING);
+                cell.setCellValue("Tình trạng");
+                cell = row.createCell(9, CellType.STRING);
+                cell.setCellValue("Ca làm việc");
+
+                ArrayList<NhanVien> listItem = bus.selectAll();
+                for (int i = 0; i < listItem.size(); i++) {
+                    NhanVien sp = listItem.get(i);
+                    row = sheet.createRow(1 + i);
+                    row.createCell(0).setCellValue(sp.getMaNhanVien());
+                    row.createCell(1).setCellValue(sp.getHoTen());
+                    row.createCell(2).setCellValue(sp.getGioiTinh() == 1 ? "Nam" : "Nữ");
+                    String formattedDate = sdf.format(sp.getNgaySinh());
+                    row.createCell(3).setCellValue(formattedDate);
+                    row.createCell(4).setCellValue(sp.getEmail());
+                    row.createCell(5).setCellValue(sp.getSdt());
+                    row.createCell(6).setCellValue(sp.getDiaChi());
+                    row.createCell(7).setCellValue(String.valueOf(sp.getChucVu()));
+                    row.createCell(8).setCellValue(String.valueOf(sp.getTrangThai()));
+                    row.createCell(9).setCellValue(String.valueOf(sp.getCaLamViec()));
+                }
+                File f = new File(filePath);
+                try (FileOutputStream fos = new FileOutputStream(f)) {
+                    workbook.write(fos);
+                    JOptionPane.showMessageDialog(null, "Xuất file thành công");
+                    openExcelFile(f);
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void btn_xuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_xuatMouseClicked
+        xuatExcel();
+    }//GEN-LAST:event_btn_xuatMouseClicked
+
     private void ThemNhanVienDialogMouseClicked() {
         // TODO add your handling code here:
     }
@@ -872,16 +956,28 @@ public class NhanVien_GUI extends JPanel {
         }
     }
 
+    private void btn_LamMoiActionPerformed(ActionEvent evt) {
+        refresh();
+    }
+
     private void btn_TimKiemActionPerformed(ActionEvent evt) {
-        String id = txt_NhapSDT.getText();
-        if (id.isBlank()) {
+        String timKiem = txt_NhapSDT.getText();
+        if (timKiem.isBlank()) {
             JOptionPane.showMessageDialog(this, "Bạn chưa nhập số điện thoại của nhân viên");
             return;
         }
-        NhanVien nv = bus.findBySDT(id);
+
+        NhanVien nv;
+
+        if (timKiem.matches("\\d+")) { // Check if the search string is a number
+            nv = bus.findBySDT(timKiem);
+        } else {
+            nv = bus.findByMa(timKiem);
+        }
         if (nv == null) {
             JOptionPane.showMessageDialog(this, "Nhân viên không tồn tại");
-        } else {
+        }
+        else {
             tableModel.setRowCount(0);
             tableModel.addRow(new Object[]{nv.getMaNhanVien(), nv.getHoTen(), nv.getGioiTinh() == 1 ? "Nam" : "Nữ", nv.getNgaySinh().toString(), nv.getEmail(), nv.getSdt(), nv.getDiaChi(), nv.getChucVu().toString(), nv.getTrangThai().toString(), nv.getCaLamViec().toString()});
         }

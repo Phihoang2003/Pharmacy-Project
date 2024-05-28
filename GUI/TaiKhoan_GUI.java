@@ -147,7 +147,7 @@ public class TaiKhoan_GUI extends javax.swing.JPanel {
 
             },
             new String [] {
-                "Chủ sỡ hữu", "Tên tài khoản", "Thời gian đăng nhập", "Tình trạng"
+                "Chủ sở hữu", "Tên tài khoản Số điện thoại", "Thời gian đăng nhập", "Tình trạng"
             }
         ));
         table_DanhSachTK.addMouseListener(new java.awt.event.MouseAdapter() {

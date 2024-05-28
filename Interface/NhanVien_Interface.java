@@ -2,13 +2,13 @@ package Interface;
 
 import DTO.NhanVien;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public interface NhanVien_Interface{
-    public Boolean checkNV(String email, String sdt);
-    public NhanVien selectById(String id);
+    Boolean checkNV(String email, String sdt);
+    NhanVien selectById(String id);
     NhanVien findBySDT(String sdt);
+    NhanVien findByMa(String ma);
     boolean update(NhanVien updateNV);
     boolean insert(NhanVien insertNV);
     ArrayList<NhanVien> selectAll();

@@ -40,9 +40,27 @@ public class NhaCungCapDAO implements NhaCungCap_Interface {
         return result>0;
     }
 
-    @Override
-    public ArrayList<NhaCungCap> timKiemNCC(String ma) {
-        return null;
+    public NhaCungCap timKiemNCC(String ma) {
+        NhaCungCap nhaCungCapDTO = null;
+        try {
+            Connection con = JDBCUtil.getConnection();
+            String sql = "SELECT * FROM `nhacungcap` WHERE `maNhaCungCap`=?";
+            PreparedStatement pst = con.prepareStatement(sql);
+            pst.setString(1, ma);
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                nhaCungCapDTO = new NhaCungCap();
+                nhaCungCapDTO.setMaNhaCungCap(rs.getString("maNhaCungCap"));
+                nhaCungCapDTO.setTenNhaCungCap(rs.getString("tenNhaCungCap"));
+                nhaCungCapDTO.setDiaChi(rs.getString("diaChi"));
+                nhaCungCapDTO.setSoDienThoai(rs.getString("soDienThoai"));
+            }
+            JDBCUtil.closeConnection(con);
+        } catch (SQLException ex) {
+
+            Logger.getLogger(KhachHangDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nhaCungCapDTO;
     }
 
     @Override

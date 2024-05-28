@@ -14,21 +14,20 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
 /**
- *
  * @author 84335
  */
 public class ChiTietHoaDon_GUI extends javax.swing.JFrame {
-    
-     public static void main(String args[]) {
-    
+
+    public static void main(String args[]) {
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             private ChiTietHoaDon_GUI frame;
+
             public void run() {
                 try {
                     frame = new ChiTietHoaDon_GUI();
@@ -37,10 +36,11 @@ public class ChiTietHoaDon_GUI extends javax.swing.JFrame {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                
+
             }
         });
     }
+
     private final ChiTietHoaDon_bus cthdbus;
     private DefaultTableModel model;
     private SanPham_bus spbus;
@@ -48,15 +48,15 @@ public class ChiTietHoaDon_GUI extends javax.swing.JFrame {
     private KhachHang_bus khbus;
     private ChuongTrinhKhuyenMai_bus kmbus;
     private HoaDon_bus hdbus;
-       // Định dạng số tiền sang VND
-        NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
+    // Định dạng số tiền sang VND
+    NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(new Locale("vi", "VN"));
 
     /**
      * Creates new form ChiTietHoaDon_GUI
      */
     public ChiTietHoaDon_GUI() {
-           try {
-               JDBCUtil.getConnection();
+        try {
+            JDBCUtil.getConnection();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -64,105 +64,101 @@ public class ChiTietHoaDon_GUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         cthdbus = new ChiTietHoaDon_bus();
         HoaDon_Global hdtc = new HoaDon_Global();
-        System.out.println(" Mã hoá đơn" + HoaDon_Global.getMaHD());
+        System.out.println("Mã hoá đơn" + HoaDon_Global.getMaHD());
         lbl_MaHoaDon.setText(HoaDon_Global.getMaHD());
 //        lbl_MaKhachHang.setText(hdtc.getMaKH());
         // Lấy thôn tin khách hàng
         khbus = new KhachHang_bus();
-        KhachHang kh  = new KhachHang();
-        if(!HoaDon_Global.getMaKH().isEmpty()) {
+        KhachHang kh = new KhachHang();
+        if (!HoaDon_Global.getMaKH().isEmpty()) {
             kh = khbus.selectById(HoaDon_Global.getMaKH());
-             lbl_MaKhachHang.setText(kh.getHoTen());
-               lbl_SDT.setText(kh.getSdt());
+            lbl_MaKhachHang.setText(kh.getHoTen());
+            lbl_SDT.setText(kh.getSdt());
         }
 
         lbl_MaNhanVien.setText(HoaDon_Global.getMaNV());
         lbl_NgayLapHoaDon.setText(HoaDon_Global.getNgayLap());
         // Lấy Khuyến Mãi
         kmbus = new ChuongTrinhKhuyenMai_bus();
-        if(!HoaDon_Global.getMaKM().equals("")){
+        if (!HoaDon_Global.getMaKM().equals("")) {
 
-              ChuongTrinhKhuyenMai ctkm = kmbus.getKMTheomaHD(lbl_MaHoaDon.getText());
+            ChuongTrinhKhuyenMai ctkm = kmbus.getKMTheomaHD(lbl_MaHoaDon.getText());
 
-                   lbl_KhuyenMaiHD.setText(ctkm.getGiamGia()+"%");
+            lbl_KhuyenMaiHD.setText(ctkm.getGiamGia() + "%");
 
 
         }
-        lbl_IConExit.addMouseListener(new MouseAdapter(){
+        lbl_IConExit.addMouseListener(new MouseAdapter() {
             @Override
-            public void mouseClicked(MouseEvent e){
+            public void mouseClicked(MouseEvent e) {
                 System.exit(0);
             }
         });
-        
-          DocDuLieuSQLvaoTable();
+
+        DocDuLieuSQLvaoTable();
 
     }
 
     private void DocDuLieuSQLvaoTable() {
 
-    ArrayList<ChiTietHoaDon> listCTHD =cthdbus.getallCTHD();
-    int sl = 0;
+        ArrayList<ChiTietHoaDon> listCTHD = cthdbus.getallCTHD();
+        int sl = 0;
         try {
             String maHD = lbl_MaHoaDon.getText();
             ArrayList<Thuoc> allSP = new ArrayList<>(); // Danh sách tất cả sản phẩm
-             allSP = cthdbus.getSanPhamTheoMaHD(maHD);
-             String giagoc  = "";
-            for(Thuoc sp: allSP){
+            allSP = cthdbus.getSanPhamTheoMaHD(maHD);
+            String giagoc = "";
+            for (Thuoc sp : allSP) {
                 listCTHD = cthdbus.getCTHDTheoMaHDvaMaSP(maHD, sp.getMaThuoc());
-                for(ChiTietHoaDon ct: listCTHD){
-                    System.out.println("Chi tiet"+ct);
-                    
-                    if(sp.getChuongTrinhKhuyenMaiEntity().getMaCTKM()!= null){
+                for (ChiTietHoaDon ct : listCTHD) {
+                    System.out.println("Chi tiet" + ct);
+
+                    if (sp.getChuongTrinhKhuyenMaiEntity().getMaCTKM() != null) {
                         ChuongTrinhKhuyenMai ctkm = kmbus.selectById(sp.getChuongTrinhKhuyenMaiEntity().getMaCTKM());
-                         giagoc = "<html><strike>"+ct.getGiaGoc()+"</strike><sub>"+"-"+ctkm.getGiamGia()+"%"+"</sub></html>" ;
+                        giagoc = "<html><strike>" + ct.getGiaGoc() + "</strike><sub>" + "-" + ctkm.getGiamGia() + "%" + "</sub></html>";
+                    } else {
+                        giagoc = ct.getGiaGoc() + "";
                     }
-                    else {
-                        giagoc = ct.getGiaGoc() +"";
-                    }
-                addRows(new Object[]{sp.getMaThuoc(),sp.getTenThuoc(),sp.getHoatChatChinh(),sp.getDonViTinh().getMaDonViTinh(),ct.getSoLuong(),giagoc ,ct.getGiaBan(),ct.getThanhTien()});
+                    addRows(new Object[]{sp.getMaThuoc(), sp.getTenThuoc(), sp.getHoatChatChinh(), sp.getDonViTinh().getMaDonViTinh(), ct.getSoLuong(), giagoc, ct.getGiaBan(), ct.getThanhTien()});
                 }
             }
 //           lblTongTien.setText(TongTien(5));
-           lbl_TienThanhToan.setText(TongTien(7));
+            lbl_TienThanhToan.setText(TongTien(7));
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Vui lòng chọn hoá đơn cần xem !");
             e.printStackTrace();
         }
-   
 
-}
 
-       public void addRows (Object[] row){
+    }
+
+    public void addRows(Object[] row) {
         model = (DefaultTableModel) table.getModel();
         model.addRow(row);
-   } 
-    public boolean getHD(String maHD,String maKH,String maNV,String ngayLap ){
-
-        return false;
     }
-    public String TongTien(int col){
-        double tt =0;
+
+    public String TongTien(int col) {
+        double tt = 0;
         try {
             int row = table.getRowCount();
-            for (int i = 0; i < row ; i++) {
+            for (int i = 0; i < row; i++) {
                 tt += Double.parseDouble(table.getValueAt(i, col).toString());
             }
 //            lblTongTien.setText(tt+" đ");
-        String giamKMHD = lbl_KhuyenMaiHD.getText().replace("%", "");
-        double stg = tt * (Double.parseDouble(giamKMHD))/100;
-          ChuongTrinhKhuyenMai ctkm = kmbus.getKMTheomaHD(lbl_MaHoaDon.getText());
-          if(ctkm != null){
-              if(ctkm.getSoTienToiDa() < stg) stg = ctkm.getSoTienToiDa();
-          }
-          
-        tt = tt - stg;
+            String giamKMHD = lbl_KhuyenMaiHD.getText().replace("%", "");
+            double stg = tt * (Double.parseDouble(giamKMHD)) / 100;
+            ChuongTrinhKhuyenMai ctkm = kmbus.getKMTheomaHD(lbl_MaHoaDon.getText());
+            if (ctkm != null) {
+                if (ctkm.getSoTienToiDa() < stg) stg = ctkm.getSoTienToiDa();
+            }
+
+            tt = tt - stg;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return currencyFormatter.format(tt) + "";
     }
-       
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -249,19 +245,19 @@ public class ChiTietHoaDon_GUI extends javax.swing.JFrame {
         jPanel2.add(lbl_NgayLapHoaDon, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 110, 30));
 
         table.setModel(new DefaultTableModel(
-            new Object [][] {
+                new Object[][]{
 
-            },
-            new String [] {
-                "Mã Sản Phẩm", "Tên Sản Phẩm", "Hoạt chất chính", "Đơn vị tính", "Số Lượng", "Giá Gốc", "Giá bán", "Thành tiền"
-            }
+                },
+                new String[]{
+                        "Mã Sản Phẩm", "Tên Sản Phẩm", "Hoạt chất chính", "Đơn vị tính", "Số Lượng", "Giá Gốc", "Giá bán", "Thành tiền"
+                }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+            boolean[] canEdit = new boolean[]{
+                    false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         table.setRowHeight(30);
@@ -311,12 +307,12 @@ public class ChiTietHoaDon_GUI extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 798, Short.MAX_VALUE)
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 798, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 18, Short.MAX_VALUE)
+                jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 18, Short.MAX_VALUE)
         );
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 700, 800, 20));
@@ -336,7 +332,7 @@ public class ChiTietHoaDon_GUI extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-   
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_XacNhan;

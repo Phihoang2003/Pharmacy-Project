@@ -3,6 +3,12 @@ package GUI;
 import BUS.NhaCungCap_bus;
 import DAO.NhaCungCapDAO;
 import DTO.NhaCungCap;
+import DTO.NhanVien;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.CellType;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import utils.SVGImage;
 
 import javax.swing.*;
@@ -12,10 +18,15 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static GUI.SanPham_GUI.openExcelFile;
 
 public class NhaCungCap_GUI extends JPanel {
     private final NhaCungCap_bus bus = new NhaCungCap_bus();
@@ -118,10 +129,10 @@ public class NhaCungCap_GUI extends JPanel {
         JLabel jLabel14 = new JLabel();
         JLabel jLabel4 = new JLabel();
         SVGImage jLabel11 = new SVGImage();
-        JPanel jPanel7 = new JPanel();
+        JPanel btn_xuat = new JPanel();
         SVGImage jLabel9 = new SVGImage();
         JLabel jLabel10 = new JLabel();
-        JTextField jTextField1 = new JTextField();
+        jTextField1 = new JTextField();
         btn_LamMoi = new JButton();
         btn_TimKiem = new JButton();
         JPanel jPanel8 = new JPanel();
@@ -130,8 +141,8 @@ public class NhaCungCap_GUI extends JPanel {
         ThemNCCDialog.setTitle("Thêm Nhà Cung Cấp");
         ThemNCCDialog.setAlwaysOnTop(true);
         ThemNCCDialog.setBackground(new Color(255, 255, 255));
-        ThemNCCDialog.setLocation(new Point(500, 200));
-        ThemNCCDialog.setSize(new Dimension(490, 545));
+        ThemNCCDialog.setLocation(new Point(500, 100));
+        ThemNCCDialog.setSize(new Dimension(490, 690));
         ThemNCCDialog.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent evt) {
                 ThemNCCDialogMouseClicked();
@@ -287,8 +298,8 @@ public class NhaCungCap_GUI extends JPanel {
         CapNhatNCCDialog.setTitle("CẬP NHẬT NHÀ CUNG CẤP");
         CapNhatNCCDialog.setAlwaysOnTop(true);
         CapNhatNCCDialog.setBackground(new Color(255, 255, 255));
-        CapNhatNCCDialog.setLocation(new Point(500, 50));
-        CapNhatNCCDialog.setSize(new Dimension(630, 740));
+        CapNhatNCCDialog.setLocation(new Point(500, 100));
+        CapNhatNCCDialog.setSize(new Dimension(490, 700));
 
         jPanel10.setBackground(new Color(255, 255, 255));
         jPanel11.setBackground(new Color(22, 97, 86));
@@ -301,17 +312,17 @@ public class NhaCungCap_GUI extends JPanel {
         jPanel11.setLayout(jPanel11Layout);
         jPanel11Layout.setHorizontalGroup(
                 jPanel11Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel11Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(jLabel14)
-                                .addGap(206, 206, 206))
+                                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel11Layout.setVerticalGroup(
                 jPanel11Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel11Layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
+                                .addGap(24, 24, Short.MAX_VALUE)
                                 .addComponent(jLabel14)
-                                .addContainerGap(26, Short.MAX_VALUE))
+                                .addGap(24, 24, Short.MAX_VALUE))
         );
 
         lblMa1.setFont(new Font("Bahnschrift", Font.PLAIN, 13));
@@ -505,7 +516,12 @@ public class NhaCungCap_GUI extends JPanel {
                         .addComponent(jLabel4)
         );
 
-        jPanel7.setBackground(new Color(255, 255, 255));
+        btn_xuat.setBackground(new Color(255, 255, 255));
+        btn_xuat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_xuatMouseClicked(evt);
+            }
+        });
 
         jLabel9.setSvgImage("icon/excel.svg", 70, 70);
 
@@ -514,15 +530,15 @@ public class NhaCungCap_GUI extends JPanel {
         jLabel10.setText("XUẤT EXCEL");
         jLabel10.setHorizontalAlignment(JLabel.CENTER);
 
-        GroupLayout jPanel7Layout = new GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-                jPanel7Layout.createParallelGroup(GroupLayout.Alignment.CENTER)
+        GroupLayout btn_xuatLayout = new GroupLayout(btn_xuat);
+        btn_xuat.setLayout(btn_xuatLayout);
+        btn_xuatLayout.setHorizontalGroup(
+                btn_xuatLayout.createParallelGroup(GroupLayout.Alignment.CENTER)
                         .addComponent(jLabel9)
                         .addComponent(jLabel10, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
         );
-        jPanel7Layout.setVerticalGroup(
-                jPanel7Layout.createSequentialGroup()
+        btn_xuatLayout.setVerticalGroup(
+                btn_xuatLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -530,8 +546,15 @@ public class NhaCungCap_GUI extends JPanel {
                         .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jTextField1.setText("Nhập nội dung tìm kiếm");
+        jTextField1.setText("Nhập mã hoặc sdt nhà cung cấp");
         jTextField1.addActionListener(this::jTextField1ActionPerformed);
+        jTextField1.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent evt) {
+                jTextField1.setText("");
+            }
+        });
+        if (jTextField1.getText().isEmpty())
+            jTextField1.setText("Nhập mã hoặc sdt nhà cung cấp");
 
         btn_LamMoi.setBackground(new Color(32, 131, 116));
         btn_LamMoi.setFont(new Font("Bahnschrift", Font.BOLD, 15));
@@ -540,6 +563,7 @@ public class NhaCungCap_GUI extends JPanel {
         btn_LamMoi.setCursor(new Cursor(Cursor.HAND_CURSOR));
         btn_LamMoi.setHorizontalAlignment(SwingConstants.LEADING);
         btn_LamMoi.setPreferredSize(new Dimension(90, 31));
+        btn_LamMoi.addActionListener(this::btn_LamMoiActionPerformed);
 
         btn_TimKiem.setBackground(new Color(32, 131, 116));
         btn_TimKiem.setFont(new Font("Bahnschrift", Font.BOLD, 15));
@@ -557,7 +581,7 @@ public class NhaCungCap_GUI extends JPanel {
                                 .addComponent(iconCapNhat)
 //                                .addComponent(jPanel5)
 //                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-//                                .addComponent(jPanel7)
+                                .addComponent(btn_xuat)
                                 .addComponent(cboTinhTrang)
                                 .addGap(10, 30, 50)
                                 .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 244, GroupLayout.PREFERRED_SIZE)
@@ -577,7 +601,7 @@ public class NhaCungCap_GUI extends JPanel {
                                                 .addGroup(jPanel1Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
 //                                                        .addComponent(jPanel5, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                                 .addComponent(iconCapNhat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-//                                                        .addComponent(jPanel7, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(btn_xuat, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                 )))
                                 .addGap(476, 476, 476))
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -683,13 +707,76 @@ public class NhaCungCap_GUI extends JPanel {
         }
     }
 
+    private void xuatExcel() {
+        try {
+            String defaultCurrentDirectoryPath = "src/fileExcel";
+            JFileChooser fileChooser = new JFileChooser(defaultCurrentDirectoryPath);
+            fileChooser.setDialogTitle("Chọn nơi lưu file");
+            int chon = fileChooser.showSaveDialog(null);
+            if (chon == JFileChooser.APPROVE_OPTION) {
+                File selectedFile = fileChooser.getSelectedFile();
+                String filePath = selectedFile.getAbsolutePath();
+                if (!filePath.toLowerCase().endsWith(".xlsx")) {
+                    filePath += ".xlsx";
+                }
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                XSSFWorkbook workbook = new XSSFWorkbook();
+                XSSFSheet sheet = workbook.createSheet("Danh sách nhà cung cấp");
+                XSSFRow row;
+                row = sheet.createRow(0);
+                Cell cell = row.createCell(0, CellType.STRING);
+                cell.setCellValue("Mã nhà cung cấp");
+                cell = row.createCell(1, CellType.STRING);
+                cell.setCellValue("Tên nhà cung cấp");
+                cell = row.createCell(2, CellType.STRING);
+                cell.setCellValue("Số điện thoại");
+                cell = row.createCell(3, CellType.STRING);
+                cell.setCellValue("Địa chỉ");
+                cell = row.createCell(4, CellType.STRING);
+                cell.setCellValue("Tình trạng");
+
+                ArrayList<NhaCungCap> listItem = bus.selectAll();
+                for (int i = 0; i < listItem.size(); i++) {
+                    NhaCungCap sp = listItem.get(i);
+                    row = sheet.createRow(1 + i);
+                    row.createCell(0).setCellValue(sp.getMaNhaCungCap());
+                    row.createCell(1).setCellValue(sp.getTenNhaCungCap());
+                    row.createCell(2).setCellValue(sp.getSoDienThoai());
+                    row.createCell(3).setCellValue(sp.getDiaChi());
+                    row.createCell(4).setCellValue(sp.getTrangThai()== 1 ? "Đang nhập" : "Ngừng nhập");
+                }
+                File f = new File(filePath);
+                try (FileOutputStream fos = new FileOutputStream(f)) {
+                    workbook.write(fos);
+                    JOptionPane.showMessageDialog(null, "Xuất file thành công");
+                    openExcelFile(f);
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private void btn_xuatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_xuatMouseClicked
+        xuatExcel();
+    }
+
+    private void btn_LamMoiActionPerformed(ActionEvent evt) {
+        refresh();
+    }
+
     private void btn_TimKiemActionPerformed(ActionEvent evt) {
-        String id = txt_NhapSDT.getText();
-        if (id.isBlank()) {
-            JOptionPane.showMessageDialog(this, "Bạn chưa nhập số điện thoại của Nhà cung cấp");
+        String timKiem = jTextField1.getText();
+        if (timKiem.isBlank()) {
+            JOptionPane.showMessageDialog(this, "Bạn chưa nhập số điện thoại hoặc mã nhà cung cấp");
             return;
         }
-        NhaCungCap nv = bus.timKiemTheoSDT(id);
+        NhaCungCap nv;
+        if (timKiem.matches("\\d+")) { // Check if the search string is a number
+            nv = bus.timKiemTheoSDT(timKiem);
+        } else {
+            nv = bus.timKiemNCC(timKiem);
+        }
         if (nv == null) {
             JOptionPane.showMessageDialog(this, "Nhà cung cấp không tồn tại");
         } else {
@@ -834,4 +921,6 @@ public class NhaCungCap_GUI extends JPanel {
         tableModel.setRowCount(0);
         loadData();
     }
+
+    private JTextField jTextField1;
 }

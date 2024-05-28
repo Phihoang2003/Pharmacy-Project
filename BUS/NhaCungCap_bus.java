@@ -19,7 +19,7 @@ public class NhaCungCap_bus implements NhaCungCap_Interface {
     }
 
     @Override
-    public ArrayList<NhaCungCap> timKiemNCC(String ma) {
+    public NhaCungCap timKiemNCC(String ma) {
         return ncc_dao.timKiemNCC(ma);
     }
 

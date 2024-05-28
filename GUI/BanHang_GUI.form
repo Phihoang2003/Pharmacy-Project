@@ -775,18 +775,24 @@
             <Component class="javax.swing.JTable" name="table_gioHang">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="7" rowCount="4">
-                    <Column editable="false" title="M&#xe3; Thu&#x1ed1;c" type="java.lang.String"/>
-                    <Column editable="false" title="T&#xea;n Thu&#x1ed1;c" type="java.lang.String"/>
+                  <Table columnCount="8" rowCount="4">
+                    <Column editable="false" title="M&#xe3; thu&#x1ed1;c" type="java.lang.String"/>
+                    <Column editable="false" title="T&#xea;n thu&#x1ed1;c" type="java.lang.String"/>
                     <Column editable="false" title="Ho&#x1ea1;t ch&#x1ea5;t ch&#xed;nh" type="java.lang.String"/>
                     <Column editable="false" title="Nh&#xf3;m thu&#x1ed1;c" type="java.lang.String"/>
-                    <Column editable="false" title="S&#x1ed1; l&#x1b0;&#x1ee3;ng" type="java.lang.String"/>
+                    <Column editable="false" title="S&#x1ed1; l&#x1b0;&#x1ee3;ng" type="java.lang.Integer"/>
+                    <Column editable="false" title="&#x110;&#x1a1;n v&#x1ecb; t&#xed;nh" type="java.lang.String"/>
                     <Column editable="false" title="Gi&#xe1; b&#xe1;n" type="java.lang.String"/>
                     <Column editable="false" title="Th&#xe0;nh Ti&#x1ec1;n" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
                   <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
                     <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
                       <Title/>
                       <Editor/>
@@ -1302,6 +1308,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="0" red="99" type="rgb"/>
             </Property>
+            <Property name="horizontalAlignment" type="int" value="11"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
                 <LineBorder thickness="3">
