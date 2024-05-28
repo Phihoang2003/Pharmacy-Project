@@ -12,6 +12,7 @@ import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.*;
@@ -39,11 +40,10 @@ public class BanHang_GUI extends javax.swing.JPanel {
     private ChiTietHoaDon_bus cthd_bus = new ChiTietHoaDon_bus();
     private KhachHang khachHang = new KhachHang();
 
-
     /**
      * Creates new form BanHang_GUI
      */
-    public BanHang_GUI() {
+    public BanHang_GUI() throws SQLException {
 
         initComponents();
         ImageIcon img_btnTimKiemSanPham = new ImageIcon("icon/buttonTimKiem.png");
@@ -206,7 +206,6 @@ public class BanHang_GUI extends javax.swing.JPanel {
         lbl_tienThanhToan = new javax.swing.JLabel();
         lbl_tienTraLai = new javax.swing.JLabel();
         ck_tichLuy = new javax.swing.JCheckBox();
-        btn_addKH = new javax.swing.JButton();
         jRadioButton_khDefault = new javax.swing.JRadioButton();
         btn_XemHoaDonLuuTam = new javax.swing.JButton();
 
@@ -604,6 +603,11 @@ public class BanHang_GUI extends javax.swing.JPanel {
 
         txt_SoDienThoaiKH1.setForeground(new java.awt.Color(102, 102, 102));
         txt_SoDienThoaiKH1.setText("Nhập số điện thoại khách hàng");
+        txt_SoDienThoaiKH1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                txt_SoDienThoaiKH1MouseClicked(evt);
+            }
+        });
 
         btnTimKiemHoaDon.setBackground(new java.awt.Color(0, 153, 204));
         btnTimKiemHoaDon.setFont(new java.awt.Font("Bahnschrift SemiBold", 0, 12)); // NOI18N
@@ -729,17 +733,6 @@ public class BanHang_GUI extends javax.swing.JPanel {
             }
         });
 
-        btn_addKH.setBackground(new java.awt.Color(204, 204, 255));
-        btn_addKH.setFont(new java.awt.Font("Bahnschrift", 0, 13)); // NOI18N
-        btn_addKH.setText("Thêm khách hàng mới");
-        btn_addKH.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_addKH.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        btn_addKH.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_addKHActionPerformed(evt);
-            }
-        });
-
         jRadioButton_khDefault.setText("Khách hàng mặc định");
         jRadioButton_khDefault.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -782,14 +775,6 @@ public class BanHang_GUI extends javax.swing.JPanel {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnTinhHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addComponent(txt_SoDienThoaiKH1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnTimKiemHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_addKH)
-                                .addGap(18, 18, 18)
-                                .addComponent(jRadioButton_khDefault))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel4Layout.createSequentialGroup()
                                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -822,7 +807,13 @@ public class BanHang_GUI extends javax.swing.JPanel {
                                         .addGap(26, 26, 26)
                                         .addComponent(lbl_khuyenMaiHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel13)))))
+                                        .addComponent(jLabel13))))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addComponent(txt_SoDienThoaiKH1, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnTimKiemHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jRadioButton_khDefault)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(35, 35, 35))
         );
@@ -830,11 +821,9 @@ public class BanHang_GUI extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txt_SoDienThoaiKH1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnTimKiemHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(btn_addKH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_SoDienThoaiKH1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnTimKiemHoaDon, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jRadioButton_khDefault, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -1448,13 +1437,7 @@ public class BanHang_GUI extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_ck_tichLuyActionPerformed
 
-    private void txt_MaSanPhamMouseClicked(java.awt.event.MouseEvent evt) {
-        txt_MaSanPham.setText("");
-    }
 
-    private void txt_SoDienThoaiKH1MouseClicked(java.awt.event.MouseEvent evt) {
-        txt_SoDienThoaiKH1.setText("");
-    }                                             
 
     private void btn_XemHoaDonLuuTamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_XemHoaDonLuuTamActionPerformed
         jDialog1.setSize(1000, 500);
@@ -1462,15 +1445,18 @@ public class BanHang_GUI extends javax.swing.JPanel {
         jDialog1.setVisible(true);
     }//GEN-LAST:event_btn_XemHoaDonLuuTamActionPerformed
 
-    private void btn_addKHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_addKHActionPerformed
-        KhachHang_GUI khachHangGUI = new KhachHang_GUI();
-        khachHangGUI.setVisible(true);
-    }//GEN-LAST:event_btn_addKHActionPerformed
-
     private void jRadioButton_khDefaultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton_khDefaultActionPerformed
         khachHang = kh_bus.timKiemTheoSDT("0");
         hoaDon.setKhachHang(khachHang);
     }//GEN-LAST:event_jRadioButton_khDefaultActionPerformed
+
+    private void txt_MaSanPhamMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_MaSanPhamMouseClicked
+        txt_MaSanPham.setText("");
+    }//GEN-LAST:event_txt_MaSanPhamMouseClicked
+
+    private void txt_SoDienThoaiKH1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_SoDienThoaiKH1MouseClicked
+        txt_SoDienThoaiKH1.setText("");
+    }//GEN-LAST:event_txt_SoDienThoaiKH1MouseClicked
 
     private boolean kiemTraSoLuongNhap() {
         Object val = jSpinner1.getValue();
@@ -1515,7 +1501,6 @@ public class BanHang_GUI extends javax.swing.JPanel {
     private javax.swing.JButton btnTinhHoaDon;
     private javax.swing.JButton btnXoaKhoiGio;
     private javax.swing.JButton btn_XemHoaDonLuuTam;
-    private javax.swing.JButton btn_addKH;
     private javax.swing.JCheckBox ck_tichLuy;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel10;
