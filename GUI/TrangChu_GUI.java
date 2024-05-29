@@ -520,6 +520,7 @@ public class TrangChu_GUI extends JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 // Close the current TrangChu_GUI
                 dispose();
+
                 javafx.application.Platform.runLater(() -> {
                     trangChuStage.close();
                     thongKeStage.close();
@@ -533,7 +534,9 @@ public class TrangChu_GUI extends JFrame {
                         e.printStackTrace();
                     }
                 });
+                System.exit(0);
             }
+
         });
 
         jLabel2.setFont(new Font("Bahnschrift", Font.BOLD, 18));
