@@ -1,3 +1,28 @@
+#Demo
+![image](https://github.com/user-attachments/assets/9118fb23-6ff4-4c0a-9af9-cf6419bcc662)
+
+![image](https://github.com/user-attachments/assets/bb5a82d8-fe58-411c-86d3-4872b7c3c755)
+
+![image](https://github.com/user-attachments/assets/50781abe-b470-4cd6-86f8-b046a8cc3b25)
+
+![image](https://github.com/user-attachments/assets/a3bc65bd-4cf6-4ad2-9296-95d6c09ec919)
+
+![image](https://github.com/user-attachments/assets/c8323436-0ee7-4d51-8b21-3e63b096749e)
+
+![image](https://github.com/user-attachments/assets/a689f999-8624-43de-87a0-e311a134a605)
+
+![image](https://github.com/user-attachments/assets/b3651f52-fdae-4aba-a61e-98d30ef117bb)
+
+![image](https://github.com/user-attachments/assets/37f79809-1624-45a5-8806-8be34c63dc60)
+
+![image](https://github.com/user-attachments/assets/cb6687bf-56c7-417d-a4d5-b37d75299c82)
+
+![image](https://github.com/user-attachments/assets/57f5e1ba-55a5-4e17-aa88-ca01c1827c62)
+
+![image](https://github.com/user-attachments/assets/b580ee95-ed9b-4a3f-b5c7-09235eb4d9ba)
+
+![image](https://github.com/user-attachments/assets/8e6072ff-743f-46d7-9278-44a2ed7971d1)
+
 # Pharmacy-Project
 Phần mềm chỉ phục vụ cho dược sĩ bán hàng và người quản lý để thực hiện công việc như: quản lý thuốc và các mảng liên quan đến thuốc, các quản lý bán hàng và báo cáo thống kê. <br>
 Bộ phận quản lý của cửa hàng gốm một quản lý có toàn quyền quản lý hệ thống, dược sĩ đảm nhận các công việc khác như bán hàng, ghi nhận các thông tin về khách hàng và in ấn các hóa đơn. Quản lý có thể thêm, cập nhật, tìm, xóa, sửa sản phẩm cũng như thông tin nhân viên.<br>
